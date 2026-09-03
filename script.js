@@ -1,23 +1,21 @@
-```javascript
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function () {
 
-    /* =========================================================
+    /* =====================================================
        MOBILE NAVIGATION
-    ========================================================= */
+    ===================================================== */
 
     const hamburger = document.querySelector(".hamburger");
     const navLinks = document.querySelector(".nav-links");
-    const navigationLinks = document.querySelectorAll(".nav-links a");
 
     if (hamburger && navLinks) {
 
-        hamburger.addEventListener("click", () => {
+        hamburger.addEventListener("click", function () {
 
             const isOpen = document.body.classList.toggle("menu-open");
 
             hamburger.setAttribute(
                 "aria-expanded",
-                String(isOpen)
+                isOpen ? "true" : "false"
             );
 
             hamburger.setAttribute(
@@ -28,15 +26,9 @@ document.addEventListener("DOMContentLoaded", () => {
             );
         });
 
+        navLinks.querySelectorAll("a").forEach(function (link) {
 
-        /*
-         * Close mobile navigation after selecting
-         * a navigation item.
-         */
-
-        navigationLinks.forEach((link) => {
-
-            link.addEventListener("click", () => {
+            link.addEventListener("click", function () {
 
                 document.body.classList.remove("menu-open");
 
@@ -53,12 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         });
 
-
-        /*
-         * Close menu when pressing Escape.
-         */
-
-        document.addEventListener("keydown", (event) => {
+        document.addEventListener("keydown", function (event) {
 
             if (
                 event.key === "Escape" &&
@@ -79,29 +66,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 hamburger.focus();
             }
-
         });
-
     }
 
 
-    /* =========================================================
-       HEADER SCROLL STATE
-    ========================================================= */
+    /* =====================================================
+       HEADER SCROLL
+    ===================================================== */
 
     const header = document.querySelector(".site-header");
 
     if (header) {
 
-        const updateHeader = () => {
+        function updateHeader() {
 
             if (window.scrollY > 20) {
                 header.classList.add("scrolled");
             } else {
                 header.classList.remove("scrolled");
             }
-
-        };
+        }
 
         updateHeader();
 
@@ -110,86 +94,60 @@ document.addEventListener("DOMContentLoaded", () => {
             updateHeader,
             { passive: true }
         );
-
     }
 
 
-    /* =========================================================
+    /* =====================================================
        SCROLL REVEAL
-    ========================================================= */
+    ===================================================== */
 
     const sections = document.querySelectorAll("main section");
 
-    /*
-     * If the browser does not support IntersectionObserver,
-     * show everything instead of hiding content.
-     */
-
-    if (!("IntersectionObserver" in window)) {
-
-        sections.forEach((section) => {
-            section.classList.add("animate");
-        });
-
-    } else {
+    if ("IntersectionObserver" in window) {
 
         const observer = new IntersectionObserver(
-            (entries, observer) => {
+            function (entries, observer) {
 
-                entries.forEach((entry) => {
+                entries.forEach(function (entry) {
 
-                    if (!entry.isIntersecting) {
-                        return;
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add("animate");
+
+                        observer.unobserve(entry.target);
                     }
-
-                    entry.target.classList.add("animate");
-
-                    /*
-                     * Each section only needs to be
-                     * observed until it appears once.
-                     */
-
-                    observer.unobserve(entry.target);
-
                 });
 
             },
             {
-                threshold: 0.12,
+                threshold: 0.08,
                 rootMargin: "0px 0px -40px 0px"
             }
         );
 
-
-        sections.forEach((section) => {
+        sections.forEach(function (section) {
             observer.observe(section);
         });
 
+    } else {
+
+        sections.forEach(function (section) {
+            section.classList.add("animate");
+        });
     }
 
 
-    /* =========================================================
-       SMOOTH SCROLLING
-    ========================================================= */
+    /* =====================================================
+       SMOOTH SCROLL
+    ===================================================== */
 
-    const internalLinks = document.querySelectorAll(
-        'a[href^="#"]'
-    );
+    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
 
-    internalLinks.forEach((link) => {
-
-        link.addEventListener("click", (event) => {
+        link.addEventListener("click", function (event) {
 
             const targetId = link.getAttribute("href");
 
-            /*
-             * Ignore empty "#".
-             */
-
-            if (
-                !targetId ||
-                targetId === "#"
-            ) {
+            if (!targetId || targetId === "#") {
                 return;
             }
 
@@ -205,53 +163,38 @@ document.addEventListener("DOMContentLoaded", () => {
                 behavior: "smooth",
                 block: "start"
             });
-
         });
-
     });
 
 
-    /* =========================================================
+    /* =====================================================
        CONTACT FORM
-    ========================================================= */
+    ===================================================== */
 
     const contactForm =
         document.getElementById("contact-form");
 
     if (contactForm) {
 
-        contactForm.addEventListener(
-            "submit",
-            (event) => {
+        contactForm.addEventListener("submit", function (event) {
 
-                event.preventDefault();
+            event.preventDefault();
 
-                /*
-                 * The portfolio currently does not have
-                 * a backend/email service connected.
-                 *
-                 * Do not pretend that the message was sent.
-                 */
+            const formStatus =
+                document.getElementById("form-status");
 
-                const formStatus =
-                    document.getElementById("form-status");
+            if (formStatus) {
 
-                if (formStatus) {
-
-                    formStatus.textContent =
-                        "Please contact me directly by email.";
-
-                }
-
+                formStatus.textContent =
+                    "Please contact me directly by email.";
             }
-        );
-
+        });
     }
 
 
-    /* =========================================================
+    /* =====================================================
        CURRENT YEAR
-    ========================================================= */
+    ===================================================== */
 
     const yearElement =
         document.querySelector(".site-footer .current-year");
@@ -262,4 +205,3 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 });
-```
