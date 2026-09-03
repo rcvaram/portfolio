@@ -1,559 +1,1446 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sivaram Rasathurai | Backend Developer</title>
+
+    <title>Sivaram Rasathurai | Backend Software Engineer</title>
+
+    <meta
+        name="description"
+        content="Sivaram Rasathurai is a Backend Software Engineer specializing in Java, Spring Boot, distributed systems, Kafka, AWS, and event-driven architecture."
+    >
+
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
-    <nav>
-        <div class="nav-content">
-            <div class="logo">Portfolio</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li class="dropdown">
-                    <a href="#articles">Articles</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#rest-api">REST API Best Practices</a></li>
-                        <li><a href="#java-challenges">Java Fun Challenges</a></li>
-                        <li><a href="#system-design">System Designs</a></li>
-                        <li><a href="#java-guidelines">Java Knowledge & Guidelines</a></li>
-                    </ul>
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<header class="site-header">
+    <nav class="navbar" aria-label="Main navigation">
+
+        <div class="container nav-container">
+
+            <a href="#home" class="logo">
+                SR
+            </a>
+
+            <button
+                class="hamburger"
+                type="button"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+                aria-controls="main-navigation"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-links" id="main-navigation">
+
+                <li>
+                    <a href="#about">About</a>
                 </li>
+
+                <li>
+                    <a href="#experience">Experience</a>
+                </li>
+
+                <li>
+                    <a href="#engineering">Engineering</a>
+                </li>
+
+                <li>
+                    <a href="#technology">Technology</a>
+                </li>
+
+                <li>
+                    <a href="#writing">Writing</a>
+                </li>
+
+                <li>
+                    <a href="#community">Community</a>
+                </li>
+
+                <li>
+                    <a href="#contact">Contact</a>
+                </li>
+
             </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+
+            <a
+                href="Sivaram_Rasathurai_CV.pdf"
+                class="nav-cv"
+                target="_blank"
+                rel="noopener"
+            >
+                Resume
+            </a>
+
         </div>
     </nav>
+</header>
 
-    <section id="home" class="hero">
-        <div class="hero-cover">
-            <img src="cover.png" alt="Cover Image" class="cover-image">
-        </div>
+
+<main>
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section id="home" class="hero">
+
+    <div class="container hero-container">
+
         <div class="hero-content">
-            <div class="profile-section">
-                <div class="profile-image">
-                    <img src="profile-pic.png" alt="Sivaram Rasathurai" class="profile-pic">
-                </div>
-                <div class="profile-info">
-                    <h1>Sivaram Rasathurai</h1>
-                    <h2>Associate Technical Lead</h2>
-                    <p class="description">Experienced Java Developer with a passion for building scalable and efficient backend systems. Specializing in Spring Boot, Microservices, and Cloud Architecture.</p>
-                    <div class="cta-buttons">
-                        <a href="https://www.linkedin.com/in/rcvaram/" class="btn secondary" target="_blank">LinkedIn</a>
-                        <a href="Sivaram_Rasathurai_CV.pdf" class="btn secondary" download>Download CV</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section id="about" class="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="profile-section">
-                    <div class="profile-card">
-                        <div class="profile-info">
-                            <h3>Professional Summary</h3>
-                            <p>Experienced Java Developer with expertise in building scalable enterprise applications. Strong background in Java, Spring ecosystem, and cloud technologies. Proven track record of delivering high-performance solutions and leading technical teams.</p>
-                            
-        
-                        </div>
-                    </div>
-                </div>
+            <p class="eyebrow">
+                BACKEND SOFTWARE ENGINEER
+            </p>
 
-                <div class="expertise-section">
-                    <h3>Core Expertise</h3>
-                    <div class="expertise-grid">
-                        <div class="expertise-card">
-                            <div class="expertise-icon">
-                                <i class="fas fa-code"></i>
-                            </div>
-                            <h4>Backend Development</h4>
-                            <div class="expertise-items">
-                                <span>Java & Spring Framework</span>
-                                <span>Microservices Architecture</span>
-                                <span>RESTful API Design</span>
-                                <span>Performance Optimization</span>
-                            </div>
-                        </div>
-                        <div class="expertise-card">
-                            <div class="expertise-icon">
-                                <i class="fas fa-cloud"></i>
-                            </div>
-                            <h4>Cloud & DevOps</h4>
-                            <div class="expertise-items">
-                                <span>AWS Cloud Services</span>
-                                <span>CI/CD Pipelines</span>
-                                <span>Containerization</span>
-                                <span>Infrastructure as Code</span>
-                            </div>
-                        </div>
-                        <div class="expertise-card">
-                            <div class="expertise-icon">
-                                <i class="fas fa-database"></i>
-                            </div>
-                            <h4>Data Management</h4>
-                            <div class="expertise-items">
-                                <span>SQL & NoSQL Databases</span>
-                                <span>Data Modeling</span>
-                                <span>Database Optimization</span>
-                                <span>ETL Processes</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <h1>
+                Sivaram Rasathurai
+            </h1>
 
+            <h2>
+                Java · Spring Boot · Distributed Systems · Kafka · AWS
+            </h2>
 
+            <p class="hero-description">
+                Backend Software Engineer with 5+ years of experience
+                designing and operating distributed systems and
+                Java/Spring Boot microservices.
+            </p>
 
-                <div class="skills-section">
-                    <h3>Technical Skills</h3>
-                    <div class="skills-grid">
-                        <div class="skill-category">
-                            <div class="skill-icon">
-                                <i class="fas fa-code"></i>
-                            </div>
-                            <h4>Programming Languages</h4>
-                            <div class="skill-items">
-                                <span>Java</span>
-                                <span>Python</span>
-                                <span>TypeScript</span>
-                            </div>
-                        </div>
-                        <div class="skill-category">
-                            <div class="skill-icon">
-                                <i class="fas fa-database"></i>
-                            </div>
-                            <h4>Databases</h4>
-                            <div class="skill-items">
-                                <span>MongoDB</span>
-                                <span>PostgreSQL</span>
-                                <span>Redis</span>
-                            </div>
-                        </div>
-                        <div class="skill-category">
-                            <div class="skill-icon">
-                                <i class="fas fa-tools"></i>
-                            </div>
-                            <h4>Frameworks & Tools</h4>
-                            <div class="skill-items">
-                                <span>Spring</span>
-                                <span>Spring Boot</span>
-                                <span>JPA</span>
-                                <span>JUnit</span>
-                                <span>Testcontainers</span>
-                                <span>Mockito</span>
-                            </div>
-                        </div>
-                        <div class="skill-category">
-                            <div class="skill-icon">
-                                <i class="fas fa-cogs"></i>
-                            </div>
-                            <h4>Other Technologies</h4>
-                            <div class="skill-items">
-                                <span>Node.js</span>
-                                <span>Flask</span>
-                                <span>Git</span>
-                                <span>AWS</span>
-                                <span>Datadog</span>
-                                <span>Gradle</span>
-                                <span>Maven</span>
-                                <span>Kafka</span>
-                                <span>MQ</span>
-                                <span>SFTP</span>
-                                <span>REST</span>
-                                <span>WebSockets</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+            <p class="hero-description secondary-text">
+                I work across system design, development, deployment,
+                integration, and production operations to build reliable
+                backend systems that scale.
+            </p>
 
-    <section id="articles" class="articles">
-        <h2>My Articles</h2>
-        <div class="article-collections">
-            <div class="article-collection" id="rest-api">
-                <h3>REST API Best Practices</h3>
-                <div class="article-grid">
-                    <article class="article-card">
-                        <div class="article-card-content">
-                            <h4>Why POST with a Body for GET is Bad Practice in REST</h4>
-                            <p class="article-meta">May 2, 2025 • 5 min read</p>
-                            <a href="https://medium.com/hacking-hunter/why-post-with-a-body-for-get-is-bad-practice-in-rest-1107e515a4b0" target="_blank" class="article-link">Read Article</a>
-                        </div>
-                    </article>
-                    <article class="article-card">
-                        <div class="article-card-content">
-                            <h4>Stop Messing Up Your API Versions</h4>
-                            <p class="article-meta">Apr 28, 2025 • 6 min read</p>
-                            <a href="https://medium.com/javarevisited/stop-messing-up-your-api-versions-07a330aa9973" target="_blank" class="article-link">Read Article</a>
-                        </div>
-                    </article>
-                    <article class="article-card">
-                        <div class="article-card-content">
-                            <h4>Is Using Sub-Resources for Actions in REST API a Trap?</h4>
-                            <p class="article-meta">Apr 25, 2025 • 7 min read</p>
-                            <a href="https://medium.com/javarevisited/is-using-sub-resources-for-actions-in-rest-api-a-trap-468e982f0e89" target="_blank" class="article-link">Read Article</a>
-                        </div>
-                    </article>
-                    <article class="article-card">
-                        <div class="article-card-content">
-                            <h4>Why Smart Engineers Build Dumb APIs and Why It's a Good Thing</h4>
-                            <p class="article-meta">Apr 20, 2025 • 8 min read</p>
-                            <a href="https://medium.com/javarevisited/why-smart-engineers-build-dumb-apis-and-why-its-a-good-thing-93c20b8a96ea" target="_blank" class="article-link">Read Article</a>
-                        </div>
-                    </article>
-                    <article class="article-card">
-                        <div class="article-card-content">
-                            <h4>Your Users Deserve Better: Making Peace with Idempotent APIs in 2025</h4>
-                            <p class="article-meta">Apr 15, 2025 • 9 min read</p>
-                            <a href="https://medium.com/javarevisited/your-users-deserve-better-making-peace-with-idempotent-apis-in-2025-6a9b0b9f8b1f" target="_blank" class="article-link">Read Article</a>
-                        </div>
-                    </article>
-                    <article class="article-card">
-                        <div class="article-card-content">
-                            <h4>Beyond REST: Exploring Modern API Design Patterns for 2025</h4>
-                            <p class="article-meta">Apr 10, 2025 • 10 min read</p>
-                            <a href="https://medium.com/javarevisited/beyond-rest-exploring-modern-api-design-patterns-for-2025-8e8f8b8e8f8b" target="_blank" class="article-link">Read Article</a>
-                        </div>
-                    </article>
-                </div>
+            <div class="hero-actions">
+
+                <a href="#experience" class="button button-primary">
+                    View Experience
+                </a>
+
+                <a
+                    href="Sivaram_Rasathurai_CV.pdf"
+                    class="button button-secondary"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    Download CV
+                </a>
+
             </div>
 
-            <div class="article-collection" id="java-core">
-                <h3>Java Core Concepts</h3>
-                <div class="article-grid">
-                    <article class="article-card">
-                        <div class="article-card-content">
-                            <h4>Java 8 Features Every Developer Should Know</h4>
-                            <p class="article-meta">Apr 28, 2025 • 6 min read</p>
-                            <a href="https://medium.com/javarevisited/java-8-features-every-developer-should-know-2a8684330307" target="_blank" class="article-link">Read Article</a>
-                        </div>
-                    </article>
-                    <article class="article-card">
-                        <div class="article-card-content">
-                            <h4>Mastering Java Collections</h4>
-                            <p class="article-meta">Apr 25, 2025 • 7 min read</p>
-                            <a href="https://medium.com/javarevisited/mastering-java-collections-101-5e2e4b6b2e5d" target="_blank" class="article-link">Read Article</a>
-                        </div>
-                    </article>
-                    <article class="article-card">
-                        <div class="article-card-content">
-                            <h4>Java Concurrency Patterns</h4>
-                            <p class="article-meta">Apr 20, 2025 • 8 min read</p>
-                            <a href="https://medium.com/javarevisited/java-concurrency-patterns-101-5e2e4b6b2e5d" target="_blank" class="article-link">Read Article</a>
-                        </div>
-                    </article>
-                    <article class="article-card">
-                        <div class="article-card-content">
-                            <h4>Java Memory Management</h4>
-                            <p class="article-meta">Apr 15, 2025 • 9 min read</p>
-                            <a href="https://medium.com/javarevisited/java-memory-management-101-5e2e4b6b2e5d" target="_blank" class="article-link">Read Article</a>
-                        </div>
-                    </article>
-                    <article class="article-card">
-                        <div class="article-card-content">
-                            <h4>Java Performance Optimization Tips</h4>
-                            <p class="article-meta">Apr 10, 2025 • 10 min read</p>
-                            <a href="https://medium.com/javarevisited/java-performance-optimization-tips-101-5e2e4b6b2e5d" target="_blank" class="article-link">Read Article</a>
-                        </div>
-                    </article>
-                    <article class="article-card">
-                        <div class="article-card-content">
-                            <h4>Java Best Practices for Enterprise Applications</h4>
-                            <p class="article-meta">Apr 5, 2025 • 11 min read</p>
-                            <a href="https://medium.com/javarevisited/java-best-practices-enterprise-101-5e2e4b6b2e5d" target="_blank" class="article-link">Read Article</a>
-                        </div>
-                    </article>
-                </div>
-            </div>
+            <div class="hero-links">
 
-            <div class="article-collection" id="system-design">
-                <h3>System Design & Architecture</h3>
-                <div class="article-grid">
-                    <article class="article-card">
-                        <div class="article-card-content">
-                            <h4>Abstraction: My View</h4>
-                            <p class="article-meta">May 2, 2025 • 5 min read</p>
-                            <a href="https://rcvaram.medium.com/abstraction-my-view-1-9202af601917" target="_blank" class="article-link">Read Article</a>
-                        </div>
-                    </article>
-                    <article class="article-card">
-                        <div class="article-card-content">
-                            <h4>Understanding CAP Theorem in System Design</h4>
-                            <p class="article-meta">Apr 28, 2025 • 6 min read</p>
-                            <a href="https://medium.com/javarevisited/understanding-cap-theorem-system-design-4-a6c2500537eb" target="_blank" class="article-link">Read Article</a>
-                        </div>
-                    </article>
-                    <article class="article-card">
-                        <div class="article-card-content">
-                            <h4>Choosing the Right Database in System Design</h4>
-                            <p class="article-meta">Apr 25, 2025 • 7 min read</p>
-                            <a href="https://blog.stackademic.com/choosing-the-right-database-system-design-i-91b7fb464fa4" target="_blank" class="article-link">Read Article</a>
-                        </div>
-                    </article>
-                    <article class="article-card">
-                        <div class="article-card-content">
-                            <h4>Scaling in System Design</h4>
-                            <p class="article-meta">Apr 20, 2025 • 8 min read</p>
-                            <a href="https://medium.com/javarevisited/scaling-in-system-design-system-design-2-9b4ecbc93852" target="_blank" class="article-link">Read Article</a>
-                        </div>
-                    </article>
-                    <article class="article-card">
-                        <div class="article-card-content">
-                            <h4>Load Balancers in System Design</h4>
-                            <p class="article-meta">Apr 15, 2025 • 9 min read</p>
-                            <a href="https://medium.com/javarevisited/load-balancers-system-design-3-07bdc4d7fc9c" target="_blank" class="article-link">Read Article</a>
-                        </div>
-                    </article>
-                </div>
-            </div>
+                <a
+                    href="https://www.linkedin.com/in/rcvaram/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    LinkedIn
+                </a>
 
-            <!-- Java Challenges & Puzzles Section -->
-            <div class="article-collection" id="java-challenges">
-                <h3>Java Challenges & Puzzles</h3>
-                <p class="section-description">Test your Java knowledge with this challenging series covering core concepts and advanced topics.</p>
-                <div class="article-grid">
-                    <article class="article-card">
-                        <div class="article-card-content">
-                            <h4>Are You a True Java Developer? - Part 1</h4>
-                            <p class="article-meta">May 2, 2025 • 6 min read</p>
-                            <p class="article-excerpt">Challenge your understanding of Java fundamentals with this first part of our series.</p>
-                            <a href="https://medium.com/javarevisited/are-you-a-true-java-developer-2a8684330307" target="_blank" class="article-link">Read Article</a>
-                        </div>
-                    </article>
-                    <article class="article-card">
-                        <div class="article-card-content">
-                            <h4>Are You a True Java Developer? - Part 2</h4>
-                            <p class="article-meta">Apr 28, 2025 • 7 min read</p>
-                            <p class="article-excerpt">Continue testing your Java knowledge with these intermediate-level challenges.</p>
-                            <a href="https://rcvaram.medium.com/are-you-a-true-java-developer-2-7628af32f3ab" target="_blank" class="article-link">Read Article</a>
-                        </div>
-                    </article>
-                    <article class="article-card">
-                        <div class="article-card-content">
-                            <h4>Are You a True Java Developer? - Part 3</h4>
-                            <p class="article-meta">Apr 25, 2025 • 8 min read</p>
-                            <p class="article-excerpt">Advanced Java puzzles to test your understanding of complex concepts.</p>
-                            <a href="https://medium.com/javarevisited/are-you-a-true-java-developer-3-fd8d005a32e6" target="_blank" class="article-link">Read Article</a>
-                        </div>
-                    </article>
-                    <article class="article-card">
-                        <div class="article-card-content">
-                            <h4>Are You a True Java Developer? - Part 4</h4>
-                            <p class="article-meta">Apr 20, 2025 • 9 min read</p>
-                            <p class="article-excerpt">The final installment of our Java challenge series with expert-level problems.</p>
-                            <a href="https://medium.com/javarevisited/are-you-a-true-java-developer-4-71f3e50acedc" target="_blank" class="article-link">Read Article</a>
-                        </div>
-                    </article>
-                </div>
-            </div>
+                <a
+                    href="https://github.com/rcvaram"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    GitHub
+                </a>
 
-            <!-- Java Core Concepts Section -->
-            <div class="article-collection" id="java-core">
-                <h3>Java Core Concepts</h3>
-                <p class="section-description">In-depth articles exploring fundamental and advanced Java concepts, patterns, and best practices.</p>
-                <div class="article-grid">
-                    <article class="article-card">
-                        <div class="article-card-content">
-                            <h4>Apache Kafka Beginner's Guide</h4>
-                            <p class="article-meta">May 5, 2025 • 8 min read</p>
-                            <p class="article-excerpt">A comprehensive introduction to Apache Kafka for Java developers.</p>
-                            <a href="https://rcvaram.medium.com/apache-kafka-beginner-guide-i-54840bf7800b" target="_blank" class="article-link">Read Article</a>
-                        </div>
-                    </article>
-                    <article class="article-card">
-                        <div class="article-card-content">
-                            <h4>Spring Boot Authentication Guide</h4>
-                            <p class="article-meta">May 3, 2025 • 7 min read</p>
-                            <p class="article-excerpt">Understanding authentication mechanisms in Spring Boot applications.</p>
-                            <a href="https://medium.com/javarevisited/what-how-in-spring-boot-authentication-52ecd1514b2c" target="_blank" class="article-link">Read Article</a>
-                        </div>
-                    </article>
-                    <article class="article-card">
-                        <div class="article-card-content">
-                            <h4>Thread Pool Performance</h4>
-                            <p class="article-meta">Apr 30, 2025 • 9 min read</p>
-                            <p class="article-excerpt">Optimizing thread pool configurations for better application performance.</p>
-                            <a href="https://blog.stackademic.com/dont-let-thread-pools-bottleneck-your-application-performance-639c12c32e80" target="_blank" class="article-link">Read Article</a>
-                        </div>
-                    </article>
-                    <article class="article-card">
-                        <div class="article-card-content">
-                            <h4>Read/Write Database Separation</h4>
-                            <p class="article-meta">Apr 28, 2025 • 6 min read</p>
-                            <p class="article-excerpt">Implementing read/write separation in Java Spring applications.</p>
-                            <a href="https://faun.pub/read-write-in-different-db-instances-java-spring-a43bf18a5c77" target="_blank" class="article-link">Read Article</a>
-                        </div>
-                    </article>
-                    <article class="article-card">
-                        <div class="article-card-content">
-                            <h4>Secure Logging Practices</h4>
-                            <p class="article-meta">Apr 25, 2025 • 7 min read</p>
-                            <p class="article-excerpt">Best practices for secure logging in Java applications.</p>
-                            <a href="https://medium.com/javarevisited/logging-secrets-dont-let-gremlins-wreak-havoc-in-your-codebase-1593a44dc581" target="_blank" class="article-link">Read Article</a>
-                        </div>
-                    </article>
-                    <article class="article-card">
-                        <div class="article-card-content">
-                            <h4>Java Enums Deep Dive</h4>
-                            <p class="article-meta">Apr 22, 2025 • 6 min read</p>
-                            <p class="article-excerpt">Advanced patterns and considerations when working with Java enums.</p>
-                            <a href="https://medium.com/javarevisited/why-this-single-line-of-code-made-me-question-everything-about-enums-in-java-967784637c63" target="_blank" class="article-link">Read Article</a>
-                        </div>
-                    </article>
-                    <article class="article-card">
-                        <div class="article-card-content">
-                            <h4>WebSockets with Spring</h4>
-                            <p class="article-meta">Apr 20, 2025 • 8 min read</p>
-                            <p class="article-excerpt">Building real-time applications using WebSockets in Spring.</p>
-                            <a href="https://medium.com/javarevisited/web-socket-with-spring-real-time-connections-made-easy-c5e3e869e455" target="_blank" class="article-link">Read Article</a>
-                        </div>
-                    </article>
-                    <article class="article-card">
-                        <div class="article-card-content">
-                            <h4>Java Records Guide</h4>
-                            <p class="article-meta">Apr 18, 2025 • 5 min read</p>
-                            <p class="article-excerpt">When and why to use Java Records in your applications.</p>
-                            <a href="https://medium.datadriveninvestor.com/java-records-when-why-to-use-them-ebd48de637b6" target="_blank" class="article-link">Read Article</a>
-                        </div>
-                    </article>
-                    <article class="article-card">
-                        <div class="article-card-content">
-                            <h4>Eliminating If-Else Hell</h4>
-                            <p class="article-meta">Apr 15, 2025 • 7 min read</p>
-                            <p class="article-excerpt">Better alternatives to complex if-else chains in Java.</p>
-                            <a href="https://rcvaram.medium.com/remove-the-if-else-hell-java-7927194bd2e" target="_blank" class="article-link">Read Article</a>
-                        </div>
-                    </article>
-                    <article class="article-card">
-                        <div class="article-card-content">
-                            <h4>Understanding Java Monitors</h4>
-                            <p class="article-meta">Apr 12, 2025 • 6 min read</p>
-                            <p class="article-excerpt">Deep dive into monitor concept and its role in Java concurrency.</p>
-                            <a href="https://medium.com/javarevisited/whats-a-monitor-in-java-8f0ebecaea2a" target="_blank" class="article-link">Read Article</a>
-                        </div>
-                    </article>
-                    <article class="article-card">
-                        <div class="article-card-content">
-                            <h4>Kafka Consumer Patterns</h4>
-                            <p class="article-meta">Apr 10, 2025 • 8 min read</p>
-                            <p class="article-excerpt">Effective patterns for Kafka consumer implementations in Java.</p>
-                            <a href="https://medium.com/javarevisited/kafka-customer-get-what-needs-only-45d95f9b1105" target="_blank" class="article-link">Read Article</a>
-                        </div>
-                    </article>
-                </div>
-            </div>
+                <a
+                    href="https://medium.com/@cvaram96"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Medium
+                </a>
 
-            <!-- Java Best Practices & Guidelines Section -->
-            <div class="article-collection" id="java-guidelines">
-                <h3>Java Best Practices & Guidelines</h3>
-                <p class="section-description">Collection of articles covering Java best practices, coding standards, and advanced concepts.</p>
-                <div class="article-grid">
-                    <article class="article-card">
-                        <div class="article-card-content">
-                            <h4>Java Quick Fixes</h4>
-                            <p class="article-meta">May 2, 2025 • 5 min read</p>
-                            <p class="article-excerpt">Quick solutions to common Java issues and anti-patterns.</p>
-                            <a href="https://medium.com/javarevisited/java-quick-fixes-b460cd24b887" target="_blank" class="article-link">Read Article</a>
-                        </div>
-                    </article>
-                    <article class="article-card">
-                        <div class="article-card-content">
-                            <h4>10 Java Stream Tips (Must Read)</h4>
-                            <p class="article-meta">Apr 28, 2025 • 6 min read</p>
-                            <p class="article-excerpt">Essential tips for writing clean and efficient Java Stream code.</p>
-                            <a href="https://medium.datadriveninvestor.com/10-java-stream-tips-must-read-2063a84af3be" target="_blank" class="article-link">Read Article</a>
-                        </div>
-                    </article>
-                    <article class="article-card">
-                        <div class="article-card-content">
-                            <h4>Java Coding Guidelines: My View</h4>
-                            <p class="article-meta">Apr 25, 2025 • 7 min read</p>
-                            <p class="article-excerpt">Personal perspective on writing clean, maintainable Java code.</p>
-                            <a href="https://medium.com/javarevisited/java-coding-guidelines-my-view-2-8e20335459e1" target="_blank" class="article-link">Read Article</a>
-                        </div>
-                    </article>
-                    <article class="article-card">
-                        <div class="article-card-content">
-                            <h4>Rethinking Enums in Java</h4>
-                            <p class="article-meta">Apr 20, 2025 • 8 min read</p>
-                            <p class="article-excerpt">Deep dive into enum usage patterns and considerations.</p>
-                            <a href="https://medium.com/javarevisited/why-this-single-line-of-code-made-me-question-everything-about-enums-in-java-967784637c63" target="_blank" class="article-link">Read Article</a>
-                        </div>
-                    </article>
-                    <article class="article-card">
-                        <div class="article-card-content">
-                            <h4>Class Design Principles</h4>
-                            <p class="article-meta">Apr 15, 2025 • 9 min read</p>
-                            <p class="article-excerpt">Essential considerations before defining a new Java class.</p>
-                            <a href="https://blog.stackademic.com/before-define-a-java-class-think-twice-series-1-d0fc026c8ac4" target="_blank" class="article-link">Read Article</a>
-                        </div>
-                    </article>
-                    <article class="article-card">
-                        <div class="article-card-content">
-                            <h4>Java Performance Optimization</h4>
-                            <p class="article-meta">Apr 10, 2025 • 10 min read</p>
-                            <p class="article-excerpt">Proven techniques for optimizing Java application performance.</p>
-                            <a href="https://medium.com/javarevisited/java-performance-optimization-tips-101-5e2e4b6b2e5d" target="_blank" class="article-link">Read Article</a>
-                        </div>
-                    </article>
-                </div>
+                <a
+                    href="https://stackoverflow.com/users/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Stack Overflow
+                </a>
+
             </div>
 
         </div>
-    </section>
 
-    <section id="experience" class="experience">
-        <div class="container">
-            <h2>Professional Experience</h2>
-            <div class="experience-content">
-                <div class="experience-intro">
-                    <p>With over 5 years of experience in software development, I've had the opportunity to work on challenging projects and lead technical initiatives. My journey has taken me from hands-on development to technical leadership roles, where I've specialized in building scalable backend systems and mentoring development teams.</p>
-                </div>
-                
-                <div class="experience-highlights">
-                    <div class="experience-item">
-                        <h3>Technical Lead @ NextGen Innovations <span class="duration">Dec 2023 - Dec 2024</span></h3>
-                        <p>Led the architectural design of an Uber-like system using microservices and event-driven architecture. Spearheaded the adoption of modern technologies including RDS, Redis, MongoDB, Java, Spring, Kafka, AWS, Node.js, and Python, ensuring seamless cross-functional collaboration to align technical decisions with business objectives.</p>
-                    </div>
+    </div>
 
-                    <div class="experience-item">
-                        <h3>Associate Technical Lead @ SyscoLABS <span class="duration">Aug 2024 - Present</span></h3>
-                        <p>Currently managing complex data streaming architectures and optimizing system performance. Key achievements include implementing Java virtual threads to enhance pricing API response times and developing an efficient SFTP file management system using SQS, significantly improving data processing workflows.</p>
-                    </div>
+</section>
 
-                    <div class="experience-item">
-                        <h3>Senior Software Engineer @ SyscoLABS <span class="duration">Aug 2022 - Aug 2024</span></h3>
-                        <p>Designed and implemented a comprehensive real-time update system handling products, customers, orders, and invoices using AWS ECS, Lambda, SQS, Kafka, and Spring. Led the development of a scalable bulk data extraction application and championed the adoption of Testcontainers for integration testing, significantly improving code quality and deployment reliability.</p>
-                    </div>
 
-                    <div class="experience-item">
-                        <h3>Technical Writer & Open Source Contributor <span class="duration">2019 - Present</span></h3>
-                        <p>Passionate about knowledge sharing, I regularly contribute to the developer community through technical articles and open-source projects. My writing focuses on Java best practices, system design, and sharing practical insights from my professional experience.</p>
-                    </div>
-                </div>
+<!-- =========================================================
+     ENGINEERING IMPACT
+========================================================= -->
+
+<section class="impact" aria-labelledby="impact-title">
+
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="section-eyebrow">ENGINEERING IMPACT</p>
+
+            <h2 id="impact-title">
+                Systems built for real-world scale
+            </h2>
+
+            <p>
+                A few numbers that describe the scale and ownership
+                behind my engineering experience.
+            </p>
         </div>
-    </section>
 
-    <footer>
-        <div class="social-links">
-            <a href="#"><i class="fab fa-github"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
+
+        <div class="impact-grid">
+
+            <article class="impact-card">
+                <strong>5+</strong>
+                <span>Years of Experience</span>
+            </article>
+
+            <article class="impact-card">
+                <strong>9</strong>
+                <span>Java/Spring Boot Microservices Owned</span>
+            </article>
+
+            <article class="impact-card">
+                <strong>60K+</strong>
+                <span>Product-list Updates / Hour</span>
+            </article>
+
+            <article class="impact-card">
+                <strong>100K+</strong>
+                <span>Daily Product, Inventory & Customer Updates</span>
+            </article>
+
+            <article class="impact-card">
+                <strong>2,000+</strong>
+                <span>Daily Orders Supported</span>
+            </article>
+
+            <article class="impact-card">
+                <strong>70%</strong>
+                <span>Reduction in Manual Recovery Effort</span>
+            </article>
+
         </div>
-        <p>&copy; 2025 My Portfolio. All rights reserved.</p>
-    </footer>
 
-    <script src="script.js"></script>
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ABOUT
+========================================================= -->
+
+<section id="about" class="about">
+
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="section-eyebrow">ABOUT</p>
+
+            <h2>
+                Backend engineering with end-to-end ownership
+            </h2>
+        </div>
+
+
+        <div class="about-grid">
+
+            <div class="about-main">
+
+                <p class="lead">
+                    Backend Software Engineer with 5+ years of experience
+                    designing and operating distributed systems and
+                    Java/Spring Boot microservices.
+                </p>
+
+                <p>
+                    My experience spans event-driven architecture,
+                    Kafka, AWS, REST APIs, microservices, integration
+                    platforms, and production operations.
+                </p>
+
+                <p>
+                    I have worked across the complete software lifecycle —
+                    from system design and implementation to deployment,
+                    monitoring, troubleshooting, and production support.
+                </p>
+
+                <p>
+                    I am particularly interested in building systems that
+                    are reliable, observable, maintainable, and capable of
+                    handling real-world scale.
+                </p>
+
+            </div>
+
+
+            <aside class="about-sidebar">
+
+                <div class="info-item">
+                    <span class="info-label">Based in</span>
+                    <span>Munich, Germany</span>
+                </div>
+
+                <div class="info-item">
+                    <span class="info-label">Current focus</span>
+                    <span>Backend & Distributed Systems</span>
+                </div>
+
+                <div class="info-item">
+                    <span class="info-label">Primary language</span>
+                    <span>Java</span>
+                </div>
+
+                <div class="info-item">
+                    <span class="info-label">Architecture</span>
+                    <span>Event-Driven & Microservices</span>
+                </div>
+
+            </aside>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     EXPERIENCE
+========================================================= -->
+
+<section id="experience" class="experience">
+
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="section-eyebrow">EXPERIENCE</p>
+
+            <h2>
+                Professional experience
+            </h2>
+
+            <p>
+                My engineering journey at Sysco LABS, from hands-on
+                software development to technical leadership.
+            </p>
+        </div>
+
+
+        <div class="experience-timeline">
+
+
+            <!-- Associate Technical Lead -->
+
+            <article class="experience-item">
+
+                <div class="experience-marker">
+                    <span></span>
+                </div>
+
+                <div class="experience-content">
+
+                    <div class="experience-header">
+
+                        <div>
+                            <p class="experience-company">
+                                Sysco LABS Sri Lanka
+                            </p>
+
+                            <h3>
+                                Associate Technical Lead
+                            </h3>
+                        </div>
+
+                        <time datetime="2024-08">
+                            Aug 2024 — Apr 2026
+                        </time>
+
+                    </div>
+
+
+                    <p class="experience-summary">
+                        Owned Java/Spring Boot microservices end-to-end,
+                        including architecture, development, deployment,
+                        production support, and reliability improvements.
+                    </p>
+
+
+                    <ul class="experience-highlights">
+
+                        <li>
+                            Owned 9 Java/Spring Boot microservices
+                            supporting 2,000+ daily orders and 100,000+
+                            daily product, inventory, and customer updates.
+                        </li>
+
+                        <li>
+                            Replaced in-memory queues with Amazon SQS,
+                            eliminating file-loss risks and reducing
+                            manual recovery effort by 70% across
+                            2,000+ files/day at 17 sites.
+                        </li>
+
+                        <li>
+                            Refactored the CanBuy domain into independently
+                            scalable services, supporting 60,000+
+                            product-list updates per hour.
+                        </li>
+
+                        <li>
+                            Owned production operations and resolved
+                            10+ major incidents using Datadog APM,
+                            distributed tracing, and centralized logging.
+                        </li>
+
+                        <li>
+                            Migrated owned production services to
+                            Spring Boot 3 and Java 21 with zero downtime.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </article>
+
+
+            <!-- Senior Software Engineer -->
+
+            <article class="experience-item">
+
+                <div class="experience-marker">
+                    <span></span>
+                </div>
+
+                <div class="experience-content">
+
+                    <div class="experience-header">
+
+                        <div>
+                            <p class="experience-company">
+                                Sysco LABS Sri Lanka
+                            </p>
+
+                            <h3>
+                                Senior Software Engineer
+                            </h3>
+                        </div>
+
+                        <time datetime="2022-08">
+                            Aug 2022 — Aug 2024
+                        </time>
+
+                    </div>
+
+
+                    <p class="experience-summary">
+                        Designed distributed integrations and backend
+                        services with a focus on asynchronous processing,
+                        performance, reliability, and automated testing.
+                    </p>
+
+
+                    <ul class="experience-highlights">
+
+                        <li>
+                            Designed Kafka integration platforms with
+                            reusable producer/consumer patterns and
+                            fault-tolerant processing across distributed
+                            services.
+                        </li>
+
+                        <li>
+                            Optimized the Pricing API using granular
+                            Redis caching, reducing peak latency from
+                            1,200 ms to 750 ms P95 at 60 TPS.
+                        </li>
+
+                        <li>
+                            Designed Retry REST/HTTP APIs and service
+                            integrations across Shop Java/Spring Boot
+                            microservices with AWS Lambda.
+                        </li>
+
+                        <li>
+                            Maintained 90%+ automated test coverage using
+                            JUnit, Mockito, integration testing, and TDD.
+                        </li>
+
+                        <li>
+                            Contributed to Dobby, an internal developer
+                            tool, by implementing UI features using
+                            Next.js and TypeScript for workflow monitoring
+                            and troubleshooting.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </article>
+
+
+            <!-- Software Engineer -->
+
+            <article class="experience-item">
+
+                <div class="experience-marker">
+                    <span></span>
+                </div>
+
+                <div class="experience-content">
+
+                    <div class="experience-header">
+
+                        <div>
+                            <p class="experience-company">
+                                Sysco LABS Sri Lanka
+                            </p>
+
+                            <h3>
+                                Software Engineer
+                            </h3>
+                        </div>
+
+                        <time datetime="2021-02">
+                            Feb 2021 — Aug 2022
+                        </time>
+
+                    </div>
+
+
+                    <p class="experience-summary">
+                        Built backend services and integrations for
+                        customer onboarding and enterprise systems.
+                    </p>
+
+
+                    <ul class="experience-highlights">
+
+                        <li>
+                            Delivered 80% of the backend for the NCOB
+                            customer onboarding platform, supporting
+                            8,000+ customers.
+                        </li>
+
+                        <li>
+                            Built REST APIs and backend workflows
+                            integrating Salesforce, PostgreSQL,
+                            and AS400 systems.
+                        </li>
+
+                        <li>
+                            Designed ER diagrams and API specifications
+                            and documented onboarding flows, API usage,
+                            and SonarQube integration.
+                        </li>
+
+                        <li>
+                            Contributed to backend and frontend features
+                            using Spring Boot, React.js, and TypeScript.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </article>
+
+
+            <!-- Internship -->
+
+            <article class="experience-item">
+
+                <div class="experience-marker">
+                    <span></span>
+                </div>
+
+                <div class="experience-content">
+
+                    <div class="experience-header">
+
+                        <div>
+                            <p class="experience-company">
+                                Sysco LABS Sri Lanka
+                            </p>
+
+                            <h3>
+                                Software Engineer Intern
+                            </h3>
+                        </div>
+
+                        <time datetime="2019-06">
+                            Jun 2019 — Dec 2019
+                        </time>
+
+                    </div>
+
+
+                    <ul class="experience-highlights">
+
+                        <li>
+                            Contributed to developing a proxy API for
+                            third-party POS integrations using Spring Boot,
+                            WebFlux, Java 11, and AWS.
+                        </li>
+
+                        <li>
+                            Evaluated Tyk and Kong API gateways for
+                            rate limiting, plugins, transformation,
+                            and monitoring.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ENGINEERING
+========================================================= -->
+
+<section id="engineering" class="engineering">
+
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="section-eyebrow">ENGINEERING</p>
+
+            <h2>
+                How I approach backend systems
+            </h2>
+
+            <p>
+                Areas where my professional experience is strongest.
+            </p>
+        </div>
+
+
+        <div class="engineering-grid">
+
+
+            <article class="engineering-card">
+
+                <span class="card-number">01</span>
+
+                <h3>
+                    Distributed Systems
+                </h3>
+
+                <p>
+                    Designing services that communicate reliably across
+                    distributed environments with clear boundaries,
+                    fault tolerance, and operational visibility.
+                </p>
+
+                <div class="tag-list">
+                    <span>Microservices</span>
+                    <span>DDD</span>
+                    <span>Event-Driven Architecture</span>
+                </div>
+
+            </article>
+
+
+            <article class="engineering-card">
+
+                <span class="card-number">02</span>
+
+                <h3>
+                    Event-Driven Systems
+                </h3>
+
+                <p>
+                    Building asynchronous processing and integration
+                    platforms using messaging systems and reusable
+                    producer/consumer patterns.
+                </p>
+
+                <div class="tag-list">
+                    <span>Kafka</span>
+                    <span>SQS</span>
+                    <span>Kinesis</span>
+                    <span>IBM MQ</span>
+                </div>
+
+            </article>
+
+
+            <article class="engineering-card">
+
+                <span class="card-number">03</span>
+
+                <h3>
+                    API Engineering
+                </h3>
+
+                <p>
+                    Designing REST/HTTP APIs and service integrations
+                    with attention to reliability, performance,
+                    maintainability, and clear contracts.
+                </p>
+
+                <div class="tag-list">
+                    <span>REST</span>
+                    <span>HTTP</span>
+                    <span>Spring Boot</span>
+                    <span>WebFlux</span>
+                </div>
+
+            </article>
+
+
+            <article class="engineering-card">
+
+                <span class="card-number">04</span>
+
+                <h3>
+                    Production Operations
+                </h3>
+
+                <p>
+                    Taking ownership beyond deployment by monitoring
+                    production systems, investigating incidents,
+                    tracing failures, and improving reliability.
+                </p>
+
+                <div class="tag-list">
+                    <span>Datadog</span>
+                    <span>CloudWatch</span>
+                    <span>APM</span>
+                    <span>Tracing</span>
+                </div>
+
+            </article>
+
+
+            <article class="engineering-card">
+
+                <span class="card-number">05</span>
+
+                <h3>
+                    Performance
+                </h3>
+
+                <p>
+                    Identifying bottlenecks and improving backend
+                    performance through caching, service decomposition,
+                    asynchronous processing, and scalable architecture.
+                </p>
+
+                <div class="tag-list">
+                    <span>Redis</span>
+                    <span>60 TPS</span>
+                    <span>P95 Latency</span>
+                </div>
+
+            </article>
+
+
+            <article class="engineering-card">
+
+                <span class="card-number">06</span>
+
+                <h3>
+                    Software Quality
+                </h3>
+
+                <p>
+                    Using automated testing and development practices
+                    to maintain confidence while evolving production
+                    systems.
+                </p>
+
+                <div class="tag-list">
+                    <span>JUnit</span>
+                    <span>Mockito</span>
+                    <span>TDD</span>
+                    <span>Integration Testing</span>
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     TECHNOLOGY
+========================================================= -->
+
+<section id="technology" class="technology">
+
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="section-eyebrow">TECHNOLOGY</p>
+
+            <h2>
+                Technical toolkit
+            </h2>
+
+            <p>
+                Technologies I have worked with across backend development,
+                distributed systems, cloud infrastructure, data, and
+                production operations.
+            </p>
+        </div>
+
+
+        <div class="technology-grid">
+
+
+            <div class="technology-group">
+
+                <h3>Programming</h3>
+
+                <ul>
+                    <li>Java 11 / 17 / 21</li>
+                    <li>TypeScript</li>
+                    <li>JavaScript</li>
+                    <li>Python</li>
+                </ul>
+
+            </div>
+
+
+            <div class="technology-group">
+
+                <h3>Backend</h3>
+
+                <ul>
+                    <li>Spring Boot</li>
+                    <li>Spring Batch</li>
+                    <li>REST / HTTP APIs</li>
+                    <li>Gradle</li>
+                    <li>Microservices</li>
+                </ul>
+
+            </div>
+
+
+            <div class="technology-group">
+
+                <h3>Messaging</h3>
+
+                <ul>
+                    <li>Apache Kafka</li>
+                    <li>Confluent Kafka</li>
+                    <li>IBM MQ</li>
+                    <li>Amazon Kinesis</li>
+                    <li>Amazon SQS</li>
+                </ul>
+
+            </div>
+
+
+            <div class="technology-group">
+
+                <h3>Cloud & DevOps</h3>
+
+                <ul>
+                    <li>AWS</li>
+                    <li>Docker</li>
+                    <li>Terraform</li>
+                    <li>CloudFormation</li>
+                    <li>ECS</li>
+                    <li>Fargate</li>
+                    <li>Lambda</li>
+                    <li>EC2</li>
+                    <li>RDS</li>
+                    <li>S3</li>
+                </ul>
+
+            </div>
+
+
+            <div class="technology-group">
+
+                <h3>Databases</h3>
+
+                <ul>
+                    <li>PostgreSQL</li>
+                    <li>SQL</li>
+                    <li>MongoDB</li>
+                    <li>Redis</li>
+                </ul>
+
+            </div>
+
+
+            <div class="technology-group">
+
+                <h3>Architecture</h3>
+
+                <ul>
+                    <li>Distributed Systems</li>
+                    <li>Event-Driven Architecture</li>
+                    <li>Integration Platforms</li>
+                    <li>Domain-Driven Design</li>
+                    <li>Microservices</li>
+                </ul>
+
+            </div>
+
+
+            <div class="technology-group">
+
+                <h3>Testing & Quality</h3>
+
+                <ul>
+                    <li>JUnit</li>
+                    <li>Mockito</li>
+                    <li>Integration Testing</li>
+                    <li>TDD</li>
+                    <li>SonarQube</li>
+                    <li>Veracode</li>
+                </ul>
+
+            </div>
+
+
+            <div class="technology-group">
+
+                <h3>Monitoring</h3>
+
+                <ul>
+                    <li>Datadog</li>
+                    <li>CloudWatch</li>
+                    <li>APM</li>
+                    <li>Distributed Tracing</li>
+                </ul>
+
+            </div>
+
+
+            <div class="technology-group">
+
+                <h3>Frontend</h3>
+
+                <ul>
+                    <li>Next.js</li>
+                    <li>React.js</li>
+                    <li>TypeScript</li>
+                    <li>JavaScript</li>
+                </ul>
+
+            </div>
+
+
+            <div class="technology-group">
+
+                <h3>AI-Assisted Development</h3>
+
+                <ul>
+                    <li>Cursor</li>
+                    <li>Structured Prompting</li>
+                    <li>AI-Assisted Coding</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     EDUCATION
+========================================================= -->
+
+<section class="education">
+
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="section-eyebrow">EDUCATION</p>
+
+            <h2>
+                Education
+            </h2>
+        </div>
+
+
+        <article class="education-item">
+
+            <div>
+                <p class="education-degree">
+                    B.Sc. (Hons.) in Computer Science and Engineering
+                </p>
+
+                <h3>
+                    University of Moratuwa, Sri Lanka
+                </h3>
+            </div>
+
+            <time datetime="2016">
+                2016 — 2021
+            </time>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     WRITING
+========================================================= -->
+
+<section id="writing" class="writing">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <p class="section-eyebrow">
+                TECHNICAL WRITING
+            </p>
+
+            <h2>
+                I write about the engineering problems I explore.
+            </h2>
+
+            <p>
+                My writing focuses on Java, Spring Boot, Kafka,
+                distributed systems, software architecture, and
+                practical engineering lessons.
+            </p>
+
+        </div>
+
+
+        <div class="writing-stats">
+
+            <div>
+                <strong>100+</strong>
+                <span>Technical Articles</span>
+            </div>
+
+            <div>
+                <strong>2,100+</strong>
+                <span>Followers</span>
+            </div>
+
+            <div>
+                <strong>140K+</strong>
+                <span>Top Article Views</span>
+            </div>
+
+            <div>
+                <strong>50K+</strong>
+                <span>Multiple Articles Reached</span>
+            </div>
+
+        </div>
+
+
+        <div class="featured-articles">
+
+
+            <article class="article-card">
+
+                <div class="article-content">
+
+                    <span class="article-category">
+                        Java
+                    </span>
+
+                    <h3>
+                        Before You Define a Java Class, Think Twice
+                    </h3>
+
+                    <p>
+                        Exploring the decisions worth considering before
+                        introducing a new Java class.
+                    </p>
+
+                    <a
+                        href="https://blog.stackademic.com/before-define-a-java-class-think-twice-series-1-d0fc026c8ac4"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Read article →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="article-card">
+
+                <div class="article-content">
+
+                    <span class="article-category">
+                        Java
+                    </span>
+
+                    <h3>
+                        Java Performance Optimization
+                    </h3>
+
+                    <p>
+                        Practical techniques and considerations for
+                        improving Java application performance.
+                    </p>
+
+                    <a
+                        href="https://medium.com/javarevisited/java-performance-optimization-tips-101-5e2e4b6b2e5d"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Read article →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="article-card">
+
+                <div class="article-content">
+
+                    <span class="article-category">
+                        Java
+                    </span>
+
+                    <h3>
+                        Java Coding Guidelines: My View
+                    </h3>
+
+                    <p>
+                        Personal perspectives on writing clean,
+                        maintainable Java code.
+                    </p>
+
+                    <a
+                        href="https://medium.com/javarevisited/java-coding-guidelines-my-view-2-8e20335459e1"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Read article →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+
+        <div class="section-action">
+
+            <a
+                href="https://medium.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="button button-secondary"
+            >
+                View All Articles
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     COMMUNITY
+========================================================= -->
+
+<section id="community" class="community">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <p class="section-eyebrow">
+                COMMUNITY
+            </p>
+
+            <h2>
+                Sharing knowledge beyond my day job
+            </h2>
+
+            <p>
+                I enjoy writing, answering technical questions,
+                and sharing practical engineering knowledge with
+                other developers.
+            </p>
+
+        </div>
+
+
+        <div class="community-grid">
+
+
+            <article class="community-card">
+
+                <span class="community-label">
+                    STACK OVERFLOW
+                </span>
+
+                <strong>
+                    6,483
+                </strong>
+
+                <h3>
+                    Reputation
+                </h3>
+
+                <p>
+                    157 technical answers and 3.7M+ content reach.
+                </p>
+
+                <a
+                    href="https://stackoverflow.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    View profile →
+                </a>
+
+            </article>
+
+
+            <article class="community-card">
+
+                <span class="community-label">
+                    TECHNICAL WRITING
+                </span>
+
+                <strong>
+                    100+
+                </strong>
+
+                <h3>
+                    Published Articles
+                </h3>
+
+                <p>
+                    Writing across Java, Spring Boot, Kafka,
+                    distributed systems, and software architecture.
+                </p>
+
+                <a
+                    href="https://medium.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Read my writing →
+                </a>
+
+            </article>
+
+
+            <article class="community-card">
+
+                <span class="community-label">
+                    RECOGNITION
+                </span>
+
+                <strong>
+                    2023
+                </strong>
+
+                <h3>
+                    Sysco LABS Hall of Fame Unit Award
+                </h3>
+
+                <p>
+                    Recognized for contributions to high-impact
+                    engineering initiatives and business outcomes.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     LANGUAGES
+========================================================= -->
+
+<section class="languages">
+
+    <div class="container">
+
+        <div class="language-list">
+
+            <div class="language-item">
+                <span>English</span>
+                <strong>Fluent</strong>
+            </div>
+
+            <div class="language-item">
+                <span>Tamil</span>
+                <strong>Native</strong>
+            </div>
+
+            <div class="language-item">
+                <span>German</span>
+                <strong>A2 → B1</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CONTACT
+========================================================= -->
+
+<section id="contact" class="contact">
+
+    <div class="container">
+
+        <div class="contact-content">
+
+            <p class="section-eyebrow">
+                CONTACT
+            </p>
+
+            <h2>
+                Let's talk about engineering.
+            </h2>
+
+            <p>
+                If you're working on backend systems, distributed
+                architecture, Java, Kafka, or cloud infrastructure,
+                feel free to get in touch.
+            </p>
+
+
+            <div class="contact-details">
+
+                <a
+                    href="mailto:cvaram96@gmail.com"
+                    class="contact-email"
+                >
+                    cvaram96@gmail.com
+                </a>
+
+                <span>
+                    Munich, Germany
+                </span>
+
+            </div>
+
+
+            <div class="contact-links">
+
+                <a
+                    href="https://www.linkedin.com/in/rcvaram/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    LinkedIn
+                </a>
+
+                <a
+                    href="https://github.com/rcvaram"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    GitHub
+                </a>
+
+                <a
+                    href="https://medium.com/@cvaram96"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Medium
+                </a>
+
+                <a
+                    href="https://stackoverflow.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Stack Overflow
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="site-footer">
+
+    <div class="container footer-container">
+
+        <p>
+            © 2026 Sivaram Rasathurai
+        </p>
+
+        <p>
+            Backend Software Engineer · Java · Distributed Systems
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script src="script.js"></script>
+
 </body>
 </html>
+```
