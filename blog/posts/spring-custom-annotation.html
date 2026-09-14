@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spring Custom Annotation | Thangam</title>
+<meta name="description" content="Spring Custom Annotation Annotation Interface Spring Custom Annotation Annotation Interface Spring AOP is very simple implementation of AOP concepts. It&#x27;s an idea fit Aspect The cross-cuttin…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring Custom Annotation">
+<meta property="og:description" content="Spring Custom Annotation Annotation Interface Spring Custom Annotation Annotation Interface Spring AOP is very simple implementation of AOP concepts. It&#x27;s an idea fit Aspect The cross-cuttin…">
+<meta property="article:published_time" content="2021-11-23">
+<link rel="stylesheet" href="../blog.css">
+</head>
+<body class="article-page">
+<header class="blog-header">
+<div class="blog-shell nav-row">
+<a class="brand" href="../../index.html">Thangam</a>
+<nav><a href="../index.html">Blog</a><a href="../../index.html#about">About</a><a href="../../index.html#contact">Contact</a></nav>
+</div>
+</header>
+<main class="article-shell">
+<a class="back-link" href="../index.html">← Back to blog</a>
+<article>
+<header class="article-hero">
+<div class="article-meta">Java · 2021-11-23 · 1 min read</div>
+<h1>Spring Custom Annotation</h1>
+<div class="tag-row"><span class="tag">Java</span></div>
+</header>
+<div class="article-content"><article class="h-entry">
+<header>
+<h1 class="p-name">Spring Custom Annotation</h1>
+</header>
+<section class="p-summary" data-field="subtitle">
+Annotation Interface
+</section>
+<section class="e-content" data-field="body">
+<section class="section section--body section--first section--last" name="d291"><div class="section-divider"><hr class="section-divider"/></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 class="graf graf--h3 graf--leading graf--title" id="4139" name="4139">Spring Custom Annotation</h3><h4 class="graf graf--h4 graf-after--h3 graf--subtitle" id="7d0c" name="7d0c">Annotation Interface</h4><p class="graf graf--p graf-after--h4" id="9cf0" name="9cf0">Spring AOP is very simple implementation of AOP concepts. It's an idea fit</p><h4 class="graf graf--h4 graf-after--p" id="4f7e" name="4f7e">Aspect</h4><p class="graf graf--p graf-after--h4" id="cb08" name="cb08">The cross-cutting thing you are going to do with AOP. Aspect is the concern that we are trying to implement generically.</p><h4 class="graf graf--h4 graf-after--p" id="733c" name="733c">Pointcut</h4><p class="graf graf--p graf-after--h4" id="ba8e" name="ba8e">The expression determines which calls are intercepted.</p><h4 class="graf graf--h4 graf-after--p" id="7bb5" name="7bb5">Advice</h4><p class="graf graf--p graf-after--h4" id="da5f" name="da5f">What is to be done in Aspect / the point cut met?</p><h4 class="graf graf--h4 graf-after--p" id="87de" name="87de">Joinpoint</h4><h4 class="graf graf--h4 graf-after--h4" id="f0c2" name="f0c2">Weaving</h4><pre class="graf graf--pre graf-after--h4" id="9e8d" name="9e8d">@Retention(RetentionPolicy.RUNTIME)<br/>@target({ElementType.TYPE, ElementType.Method})<br/>@interface CustomAnno{<br/>   int var0() default 0;<br/>   String var1() default "custom";<br/>}</pre><ol class="postList"><li class="graf graf--li graf-after--pre" id="4dfe" name="4dfe">var0, var1 are variables /attributes / elements.( primitive data types and the array can be used)</li><li class="graf graf--li graf-after--li" id="bd64" name="bd64">@retention → Availability of the annotation.</li><li class="graf graf--li graf-after--li" id="be05" name="be05">@target → The target Java elements where the annotation can be added(Method, Package, parameter and etc)</li></ol><h4 class="graf graf--h4 graf-after--li" id="0b45" name="0b45">Logic Class</h4><pre class="graf graf--pre graf-after--h4" id="9e0e" name="9e0e">@Aspect<br/>@Component<br/>public CustomAnnoLogicImplementation{</pre><pre class="graf graf--pre graf-after--pre" id="7513" name="7513">  @Around("@annotation(com.rcvaram.annotation.CustomAnno)") <br/>  public Object implementLogic(ProceedingJointPoint point){<br/>      //Logic1 before executing the point<br/>      Object obj =  point.proceed();<br/>      // Logic2 After executing the point<br/>      retun obj;<br/>  }<br/>}</pre><h4 class="graf graf--h4 graf-after--pre" id="25f6" name="25f6">Implementation</h4><pre class="graf graf--pre graf-after--h4" id="3f45" name="3f45">public class Test{<br/>  <br/>  @CustomAnno(var0=5, var1="testing")<br/>  public void test(){<br/>  //Some Logic<br/>  }</pre><pre class="graf graf--pre graf-after--pre" id="6a7e" name="6a7e">}</pre><p class="graf graf--p graf-after--pre" id="04cb" name="04cb">when this test method is called the logic1 will be called before the method and after executing the method the logic 2 will be called.</p><h4 class="graf graf--h4 graf-after--p" id="01a3" name="01a3">CustomTimeTracker Annotation</h4><figure class="graf graf--figure graf--iframe graf-after--h4 graf--trailing" id="8b6a" name="8b6a"><iframe frameborder="0" height="393" scrolling="no" src="https://www.youtube.com/embed/2YTGgHkJg2M?feature=oembed" width="700"></iframe></figure></div></div></section>
+</section>
+<footer><p>By <a class="p-author h-card" href="https://medium.com/@rcvaram">Sivaram Rasathurai</a> on <a href="https://medium.com/p/768898f692d3"><time class="dt-published" datetime="2021-11-23T06:05:33.057Z">November 23, 2021</time></a>.</p><p><a class="p-canonical" href="https://medium.com/@rcvaram/spring-custom-annotation-768898f692d3">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></div>
+<footer class="article-footer"></footer>
+</article>
+</main>
+<script>
+document.querySelectorAll('.article-content a').forEach(a => {
+ const href=a.getAttribute('href')||'';
+ if(href.startsWith('http')){a.target='_blank';a.rel='noopener';}
+});
+</script>
+</body>
+</html>

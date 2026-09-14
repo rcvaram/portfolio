@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clean Robust Error Handler For Spring Boot 3.3+ Kafka Consumer. | Thangam</title>
+<meta name="description" content="Clean Robust Error Handler For Spring Boot 3.3+ Kafka Consumer. Let&#x27;s see how we are going to handle these exceptions in Kafka Consumer. Clean Robust Error Handler For Spring Boot 3.3+ Kafka…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Clean Robust Error Handler For Spring Boot 3.3+ Kafka Consumer.">
+<meta property="og:description" content="Clean Robust Error Handler For Spring Boot 3.3+ Kafka Consumer. Let&#x27;s see how we are going to handle these exceptions in Kafka Consumer. Clean Robust Error Handler For Spring Boot 3.3+ Kafka…">
+<meta property="article:published_time" content="2025-01-01">
+<link rel="stylesheet" href="../blog.css">
+</head>
+<body class="article-page">
+<header class="blog-header">
+<div class="blog-shell nav-row">
+<a class="brand" href="../../index.html">Thangam</a>
+<nav><a href="../index.html">Blog</a><a href="../../index.html#about">About</a><a href="../../index.html#contact">Contact</a></nav>
+</div>
+</header>
+<main class="article-shell">
+<a class="back-link" href="../index.html">← Back to blog</a>
+<article>
+<header class="article-hero">
+<div class="article-meta">Kafka &amp; Messaging · 2025-01-01 · 1 min read</div>
+<h1>Clean Robust Error Handler For Spring Boot 3.3+ Kafka Consumer.</h1>
+<div class="tag-row"><span class="tag">Kafka &amp; Messaging</span><span class="tag">Kafka</span></div>
+</header>
+<div class="article-content"><article class="h-entry">
+<header>
+<h1 class="p-name">Clean Robust Error Handler For Spring Boot 3.3+ Kafka Consumer.</h1>
+</header>
+<section class="p-summary" data-field="subtitle">
+Let's see how we are going to handle these exceptions in Kafka Consumer.
+</section>
+<section class="e-content" data-field="body">
+<section class="section section--body section--first section--last" name="d8dd"><div class="section-divider"><hr class="section-divider"/></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 class="graf graf--h3 graf--leading graf--title" id="3c06" name="3c06">Clean Robust Error Handler For Spring Boot 3.3+ Kafka Consumer.</h3><p class="graf graf--p graf--empty graf-after--h3" id="b59f" name="b59f"><br/></p><figure class="graf graf--figure graf-after--p" id="1f8f" name="1f8f"><img class="graf-image" data-height="417" data-image-id="1*mmHFvx97hSCayyIsdx4K5Q.jpeg" data-width="676" decoding="async" loading="lazy" src="https://cdn-images-1.medium.com/max/800/1*mmHFvx97hSCayyIsdx4K5Q.jpeg"/></figure><p class="graf graf--p graf-after--figure" id="4ad6" name="4ad6">Let's see how we are going to handle these exceptions in Kafka Consumer.</p><p class="graf graf--p graf-after--p" id="4e58" name="4e58">Before going to handle part, lets configure the consumer in your spring boot application</p><h4 class="graf graf--h4 graf-after--p" id="df4a" name="df4a">Configuration Class</h4><pre class="graf graf--pre graf-after--h4 graf--preV2" data-code-block-lang="java" data-code-block-mode="2" id="f2dc" name="f2dc" spellcheck="false"><span class="pre--content"><span class="hljs-meta">@Slf4j</span><br/><span class="hljs-meta">@Configuration</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">KafkaConsumerConfig</span> {<br/><br/>    <span class="hljs-meta">@Bean</span><br/>    <span class="hljs-keyword">public</span> ConcurrentKafkaListenerContainerFactory&lt;String, PriceEvent&gt; <span class="hljs-title function_">customConcurrentKafkaListenerContainerFactory</span><span class="hljs-params">(PriceEventResolver resolver,<br/>                                                                                                                        ConsumerFactory&lt;String, PriceEvent&gt; consumerFactory)</span> {<br/>        ConcurrentKafkaListenerContainerFactory&lt;String, PriceEvent&gt; factory = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ConcurrentKafkaListenerContainerFactory</span>&lt;&gt;();<br/>        factory.setConsumerFactory(consumerFactory);<br/>        factory.getContainerProperties().setAckMode(ContainerProperties.AckMode.MANUAL);<br/>        factory.setConcurrency(kafkaConcurrencyListeners);<br/>        factory.setCommonErrorHandler(<span class="hljs-keyword">new</span> <span class="hljs-title class_">DefaultErrorHandler</span>(resolver, <span class="hljs-keyword">new</span> <span class="hljs-title class_">FixedBackOff</span>(<span class="hljs-number">0L</span>, <span class="hljs-number">0L</span>)));<br/>        <span class="hljs-keyword">return</span> factory;<br/>    }<br/>    <br/>}</br></span></pre><h4 class="graf graf--h4 graf-after--pre" id="b9c3" name="b9c3">KafkaListener</h4><pre class="graf graf--pre graf-after--h4 graf--preV2" data-code-block-lang="kotlin" data-code-block-mode="1" id="ce60" name="ce60" spellcheck="false"><span class="pre--content"><br/><span class="hljs-meta">@Service</span><br/><span class="hljs-meta">@Slf4j</span><br/><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">PriceEventListener</span> <span class="hljs-title">implements</span> <span class="hljs-title">IListener</span> {<br/><br/>    <span class="hljs-meta">@KafkaListener(topics = <span class="hljs-string">"<span class="hljs-subst">${kafka.topic.price}</span>"</span>, groupId = <span class="hljs-string">"<span class="hljs-subst">${kafka.consumer.group.id}</span>"</span>, containerFactory = <span class="hljs-string">"customConcurrentKafkaListenerContainerFactory"</span>)</span><br/>    <span class="hljs-keyword">public</span> void consume(<span class="hljs-keyword">final</span> ConsumerRecord&lt;String, PriceEvent&gt; priceEvent, Acknowledgment ack) {<br/>        long startTime = System.currentTimeMillis();<br/>        log.info(<span class="hljs-string">"Kafka message is received from  topic : {}  partition : {} at offset :{}"</span>, priceEvent.topic(), priceEvent.partition(), priceEvent.offset());<br/>        <span class="hljs-comment">// your event handling logic</span><br/>        ack.acknowledge();<br/>   }<br/><br/><br/>}<br/><br/></span></pre><p class="graf graf--p graf--empty graf-after--pre graf--trailing" id="817c" name="817c"><br/></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/5bdcbdbc34d6">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></div>
+<footer class="article-footer"></footer>
+</article>
+</main>
+<script>
+document.querySelectorAll('.article-content a').forEach(a => {
+ const href=a.getAttribute('href')||'';
+ if(href.startsWith('http')){a.target='_blank';a.rel='noopener';}
+});
+</script>
+</body>
+</html>

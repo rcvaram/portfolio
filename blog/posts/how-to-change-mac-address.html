@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to change MAC address | Thangam</title>
+<meta name="description" content="How to change MAC address This is a short form for Media Access Control address. The MAC is permanent and unique address for each network interface card. This is… How to change MAC address T…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to change MAC address">
+<meta property="og:description" content="How to change MAC address This is a short form for Media Access Control address. The MAC is permanent and unique address for each network interface card. This is… How to change MAC address T…">
+<meta property="article:published_time" content="2019-03-23">
+<link rel="stylesheet" href="../blog.css">
+</head>
+<body class="article-page">
+<header class="blog-header">
+<div class="blog-shell nav-row">
+<a class="brand" href="../../index.html">Thangam</a>
+<nav><a href="../index.html">Blog</a><a href="../../index.html#about">About</a><a href="../../index.html#contact">Contact</a></nav>
+</div>
+</header>
+<main class="article-shell">
+<a class="back-link" href="../index.html">← Back to blog</a>
+<article>
+<header class="article-hero">
+<div class="article-meta">REST &amp; APIs · 2019-03-23 · 2 min read</div>
+<h1>How to change MAC address</h1>
+<div class="tag-row"><span class="tag">REST &amp; APIs</span><span class="tag">REST</span></div>
+</header>
+<div class="article-content"><article class="h-entry">
+<header>
+<h1 class="p-name">How to change MAC address</h1>
+</header>
+<section class="p-summary" data-field="subtitle">
+This is a short form for Media Access Control address. The MAC is permanent and unique address for each network interface card. This is…
+</section>
+<section class="e-content" data-field="body">
+<section class="section section--body section--first" name="7258"><div class="section-divider"><hr class="section-divider"/></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 class="graf graf--h3 graf--leading graf--trailing graf--title" id="9f46" name="9f46">How to change MAC address</h3></div></div></section><section class="section section--body section--last" name="e27a"><div class="section-divider"><hr class="section-divider"/></div><div class="section-content"><div class="section-inner sectionLayout--fullWidth"><figure class="graf graf--figure graf--layoutFillWidth graf--leading" id="e89f" name="e89f"><img class="graf-image" data-height="1181" data-image-id="0*lVIziheXfTIg1a3D" data-width="2100" decoding="async" loading="lazy" src="https://cdn-images-1.medium.com/max/2560/0*lVIziheXfTIg1a3D"/></figure></div><div class="section-inner sectionLayout--insetColumn"><p class="graf graf--p graf-after--figure" id="7507" name="7507">This is a short form for Media Access Control address. The MAC is permanent and unique address for each network interface card. This is assigned by the manufacturer. Unique means, there is no two devices with the same MAC address in the world. MAC addresses are used to identify the devices in the network to transfer the data. Why we want to change MAC address, because we can increase anonymity in the network. Transferring data packet uses MAC address to get to a destination, when we change our MAC address to impersonate other devices we can receive those. More important one is, we can hide our identity.</p><p class="graf graf--p graf-after--p" id="5cfe" name="5cfe">You can change your MAC address manually as given below but this change is temporary. If you restart your machine, the MAC address will be changed to old MAC address which was given by manufacturer</p><figure class="graf graf--figure graf-after--p" id="fd96" name="fd96"><img class="graf-image" data-height="412" data-image-id="1*1Irx9aeX2JjujsSXXhfoDQ.png" data-width="730" decoding="async" loading="lazy" src="https://cdn-images-1.medium.com/max/800/1*1Irx9aeX2JjujsSXXhfoDQ.png"/><figcaption class="imageCaption">I Changed my mac address in my system like this way</figcaption></figure><p class="graf graf--p graf-after--figure" id="152d" name="152d">If you use window versions then you should use ipconfig instead of ifconfig. First we want to select the interface which we want to change MAC address using ifconfig to get the information about your network interfaces. If you want to change particular interface then first, disable the interface using ifconfig INTERFACE_NAME down. In my example, I used to down my <strong class="markup--strong markup--p-strong">enp0s20f0u5c2</strong> interface using following command</p><p class="graf graf--p graf-after--p" id="632a" name="632a">ifconfig enp0s20f0u5c2 down</p><p class="graf graf--p graf-after--p" id="60bc" name="60bc">Now, you can change your MAC address to the particular interface. for this purpose, ifconfig INTERFACE_NAME hw ether NEW_MAC_ADDRESS, in this command you want to put the interface name which you deactivated and new MAC address which you prefer. In my example, I used <strong class="markup--strong markup--p-strong">enp0s20f0u5c2 </strong>interface and new MAC address <strong class="markup--strong markup--p-strong">i</strong>s <strong class="markup--strong markup--p-strong">00:11:22:33:44:55</strong></p><p class="graf graf--p graf-after--p" id="d1ef" name="d1ef">ifconfig enp0s20f0u5c2 hw ether 00:11:22:33:44:55</p><p class="graf graf--p graf-after--p" id="d67d" name="d67d">Now, you want to enable your interface. it is very easy using this following command to up your interface which was already down. ifconfig INTERFACE_NAME up in my example i up the interface <strong class="markup--strong markup--p-strong">enp0s20f0u5c2 </strong>with the following command</p><p class="graf graf--p graf-after--p" id="b39f" name="b39f">ifconfig enp0s20f0u5c2 up</p><figure class="graf graf--figure graf-after--p" id="7a94" name="7a94"><img class="graf-image" data-height="741" data-image-id="1*3hG7nPbuqVaBHndIsyhoqw.png" data-width="1180" decoding="async" loading="lazy" src="https://cdn-images-1.medium.com/max/800/1*3hG7nPbuqVaBHndIsyhoqw.png"/><figcaption class="imageCaption">This the python code for changing mac address automatically</figcaption></figure><p class="graf graf--p graf-after--figure graf--trailing" id="9f8a" name="9f8a">Thanks for reading.</p></div></div></section>
+</section>
+<footer><p>By <a class="p-author h-card" href="https://medium.com/@rcvaram">Sivaram Rasathurai</a> on <a href="https://medium.com/p/8e4a98b74859"><time class="dt-published" datetime="2019-03-23T17:42:16.200Z">March 23, 2019</time></a>.</p><p><a class="p-canonical" href="https://medium.com/@rcvaram/how-to-change-mac-address-8e4a98b74859">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></div>
+<footer class="article-footer"></footer>
+</article>
+</main>
+<script>
+document.querySelectorAll('.article-content a').forEach(a => {
+ const href=a.getAttribute('href')||'';
+ if(href.startsWith('http')){a.target='_blank';a.rel='noopener';}
+});
+</script>
+</body>
+</html>

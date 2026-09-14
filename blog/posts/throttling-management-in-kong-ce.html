@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Throttling management in Kong CE | Thangam</title>
+<meta name="description" content="Throttling management in Kong CE Throttling is a process that is used to control the usage of APIs by consumers during a given period. Throttling and rate-limiting are… Throttling management…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Throttling management in Kong CE">
+<meta property="og:description" content="Throttling management in Kong CE Throttling is a process that is used to control the usage of APIs by consumers during a given period. Throttling and rate-limiting are… Throttling management…">
+<meta property="article:published_time" content="2025-01-01">
+<link rel="stylesheet" href="../blog.css">
+</head>
+<body class="article-page">
+<header class="blog-header">
+<div class="blog-shell nav-row">
+<a class="brand" href="../../index.html">Thangam</a>
+<nav><a href="../index.html">Blog</a><a href="../../index.html#about">About</a><a href="../../index.html#contact">Contact</a></nav>
+</div>
+</header>
+<main class="article-shell">
+<a class="back-link" href="../index.html">← Back to blog</a>
+<article>
+<header class="article-hero">
+<div class="article-meta">REST &amp; APIs · 2025-01-01 · 2 min read</div>
+<h1>Throttling management in Kong CE</h1>
+<div class="tag-row"><span class="tag">REST &amp; APIs</span></div>
+</header>
+<div class="article-content"><article class="h-entry">
+<header>
+<h1 class="p-name">Throttling management in Kong CE</h1>
+</header>
+<section class="p-summary" data-field="subtitle">
+Throttling is a process that is used to control the usage of APIs by consumers during a given period. Throttling and rate-limiting are…
+</section>
+<section class="e-content" data-field="body">
+<section class="section section--body section--first section--last" name="d433"><div class="section-divider"><hr class="section-divider"/></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 class="graf graf--h3 graf--leading graf--title" id="4495" name="4495">Throttling management in Kong CE</h3><p class="graf graf--p graf-after--h3" id="bc06" name="bc06">Throttling is a process that is used to control the usage of APIs by consumers during a given period. Throttling and rate-limiting are looking like same as defines the limit for a given period; however, in purpose wisely, they are different. More than that, the period of limits usually higher in throttling than rate limiting.</p><p class="graf graf--p graf-after--p" id="3de5" name="3de5">Kong CE doesn’t have a separate plugin for throttling. As a workaround, rate-limiting plugin is suggested with high limits such as day, month, year for throttling. Throttling can be achieved using the rate-limiting plugin in Kong CE with the limit of the <strong class="markup--strong markup--p-strong">day, month</strong> and year. <strong class="markup--strong markup--p-strong">This plugin is not supported to limit a weekly basis</strong>.</p><p class="graf graf--p graf-after--p" id="1fe7" name="1fe7"><strong class="markup--strong markup--p-strong">The cluster, Redis policies can be used when we want more accuracy.</strong> As accuracy is of lesser importance, the local policy can be used in the rate-limiting plugin. Most likely, the user will be granted more than was agreed when using the local policy, but it will effectively block any attacks while maintaining the best performance.</p><p class="graf graf--p graf-after--p" id="384c" name="384c">For the mock implementation, we want to install kong, Konga and setting up a mock service. These can be followed in the ​​<a class="markup--anchor markup--p-anchor" data-href="https://syscolabs-jira.atlassian.net/wiki/spaces/~578930084/pages/183731674/Rate+limiting+with+Kong" href="https://syscolabs-jira.atlassian.net/wiki/spaces/~578930084/pages/183731674/Rate+limiting+with+Kong" rel="nofollow noopener" target="_blank">Rate limiting with Kong</a> page.</p><p class="graf graf--p graf-after--p" id="b532" name="b532">After setting up the mock fake-api service, rate-limiting plugin can be plugged in the service level with the limit of the day, month and year. Click on the JSON-placeholder service, select the plugins tab and add a new plugin. When you click add plugin button, you will see a pop-up menu which contains plugins. Select the category as Traffic Control so the pop-up menu plugins will change. rate-limiting plugin will be there and click add plugin under the rate-limiting plugin.</p><figure class="graf graf--figure graf-after--p" id="d4e1" name="d4e1"><img class="graf-image" data-height="657" data-image-id="1*gouK6WB6vbMk0sDNi7jPZQ.png" data-width="673" decoding="async" loading="lazy" src="https://cdn-images-1.medium.com/max/800/1*gouK6WB6vbMk0sDNi7jPZQ.png"/></figure><figure class="graf graf--figure graf-after--figure" id="2381" name="2381"><img class="graf-image" data-height="670" data-image-id="1*wJhvFMivhWDx37eKljrXhw.png" data-width="596" decoding="async" loading="lazy" src="https://cdn-images-1.medium.com/max/800/1*wJhvFMivhWDx37eKljrXhw.png"/></figure><p class="graf graf--p graf-after--figure graf--trailing" id="f8ed" name="f8ed"><strong class="markup--strong markup--p-strong">Throttling will be imposed per day/week/month basis per client; </strong>this is the requirement which is mentioned in the <a class="markup--anchor markup--p-anchor" data-href="https://syscolabs-jira.atlassian.net/wiki/spaces/ES/pages/94634139/Platform+and+Monetization+Strategy" href="https://syscolabs-jira.atlassian.net/wiki/spaces/ES/pages/94634139/Platform+and+Monetization+Strategy" rel="nofollow noopener" target="_blank"><em class="markup--em markup--p-em">Platform and Monetization Strategy</em></a><em class="markup--em markup--p-em"> document. </em>The rate-limiting plugin supports the requirement without imposing <strong class="markup--strong markup--p-strong">a limit per week</strong> for the client. We have a concurrency problem in this plugin.</p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/2b20953dda22">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></div>
+<footer class="article-footer"></footer>
+</article>
+</main>
+<script>
+document.querySelectorAll('.article-content a').forEach(a => {
+ const href=a.getAttribute('href')||'';
+ if(href.startsWith('http')){a.target='_blank';a.rel='noopener';}
+});
+</script>
+</body>
+</html>

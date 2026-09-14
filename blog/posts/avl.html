@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AVL | Thangam</title>
+<meta name="description" content="AVL BST means Binary Search Tree. In BST, We arrange the values of the BST such that any node, for all elements on the left side, is smaller… AVL BST means Binary Search Tree. In BST, We arr…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AVL">
+<meta property="og:description" content="AVL BST means Binary Search Tree. In BST, We arrange the values of the BST such that any node, for all elements on the left side, is smaller… AVL BST means Binary Search Tree. In BST, We arr…">
+<meta property="article:published_time" content="2025-01-01">
+<link rel="stylesheet" href="../blog.css">
+</head>
+<body class="article-page">
+<header class="blog-header">
+<div class="blog-shell nav-row">
+<a class="brand" href="../../index.html">Thangam</a>
+<nav><a href="../index.html">Blog</a><a href="../../index.html#about">About</a><a href="../../index.html#contact">Contact</a></nav>
+</div>
+</header>
+<main class="article-shell">
+<a class="back-link" href="../index.html">← Back to blog</a>
+<article>
+<header class="article-hero">
+<div class="article-meta">Career &amp; Learning · 2025-01-01 · 2 min read</div>
+<h1>AVL</h1>
+<div class="tag-row"><span class="tag">Career &amp; Learning</span></div>
+</header>
+<div class="article-content"><article class="h-entry">
+<header>
+<h1 class="p-name">AVL</h1>
+</header>
+<section class="p-summary" data-field="subtitle">
+BST means Binary Search Tree. In BST, We arrange the values of the BST such that any node, for all elements on the left side, is smaller…
+</section>
+<section class="e-content" data-field="body">
+<section class="section section--body section--first section--last" name="cb41"><div class="section-divider"><hr class="section-divider"/></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 class="graf graf--h3 graf--leading graf--title" id="25e8" name="25e8">AVL</h3><p class="graf graf--p graf-after--h3" id="84a1" name="84a1">BST means Binary Search Tree. In BST, We arrange the values of the BST such that any node, for all elements on the left side, is smaller than that node and right side of all elements of that node will be greater than that node.</p><p class="graf graf--p graf-after--p" id="3660" name="3660"> Why we need to arrange the elements like because it can be used to search the particular element very fast and also we can get the elements in sorted order when we traverse the tree as in order manner.</p><p class="graf graf--p graf-after--p" id="caf7" name="caf7">Suppose we need to search an element 6 in this binary tree. When we look at a node value with respect to our search element. if the node value is smaller than search value we look the right side of the tree and if the search value is smaller than node value then we look left side of the tree. if node value and the search value are same then we found the place of that element. when we reach leaf that means there is no element in that BST.</p><p class="graf graf--p graf-after--p" id="d9c7" name="d9c7">if we have 6 first we check with 5 and 6 is greater than 5 so we look right side tree. then we compare 6 and 7 here 6 is smaller than 7 so we look the right side of 7 we will compare node value 6 and search value 6 both are same we found the element. cool</p><p class="graf graf--p graf-after--p" id="cf93" name="cf93">for 10</p><ol class="postList"><li class="graf graf--li graf-after--p" id="2fa7" name="2fa7">10 and 5 compared</li><li class="graf graf--li graf-after--li" id="a34a" name="a34a">10 and 7 compared</li><li class="graf graf--li graf-after--li" id="c144" name="c144">10 and 8 compared</li><li class="graf graf--li graf-after--li" id="091a" name="091a">8 is a leaf node so we reach the tree and could not find the element which means 10 is not in the BST.</li></ol><h4 class="graf graf--h4 graf-after--li" id="d758" name="d758">What’s the problem with BST?</h4><p class="graf graf--p graf-after--h4" id="f017" name="f017">When we create a BST, we will first check with root whether it is greater than root or smaller than root. based on that, we can move to the right side or left side. we move the element until we reach the leaf node. and we put the element there.</p><p class="graf graf--p graf-after--p" id="4771" name="4771">When we have values to create the BST, the order of values are important since it decides the height of the tree. It can be O( logn) or O(n). If the height is log n then the search will take log n and if the height is n then the search will take n. if it is n then the search is similar to linear search. </p><p class="graf graf--p graf-after--p" id="a287" name="a287">The main drawback of BST is the height of BST depends on the insertion order. </p><p class="graf graf--p graf-after--p" id="cec6" name="cec6">You might think that how many orders are possible for given n values. it is n!. if we have 3 elements we may have 3*2*1 = 6 orders.</p><p class="graf graf--p graf-after--p" id="748c" name="748c">Do you think? It is possible to get small height binary tree to reduce the searching time since searching time is proportional to tree height.</p><p class="graf graf--p graf-after--p" id="a977" name="a977">We can, How? we perform rotations to find minimum height BST for given inputs. </p><p class="graf graf--p graf--empty graf-after--p" id="5e8b" name="5e8b"><br/></p><h4 class="graf graf--h4 graf-after--p" id="efcb" name="efcb">Solutions for self-balanced tree</h4><p class="graf graf--p graf--empty graf-after--h4" id="55ad" name="55ad"><br/></p><p class="graf graf--p graf--empty graf-after--p" id="027b" name="027b"><br/></p><p class="graf graf--p graf--empty graf-after--p" id="ff23" name="ff23"><br/></p><p class="graf graf--p graf--empty graf-after--p" id="143e" name="143e"><br/></p><p class="graf graf--p graf--empty graf-after--p" id="39e6" name="39e6"><br/></p><p class="graf graf--p graf--empty graf-after--p" id="5cc5" name="5cc5"><br/></p><p class="graf graf--p graf--empty graf-after--p graf--trailing" id="eae4" name="eae4"><br/></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/bb48c14420b2">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></div>
+<footer class="article-footer"></footer>
+</article>
+</main>
+<script>
+document.querySelectorAll('.article-content a').forEach(a => {
+ const href=a.getAttribute('href')||'';
+ if(href.startsWith('http')){a.target='_blank';a.rel='noopener';}
+});
+</script>
+</body>
+</html>

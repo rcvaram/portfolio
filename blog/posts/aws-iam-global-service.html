@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AWS — IAM (Global Service) | Thangam</title>
+<meta name="description" content="AWS — IAM (Global Service) Identity &amp; Access Management AWS — IAM (Global Service) Identity &amp; Access Management IAM is a kind of service where you can manage your users. A root user / Root a…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AWS — IAM (Global Service)">
+<meta property="og:description" content="AWS — IAM (Global Service) Identity &amp; Access Management AWS — IAM (Global Service) Identity &amp; Access Management IAM is a kind of service where you can manage your users. A root user / Root a…">
+<meta property="article:published_time" content="2025-01-01">
+<link rel="stylesheet" href="../blog.css">
+</head>
+<body class="article-page">
+<header class="blog-header">
+<div class="blog-shell nav-row">
+<a class="brand" href="../../index.html">Thangam</a>
+<nav><a href="../index.html">Blog</a><a href="../../index.html#about">About</a><a href="../../index.html#contact">Contact</a></nav>
+</div>
+</header>
+<main class="article-shell">
+<a class="back-link" href="../index.html">← Back to blog</a>
+<article>
+<header class="article-hero">
+<div class="article-meta">DevOps &amp; Cloud · 2025-01-01 · 2 min read</div>
+<h1>AWS — IAM (Global Service)</h1>
+<div class="tag-row"><span class="tag">DevOps &amp; Cloud</span><span class="tag">AWS</span></div>
+</header>
+<div class="article-content"><article class="h-entry">
+<header>
+<h1 class="p-name">AWS — IAM (Global Service)</h1>
+</header>
+<section class="p-summary" data-field="subtitle">
+Identity &amp; Access Management
+</section>
+<section class="e-content" data-field="body">
+<section class="section section--body section--first section--last" name="dcb9"><div class="section-divider"><hr class="section-divider"/></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 class="graf graf--h3 graf--leading graf--title" id="26c3" name="26c3">AWS — IAM (Global Service)</h3><h4 class="graf graf--h4 graf-after--h3 graf--subtitle" id="6a5b" name="6a5b">Identity &amp; Access Management </h4><p class="graf graf--p graf-after--h4" id="3983" name="3983"> IAM is a kind of service where you can manage your users. A root user / Root account is created by default. This should not be shared/used since It has all permissions to perform any actions to your resources. What is the use of this account? To set up an administration account for you to utilize the AWS services. </p><p class="graf graf--p graf-after--p" id="371d" name="371d"><strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">How to allow others to use your AWS account?</em></strong> As you know, to use your AWS resources, you have to give permission. These permissions can be JSON documents and are called policies. These policies can be attached to the user/group. Basically, with these policies, we can define the permissions of the users. <strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">These users will be shared with others to use your AWS account</em></strong>.</p><h4 class="graf graf--h4 graf-after--p" id="1e11" name="1e11">Least privilege principle</h4><blockquote class="graf graf--pullquote graf-after--h4" id="5f28" name="5f28">Don’t give more permissions than a user needs</blockquote><p class="graf graf--p graf-after--pullquote" id="d879" name="d879">Users are people within your organization and can be grouped. Groups can have multiple users, not other groups. but the user can be a stand-alone user which means the user must not be within a group. Users can be within multiple groups as well. </p><h4 class="graf graf--h4 graf-after--p" id="7aac" name="7aac">Policies Depth</h4><p class="graf graf--p graf-after--h4" id="a5ab" name="a5ab">When a policy is attached to group level then it will be applied to all the users within the group. As I said above, some users may not be belong any groups in that time assigned policy for the user is called inline policy.</p><p class="graf graf--p graf-after--p" id="cdc8" name="cdc8">IAM Policy Structure</p><ul class="postList"><li class="graf graf--li graf-after--p" id="b935" name="b935">Version → The policy structure version</li><li class="graf graf--li graf-after--li" id="d009" name="d009">ID → An optional parameter ot identify the policy</li><li class="graf graf--li graf-after--li" id="93a5" name="93a5">Statement → describe a permission so a policy can have multiple statements.</li><li class="graf graf--li graf-after--li" id="bfb6" name="bfb6">Statement → id → identifier for the statement which is an optional parameter</li><li class="graf graf--li graf-after--li" id="c655" name="c655">Statement → effect → Permission effect basically the permission is used for allow or deny the access</li><li class="graf graf--li graf-after--li" id="6f72" name="6f72">Statement → Pricincipal → account/user/role to which this policy applied to</li><li class="graf graf--li graf-after--li" id="6346" name="6346">Statement → Action → List of actions that the particular permission/statment allows or denys</li><li class="graf graf--li graf-after--li" id="07b2" name="07b2">Statment → Resource → List of resources where the actions can be performed. </li><li class="graf graf--li graf-after--li" id="2582" name="2582">Statement → Condition → Conditions for when this policy is in effect</li><li class="graf graf--li graf--empty graf-after--li" id="ade0" name="ade0"><br/></li></ul><p class="graf graf--p graf--empty graf-after--li" id="6647" name="6647"><br/></p><p class="graf graf--p graf-after--p" id="ab4e" name="ab4e">Referemce @Stepe udemymy videos. </p><p class="graf graf--p graf--empty graf-after--p" id="6dfd" name="6dfd"><br/></p><p class="graf graf--p graf--empty graf-after--p graf--trailing" id="b7a3" name="b7a3"><br/></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/bc604790fa98">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></div>
+<footer class="article-footer"></footer>
+</article>
+</main>
+<script>
+document.querySelectorAll('.article-content a').forEach(a => {
+ const href=a.getAttribute('href')||'';
+ if(href.startsWith('http')){a.target='_blank';a.rel='noopener';}
+});
+</script>
+</body>
+</html>

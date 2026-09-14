@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kafka | Thangam</title>
+<meta name="description" content="Kafka You know guys, change is the thing that will not change forever which means most of the things change their states and because of this… Kafka You know guys, change is the thing that wi…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kafka">
+<meta property="og:description" content="Kafka You know guys, change is the thing that will not change forever which means most of the things change their states and because of this… Kafka You know guys, change is the thing that wi…">
+<meta property="article:published_time" content="2025-01-01">
+<link rel="stylesheet" href="../blog.css">
+</head>
+<body class="article-page">
+<header class="blog-header">
+<div class="blog-shell nav-row">
+<a class="brand" href="../../index.html">Thangam</a>
+<nav><a href="../index.html">Blog</a><a href="../../index.html#about">About</a><a href="../../index.html#contact">Contact</a></nav>
+</div>
+</header>
+<main class="article-shell">
+<a class="back-link" href="../index.html">← Back to blog</a>
+<article>
+<header class="article-hero">
+<div class="article-meta">Kafka &amp; Messaging · 2025-01-01 · 2 min read</div>
+<h1>Kafka</h1>
+<div class="tag-row"><span class="tag">Kafka &amp; Messaging</span><span class="tag">Kafka</span><span class="tag">Messaging</span></div>
+</header>
+<div class="article-content"><article class="h-entry">
+<header>
+<h1 class="p-name">Kafka</h1>
+</header>
+<section class="p-summary" data-field="subtitle">
+You know guys, change is the thing that will not change forever which means most of the things change their states and because of this…
+</section>
+<section class="e-content" data-field="body">
+<section class="section section--body section--first section--last" name="67bf"><div class="section-divider"><hr class="section-divider"/></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 class="graf graf--h3 graf--leading graf--title" id="0621" name="0621">Kafka</h3><p class="graf graf--p graf-after--h3" id="6fe8" name="6fe8">You know guys, change is the thing that will not change forever which means most of the things change their states and because of this, they produce events. events are simply what happens on a particular thing state.</p><p class="graf graf--p graf-after--p" id="2bf1" name="2bf1">For Example, room temperature increased is an event and here the state of the room temperature changes. So you know that there are a lot of events. Is it possible to collect them or store them or process them. Yeah, that is possible and that's where the event streaming platform comes. We have a lot of event streaming platforms kafka, kinesis, google pub/sub and other platforms.</p><p class="graf graf--p graf-after--p" id="00f4" name="00f4">Today we will look at this Kafka event streaming platform.</p><p class="graf graf--p graf-after--p" id="f937" name="f937">Basically, We are looking at the Apache Kafka</p><p class="graf graf--p graf-after--p" id="c96a" name="c96a">We have a requirement to collect, store and process the events For this we need to categorize or organise the events right. Here the topics come to play. It seems like a table in the database where we can organise the events for a particular topic.</p><p class="graf graf--p graf-after--p" id="fa98" name="fa98">First, they are append-only: When you write a new message into a log, it always goes on the end. Second, they can only be read by seeking an arbitrary offset in the log, then by scanning sequential log entries.</p><p class="graf graf--p graf-after--p" id="5546" name="5546"><strong class="markup--strong markup--p-strong">Events are immutable. </strong></p><p class="graf graf--p graf-after--p" id="70f4" name="70f4"> Third, events in the log are immutable — once something has happened, it is exceedingly difficult to make it un-happen. The simple semantics of a log makes it feasible for Kafka to deliver high levels of sustained throughput in and out of topics, and also make it easier to reason about the replication of topics, which we’ll cover more later.</p><p class="graf graf--p graf-after--p" id="98b4" name="98b4">Logs are also fundamentally durable things. Traditional enterprise messaging systems have topics and queues, which store messages temporarily to buffer them between source and destination.</p><p class="graf graf--p graf-after--p" id="1b85" name="1b85">Event stored as key-value pair and these events are immutable because of that, we can achieve a lot of things. </p><p class="graf graf--p graf-after--p" id="5fa5" name="5fa5">Kafka is a distributed system. If we have to put a lot of events on one topic and if it lives in one machine it makes it difficult to scale. So here comes up partitions, we created partitions for the topic. We can partition the topic to live in different Kafka clusters node. Wow Nice but how these messages are written to different partitions is not much hard to understand. I already told event is just key value pair. we use this key and hash it doing simple algo to select which partition it is needed to save if the key is not given for an event then it takes round robin setup to store the event in partition. </p><p class="graf graf--p graf--empty graf-after--p" id="ffa6" name="ffa6"><br/></p><p class="graf graf--p graf-after--p" id="5ea2" name="5ea2">Kafka Messages</p><ol class="postList"><li class="graf graf--li graf-after--p" id="b4aa" name="b4aa">Critical means we can’t lose any single message</li><li class="graf graf--li graf-after--li" id="68c1" name="68c1">Latency within 500ms we need to process</li><li class="graf graf--li graf-after--li" id="8f4d" name="8f4d">Throughput — 1000 messages per second</li><li class="graf graf--li graf--empty graf-after--li" id="b63d" name="b63d"><br/></li></ol><p class="graf graf--p graf--empty graf-after--li graf--trailing" id="af08" name="af08"><br/></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/329e5822444">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></div>
+<footer class="article-footer"></footer>
+</article>
+</main>
+<script>
+document.querySelectorAll('.article-content a').forEach(a => {
+ const href=a.getAttribute('href')||'';
+ if(href.startsWith('http')){a.target='_blank';a.rel='noopener';}
+});
+</script>
+</body>
+</html>

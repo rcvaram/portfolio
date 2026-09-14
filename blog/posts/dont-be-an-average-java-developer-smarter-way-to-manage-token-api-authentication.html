@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Don’t be an average Java Developer: Smarter Way to Manage Token API Authentication | Thangam</title>
+<meta name="description" content="Don’t be an average Java Developer: Smarter Way to Manage Token API Authentication Recently, I have worked with external API. For that external API, I need to call a token endpoint and need…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Don’t be an average Java Developer: Smarter Way to Manage Token API Authentication">
+<meta property="og:description" content="Don’t be an average Java Developer: Smarter Way to Manage Token API Authentication Recently, I have worked with external API. For that external API, I need to call a token endpoint and need…">
+<meta property="article:published_time" content="2025-01-01">
+<link rel="stylesheet" href="../blog.css">
+</head>
+<body class="article-page">
+<header class="blog-header">
+<div class="blog-shell nav-row">
+<a class="brand" href="../../index.html">Thangam</a>
+<nav><a href="../index.html">Blog</a><a href="../../index.html#about">About</a><a href="../../index.html#contact">Contact</a></nav>
+</div>
+</header>
+<main class="article-shell">
+<a class="back-link" href="../index.html">← Back to blog</a>
+<article>
+<header class="article-hero">
+<div class="article-meta">REST &amp; APIs · 2025-01-01 · 1 min read</div>
+<h1>Don’t be an average Java Developer: Smarter Way to Manage Token API Authentication</h1>
+<div class="tag-row"><span class="tag">REST &amp; APIs</span></div>
+</header>
+<div class="article-content"><article class="h-entry">
+<header>
+<h1 class="p-name">Don’t be an average Java Developer: Smarter Way to Manage Token API Authentication</h1>
+</header>
+<section class="p-summary" data-field="subtitle">
+Recently, I have worked with external API. For that external API, I need to call a token endpoint and need to get the token. whenever token…
+</section>
+<section class="e-content" data-field="body">
+<section class="section section--body section--first section--last" name="8d98"><div class="section-divider"><hr class="section-divider"/></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 class="graf graf--h3 graf--leading graf--title" id="7197" name="7197"> Don’t be an average Java Developer: Smarter Way to Manage Token API Authentication </h3><p class="graf graf--p graf-after--h3" id="8a1b" name="8a1b">Recently, I have worked with external API. For that external API, I need to call a token endpoint and need to get the token. whenever token get invalidate i need to call again and get the token.</p><p class="graf graf--p graf-after--p" id="6b3b" name="6b3b">Basically, During the implementation I need to manage below</p><ul class="postList"><li class="graf graf--li graf-after--p" id="1e39" name="1e39">token expiration</li><li class="graf graf--li graf-after--li" id="bd1c" name="bd1c">token refreshment</li><li class="graf graf--li graf-after--li" id="7a92" name="7a92">store them securely</li></ul><p class="graf graf--p graf-after--li" id="bad0" name="bad0">This is a common issue right, if we have some layer where this is managed automatically and we just need to configure the layer only, that will kill all the pains we have right… we can avoid the boilerplate code as well.</p><p class="graf graf--p graf-after--p" id="91b2" name="91b2">We need a simple system that fetches, stores, and refreshes API tokens automatically, so we  can focus on building features instead of fighting with authentication.</p><p class="graf graf--p graf-after--p" id="d781" name="d781">So this token-management-library automaticly should do</p><ol class="postList"><li class="graf graf--li graf-after--p" id="da1c" name="da1c"><strong class="markup--strong markup--li-strong">Fetches API tokens</strong> when needed.</li><li class="graf graf--li graf-after--li" id="cb4d" name="cb4d"><strong class="markup--strong markup--li-strong">Caches tokens securely</strong> (no more plain-text risks).</li><li class="graf graf--li graf-after--li" id="f385" name="f385"><strong class="markup--strong markup--li-strong">Refreshes tokens automatically</strong> before they expire.</li></ol><p class="graf graf--p graf--empty graf-after--li" id="4d26" name="4d26"><br/></p><p class="graf graf--p graf-after--p" id="48ac" name="48ac">How can we achieve that?</p><ol class="postList"><li class="graf graf--li graf-after--p" id="8ed2" name="8ed2"><strong class="markup--strong markup--li-strong">Check the cache:</strong></li></ol><ul class="postList"><li class="graf graf--li graf-after--li" id="0c1a" name="0c1a">If a valid token exists, it’s used instantly.</li><li class="graf graf--li graf-after--li" id="64dd" name="64dd">If missing or expired, a new one is requested from the token source.</li></ul><p class="graf graf--p graf-after--li" id="e709" name="e709">2. <strong class="markup--strong markup--p-strong">Request a fresh token (from the API provider).<br/>Update Redis cache:</strong></p><ul class="postList"><li class="graf graf--li graf--empty graf-after--p" id="a92d" name="a92d"><br/></li><li class="graf graf--li graf-after--li" id="375b" name="375b">Store the new token for fast retrieval next time.</li><li class="graf graf--li graf--empty graf-after--li" id="7b64" name="7b64"><br/></li></ul><ol class="postList"><li class="graf graf--li graf--empty graf-after--li" id="7ac6" name="7ac6"><br/></li></ol><p class="graf graf--p graf-after--li graf--trailing" id="d936" name="d936">This design means your app rarely waits on authentication calls, and you never risk using expired credentials.</p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/089e91abb7ed">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></div>
+<footer class="article-footer"></footer>
+</article>
+</main>
+<script>
+document.querySelectorAll('.article-content a').forEach(a => {
+ const href=a.getAttribute('href')||'';
+ if(href.startsWith('http')){a.target='_blank';a.rel='noopener';}
+});
+</script>
+</body>
+</html>

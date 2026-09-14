@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>B Trees | Thangam</title>
+<meta name="description" content="B Trees Disk Structure B Trees Disk Structure We have constant logical circles on disk circle difference space is called as track. Also, We have sectors which are diving the disk into pieces…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="B Trees">
+<meta property="og:description" content="B Trees Disk Structure B Trees Disk Structure We have constant logical circles on disk circle difference space is called as track. Also, We have sectors which are diving the disk into pieces…">
+<meta property="article:published_time" content="2025-01-01">
+<link rel="stylesheet" href="../blog.css">
+</head>
+<body class="article-page">
+<header class="blog-header">
+<div class="blog-shell nav-row">
+<a class="brand" href="../../index.html">Thangam</a>
+<nav><a href="../index.html">Blog</a><a href="../../index.html#about">About</a><a href="../../index.html#contact">Contact</a></nav>
+</div>
+</header>
+<main class="article-shell">
+<a class="back-link" href="../index.html">← Back to blog</a>
+<article>
+<header class="article-hero">
+<div class="article-meta">Career &amp; Learning · 2025-01-01 · 2 min read</div>
+<h1>B Trees</h1>
+<div class="tag-row"><span class="tag">Career &amp; Learning</span></div>
+</header>
+<div class="article-content"><article class="h-entry">
+<header>
+<h1 class="p-name">B Trees</h1>
+</header>
+<section class="p-summary" data-field="subtitle">
+Disk Structure
+</section>
+<section class="e-content" data-field="body">
+<section class="section section--body section--first section--last" name="3e22"><div class="section-divider"><hr class="section-divider"/></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 class="graf graf--h3 graf--leading graf--title" id="6bed" name="6bed">B Trees</h3><p class="graf graf--p graf-after--h3" id="f1b6" name="f1b6">Disk Structure</p><p class="graf graf--p graf-after--p" id="7d98" name="7d98">We have constant logical circles on disk circle difference space is called as track. Also, We have sectors which are diving the disk into pieces like cake cutting.</p><p class="graf graf--p graf-after--p" id="9b09" name="9b09">Block is nothing but intersection potion of sector and track. so any potion of the block can be addressed using track number and sector number. Typical block size is 512 bytes</p><p class="graf graf--p graf-after--p" id="a8ff" name="a8ff">In one block, the first address 0 and last address is 511 then each byte has its own address what we called as an offset. each byte can refer in terms of block address and offset.</p><p class="graf graf--p graf-after--p" id="9c44" name="9c44">With track number, sector number and offset we can reach the byte address.</p><p class="graf graf--p graf-after--p" id="5e47" name="5e47">When we spin the disk, we are changing the sector place and when we move the writing header then we are changing the track place. </p><p class="graf graf--p graf-after--p" id="bfbf" name="bfbf">The data is brought into memory from disk for processing since the CPU can access data only which is in the main memory. Data structures that we studied, are used in Main memory. The data which is stored in the disk is DBMS.</p><p class="graf graf--p graf-after--p" id="3b40" name="3b40"><strong class="markup--strong markup--p-strong">B Trees</strong></p><ul class="postList"><li class="graf graf--li graf-after--p" id="56a7" name="56a7">This is a bottom-up approach &lt;Creation Process&gt;</li><li class="graf graf--li graf-after--li" id="c682" name="c682">Every node you must fill at least half of children. </li><li class="graf graf--li graf-after--li" id="8493" name="8493">The root can have a minimum of 2 childen</li><li class="graf graf--li graf-after--li" id="5b4a" name="5b4a">All leaf must be at the same level</li></ul><p class="graf graf--p graf-after--li" id="cebe" name="cebe">let's take keys for m=4 maximum 3 keys in one node</p><p class="graf graf--p graf-after--p" id="770a" name="770a">keys : 10, 20, 40, 50</p><p class="graf graf--p graf-after--p" id="d036" name="d036">10 20 <strong class="markup--strong markup--p-strong">40</strong> ………. 50</p><p class="graf graf--p graf-after--p" id="b76f" name="b76f"> …….<strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">40</em></strong>…….. </p><p class="graf graf--p graf-after--p" id="fd36" name="fd36">10 20 ……… 50</p><p class="graf graf--p graf-after--p" id="798c" name="798c">insert 30 to the tree</p><p class="graf graf--p graf-after--p" id="bbfb" name="bbfb">………..<strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">40</em></strong>……..</p><p class="graf graf--p graf-after--p" id="a61f" name="a61f">10 20 <strong class="markup--strong markup--p-strong">30</strong>….. 50</p><p class="graf graf--p graf-after--p" id="d827" name="d827">insert 60,70,80</p><p class="graf graf--p graf-after--p" id="4e13" name="4e13">……….40………….</p><p class="graf graf--p graf-after--p" id="5e2a" name="5e2a">10 20 30 ….. 50 60 70</p><p class="graf graf--p graf-after--p" id="2057" name="2057">………<strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">40 70</em></strong>…….</p><p class="graf graf--p graf-after--p" id="9d99" name="9d99">10 20 30 ……50 60 …80</p><p class="graf graf--p graf-after--p" id="6420" name="6420">insert 35 </p><p class="graf graf--p graf-after--p" id="c5f7" name="c5f7">…..30…………40…………..70</p><p class="graf graf--p graf-after--p" id="08eb" name="08eb">10 20…… 35 …….. 50 60………… 80</p><p class="graf graf--p graf-after--p" id="17a0" name="17a0">insert 5</p><p class="graf graf--p graf-after--p" id="d9ec" name="d9ec">…..30…………40…………..70</p><p class="graf graf--p graf-after--p" id="94aa" name="94aa">5 10 20…… 35 …….. 50 60………… 80</p><p class="graf graf--p graf-after--p" id="a428" name="a428">insert 15</p><p class="graf graf--p graf-after--p" id="4ff9" name="4ff9">…..15……. 30…………40…………..70</p><p class="graf graf--p graf-after--p" id="632f" name="632f">5 10 …….20…… 35 …….. 50 60………… 80</p><p class="graf graf--p graf--empty graf-after--p" id="191d" name="191d"><br/></p><p class="graf graf--p graf-after--p" id="2a6a" name="2a6a">…… …….40…………</p><p class="graf graf--p graf-after--p" id="2b5b" name="2b5b">15 30………………………………70</p><p class="graf graf--p graf-after--p" id="9326" name="9326">5 10 …….20…… 35 …….. 50 60………… 80</p><p class="graf graf--p graf--empty graf-after--p" id="d127" name="d127"><br/></p><p class="graf graf--p graf--empty graf-after--p" id="f2f3" name="f2f3"><br/></p><p class="graf graf--p graf--empty graf-after--p graf--trailing" id="24da" name="24da"><br/></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/8c0d46d77cf0">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></div>
+<footer class="article-footer"></footer>
+</article>
+</main>
+<script>
+document.querySelectorAll('.article-content a').forEach(a => {
+ const href=a.getAttribute('href')||'';
+ if(href.startsWith('http')){a.target='_blank';a.rel='noopener';}
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reactive Java Word — 1 | Thangam</title>
+<meta name="description" content="Reactive Java Word — 1 Reactive Streams Specification has four interfaces to talk in a reactive way between the applications. Reactive Java World — 1 Reactive Streams Specification has four…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Reactive Java Word — 1">
+<meta property="og:description" content="Reactive Java Word — 1 Reactive Streams Specification has four interfaces to talk in a reactive way between the applications. Reactive Java World — 1 Reactive Streams Specification has four…">
+<meta property="article:published_time" content="2022-03-31">
+<link rel="stylesheet" href="../blog.css">
+</head>
+<body class="article-page">
+<header class="blog-header">
+<div class="blog-shell nav-row">
+<a class="brand" href="../../index.html">Thangam</a>
+<nav><a href="../index.html">Blog</a><a href="../../index.html#about">About</a><a href="../../index.html#contact">Contact</a></nav>
+</div>
+</header>
+<main class="article-shell">
+<a class="back-link" href="../index.html">← Back to blog</a>
+<article>
+<header class="article-hero">
+<div class="article-meta">Java · 2022-03-31 · 2 min read</div>
+<h1>Reactive Java Word — 1</h1>
+<div class="tag-row"><span class="tag">Java</span><span class="tag">Streams</span></div>
+</header>
+<div class="article-content"><article class="h-entry">
+<header>
+<h1 class="p-name">Reactive Java Word — 1</h1>
+</header>
+<section class="p-summary" data-field="subtitle">
+Reactive Streams Specification has four interfaces to talk in a reactive way between the applications.
+</section>
+<section class="e-content" data-field="body">
+<section class="section section--body section--first section--last" name="e38e"><div class="section-divider"><hr class="section-divider"/></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 class="graf graf--h3 graf--leading graf--title" id="10a2" name="10a2">Reactive Java World — 1</h3><figure class="graf graf--figure graf--iframe graf-after--h3" id="f7a0" name="f7a0"><iframe frameborder="0" height="244" scrolling="no" src="https://giphy.com/embed/73oSygWJFG9K1ha75z/twitter/iframe" width="435"></iframe></figure><p class="graf graf--p graf-after--figure" id="b8ce" name="b8ce">Reactive Streams Specification has four interfaces to talk in a reactive way between the applications.</p><p class="graf graf--p graf-after--p" id="b381" name="b381">Four Interfaces are</p><ol class="postList"><li class="graf graf--li graf-after--p" id="a624" name="a624">Publisher</li><li class="graf graf--li graf-after--li" id="7b61" name="7b61">Subscriber</li><li class="graf graf--li graf-after--li" id="044e" name="044e">Subscription</li><li class="graf graf--li graf-after--li" id="40f5" name="40f5">Processor</li></ol><p class="graf graf--p graf-after--li" id="3dc7" name="3dc7">Basically, when we need to consume data then we will act as subscribers. and there will be a source that acts as a publisher. We have to tell the publisher that We are going to subscribe to you/ consume data from you. In that case, the publisher should have a method that can allow us to subscribe to it. luckily we have one method in publisher and it is called subscribe which can take subscriber as an argument.</p><pre class="graf graf--pre graf-after--p" id="2d2a" name="2d2a">public interface <strong class="markup--strong markup--pre-strong">Publisher</strong>&lt;T&gt; {<br/>void subscribe&lt;Subsriber&lt;? super T&gt; var1);<br/>}</pre><p class="graf graf--p graf-after--pre" id="c0f1" name="c0f1">Hence our subscriber will call this method in the publisher to tell it that our subscriber is willing to subscribe to you.</p><p class="graf graf--p graf-after--p" id="dd36" name="dd36">Our publisher also needs to tell the subscriber, you subscribed here it is your subscription.</p><p class="graf graf--p graf-after--p" id="09fd" name="09fd">Hence The Subscribe should have some mechanism to receive the subscription. Yes, the Subscriber has a method for that This method takes the subscription as a method parameter. basically, when the publisher calls this method it will give the subscription as well. There are some other methods also in this subscriber interface, I will cover them later part of this post.</p><pre class="graf graf--pre graf-after--p" id="c949" name="c949">public interface <strong class="markup--strong markup--pre-strong">Subsriber</strong>&lt;T&gt; {<br/> void onSubsribe(Subscription var1);<br/>}</pre><p class="graf graf--p graf-after--pre" id="3000" name="3000">So we got to know that we have a subscription that connects the publisher and subscriber.</p><p class="graf graf--p graf-after--p" id="c4fc" name="c4fc">It has two methods as below</p><pre class="graf graf--pre graf-after--p" id="e3fd" name="e3fd">public interface <strong class="markup--strong markup--pre-strong">Subscription</strong> {<br/> void request(long var1);<br/> void cancel();<br/>}</pre><p class="graf graf--p graf-after--pre" id="77e0" name="77e0">This request method has one parameter and it controls how much data can be carried out through this subscription. and cancel can be used to cancel the subscription.</p><p class="graf graf--p graf-after--p" id="3235" name="3235">Sometimes we need to act as a subscriber as well as a publisher, in that case, we can use processor. Processors can behave as publishers and subscribers.</p><pre class="graf graf--pre graf-after--p" id="f5d6" name="f5d6">interface Processor&lt;T,R&gt; extends Subsriber&lt;T&gt;, Publisher&lt;R&gt; {}</pre><p class="graf graf--p graf-after--pre" id="03cd" name="03cd">When publishers push some data to subscribers, there can be three things happens</p><ol class="postList"><li class="graf graf--li graf-after--p" id="323d" name="323d">Success<br/>When an item needs to be sent publisher will use this way to send it. For this, subscribe has a method onNext that can be used to push an item to the subscriber.</li><li class="graf graf--li graf-after--li" id="9723" name="9723">Error<br/>When the publisher needs to tell that some error happens then it will notify the subscriber with the onError Method. In this case</li><li class="graf graf--li graf-after--li" id="9d17" name="9d17">onComplete<br/>Somehow publisher needs to tell the subscriber that, I sent all items to you as you requested with the subscription. This method of the subscriber is used for that.</li></ol><pre class="graf graf--pre graf-after--li graf--trailing" id="77ee" name="77ee">public interface <strong class="markup--strong markup--pre-strong">Subsriber</strong>&lt;T&gt; {<br/> void onSubsribe(Subscription var1);<br/> void onNext(T var1);<br/> void onError(Throwable var1);<br/> void onComplete();<br/>}</pre></div></div></section>
+</section>
+<footer><p>By <a class="p-author h-card" href="https://medium.com/@rcvaram">Sivaram Rasathurai</a> on <a href="https://medium.com/p/20718c68ce45"><time class="dt-published" datetime="2022-03-31T07:54:07.041Z">March 31, 2022</time></a>.</p><p><a class="p-canonical" href="https://medium.com/@rcvaram/reactive-java-word-1-20718c68ce45">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></div>
+<footer class="article-footer"></footer>
+</article>
+</main>
+<script>
+document.querySelectorAll('.article-content a').forEach(a => {
+ const href=a.getAttribute('href')||'';
+ if(href.startsWith('http')){a.target='_blank';a.rel='noopener';}
+});
+</script>
+</body>
+</html>

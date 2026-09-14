@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Segmentation Depth Analysis | Thangam</title>
+<meta name="description" content="Segmentation Depth Analysis Most of the time, we need to locate or identify an object/objects in an image. This process of partitioning and labelling different… Segmentation Depth Analysis M…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Segmentation Depth Analysis">
+<meta property="og:description" content="Segmentation Depth Analysis Most of the time, we need to locate or identify an object/objects in an image. This process of partitioning and labelling different… Segmentation Depth Analysis M…">
+<meta property="article:published_time" content="2025-01-01">
+<link rel="stylesheet" href="../blog.css">
+</head>
+<body class="article-page">
+<header class="blog-header">
+<div class="blog-shell nav-row">
+<a class="brand" href="../../index.html">Thangam</a>
+<nav><a href="../index.html">Blog</a><a href="../../index.html#about">About</a><a href="../../index.html#contact">Contact</a></nav>
+</div>
+</header>
+<main class="article-shell">
+<a class="back-link" href="../index.html">← Back to blog</a>
+<article>
+<header class="article-hero">
+<div class="article-meta">REST &amp; APIs · 2025-01-01 · 2 min read</div>
+<h1>Segmentation Depth Analysis</h1>
+<div class="tag-row"><span class="tag">REST &amp; APIs</span><span class="tag">REST</span></div>
+</header>
+<div class="article-content"><article class="h-entry">
+<header>
+<h1 class="p-name">Segmentation Depth Analysis</h1>
+</header>
+<section class="p-summary" data-field="subtitle">
+Most of the time, we need to locate or identify an object/objects in an image. This process of partitioning and labelling different…
+</section>
+<section class="e-content" data-field="body">
+<section class="section section--body section--first section--last" name="78ff"><div class="section-divider"><hr class="section-divider"/></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 class="graf graf--h3 graf--leading graf--title" id="5d25" name="5d25">Segmentation Depth Analysis</h3><p class="graf graf--p graf-after--h3" id="0872" name="0872">Most of the time, we need to locate or identify an object/objects in an image. This process of partitioning and labelling different constituent parts of the image is known as segmentation.</p><h4 class="graf graf--h4 graf-after--p" id="5e03" name="5e03">Abstract view of the segmentation process</h4><p class="graf graf--p graf--empty graf-after--h4" id="d891" name="d891"><br/></p><ol class="postList"><li class="graf graf--li graf-after--p" id="b188" name="b188">Identifying the pixels which belong to the background and which belong to the foreground.</li></ol><p class="graf graf--p graf-after--li" id="06c2" name="06c2"><em class="markup--em markup--p-em">Why we do this. when we identify the background and remove the background from an image it is very easier to identify the desire object pixels in the foreground.</em></p><p class="graf graf--p graf-after--p" id="2a99" name="2a99">2. Labelling pixels/ regions as foreground and background.</p><p class="graf graf--p graf-after--p" id="9cca" name="9cca">All segmentation techniques are based on one primary context.</p><p class="graf graf--p graf-after--p" id="6569" name="6569">If you have some pixels which are part of the object that you interested then those pixels will have some similarities like colour range or surrounded by some edges.</p><p class="graf graf--p graf-after--p" id="5793" name="5793">Basically segmentation process depends on two important factors and they are similarities and discontinuities.</p><p class="graf graf--p graf-after--p" id="8aed" name="8aed">What I mean by similarities is all the pixels or most of the pixels will have some similarity with them like the same colour range (yellow) or intensity. Some common techniques that are used to identify the similarity are thresholding, Region growing and region splitting.</p><p class="graf graf--p graf-after--p" id="36ff" name="36ff">What I mean by discontinuities is when we move from the pixels of the object to pixels of the background then we can see some sudden differences like edges. Some techniques are used like edge contour tracking where all edges are tracked, local analysis and edge linking and hough transform.</p><p class="graf graf--p graf-after--p" id="eb47" name="eb47">So, We can use discontinuities to achieve segmentation if that so, normal edge detection is enough but we could not do segmentation with normal edge detection like canny edge detection why? Since most of the edge detection techniques include canny edge detection returns thick, noisy and discontinued edges. so basically the object boundary must be completed one and thickness is ideally 1 pixel. That's why we could not do segmentation with edge detection only. so we need to do some analysis/ further processing to detect boundaries.</p><p class="graf graf--p graf-after--p" id="1a61" name="1a61">Basically we have three types to do further processing on edge detected images to do segmentation. One is Contour tracking, local analysis and global analysis.</p><h4 class="graf graf--h4 graf-after--p" id="4082" name="4082">Contour Tracking</h4><p class="graf graf--p graf--empty graf-after--h4" id="77d4" name="77d4"><br/></p><p class="graf graf--p graf--empty graf-after--p" id="1009" name="1009"><br/></p><p class="graf graf--p graf--empty graf-after--p" id="a39a" name="a39a"><br/></p><p class="graf graf--p graf--empty graf-after--p" id="3556" name="3556"><br/></p><p class="graf graf--p graf--empty graf-after--p" id="b568" name="b568"><br/></p><p class="graf graf--p graf--empty graf-after--p graf--trailing" id="4d15" name="4d15"><br/></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/f2bb9fe384a0">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></div>
+<footer class="article-footer"></footer>
+</article>
+</main>
+<script>
+document.querySelectorAll('.article-content a').forEach(a => {
+ const href=a.getAttribute('href')||'';
+ if(href.startsWith('http')){a.target='_blank';a.rel='noopener';}
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ECS Faragate with Event Bridge ScheduelrTerraform Production Ready Setup | Thangam</title>
+<meta name="description" content="ECS Faragate with Event Bridge ScheduelrTerraform Production Ready Setup This is not a Beginner friendly tutorial Make sure you have some idea on Terraform and aws stuff. ECS Faragate with E…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ECS Faragate with Event Bridge ScheduelrTerraform Production Ready Setup">
+<meta property="og:description" content="ECS Faragate with Event Bridge ScheduelrTerraform Production Ready Setup This is not a Beginner friendly tutorial Make sure you have some idea on Terraform and aws stuff. ECS Faragate with E…">
+<meta property="article:published_time" content="2025-01-01">
+<link rel="stylesheet" href="../blog.css">
+</head>
+<body class="article-page">
+<header class="blog-header">
+<div class="blog-shell nav-row">
+<a class="brand" href="../../index.html">Thangam</a>
+<nav><a href="../index.html">Blog</a><a href="../../index.html#about">About</a><a href="../../index.html#contact">Contact</a></nav>
+</div>
+</header>
+<main class="article-shell">
+<a class="back-link" href="../index.html">← Back to blog</a>
+<article>
+<header class="article-hero">
+<div class="article-meta">DevOps &amp; Cloud · 2025-01-01 · 1 min read</div>
+<h1>ECS Faragate with Event Bridge ScheduelrTerraform Production Ready Setup</h1>
+<div class="tag-row"><span class="tag">DevOps &amp; Cloud</span><span class="tag">AWS</span></div>
+</header>
+<div class="article-content"><article class="h-entry">
+<header>
+<h1 class="p-name">ECS Faragate with Event Bridge ScheduelrTerraform Production Ready Setup</h1>
+</header>
+<section class="p-summary" data-field="subtitle">
+This is not a Beginner friendly tutorial Make sure you have some idea on Terraform and aws stuff.
+</section>
+<section class="e-content" data-field="body">
+<section class="section section--body section--first section--last" name="9e85"><div class="section-divider"><hr class="section-divider"/></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 class="graf graf--h3 graf--leading graf--title" id="fea8" name="fea8">ECS Faragate with Event Bridge ScheduelrTerraform Production Ready Setup</h3><h4 class="graf graf--h4 graf-after--h3 graf--subtitle" id="5521" name="5521">This is not a Beginner friendly tutorial Make sure you have some idea on Terraform and aws stuff.</h4><h4 class="graf graf--h4 graf-after--h4" id="7b75" name="7b75">Remote statement management</h4><p class="graf graf--p graf-after--h4" id="2964" name="2964">When working in a team, multiple people might be making changes to the same infrastructure. The remote state allows for proper locking mechanisms that prevent concurrent changes from causing conflicts.</p><p class="graf graf--p graf-after--p" id="1079" name="1079">Remote state ensures that all team members are working with the latest and most accurate information about the infrastructure’s current state. This reduces the risk of configuration drift.</p><p class="graf graf--p graf-after--p" id="429b" name="429b">Storing state files remotely reduces the chances of data loss or corruption. If a local state file is lost, it can be challenging or impossible to recover the exact state of your infrastructure.</p><p class="graf graf--p graf-after--p" id="aeb8" name="aeb8">Remote state solutions often provide version history, allowing you to track changes to the infrastructure over time. This can be invaluable for troubleshooting and auditing.</p><h4 class="graf graf--h4 graf-after--p" id="5b24" name="5b24">AWS S3 as a remote state backend</h4><p class="graf graf--p graf-after--h4" id="a448" name="a448">Using AWS S3 as a remote state backend for Terraform is a common and effective way to manage your Terraform state files. </p><ol class="postList"><li class="graf graf--li graf-after--p" id="842f" name="842f">Create an S3 Bucket → you’ll store your Terraform state files. Make sure to choose a globally unique name for the bucket</li><li class="graf graf--li graf-after--li" id="4ac4" name="4ac4">IAM Permissions → Create an IAM policy that grants these permissions and attach it to the IAM user or role you’ll use for Terraform operations.</li></ol><p class="graf graf--p graf-after--li" id="b885" name="b885">Once you create an S3 bucket, we can easily configure that in Terraform to store and retrieve the states. before that, To enable state locking for concurrency control, you need to create a DynamoDB table.</p><pre class="graf graf--pre graf-after--p graf--preV2" data-code-block-lang="bash" data-code-block-mode="1" id="9c6b" name="9c6b" spellcheck="false"><span class="pre--content">terraform {<br/>  backend <span class="hljs-string">"s3"</span> {<br/>    bucket         = <span class="hljs-string">"ecs-fargate-states-bucket"</span><br/>    key            = <span class="hljs-string">"path/to/your/statefile.tfstate"</span><br/>    region         = <span class="hljs-string">"us-east-1"</span><br/>    encrypt        = <span class="hljs-literal">true</span><br/>    dynamodb_table = <span class="hljs-string">"ecs-fargate-states-dynamodb-lock-table"</span><br/>  }<br/>}</span></pre><p class="graf graf--p graf--empty graf-after--pre graf--trailing" id="8cf9" name="8cf9"><br/></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/612dd9ad5861">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></div>
+<footer class="article-footer"></footer>
+</article>
+</main>
+<script>
+document.querySelectorAll('.article-content a').forEach(a => {
+ const href=a.getAttribute('href')||'';
+ if(href.startsWith('http')){a.target='_blank';a.rel='noopener';}
+});
+</script>
+</body>
+</html>

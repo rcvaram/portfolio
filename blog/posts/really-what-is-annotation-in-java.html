@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Really What is Annotation in Java? | Thangam</title>
+<meta name="description" content="Really What is Annotation in Java? Runtime Error is harmful you know right. Really What is Annotation in Java? @SmartPhone(os=&quot;android&quot;, version =6) Clase Nokia { String model; String screen…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Really What is Annotation in Java?">
+<meta property="og:description" content="Really What is Annotation in Java? Runtime Error is harmful you know right. Really What is Annotation in Java? @SmartPhone(os=&quot;android&quot;, version =6) Clase Nokia { String model; String screen…">
+<meta property="article:published_time" content="2025-01-01">
+<link rel="stylesheet" href="../blog.css">
+</head>
+<body class="article-page">
+<header class="blog-header">
+<div class="blog-shell nav-row">
+<a class="brand" href="../../index.html">Thangam</a>
+<nav><a href="../index.html">Blog</a><a href="../../index.html#about">About</a><a href="../../index.html#contact">Contact</a></nav>
+</div>
+</header>
+<main class="article-shell">
+<a class="back-link" href="../index.html">← Back to blog</a>
+<article>
+<header class="article-hero">
+<div class="article-meta">Spring Boot · 2025-01-01 · 2 min read</div>
+<h1>Really What is Annotation in Java?</h1>
+<div class="tag-row"><span class="tag">Spring Boot</span><span class="tag">REST</span></div>
+</header>
+<div class="article-content"><article class="h-entry">
+<header>
+<h1 class="p-name">Really What is Annotation in Java?</h1>
+</header>
+<section class="p-summary" data-field="subtitle">
+Runtime Error is harmful you know right.
+</section>
+<section class="e-content" data-field="body">
+<section class="section section--body section--first section--last" name="321d"><div class="section-divider"><hr class="section-divider"/></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 class="graf graf--h3 graf--leading graf--title" id="4d06" name="4d06">Really What is Annotation in Java?</h3><p class="graf graf--p graf--empty graf-after--h3" id="2643" name="2643"><br/></p><pre class="graf graf--pre graf-after--p" id="4345" name="4345">@SmartPhone(os="android", version =6)<br/>Clase Nokia {<br/>String model;<br/>String screenSize;</pre><pre class="graf graf--pre graf-after--pre" id="afc4" name="afc4">}</pre><p class="graf graf--p graf-after--pre" id="685f" name="685f">Runtime Error is harmful you know right.</p><p class="graf graf--p graf-after--p" id="f858" name="f858">We can use annotations on class, method or variables. </p><p class="graf graf--p graf-after--p" id="5d32" name="5d32">So how can we create an annotation? So this Nokia becomes a smartphone.</p><p class="graf graf--p graf-after--p" id="1a28" name="1a28">How to create an annotation?</p><pre class="graf graf--pre graf-after--p" id="2741" name="2741">@interface SmartPhone{</pre><pre class="graf graf--pre graf-after--pre" id="58ad" name="58ad">String os() default "android";</pre><pre class="graf graf--pre graf-after--pre" id="ab9b" name="ab9b">int version()defualt 1;<br/>}</pre><p class="graf graf--p graf-after--pre" id="eacb" name="eacb">When we don't have variables in annotation without values we say marker annotation. Lets have one value String OS name.</p><p class="graf graf--p graf-after--p" id="ab03" name="ab03">Basically, we use reflection API to get the feautues of the class</p><p class="graf graf--p graf--empty graf-after--p" id="68cb" name="68cb"><br/></p><p class="graf graf--p graf-after--p" id="fbbe" name="fbbe">When you create an annotation, you need to specify the target using target annotation which describes where this annotation can be used. Another annotation need to be defined that is Retention policy by @Retension annotation describe at wt time you need to go like run time or else. </p><p class="graf graf--p graf--empty graf-after--p" id="76c5" name="76c5"><br/></p><p class="graf graf--p graf-after--p" id="1d3a" name="1d3a">@RestController annotation, When I started to develop an API with Java Spring boot. I saw this. When we define a class with @RestController annotation then It will be a rest controller huh?</p><p class="graf graf--p graf--empty graf-after--p" id="aa81" name="aa81"><br/></p><p class="graf graf--p graf-after--p" id="ee29" name="ee29">Let’s know what is annotation then you will understand why @RestController annotation makes a class as rest controller.</p><p class="graf graf--p graf-after--p" id="e454" name="e454">What is Annotation?</p><p class="graf graf--p graf-after--p" id="3800" name="3800">Annotation is nothing but defining something(meta data) to a class/method or attribute to give readability for the class(without making comments) and also avoid runtime errors.</p><p class="graf graf--p graf-after--p" id="915d" name="915d">Here, we need to know there are two purposes for annotation.</p><ol class="postList"><li class="graf graf--li graf-after--p" id="a745" name="a745">Readability </li><li class="graf graf--li graf-after--li" id="afb0" name="afb0">Avoid Runtime errors</li></ol><h4 class="graf graf--h4 graf-after--li" id="1498" name="1498">How readability provides by annotation</h4><p class="graf graf--p graf-after--h4" id="632d" name="632d">When you see the annotation @RestContrlolller what will you think? you have some idea about that class. You knows that particualr class will act like a rest controller. Without comments, now you are using annotion to give readability to someone who looks your code.</p><p class="graf graf--p graf-after--p" id="df09" name="df09">A Sample class with comment</p><pre class="graf graf--pre graf-after--p" id="8685" name="8685"><em class="markup--em markup--pre-em">/**<br/> *  This class is processed if an appropriate HandlerMapping-HandlerAdapter pair is configured <br/> *  such as the RequestMappingHandlerMapping-RequestMappingHandlerAdapter pair which are the default in the MVC Java config and,<br/> *  the MVC namespace.<br/> */<br/></em>public class Sample{<br/>    <br/>}</pre><p class="graf graf--p graf-after--pre" id="9805" name="9805">A Sample Class with Annotation</p><pre class="graf graf--pre graf-after--p" id="fee2" name="fee2">/<br/>@RestController<br/>public class Sample {<br/><br/>}</pre><pre class="graf graf--pre graf-after--pre" id="04dd" name="04dd">/**<br/>: <a class="markup--anchor markup--pre-anchor" data-href="http://twitter.com/RestController" href="http://twitter.com/RestController" rel="noopener" target="_blank" title="Twitter profile for @RestController">@RestController</a> is processed if an appropriate HandlerMapping-HandlerAdapter pair is configured such as the RequestMappingHandlerMapping-RequestMappingHandlerAdapter pair which are the default in the MVC Java config and the MVC namespace.<br/>*/<br/>@Target(ElementType.<em class="markup--em markup--pre-em">TYPE</em>)<br/>@Retention(RetentionPolicy.<em class="markup--em markup--pre-em">RUNTIME</em>)<br/>@Documented<br/>@Controller<br/>@ResponseBody<br/>public @interface RestController {}</pre><p class="graf graf--p graf--empty graf-after--pre graf--trailing" id="ec53" name="ec53"><br/></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/b5f2d10e346f">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></div>
+<footer class="article-footer"></footer>
+</article>
+</main>
+<script>
+document.querySelectorAll('.article-content a').forEach(a => {
+ const href=a.getAttribute('href')||'';
+ if(href.startsWith('http')){a.target='_blank';a.rel='noopener';}
+});
+</script>
+</body>
+</html>

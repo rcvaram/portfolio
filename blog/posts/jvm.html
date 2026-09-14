@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JVM | Thangam</title>
+<meta name="description" content="JVM JVM main components are class loader, rutime data area [memory management] and execution engine JVM JVM main components are class loader, rutime data area [memory management] and executi…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JVM">
+<meta property="og:description" content="JVM JVM main components are class loader, rutime data area [memory management] and execution engine JVM JVM main components are class loader, rutime data area [memory management] and executi…">
+<meta property="article:published_time" content="2025-01-01">
+<link rel="stylesheet" href="../blog.css">
+</head>
+<body class="article-page">
+<header class="blog-header">
+<div class="blog-shell nav-row">
+<a class="brand" href="../../index.html">Thangam</a>
+<nav><a href="../index.html">Blog</a><a href="../../index.html#about">About</a><a href="../../index.html#contact">Contact</a></nav>
+</div>
+</header>
+<main class="article-shell">
+<a class="back-link" href="../index.html">← Back to blog</a>
+<article>
+<header class="article-hero">
+<div class="article-meta">Java · 2025-01-01 · 2 min read</div>
+<h1>JVM</h1>
+<div class="tag-row"><span class="tag">Java</span><span class="tag">JVM</span></div>
+</header>
+<div class="article-content"><article class="h-entry">
+<header>
+<h1 class="p-name">JVM</h1>
+</header>
+<section class="p-summary" data-field="subtitle">
+JVM main components are class loader, rutime data area [memory management] and execution engine
+</section>
+<section class="e-content" data-field="body">
+<section class="section section--body section--first section--last" name="5a86"><div class="section-divider"><hr class="section-divider"/></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 class="graf graf--h3 graf--leading graf--title" id="b0eb" name="b0eb">JVM</h3><p class="graf graf--p graf-after--h3" id="aa63" name="aa63">JVM main components are class loader, rutime data area [memory management] and execution engine</p><h3 class="graf graf--h3 graf-after--p" id="1fc0" name="1fc0">ClassLoader</h3><p class="graf graf--p graf-after--h3" id="bb86" name="bb86">Loading</p><p class="graf graf--p graf-after--p" id="7d48" name="7d48">Test.class — → to Test.class file</p><p class="graf graf--p graf-after--p" id="966f" name="966f">This class file will be loaded to memory by class loader. these class loaders are three types</p><p class="graf graf--p graf-after--p" id="4291" name="4291">bootstrap class loader, extension classloader and application classloader. Bootstrap classloader is the basic one which loads the classes from runtime jar. precompiled files will be loaded to memory.</p><p class="graf graf--p graf-after--p" id="bab0" name="bab0">Extension loader is the one used to load the file from /jre/lib/ext. External / third party dependencies will be loaded by this laoder. </p><p class="graf graf--p graf-after--p" id="0ec2" name="0ec2">Application loader is used to load the class files to the memory area.</p><p class="graf graf--p graf--empty graf-after--p" id="a004" name="a004"><br/></p><p class="graf graf--p graf-after--p" id="52a3" name="52a3">Linking phase</p><p class="graf graf--p graf-after--p" id="b4ba" name="b4ba">Linking can be done by verify, prepare and resolve. Once the class files are loaded to the memory. there is a verify phase where the bytecode class files are verified if they conform to standards. In preparation, memory is allocated for the static variables ad default values are assigned. Resolve phase all the symbolic references are replaced with actual references.</p><p class="graf graf--p graf--empty graf-after--p" id="195b" name="195b"><br/></p><p class="graf graf--p graf-after--p" id="672e" name="672e">Initilization Phase</p><p class="graf graf--p graf-after--p" id="6ba9" name="6ba9">In the initlization phase of class loader component all the static variables are assigned with the actual values ad it also execute the static initializers at this point of time. </p><h3 class="graf graf--h3 graf-after--p" id="2cef" name="2cef">Runtime memory data </h3><p class="graf graf--p graf-after--h3" id="7755" name="7755">Method Area — ALl the class level data are stored in this memory area. </p><p class="graf graf--p graf-after--p" id="5fca" name="5fca">Heap Area — All the objects ad instance variables are stored in this area</p><p class="graf graf--p graf-after--p" id="0132" name="0132">Stack Memory — Three sections Local variables, operand stack — containing the operands and frame data will be stored here. </p><p class="graf graf--p graf-after--p" id="49f8" name="49f8">PC Register — Curret execution instruction</p><p class="graf graf--p graf-after--p" id="6d29" name="6d29">Native Method Stack -native method information </p><h3 class="graf graf--h3 graf-after--p" id="ea20" name="ea20">Execution Engine</h3><p class="graf graf--p graf-after--h3" id="1159" name="1159">Interpreter — read the data and interpret the line by one </p><p class="graf graf--p graf-after--p" id="b529" name="b529">JIT- when repeated method is called multiple times. JIT complies the bytecode to native code. this native code will be used directly for repeated method calls. JIT compile contains few components to achieve this feature. </p><ul class="postList"><li class="graf graf--li graf-after--p" id="93ee" name="93ee">intermediate code generator — generates the intermediate code</li><li class="graf graf--li graf-after--li" id="7be8" name="7be8">code optimizer — Optimizes the intermediate code for better performance </li><li class="graf graf--li graf-after--li" id="1bc4" name="1bc4">Target code generator — Converts intermediate code to native machine code</li><li class="graf graf--li graf-after--li" id="bf39" name="bf39">Profiler — It is response for finding the hotspots, methods which are called repeatedly </li></ul><p class="graf graf--p graf--empty graf-after--li" id="e0cc" name="e0cc"><br/></p><p class="graf graf--p graf-after--p" id="e5c1" name="e5c1">Garbage collector</p><p class="graf graf--p graf-after--p" id="19a2" name="19a2">GC is responsible for destroying the old unused objects. </p><p class="graf graf--p graf--empty graf-after--p" id="3dae" name="3dae"><br/></p><p class="graf graf--p graf--empty graf-after--p" id="e7f5" name="e7f5"><br/></p><p class="graf graf--p graf-after--p graf--trailing" id="0ed4" name="0ed4"> </p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/a37daeb9504f">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></div>
+<footer class="article-footer"></footer>
+</article>
+</main>
+<script>
+document.querySelectorAll('.article-content a').forEach(a => {
+ const href=a.getAttribute('href')||'';
+ if(href.startsWith('http')){a.target='_blank';a.rel='noopener';}
+});
+</script>
+</body>
+</html>

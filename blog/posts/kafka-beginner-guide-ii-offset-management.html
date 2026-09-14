@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kafka Beginner Guide II → Offset Management | Thangam</title>
+<meta name="description" content="Kafka Beginner Guide II → Offset Management Kafka Producer is really simple. We may need to tweak some parameters to get the production-ready Kafka producer. On the other hand, If we… Kafka…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kafka Beginner Guide II → Offset Management">
+<meta property="og:description" content="Kafka Beginner Guide II → Offset Management Kafka Producer is really simple. We may need to tweak some parameters to get the production-ready Kafka producer. On the other hand, If we… Kafka…">
+<meta property="article:published_time" content="2025-01-01">
+<link rel="stylesheet" href="../blog.css">
+</head>
+<body class="article-page">
+<header class="blog-header">
+<div class="blog-shell nav-row">
+<a class="brand" href="../../index.html">Thangam</a>
+<nav><a href="../index.html">Blog</a><a href="../../index.html#about">About</a><a href="../../index.html#contact">Contact</a></nav>
+</div>
+</header>
+<main class="article-shell">
+<a class="back-link" href="../index.html">← Back to blog</a>
+<article>
+<header class="article-hero">
+<div class="article-meta">Kafka &amp; Messaging · 2025-01-01 · 2 min read</div>
+<h1>Kafka Beginner Guide II → Offset Management</h1>
+<div class="tag-row"><span class="tag">Kafka &amp; Messaging</span><span class="tag">Kafka</span><span class="tag">Consumers</span></div>
+</header>
+<div class="article-content"><article class="h-entry">
+<header>
+<h1 class="p-name">Kafka Beginner Guide II → Offset Management</h1>
+</header>
+<section class="p-summary" data-field="subtitle">
+Kafka Producer is really simple. We may need to tweak some parameters to get the production-ready Kafka producer. On the other hand, If we…
+</section>
+<section class="e-content" data-field="body">
+<section class="section section--body section--first section--last" name="852a"><div class="section-divider"><hr class="section-divider"/></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 class="graf graf--h3 graf--leading graf--title" id="8a9c" name="8a9c">Kafka Beginner Guide II → Offset Management</h3><p class="graf graf--p graf-after--h3" id="b3a3" name="b3a3">Kafka Producer is really simple. We may need to tweak some parameters to get the production-ready Kafka producer. On the other hand, If we look at the consumer, <em class="markup--em markup--p-em">Ok why need to look? let’s deep dive into the consumer.</em></p><h3 class="graf graf--h3 graf-after--p" id="0b89" name="0b89">Kafka Consumer</h3><ol class="postList"><li class="graf graf--li graf-after--h3" id="ab76" name="ab76">The consumer is used to consume the data from the Kafka Topic. </li><li class="graf graf--li graf-after--li" id="9efd" name="9efd">When one consumer consumes the data from Kafka, Typically the consumer will belongs to one group.</li><li class="graf graf--li graf-after--li" id="51c2" name="51c2"> Within the group, consumers work synchronously.</li><li class="graf graf--li graf-after--li" id="b9d0" name="b9d0">More than one consumer will not be assigned to a single partition at a given time within the group.</li><li class="graf graf--li graf-after--li" id="6e77" name="6e77">Consumers will read the data sequentially within the partitions and if more than one partition is assigned to a consumer then the consumer can read the data parallel across the partition.</li><li class="graf graf--li graf-after--li" id="bd2c" name="bd2c">Consumer group can be looked at as logical single consumer application where that application can read different  data from the same topic with the help of partitions and consumers. </li><li class="graf graf--li graf-after--li" id="b7dd" name="b7dd">When multiple consumers are subscribed to a topic and belong to the same consumer group, each consumer in the group will receive messages from a different subset of the partitions in the topic.</li></ol><h4 class="graf graf--h4 graf-after--li" id="89c2" name="89c2">Offset</h4><p class="graf graf--p graf-after--h4" id="6a1b" name="6a1b">Offset is a kind of an id of the message within the partition. The combination of topic name, partition number and offset will be unique for each message which means offset is used to identify the place of the message within the partition.</p><p class="graf graf--p graf-after--p" id="fc76" name="fc76">Consumers will use this offset to know where are in the partition. </p><p class="graf graf--p graf-after--p" id="b558" name="b558">Consumers need to consume the messages and then process the messages. after that, they need to tell Kafka that at what place they complete the processing. </p><p class="graf graf--p graf-after--p" id="9cee" name="9cee">Consumers use two kinds of offsets and they are </p><ol class="postList"><li class="graf graf--li graf-after--p" id="52e8" name="52e8">Current offset<br/>the position which is currently consumed by the consumer. </li><li class="graf graf--li graf-after--li" id="c537" name="c537">Committed offset<br/>the last position which is successfully processed by the consumer. </li></ol><p class="graf graf--p graf-after--li" id="f8c9" name="f8c9">Who handles this current offset and committed offset? Kafka will not handle them then who?<strong class="markup--strong markup--p-strong"> this is the job of the consumer</strong>. Consumer needs to track their  offsets. That’s how Kafka is designed. Pretty interesting right?</p><p class="graf graf--p graf-after--p" id="3382" name="3382">When a consumer consumes messages from Kafka. Consumers need to tell Kafka that, at what place they processed. This action is called commit when the consumer commits an offset of a particular partition that means up to that position consumer processed the messages. </p><p class="graf graf--p graf-after--p" id="3f64" name="3f64"> </p><p class="graf graf--p graf--empty graf-after--p graf--trailing" id="685a" name="685a"><br/></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/7d235f398cf">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></div>
+<footer class="article-footer"></footer>
+</article>
+</main>
+<script>
+document.querySelectorAll('.article-content a').forEach(a => {
+ const href=a.getAttribute('href')||'';
+ if(href.startsWith('http')){a.target='_blank';a.rel='noopener';}
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Do you ever think how this SQL query is executed? | Thangam</title>
+<meta name="description" content="Do you ever think how this SQL query is executed? This Query processing is just a 3 steps procedure Do you ever think how this SQL query is executed? This Query processing is just a 3 steps…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Do you ever think how this SQL query is executed?">
+<meta property="og:description" content="Do you ever think how this SQL query is executed? This Query processing is just a 3 steps procedure Do you ever think how this SQL query is executed? This Query processing is just a 3 steps…">
+<meta property="article:published_time" content="2025-01-01">
+<link rel="stylesheet" href="../blog.css">
+</head>
+<body class="article-page">
+<header class="blog-header">
+<div class="blog-shell nav-row">
+<a class="brand" href="../../index.html">Thangam</a>
+<nav><a href="../index.html">Blog</a><a href="../../index.html#about">About</a><a href="../../index.html#contact">Contact</a></nav>
+</div>
+</header>
+<main class="article-shell">
+<a class="back-link" href="../index.html">← Back to blog</a>
+<article>
+<header class="article-hero">
+<div class="article-meta">Databases · 2025-01-01 · 2 min read</div>
+<h1>Do you ever think how this SQL query is executed?</h1>
+<div class="tag-row"><span class="tag">Databases</span><span class="tag">SQL</span><span class="tag">Query Optimization</span></div>
+</header>
+<div class="article-content"><article class="h-entry">
+<header>
+<h1 class="p-name">Do you ever think how this SQL query is executed?</h1>
+</header>
+<section class="p-summary" data-field="subtitle">
+This Query processing is just a 3 steps procedure
+</section>
+<section class="e-content" data-field="body">
+<section class="section section--body section--first section--last" name="99d5"><div class="section-divider"><hr class="section-divider"/></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><p class="graf graf--p graf--empty graf--leading" id="2311" name="2311"><br/></p><p class="graf graf--p graf-after--p" id="4abb" name="4abb">Do you ever think how this SQL query is executed?</p><p class="graf graf--p graf-after--p" id="40d4" name="40d4">This Query processing is just a 3 steps procedure</p><ul class="postList"><li class="graf graf--li graf-after--p" id="beff" name="beff">Parsing and Translation</li><li class="graf graf--li graf-after--li" id="36e6" name="36e6">Optimization</li><li class="graf graf--li graf-after--li" id="93f2" name="93f2">Evaluation</li></ul><p class="graf graf--p graf-after--li" id="832d" name="832d">When a query is written in SQL language Its look like below</p><pre class="graf graf--pre graf-after--p" id="e079" name="e079">Select student_name <br/>From students<br/>where age &lt; 10<br/>// This simple query will retrieve the student's names // who are less than age of 10 in students database.</pre><h4 class="graf graf--h4 graf-after--pre" id="1eca" name="1eca">Parsing and Translation</h4><p class="graf graf--p graf-after--h4" id="d7d9" name="d7d9">We need to check the SQL query syntax and its relations. We use the <strong class="markup--strong markup--p-strong">parser</strong> to do these checkings.</p><p class="graf graf--p graf-after--p" id="b303" name="b303">We need to translate the SQL query into relational algebra since it provides a theoretical foundation. However, we do this translation in two steps.</p><ul class="postList"><li class="graf graf--li graf-after--p" id="c6ab" name="c6ab">The SQL query is translated to internal form</li><li class="graf graf--li graf-after--li" id="bb91" name="bb91">The internal form is translated to relational algebra notations</li></ul><p class="graf graf--p graf-after--li" id="4627" name="4627">The problem is, a relational algebra expression may have many equivalent expressions.</p><p class="graf graf--p graf-after--p" id="e4c0" name="e4c0">For our SQL query, we can write below relational algebra expressions. </p><pre class="graf graf--pre graf-after--p" id="b8fd" name="b8fd"><strong class="markup--strong markup--pre-strong">σ </strong><em class="markup--em markup--pre-em">age &lt; 10 </em>(<strong class="markup--strong markup--pre-strong">∏ </strong><em class="markup--em markup--pre-em">student_name</em> (<strong class="markup--strong markup--pre-strong"><em class="markup--em markup--pre-em">students</em></strong>))</pre><p class="graf graf--p graf-after--pre" id="dbd9" name="dbd9">Or </p><pre class="graf graf--pre graf-after--p" id="12db" name="12db"><strong class="markup--strong markup--pre-strong">∏ </strong><em class="markup--em markup--pre-em">student_name </em>(<strong class="markup--strong markup--pre-strong">σ </strong><em class="markup--em markup--pre-em">age &lt; 10 </em>(<strong class="markup--strong markup--pre-strong"><em class="markup--em markup--pre-em">students</em></strong>))</pre><p class="graf graf--p graf-after--pre" id="4409" name="4409">We need to choose the expression that can be used to query the database. Basically, we need to find low-cost expression among all expressions is nothing but <strong class="markup--strong markup--p-strong">query optimization</strong>. Here, we refer total elapsed time for answering a query as cost.</p><h4 class="graf graf--h4 graf-after--p" id="2c76" name="2c76">Query Optimization</h4><p class="graf graf--p graf-after--h4" id="333f" name="333f">This is a broader topic, I will do a blog for this don’t worry guys !!!. For now, I will give an abstract view of what we do in query optimization</p><ul class="postList"><li class="graf graf--li graf-after--p" id="dddb" name="dddb">We measure query costs</li><li class="graf graf--li graf-after--li" id="13a8" name="13a8">We use algorithms to evaluate relational algebra expressions, Based on the evaluation, we find the best combinations of expression. </li><li class="graf graf--li graf-after--li" id="1092" name="1092">We will find an evaluation plan with the lowest estimated cost</li></ul><p class="graf graf--p graf-after--li" id="4097" name="4097">This evaluation plan is given to the DB engine.</p><h4 class="graf graf--h4 graf-after--p" id="2b32" name="2b32">Evaluation</h4><p class="graf graf--p graf-after--h4" id="92aa" name="92aa">The query-execution engine takes a query-evaluation plan, executes<br/>that plan, and returns the answers to the query.</p><h4 class="graf graf--h4 graf-after--p" id="f020" name="f020">Evaluation plan</h4><p class="graf graf--p graf-after--h4" id="6e5a" name="6e5a">It is an annotated expression for DB engine to execute the query with detailed specification</p><p class="graf graf--p graf--empty graf-after--p" id="b5ab" name="b5ab"><br/></p><p class="graf graf--p graf--empty graf-after--p" id="ec9c" name="ec9c"><br/></p><p class="graf graf--p graf--empty graf-after--p graf--trailing" id="788c" name="788c"><br/></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/8e8eb0394ff">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></div>
+<footer class="article-footer"></footer>
+</article>
+</main>
+<script>
+document.querySelectorAll('.article-content a').forEach(a => {
+ const href=a.getAttribute('href')||'';
+ if(href.startsWith('http')){a.target='_blank';a.rel='noopener';}
+});
+</script>
+</body>
+</html>

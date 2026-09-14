@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>React — Day 1 | Thangam</title>
+<meta name="description" content="React — Day 1 React makes building complex interactive &amp; reactive user interfaces simpler. React — Day 1 React makes building complex interactive &amp; reactive user interfaces simpler. React is…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React — Day 1">
+<meta property="og:description" content="React — Day 1 React makes building complex interactive &amp; reactive user interfaces simpler. React — Day 1 React makes building complex interactive &amp; reactive user interfaces simpler. React is…">
+<meta property="article:published_time" content="2025-01-01">
+<link rel="stylesheet" href="../blog.css">
+</head>
+<body class="article-page">
+<header class="blog-header">
+<div class="blog-shell nav-row">
+<a class="brand" href="../../index.html">Thangam</a>
+<nav><a href="../index.html">Blog</a><a href="../../index.html#about">About</a><a href="../../index.html#contact">Contact</a></nav>
+</div>
+</header>
+<main class="article-shell">
+<a class="back-link" href="../index.html">← Back to blog</a>
+<article>
+<header class="article-hero">
+<div class="article-meta">Java · 2025-01-01 · 2 min read</div>
+<h1>React — Day 1</h1>
+<div class="tag-row"><span class="tag">Java</span></div>
+</header>
+<div class="article-content"><article class="h-entry">
+<header>
+<h1 class="p-name">React — Day 1</h1>
+</header>
+<section class="p-summary" data-field="subtitle">
+React makes building complex interactive &amp; reactive user interfaces simpler.
+</section>
+<section class="e-content" data-field="body">
+<section class="section section--body section--first section--last" name="33a6"><div class="section-divider"><hr class="section-divider"/></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 class="graf graf--h3 graf--leading graf--title" id="f7ae" name="f7ae">React — Day 1</h3><p class="graf graf--p graf-after--h3" id="3b5a" name="3b5a">React makes building complex interactive &amp; reactive user interfaces simpler.</p><p class="graf graf--p graf-after--p" id="45cc" name="45cc">React is all about “Components”</p><h4 class="graf graf--h4 graf-after--p" id="daac" name="daac">Component</h4><p class="graf graf--p graf-after--h4" id="08df" name="08df">All user interfaces in the end are made up of components. </p><p class="graf graf--p graf-after--p" id="c9b2" name="c9b2"><strong class="markup--strong markup--p-strong">Why?</strong></p><ul class="postList"><li class="graf graf--li graf-after--p" id="16a7" name="16a7">Reusability → Don’t Repeat yourself</li><li class="graf graf--li graf-after--li" id="c5c6" name="c5c6">Separation of Concerns → Don't do too many things in one &amp; the same place.</li></ul><p class="graf graf--p graf-after--li" id="69cf" name="69cf"><strong class="markup--strong markup--p-strong">How?</strong></p><p class="graf graf--p graf-after--p" id="ad0f" name="ad0f">User interfaces include HTML, CSS and JS. React allows you to create reusable &amp; reactive components of HTML &amp; JavaScript &amp; CSS. It uses a declarative approach. </p><h4 class="graf graf--h4 graf-after--p" id="60c3" name="60c3">React code is written in a declarative way</h4><p class="graf graf--p graf-after--h4" id="0a6e" name="0a6e">Define the desired target state &amp; let React figure out the actual JS DOM instructions. </p><h4 class="graf graf--h4 graf-after--p" id="dc66" name="dc66">Create React APP</h4><p class="graf graf--p graf-after--h4" id="2412" name="2412">Bunch of configuration files, a friendly development environment, with a web server. It simplifies the development process. </p><pre class="graf graf--pre graf-after--p" id="f231" name="f231">npx create-react-app react-expenses-tracker-v1</pre><p class="graf graf--p graf-after--pre" id="fff2" name="fff2">It will set up the react project for you.</p><pre class="graf graf--pre graf-after--p" id="0010" name="0010">npm start</pre><p class="graf graf--p graf-after--pre" id="b3e8" name="b3e8">It will start the development server.</p><h4 class="graf graf--h4 graf-after--p" id="787b" name="787b"> Scratch Project</h4><h4 class="graf graf--h4 graf-after--h4" id="1fc1" name="1fc1">package.json</h4><p class="graf graf--p graf-after--h4" id="6f46" name="6f46">It holds all the dependencies of the project. </p><h4 class="graf graf--h4 graf-after--p" id="c73b" name="c73b">src</h4><p class="graf graf--p graf-after--h4" id="07d3" name="07d3">Actual source code you are going to work.</p><p class="graf graf--p graf-after--p" id="73f5" name="73f5"><strong class="markup--strong markup--p-strong">index.js</strong></p><p class="graf graf--p graf-after--p" id="f694" name="f694">This file will be executed when you start the server. This is not regular JS code. This code will be synthetic sugar and it will work since it will be transformed into actual code by the react and this makes the dev life easier. </p><pre class="graf graf--pre graf-after--p" id="2bfa" name="2bfa">import ReactDOM from 'react-dom/client';<br/>import './index.css';<br/>import App from './App';</pre><pre class="graf graf--pre graf-after--pre" id="6d67" name="6d67">const root = ReactDOM.createRoot(document.getElementById('root'));<br/>root.render(&lt;App /&gt;);</pre><p class="graf graf--p graf-after--pre" id="cc0a" name="cc0a">We are importing ReactDOM from react-dom. Single HTML file It consists a div with id called root. This DIV will be used to attach the user interface that is created by react.</p><ol class="postList"><li class="graf graf--li graf-after--p" id="e5d4" name="e5d4">We are creating a root with that particular root. the main place to render the app.</li><li class="graf graf--li graf-after--li" id="e8a0" name="e8a0">We are calling the render method to show what we selected here.</li></ol><p class="graf graf--p graf-after--li" id="e923" name="e923">Basically, react will replace the HTML div with the &lt;App /&gt; </p><p class="graf graf--p graf-after--p" id="84b2" name="84b2"><strong class="markup--strong markup--p-strong">What is App?</strong></p><pre class="graf graf--pre graf-after--p" id="bece" name="bece">function App(){<br/>   return(<br/>     &lt;div&gt; <br/>        &lt;h2&gt; Let's get started &lt;/h2&gt;<br/>     &lt;/div&gt;<br/>    );<br/>}<br/>export defualt App;</pre><h4 class="graf graf--h4 graf-after--pre" id="fde9" name="fde9">JSX</h4><p class="graf graf--p graf--empty graf-after--h4 graf--trailing" id="4741" name="4741"><br/></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/4bea393dfe67">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></div>
+<footer class="article-footer"></footer>
+</article>
+</main>
+<script>
+document.querySelectorAll('.article-content a').forEach(a => {
+ const href=a.getAttribute('href')||'';
+ if(href.startsWith('http')){a.target='_blank';a.rel='noopener';}
+});
+</script>
+</body>
+</html>

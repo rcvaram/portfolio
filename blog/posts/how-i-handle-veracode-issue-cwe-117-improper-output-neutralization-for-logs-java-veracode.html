@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How I handle Veracode Issue (CWE 117) Improper Output Neutralization for Logs | Java | Veracode… | Thangam</title>
+<meta name="description" content="How I handle Veracode Issue (CWE 117) Improper Output Neutralization for Logs | Java | Veracode… Veracode scanner is able to find the log forging attack. I recommend you scan your applicatio…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How I handle Veracode Issue (CWE 117) Improper Output Neutralization for Logs | Java | Veracode…">
+<meta property="og:description" content="How I handle Veracode Issue (CWE 117) Improper Output Neutralization for Logs | Java | Veracode… Veracode scanner is able to find the log forging attack. I recommend you scan your applicatio…">
+<meta property="article:published_time" content="2022-06-24">
+<link rel="stylesheet" href="../blog.css">
+</head>
+<body class="article-page">
+<header class="blog-header">
+<div class="blog-shell nav-row">
+<a class="brand" href="../../index.html">Thangam</a>
+<nav><a href="../index.html">Blog</a><a href="../../index.html#about">About</a><a href="../../index.html#contact">Contact</a></nav>
+</div>
+</header>
+<main class="article-shell">
+<a class="back-link" href="../index.html">← Back to blog</a>
+<article>
+<header class="article-hero">
+<div class="article-meta">REST &amp; APIs · 2022-06-24 · 2 min read</div>
+<h1>How I handle Veracode Issue (CWE 117) Improper Output Neutralization for Logs | Java | Veracode…</h1>
+<div class="tag-row"><span class="tag">REST &amp; APIs</span><span class="tag">HTTP</span></div>
+</header>
+<div class="article-content"><article class="h-entry">
+<header>
+<h1 class="p-name">How I handle Veracode Issue (CWE 117) Improper Output Neutralization for Logs | Java | Veracode…</h1>
+</header>
+<section class="p-summary" data-field="subtitle">
+Veracode scanner is able to find the log forging attack. I recommend you scan your application with a Veracode scanner before going to…
+</section>
+<section class="e-content" data-field="body">
+<section class="section section--body section--first section--last" name="eb7d"><div class="section-divider"><hr class="section-divider"/></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 class="graf graf--h3 graf--leading graf--title" id="f432" name="f432">How I handle Veracode Issue (CWE 117) Improper Output Neutralization for Logs | Java | Veracode Fixes</h3><figure class="graf graf--figure graf-after--h3" id="4700" name="4700"><img class="graf-image" data-height="438" data-image-id="1*8GNFX0r_14_ckRQF2eblLA.jpeg" data-is-featured="true" data-width="780" decoding="async" loading="lazy" src="https://cdn-images-1.medium.com/max/800/1*8GNFX0r_14_ckRQF2eblLA.jpeg"/></figure><blockquote class="graf graf--pullquote graf-after--figure" id="daf4" name="daf4">Veracode scanner is able to find the log forging attack. I recommend you scan your application with a Veracode scanner before going to production to ensure your application security.</blockquote><h4 class="graf graf--h4 graf-after--pullquote" id="99d6" name="99d6">Why its an issue</h4><p class="graf graf--p graf-after--h4" id="74be" name="74be">Writing untrusted data into a log file allows an attacker to forge log<br/>entries or inject malicious content into log files. Corrupted log files can be used to cover an attacker’s tracks or as a delivery mechanism for an attack on a log viewing or processing utility.</p><h4 class="graf graf--h4 graf-after--p" id="7af8" name="7af8">Veracode Solutions</h4><p class="graf graf--p graf-after--h4" id="31d1" name="31d1">Veracode recommends avoiding directly embedding user input in log files when possible or sanitirizing untrusted data used to construct log entries.</p><p class="graf graf--p graf-after--p" id="da6d" name="da6d">This can be achieved by using the encodeForHtml() encoding method from the ESAPI library. However, the library requires some extra configuration (ESAPI.properties) which is redundant if you just want to escape logged values.</p><h4 class="graf graf--h4 graf-after--p" id="e091" name="e091">How I handled the issue</h4><figure class="graf graf--figure graf--iframe graf-after--h4" id="4319" name="4319"><iframe frameborder="0" height="435" scrolling="no" src="https://giphy.com/embed/3ov9jJ2eObpvRZTus8/twitter/iframe" width="435"></iframe></figure><p class="graf graf--p graf-after--figure" id="ff05" name="ff05"><strong class="markup--strong markup--p-strong">Sample Logs I had</strong></p><pre class="graf graf--pre graf-after--p" id="c713" name="c713">log.info("test user :{}", user);<br/>log.info("test user :{} test name : {}", user, name);<br/>log.info("test user: {} "test name : {} test mail : {} ", user, name, mail);<br/>log.error("Exception occurred for test user :{} test name : {}", user, name, ex);<br/><br/></pre><p class="graf graf--p graf-after--pre" id="7fe7" name="7fe7"><strong class="markup--strong markup--p-strong">Solution code I wrote to overcome this issue</strong></p><figure class="graf graf--figure graf--iframe graf-after--p" id="be17" name="be17"></figure><p class="graf graf--p graf-after--figure" id="b0d1" name="b0d1">After writing these <a class="markup--anchor markup--p-anchor" data-href="https://www.java67.com/2014/10/difference-between-static-and-non-static-method-java-programming.html" href="https://www.java67.com/2014/10/difference-between-static-and-non-static-method-java-programming.html" rel="noopener" target="_blank">static methods</a> we can use them directly in the logger methods as follows.</p><pre class="graf graf--pre graf-after--p" id="3964" name="3964">import utils.VeracodeUtil.<em class="markup--em markup--pre-em">secureArguments;<br/><br/></em></pre><pre class="graf graf--pre graf-after--pre" id="8ae7" name="8ae7">public class Test{<br/>   public void testMethod(){<br/>     log.info("test user :{}", secureArguments(user));<br/>     log.info("test user :{} test name : {}", secureArguments(user,    name));<br/>     log.info("test user: {} "test name : {} test mail : {} ", secureArguments(user, name, mail));<br/>     log.error("Exception occurred for test user :{} test name : {}", secureArguments(user, name, ex));<br/>  }<br/>}</pre><h4 class="graf graf--h4 graf-after--pre" id="7177" name="7177">References</h4><div class="graf graf--mixtapeEmbed graf-after--h4" id="7a53" name="7a53"><a class="markup--anchor markup--mixtapeEmbed-anchor" data-href="https://community.veracode.com/s/article/How-to-Fix-CWE-117-Improper-Output-Neutralization-for-Logs" href="https://community.veracode.com/s/article/How-to-Fix-CWE-117-Improper-Output-Neutralization-for-Logs" title="https://community.veracode.com/s/article/How-to-Fix-CWE-117-Improper-Output-Neutralization-for-Logs"><strong class="markup--strong markup--mixtapeEmbed-strong">Community</strong><br/><em class="markup--em markup--mixtapeEmbed-em">Edit description</em>community.veracode.com</a><a class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="58e133bb865fadd1876acca5918b7598" href="https://community.veracode.com/s/article/How-to-Fix-CWE-117-Improper-Output-Neutralization-for-Logs"></a></div><div class="graf graf--mixtapeEmbed graf-after--mixtapeEmbed" id="8caf" name="8caf"><a class="markup--anchor markup--mixtapeEmbed-anchor" data-href="https://stackoverflow.com/questions/46564555/pass-veracode-cwe-117-improper-output-neutralization-for-logs-only-with-replac" href="https://stackoverflow.com/questions/46564555/pass-veracode-cwe-117-improper-output-neutralization-for-logs-only-with-replac" title="https://stackoverflow.com/questions/46564555/pass-veracode-cwe-117-improper-output-neutralization-for-logs-only-with-replac"><strong class="markup--strong markup--mixtapeEmbed-strong">Pass Veracode CWE 117 (Improper Output Neutralization for Logs) only with replaceAll("\r"…</strong><br/><em class="markup--em markup--mixtapeEmbed-em">Thanks for contributing an answer to Stack Overflow! Please be sure to answer the question. Provide details and share…</em>stackoverflow.com</a><a class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="a4e95d5b7ba31827fc84dc03fa8e95c9" data-thumbnail-img-id="0*Qy9U6QeDRD6JoJuc" href="https://stackoverflow.com/questions/46564555/pass-veracode-cwe-117-improper-output-neutralization-for-logs-only-with-replac" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*Qy9U6QeDRD6JoJuc);"></a></div><p class="graf graf--p graf-after--mixtapeEmbed graf--trailing" id="2bfa" name="2bfa"><a class="markup--anchor markup--p-anchor" data-href="https://stackoverflow.com/questions/16225935/security-flaw-veracode-report-crlf-injection/49804999#49804999" href="https://stackoverflow.com/questions/16225935/security-flaw-veracode-report-crlf-injection/49804999#49804999" rel="nofollow noopener" target="_blank">https://stackoverflow.com/questions/16225935/security-flaw-veracode-report-crlf-injection/49804999#49804999</a></p></div></div></section>
+</section>
+<footer><p>By <a class="p-author h-card" href="https://medium.com/@rcvaram">Sivaram Rasathurai</a> on <a href="https://medium.com/p/2c55df32245a"><time class="dt-published" datetime="2022-06-24T04:28:11.092Z">June 24, 2022</time></a>.</p><p><a class="p-canonical" href="https://medium.com/@rcvaram/how-i-handle-veracode-issue-cwe-117-improper-output-neutralization-for-logs-java-veracode-2c55df32245a">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></div>
+<footer class="article-footer"></footer>
+</article>
+</main>
+<script>
+document.querySelectorAll('.article-content a').forEach(a => {
+ const href=a.getAttribute('href')||'';
+ if(href.startsWith('http')){a.target='_blank';a.rel='noopener';}
+});
+</script>
+</body>
+</html>

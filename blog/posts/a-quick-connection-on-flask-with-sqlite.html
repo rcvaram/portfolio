@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A Quick Connection on Flask with SQLite | Thangam</title>
+<meta name="description" content="A Quick Connection on Flask with SQLite Here, I don’t talk about everything just focus on connecting the SQLite database with the Flask application A Quick Connection on Flask with SQLite He…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="A Quick Connection on Flask with SQLite">
+<meta property="og:description" content="A Quick Connection on Flask with SQLite Here, I don’t talk about everything just focus on connecting the SQLite database with the Flask application A Quick Connection on Flask with SQLite He…">
+<meta property="article:published_time" content="2025-01-01">
+<link rel="stylesheet" href="../blog.css">
+</head>
+<body class="article-page">
+<header class="blog-header">
+<div class="blog-shell nav-row">
+<a class="brand" href="../../index.html">Thangam</a>
+<nav><a href="../index.html">Blog</a><a href="../../index.html#about">About</a><a href="../../index.html#contact">Contact</a></nav>
+</div>
+</header>
+<main class="article-shell">
+<a class="back-link" href="../index.html">← Back to blog</a>
+<article>
+<header class="article-hero">
+<div class="article-meta">Databases · 2025-01-01 · 1 min read</div>
+<h1>A Quick Connection on Flask with SQLite</h1>
+<div class="tag-row"><span class="tag">Databases</span><span class="tag">SQL</span></div>
+</header>
+<div class="article-content"><article class="h-entry">
+<header>
+<h1 class="p-name">A Quick Connection on Flask with SQLite</h1>
+</header>
+<section class="p-summary" data-field="subtitle">
+Here, I don’t talk about everything just focus on connecting the SQLite database with the Flask application
+</section>
+<section class="e-content" data-field="body">
+<section class="section section--body section--first section--last" name="ed27"><div class="section-divider"><hr class="section-divider"/></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 class="graf graf--h3 graf--leading graf--title" id="2d01" name="2d01">A Quick Connection on Flask with SQLite</h3><p class="graf graf--p graf-after--h3" id="6e52" name="6e52">Here, I don’t talk about everything just focus on connecting the SQLite database with the Flask application</p><p class="graf graf--p graf-after--p" id="cb0d" name="cb0d">SQLAlchamey → It is commonly used for Object Relational Mapper(ORM) to work with different databases such as SQLite, MySQL and more. It allows us to use the database in an object-orientated way. Most of the time, Most of the python code doesn’t need to change for different databases If you use ORM type.</p><p class="graf graf--p graf-after--p" id="cb65" name="cb65">How can we do get the support of SQLALchamey in Flask?</p><p class="graf graf--p graf-after--p" id="7d02" name="7d02">We need to install the pip package which named flask-sqlalchemy</p><pre class="graf graf--pre graf-after--p" id="e5c2" name="e5c2">pip install flask-sqlalchemy</pre><p class="graf graf--p graf-after--pre" id="6d95" name="6d95">This flask specific sqlalchemy package gives more helpers for our flask application.</p><p class="graf graf--p graf-after--p" id="90d6" name="90d6">Connecting the SQLite database with our Flask Application</p><p class="graf graf--p graf-after--p" id="7c2e" name="7c2e">SQLite is the easiest way to test your application then you can change your database to anything you want.</p><p class="graf graf--p graf-after--p" id="c238" name="c238">Bolded lines are only needed for SQLite configuration for flask application.</p><pre class="graf graf--pre graf-after--p" id="f5f8" name="f5f8"><strong class="markup--strong markup--pre-strong"><em class="markup--em markup--pre-em">from flask_sqlalchamey import SQLAlchemy</em></strong></pre><pre class="graf graf--pre graf-after--pre" id="8c23" name="8c23"><em class="markup--em markup--pre-em">app = Flask(__name__)<br/>app.config['SECRET_KEY'] = "SECRTETbROOOOOO"<br/></em><strong class="markup--strong markup--pre-strong"><em class="markup--em markup--pre-em">app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'</em></strong></pre><pre class="graf graf--pre graf-after--pre" id="be10" name="be10"><strong class="markup--strong markup--pre-strong">db = SQLAlchaemy(app)</strong></pre><ol class="postList"><li class="graf graf--li graf-after--pre" id="de4d" name="de4d">We need to import the SQLAlchemy from the flask_sqlalchamey. </li><li class="graf graf--li graf-after--li" id="0111" name="0111">We need to say where the database is located in our flask app directory. It can be done with <strong class="markup--strong markup--li-strong"><em class="markup--em markup--li-em">SQLACHEMY_DATABASE_URI</em></strong> configuration. Here, We set our path as “sqlite:///test.db”. In this path, we specify what database we will use and after ///, we specify our relative database base path from the current file.</li><li class="graf graf--li graf-after--li" id="fc78" name="fc78">We need to get the SQLAlchamey class instance to work with our database. Since we specified the database URL to the flask app, We only need to give the Flask app instance as an argument to the SQLALchemy constructor. Inhere, we get the SQLAlchemy instance as DB.</li></ol><p class="graf graf--p graf--empty graf-after--li" id="38ff" name="38ff"><br/></p><h4 class="graf graf--h4 graf--empty graf-after--p" id="c711" name="c711"><br/></h4><p class="graf graf--p graf--empty graf-after--h4 graf--trailing" id="7d71" name="7d71"><br/></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/5ccd725e6ebe">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></div>
+<footer class="article-footer"></footer>
+</article>
+</main>
+<script>
+document.querySelectorAll('.article-content a').forEach(a => {
+ const href=a.getAttribute('href')||'';
+ if(href.startsWith('http')){a.target='_blank';a.rel='noopener';}
+});
+</script>
+</body>
+</html>

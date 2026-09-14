@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JWT With Spring Boot | Thangam</title>
+<meta name="description" content="JWT With Spring Boot JWT is a popular way to do user authorization in web apps today. Here, we will see how can we use the JWT in the spring boot to secure our… JWT With Spring Boot JWT is a…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JWT With Spring Boot">
+<meta property="og:description" content="JWT With Spring Boot JWT is a popular way to do user authorization in web apps today. Here, we will see how can we use the JWT in the spring boot to secure our… JWT With Spring Boot JWT is a…">
+<meta property="article:published_time" content="2025-01-01">
+<link rel="stylesheet" href="../blog.css">
+</head>
+<body class="article-page">
+<header class="blog-header">
+<div class="blog-shell nav-row">
+<a class="brand" href="../../index.html">Thangam</a>
+<nav><a href="../index.html">Blog</a><a href="../../index.html#about">About</a><a href="../../index.html#contact">Contact</a></nav>
+</div>
+</header>
+<main class="article-shell">
+<a class="back-link" href="../index.html">← Back to blog</a>
+<article>
+<header class="article-hero">
+<div class="article-meta">Security · 2025-01-01 · 2 min read</div>
+<h1>JWT With Spring Boot</h1>
+<div class="tag-row"><span class="tag">Security</span><span class="tag">Authentication</span><span class="tag">Authorization</span></div>
+</header>
+<div class="article-content"><article class="h-entry">
+<header>
+<h1 class="p-name">JWT With Spring Boot</h1>
+</header>
+<section class="p-summary" data-field="subtitle">
+JWT is a popular way to do user authorization in web apps today. Here, we will see how can we use the JWT in the spring boot to secure our…
+</section>
+<section class="e-content" data-field="body">
+<section class="section section--body section--first section--last" name="9f65"><div class="section-divider"><hr class="section-divider"/></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 class="graf graf--h3 graf--leading graf--title" id="c9ec" name="c9ec">JWT With Spring Boot</h3><p class="graf graf--p graf-after--h3" id="50f2" name="50f2">JWT is a popular way to do user authorization in web apps today. Here, we will see how can we use the JWT in the spring boot to secure our application.</p><p class="graf graf--p graf-after--p" id="c818" name="c818">For that, we want to know really what is JWT?</p><p class="graf graf--p graf-after--p" id="10f0" name="10f0">The open industry standard specification called the RFC 7519 which outlines how a JWT ability should be structured and how to use it for exchanging information. </p><p class="graf graf--p graf-after--p" id="0b3d" name="0b3d">The difficulty in web communication is the HTTP protocol. Why? HTTP is a stateless protocol. every interaction of the HTTP needs to contain all the information needed for that interaction. Nothing is remembered from the previous interaction. NO information is saved or the state is saved in HTTP protocol. How the session is maintained on the website? there are two ways to maintain the user sessions. The first one is session tokens and JSON web token.</p><p class="graf graf--p graf-after--p" id="c469" name="c469">Session token</p><p class="graf graf--p graf-after--p" id="007f" name="007f">When you authenticate to the server, the server will create the session and keeps track the user session. each session has id, that will be unique for user. This id will pass from the user and server checks with stored session information which is in server. The normally the session id is saved in a cookie. It automatically gets added to the cookie header on every subsequent request. Authentication happens, the server saves the state and returns a response, for the cookie sub subsequent requests from the browser automatically have the cookie at the header. so the server looks up the cookie header to identify the user easily. This mechanism saving session ID as token and saved in cookies has been fine but here we have some problems. Here, we assumed only one server but in reality, we may have multiple servers and a load balancer. In this case, the load balancer may route different servers when the request comes from the same client. For that, we have to manage sessions. one is a sticky session and the other one is sharing the session with all servers using common session management.</p><h4 class="graf graf--h4 graf-after--p" id="0b27" name="0b27"><strong class="markup--strong markup--h4-strong">JWT</strong></h4><p class="graf graf--p graf-after--h4 graf--trailing" id="8d54" name="8d54"> It is alternative approach for the session token. Here, instead of storing the information in the server, information will be given to the user and when the user co</p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/1e0a9249475c">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></div>
+<footer class="article-footer"></footer>
+</article>
+</main>
+<script>
+document.querySelectorAll('.article-content a').forEach(a => {
+ const href=a.getAttribute('href')||'';
+ if(href.startsWith('http')){a.target='_blank';a.rel='noopener';}
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Famous Sudoku Line Detection | Thangam</title>
+<meta name="description" content="Famous Sudoku Line Detection Line detection is very important in the computer vision area. For line detection, Hough lines and probabilistic Hough lines are algorithms… Famous Sudoku Line De…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Famous Sudoku Line Detection">
+<meta property="og:description" content="Famous Sudoku Line Detection Line detection is very important in the computer vision area. For line detection, Hough lines and probabilistic Hough lines are algorithms… Famous Sudoku Line De…">
+<meta property="article:published_time" content="2025-01-01">
+<link rel="stylesheet" href="../blog.css">
+</head>
+<body class="article-page">
+<header class="blog-header">
+<div class="blog-shell nav-row">
+<a class="brand" href="../../index.html">Thangam</a>
+<nav><a href="../index.html">Blog</a><a href="../../index.html#about">About</a><a href="../../index.html#contact">Contact</a></nav>
+</div>
+</header>
+<main class="article-shell">
+<a class="back-link" href="../index.html">← Back to blog</a>
+<article>
+<header class="article-hero">
+<div class="article-meta">Python &amp; Data · 2025-01-01 · 2 min read</div>
+<h1>Famous Sudoku Line Detection</h1>
+<div class="tag-row"><span class="tag">Python &amp; Data</span><span class="tag">NumPy</span></div>
+</header>
+<div class="article-content"><article class="h-entry">
+<header>
+<h1 class="p-name">Famous Sudoku Line Detection</h1>
+</header>
+<section class="p-summary" data-field="subtitle">
+Line detection is very important in the computer vision area. For line detection, Hough lines and probabilistic Hough lines are algorithms…
+</section>
+<section class="e-content" data-field="body">
+<section class="section section--body section--first section--last" name="5ffe"><div class="section-divider"><hr class="section-divider"/></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 class="graf graf--h3 graf--leading graf--title" id="ee97" name="ee97">Famous Sudoku Line Detection</h3><p class="graf graf--p graf-after--h3" id="a5e0" name="a5e0">Line detection is very important in the computer vision area. For line detection, Hough lines and probabilistic Hough lines are algorithms which are implemented in OpenCV. </p><p class="graf graf--p graf-after--p" id="05fc" name="05fc">How hough lines represent lines? you know that we can represent a straight line with Y =mx+c here m is gradient and c is the y-intercept. Also, we can represent line as p =xcosQ +ysinQ  similar to y =mx+x </p><pre class="graf graf--pre graf-after--p" id="8d2a" name="8d2a">y = mx+c<br/>m =tanA<br/>y =tanAx+c<br/>y =sinA/cosA *x +c<br/>cosAy = sinA *x +c cosA<br/>Q =90-A<br/>-y*SinQ = x*CosQ -c *cosQ<br/><br/>p = xCosQ + ysinQ ; p = c * cosQ</pre><p class="graf graf--p graf-after--pre" id="693c" name="693c">So We can represent a line with Q which is the angle formed by the normal of this line to the origin( measured in radius) and p which is the perpendicular distance from the origin</p><p class="graf graf--p graf-after--p" id="19a6" name="19a6">OpenCV reference point is the top left corner, not the bottom left corner. Based on that, P,Q can be marked as below.</p><p class="graf graf--p graf-after--p" id="a5e7" name="a5e7">So the houghLines function of OpenCV takes input arguments binarized image, P,Q, threshold. the threshold is the minimum value for it to be considered as a line. In our example, we run houglines function with theta accuracy one degree and rho accuracy 1 pixel. The threshold value is key value to detect lines since if it is low you may detect unwanted lines or if it is high you may not detect the needed lines.</p><pre class="graf graf--pre graf-after--p" id="b27c" name="b27c">import cv2<br/>import numpy as np</pre><pre class="graf graf--pre graf-after--pre" id="fe7e" name="fe7e">img = cv2.imread(image_path, 0)<br/>image = img.copy()<br/>img = cv2.Canny(img, 100,170 ,apertureSize =3)</pre><pre class="graf graf--pre graf-after--pre" id="86bc" name="86bc">cv2.HoughLines(img, p, q, threshold)</pre><pre class="graf graf--pre graf-after--pre" id="a28d" name="a28d">lines = cv2.Houghlines(img, 1,np.pi/180,240)<br/>for rho, theta in lines[0]:<br/>    a =np.cos(theta)<br/>    b = np.sin(theta)<br/>    x0 = a*rho<br/>    y0 =b*rho<br/>    x1 = int(x0 + 1000 *(-b))<br/>    y1 = int(y0 + 1000 *(a))<br/>    x2 = int(x0 -1000 *(-b))<br/>    y2= int(y0 + 1000 *(a))]<br/>    cv2.line(image, (x1,y1),(x2,y2), (255,0,0),2)</pre><p class="graf graf--p graf-after--pre" id="6506" name="6506">Above for loop is used to iterate each line and convert it to the format which is required by <strong class="markup--strong markup--p-strong">cv.lines </strong>function. 1000 is used to make a total offset of 2000 between the starting/ ending points of the lines segments.</p><p class="graf graf--p graf--empty graf-after--p" id="eb88" name="eb88"><br/></p><p class="graf graf--p graf--empty graf-after--p" id="2fe5" name="2fe5"><br/></p><p class="graf graf--p graf-after--p" id="f7b6" name="f7b6">probabilistic Hough lines takes only a random subset of points sufficient enough for line detection. However, we specify a minimum vote (pts along the line) of 100 and Min length of 5 pixels and the max gap between lines of 10 pixels</p><pre class="graf graf--pre graf-after--p" id="6d99" name="6d99">lines = cv2.HoughLinesP(img, 1, np.pi.180, 100,5 10)<br/>for x1,y1,x2,y2 in line[0]:<br/>   cv2.line(image, (x1,y1), (x2,y2), (0,0,255), 3)</pre><p class="graf graf--p graf--empty graf-after--pre graf--trailing" id="544a" name="544a"><br/></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/c6edecd58b0e">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></div>
+<footer class="article-footer"></footer>
+</article>
+</main>
+<script>
+document.querySelectorAll('.article-content a').forEach(a => {
+ const href=a.getAttribute('href')||'';
+ if(href.startsWith('http')){a.target='_blank';a.rel='noopener';}
+});
+</script>
+</body>
+</html>

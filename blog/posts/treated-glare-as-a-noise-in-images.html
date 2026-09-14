@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Treated glare as a Noise in Images | Thangam</title>
+<meta name="description" content="Treated glare as a Noise in Images Basically, The nature colour of the image (Diffuse colour component of the image) changes smoothly in the entire image so when glare or… Treated glare as a…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Treated glare as a Noise in Images">
+<meta property="og:description" content="Treated glare as a Noise in Images Basically, The nature colour of the image (Diffuse colour component of the image) changes smoothly in the entire image so when glare or… Treated glare as a…">
+<meta property="article:published_time" content="2025-01-01">
+<link rel="stylesheet" href="../blog.css">
+</head>
+<body class="article-page">
+<header class="blog-header">
+<div class="blog-shell nav-row">
+<a class="brand" href="../../index.html">Thangam</a>
+<nav><a href="../index.html">Blog</a><a href="../../index.html#about">About</a><a href="../../index.html#contact">Contact</a></nav>
+</div>
+</header>
+<main class="article-shell">
+<a class="back-link" href="../index.html">← Back to blog</a>
+<article>
+<header class="article-hero">
+<div class="article-meta">Career &amp; Learning · 2025-01-01 · 1 min read</div>
+<h1>Treated glare as a Noise in Images</h1>
+<div class="tag-row"><span class="tag">Career &amp; Learning</span></div>
+</header>
+<div class="article-content"><article class="h-entry">
+<header>
+<h1 class="p-name">Treated glare as a Noise in Images</h1>
+</header>
+<section class="p-summary" data-field="subtitle">
+Basically, The nature colour of the image (Diffuse colour component of the image) changes smoothly in the entire image so when glare or…
+</section>
+<section class="e-content" data-field="body">
+<section class="section section--body section--first section--last" name="fea1"><div class="section-divider"><hr class="section-divider"/></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 class="graf graf--h3 graf--leading graf--title" id="ea3c" name="ea3c">Treated glare as a Noise in Images</h3><p class="graf graf--p graf-after--h3" id="795b" name="795b">Basically, The nature colour of the image (Diffuse colour component of the image) changes smoothly in the entire image so when glare or specular highlight is in the image then that can be treated as noise.</p><p class="graf graf--p graf-after--p" id="e728" name="e728">How can we eliminate noise in images? Using Low pass filters, we can reduce the noise in the images. For example, we can use a bilateral filter that is normally used to smoothing and edge-preserving to remove the glare noise from the image.</p><p class="graf graf--p graf-after--p" id="21c1" name="21c1">We need to define a function that can calculate the dichromatic or natural colour of the specular pixel. Hereafter I will mention the natural colour as dichromatic colour.</p><p class="graf graf--p graf-after--p" id="f7fa" name="f7fa">As usual, we take the original colour of the specular pixel and the maximum fraction of the diffuse colour component.</p><p class="graf graf--p graf-after--p" id="41d8" name="41d8">Here, we may be confused about how can we calculate the maximum fraction of the diffuse colour component of that pixel. One method is using neighbourhoods which iteratively shifts chromaticity values towards those of the neighbouring pixel having the maximum chromaticity in the neighbourhood was proposed. Another method is, by directly applying a low-pass filter to the maximum fraction of the colour components of the original image, such that the maximum diffuse chromaticity values can be propagated from the diffuse pixels to the specular pixels.</p><h4 class="graf graf--h4 graf-after--p" id="b42b" name="b42b">Let's Dig into the Algorithm</h4><p class="graf graf--p graf--empty graf-after--h4" id="6804" name="6804"><br/></p><p class="graf graf--p graf--empty graf-after--p graf--trailing" id="7148" name="7148"><br/></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/3afd90372f64">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></div>
+<footer class="article-footer"></footer>
+</article>
+</main>
+<script>
+document.querySelectorAll('.article-content a').forEach(a => {
+ const href=a.getAttribute('href')||'';
+ if(href.startsWith('http')){a.target='_blank';a.rel='noopener';}
+});
+</script>
+</body>
+</html>

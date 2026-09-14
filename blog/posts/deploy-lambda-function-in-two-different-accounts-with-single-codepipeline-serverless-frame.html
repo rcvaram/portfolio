@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deploy Lambda Function in Two different accounts with Single CodePipeline &amp; Serverless Framework | Thangam</title>
+<meta name="description" content="Deploy Lambda Function in Two different accounts with Single CodePipeline &amp; Serverless Framework Scenario → I faced a situation where I have to deploy the lambda function for the non Prod an…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Deploy Lambda Function in Two different accounts with Single CodePipeline &amp; Serverless Framework">
+<meta property="og:description" content="Deploy Lambda Function in Two different accounts with Single CodePipeline &amp; Serverless Framework Scenario → I faced a situation where I have to deploy the lambda function for the non Prod an…">
+<meta property="article:published_time" content="2025-01-01">
+<link rel="stylesheet" href="../blog.css">
+</head>
+<body class="article-page">
+<header class="blog-header">
+<div class="blog-shell nav-row">
+<a class="brand" href="../../index.html">Thangam</a>
+<nav><a href="../index.html">Blog</a><a href="../../index.html#about">About</a><a href="../../index.html#contact">Contact</a></nav>
+</div>
+</header>
+<main class="article-shell">
+<a class="back-link" href="../index.html">← Back to blog</a>
+<article>
+<header class="article-hero">
+<div class="article-meta">DevOps &amp; Cloud · 2025-01-01 · 1 min read</div>
+<h1>Deploy Lambda Function in Two different accounts with Single CodePipeline &amp; Serverless Framework</h1>
+<div class="tag-row"><span class="tag">DevOps &amp; Cloud</span><span class="tag">AWS</span></div>
+</header>
+<div class="article-content"><article class="h-entry">
+<header>
+<h1 class="p-name">Deploy Lambda Function in Two different accounts with Single CodePipeline &amp; Serverless Framework</h1>
+</header>
+<section class="p-summary" data-field="subtitle">
+Scenario → I faced a situation where I have to deploy the lambda function for the non Prod and Prod accounts with the same codepipeline…
+</section>
+<section class="e-content" data-field="body">
+<section class="section section--body section--first section--last" name="0cc1"><div class="section-divider"><hr class="section-divider"/></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 class="graf graf--h3 graf--leading graf--title" id="49f7" name="49f7">Deploy Lambda Function in Two different accounts with Single CodePipeline &amp; Serverless Framework</h3><blockquote class="graf graf--pullquote graf-after--h3" id="6180" name="6180">Scenario → I faced a situation where I have to deploy the lambda function for the non Prod and Prod accounts with the same codepipeline. and additionally, I have to use only one deployment bucket for an account.</blockquote><p class="graf graf--p graf-after--pullquote" id="31ee" name="31ee">By Default, the Serverless framework will create a bucket for each environment which leads to many old deployment buckets laying around in your AWS account.</p><p class="graf graf--p graf-after--p" id="d631" name="d631">To overcome this, we used the serverless-deployment-bucket plugin to create a single bucket and within the bucket, environments were added as folders. This plugin will create your custom deployment bucket if it doesn’t exist, and optionally configure the deployment bucket to apply server-side encryption.</p><h4 class="graf graf--h4 graf-after--p" id="7ac7" name="7ac7">Create code pipeline in non-prod account with single S3 bucket as deployment bucket</h4><p class="graf graf--p graf--empty graf-after--h4" id="7a79" name="7a79"><br/></p><h4 class="graf graf--h4 graf-after--p" id="9a4a" name="9a4a">Codepipeline CFT Template</h4><p class="graf graf--p graf-after--h4" id="137e" name="137e">We used Github as a source to trigger the pipeline. </p><pre class="graf graf--pre graf--empty graf-after--p" id="603f" name="603f"><br/></pre><h4 class="graf graf--h4 graf-after--pre" id="4137" name="4137">Serverless Yaml File</h4><pre class="graf graf--pre graf-after--h4" id="488e" name="488e">service: test-service<br/>plugins:<br/>  - serverless-deployment-bucket<br/>provider:<br/>  name: aws<br/>  runtime: java11<br/>  timeout: 600<br/>  role: TestServiceRole<br/>  stackTags: ${file(tags.yaml)}<br/>  deploymentBucket:<br/>    name: test-depl-bucket<br/>    versioning: true<br/>    blockPublicAccess: true<br/>  vpc:<br/>    securityGroupIds:<br/>      - !Ref TestServiceSecurityGroup<br/>    subnetIds:<br/>      - your vpc subnet Id<br/>  environment:<br/>    STAGE: ${opt:stage}<br/>resources:<br/>  - ${file(resources.yaml)}<br/><br/>package:<br/>  artifact: target/test-service-0.0.1-SNAPSHOT-aws.jar<br/><br/>functions:<br/>  test:<br/>    handler: org.springframework.cloud.function.adapter.aws.FunctionInvoker::handleRequest </pre><p class="graf graf--p graf--empty graf-after--pre graf--trailing" id="e169" name="e169"><br/></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/e704520d6d3b">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></div>
+<footer class="article-footer"></footer>
+</article>
+</main>
+<script>
+document.querySelectorAll('.article-content a').forEach(a => {
+ const href=a.getAttribute('href')||'';
+ if(href.startsWith('http')){a.target='_blank';a.rel='noopener';}
+});
+</script>
+</body>
+</html>

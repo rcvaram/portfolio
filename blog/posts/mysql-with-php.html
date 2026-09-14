@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MySQL with PHP | Thangam</title>
+<meta name="description" content="MySQL with PHP The short notes below are based on https://www.youtube.com/watch?v=H2XtR1zwg6s&amp;list=PL0eyrZgxdwhwwQQZA79OzYwl5ewA7HQih&amp;index=16 MySQL with PHP The short notes below are based…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL with PHP">
+<meta property="og:description" content="MySQL with PHP The short notes below are based on https://www.youtube.com/watch?v=H2XtR1zwg6s&amp;list=PL0eyrZgxdwhwwQQZA79OzYwl5ewA7HQih&amp;index=16 MySQL with PHP The short notes below are based…">
+<meta property="article:published_time" content="2025-01-01">
+<link rel="stylesheet" href="../blog.css">
+</head>
+<body class="article-page">
+<header class="blog-header">
+<div class="blog-shell nav-row">
+<a class="brand" href="../../index.html">Thangam</a>
+<nav><a href="../index.html">Blog</a><a href="../../index.html#about">About</a><a href="../../index.html#contact">Contact</a></nav>
+</div>
+</header>
+<main class="article-shell">
+<a class="back-link" href="../index.html">← Back to blog</a>
+<article>
+<header class="article-hero">
+<div class="article-meta">Databases · 2025-01-01 · 1 min read</div>
+<h1>MySQL with PHP</h1>
+<div class="tag-row"><span class="tag">Databases</span><span class="tag">SQL</span></div>
+</header>
+<div class="article-content"><article class="h-entry">
+<header>
+<h1 class="p-name">MySQL with PHP</h1>
+</header>
+<section class="p-summary" data-field="subtitle">
+The short notes below are based on https://www.youtube.com/watch?v=H2XtR1zwg6s&amp;list=PL0eyrZgxdwhwwQQZA79OzYwl5ewA7HQih&amp;index=16
+</section>
+<section class="e-content" data-field="body">
+<section class="section section--body section--first section--last" name="d9eb"><div class="section-divider"><hr class="section-divider"/></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 class="graf graf--h3 graf--leading graf--title" id="b456" name="b456">MySQL with PHP</h3><h4 class="graf graf--h4 graf-after--h3 graf--subtitle" id="e382" name="e382">The short notes below are based on <a class="markup--anchor markup--h4-anchor" data-href="https://www.youtube.com/watch?v=H2XtR1zwg6s&amp;list=PL0eyrZgxdwhwwQQZA79OzYwl5ewA7HQih&amp;index=16" href="https://www.youtube.com/watch?v=H2XtR1zwg6s&amp;list=PL0eyrZgxdwhwwQQZA79OzYwl5ewA7HQih&amp;index=16" rel="nofollow noopener" target="_blank">https://www.youtube.com/watch?v=H2XtR1zwg6s&amp;list=PL0eyrZgxdwhwwQQZA79OzYwl5ewA7HQih&amp;index=16</a></h4><h4 class="graf graf--h4 graf-after--h4" id="dccb" name="dccb">How to connect the Database [dbh-inch.php]</h4><pre class="graf graf--pre graf-after--h4 graf--preV2" data-code-block-lang="php" data-code-block-mode="2" id="f3fa" name="f3fa" spellcheck="false"><span class="pre--content"><span class="hljs-comment">//When you have pure php file then you dont need close tag</span><br/><br/><span class="hljs-comment">//MySQL Connection</span><br/><span class="hljs-comment">//MySQLI Connection</span><br/><span class="hljs-comment">//PHPDataObject Connection</span><br/><span class="hljs-meta">&lt;?php</span><br/><br/><span class="hljs-comment">//DatasourceName</span><br/><span class="hljs-variable">$dsn</span> = <span class="hljs-string">"mysql:host=localhost;dbname=testdb"</span>;<br/><span class="hljs-variable">$username</span> = <span class="hljs-string">"root"</span>;<br/><span class="hljs-variable">$password</span> = <span class="hljs-string">"test123"</span>;<br/><br/><span class="hljs-keyword">try</span> {<br/>  <span class="hljs-variable">$pdo</span> =  <span class="hljs-keyword">new</span> <span class="hljs-title function_ invoke__">PDO</span>(<span class="hljs-variable">$dsn</span>, <span class="hljs-variable">$dbusername</span>, <span class="hljs-variable">$dbpassword</span>);<br/>  <span class="hljs-variable">$pdo</span>-&gt;<span class="hljs-title function_ invoke__">setAttribute</span>(PDO::<span class="hljs-variable constant_">ATTR_ERRMODE</span>, PDO::<span class="hljs-variable constant_">ERRMODE_EXCEPTION</span>);<br/>} <span class="hljs-keyword">catch</span>(PDOException <span class="hljs-variable">$e</span>) {<br/>  <span class="hljs-keyword">echo</span> <span class="hljs-string">"Connection failed: "</span> . <span class="hljs-variable">$e</span>-&gt;<span class="hljs-title function_ invoke__">getMessage</span>();<br/>}<br/><br/></span></pre><h4 class="graf graf--h4 graf-after--pre" id="ea52" name="ea52">Insert Into Database Using PHP</h4><p class="graf graf--p graf-after--h4" id="157e" name="157e"><strong class="markup--strong markup--p-strong">index.php </strong></p><pre class="graf graf--pre graf-after--p graf--preV2" data-code-block-lang="php" data-code-block-mode="2" id="fae2" name="fae2" spellcheck="false"><span class="pre--content"><span class="hljs-meta">&lt;?php</span><br/><br/><span class="hljs-comment">//HTML Head &amp; Body Tags</span><br/><br/>&lt;form action = <span class="hljs-string">"includes/formHandler.inc.php"</span> method=<span class="hljs-string">"post"</span>&gt;<br/>&lt;input type = <span class="hljs-string">"text"</span> name = <span class="hljs-string">"username"</span> placholder= <span class="hljs-string">"Username"</span>&gt;<br/>&lt;input type = <span class="hljs-string">"password"</span> name = <span class="hljs-string">"pwd"</span> placholder= <span class="hljs-string">"Password"</span>&gt;<br/>&lt;input type = <span class="hljs-string">"text"</span> name = <span class="hljs-string">"email"</span> placholder= <span class="hljs-string">"E-Mail"</span>&gt;<br/>&lt;button&gt; Signup &lt;/button&gt;<br/><br/><span class="hljs-meta">?&gt;</span></span></pre><p class="graf graf--p graf-after--pre" id="43f4" name="43f4"><strong class="markup--strong markup--p-strong">formHandler.inc.php</strong></p><pre class="graf graf--pre graf-after--p graf--preV2" data-code-block-lang="php" data-code-block-mode="2" id="9ea7" name="9ea7" spellcheck="false"><span class="pre--content"><span class="hljs-comment">//We dont need to use  htmlspecialchars() when we get the data from </span><br/><span class="hljs-comment">//user this is needed when you show data to web</span><br/><span class="hljs-meta">&lt;?php</span><br/> <span class="hljs-keyword">if</span> (<span class="hljs-variable">$_SERVER</span>[<span class="hljs-string">"REQUEST_METHOD"</span>] == <span class="hljs-string">"POST"</span> ) {<br/>    <span class="hljs-variable">$username</span> = <span class="hljs-variable">$_POST</span>[<span class="hljs-string">"username"</span>];<br/>    <span class="hljs-variable">$password</span>= <span class="hljs-variable">$_POST</span>[<span class="hljs-string">"password"</span>];<br/>    <span class="hljs-variable">$email</span>= <span class="hljs-variable">$_POST</span>[<span class="hljs-string">"email"</span>];<br/>    <span class="hljs-keyword">try</span>{<br/>      <span class="hljs-keyword">require_once</span> <span class="hljs-string">"dbh-inc.php"</span>; <span class="hljs-comment">//require - mandatory include, require_once - will check icluded or not, include, include_once</span><br/>      <span class="hljs-variable">$query</span> = <span class="hljs-string">"INSERT INTO users (username,pwd,email) VALUES (:username, :pwd, :email);"</span>;<br/>      <span class="hljs-variable">$stmt</span> = <span class="hljs-variable">$pdo</span>-&gt;<span class="hljs-title function_ invoke__">prepare</span>(<span class="hljs-variable">$query</span>);<br/>      <span class="hljs-variable">$stmt</span>-&gt;<span class="hljs-title function_ invoke__">bindParam</span>(<span class="hljs-string">"username"</span>, <span class="hljs-variable">$username</span>);<br/>      <span class="hljs-variable">$stmt</span>-&gt;<span class="hljs-title function_ invoke__">bindParam</span>(<span class="hljs-string">"pwd"</span>, <span class="hljs-variable">$password</span>);<br/>      <span class="hljs-variable">$stmt</span>-&gt;<span class="hljs-title function_ invoke__">bindParam</span>(<span class="hljs-string">"email"</span>, <span class="hljs-variable">$email</span>);<br/>      <span class="hljs-variable">$stmt</span>-&gt;<span class="hljs-title function_ invoke__">execute</span>();<br/>      <span class="hljs-variable">$pdo</span> = <span class="hljs-literal">null</span>;<br/>      <span class="hljs-variable">$stmt</span> = <span class="hljs-literal">null</span>;<br/>      <span class="hljs-keyword">exit</span>();<br/>      <span class="hljs-title function_ invoke__">header</span>(<span class="hljs-string">"Location: ../index.php"</span>);<br/>    } <span class="hljs-keyword">catch</span>(PDOException <span class="hljs-variable">$e</span>){<br/>      <span class="hljs-keyword">die</span>(<span class="hljs-string">"Query failed: "</span> . <span class="hljs-variable">$e</span>-&gt;<span class="hljs-title function_ invoke__">getMessage</span>() ); <span class="hljs-comment">//built in fuction in php to terminate the script</span><br/>    }<br/>  } <span class="hljs-keyword">else</span> {<br/>    <span class="hljs-title function_ invoke__">header</span>(<span class="hljs-string">"Location: ../index.php"</span>);<br/>  }</span></pre><p class="graf graf--p graf--empty graf-after--pre graf--trailing" id="b77b" name="b77b"><br/></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/29003fe7f4df">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></div>
+<footer class="article-footer"></footer>
+</article>
+</main>
+<script>
+document.querySelectorAll('.article-content a').forEach(a => {
+ const href=a.getAttribute('href')||'';
+ if(href.startsWith('http')){a.target='_blank';a.rel='noopener';}
+});
+</script>
+</body>
+</html>

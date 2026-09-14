@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AWS IAM | Thangam</title>
+<meta name="description" content="AWS IAM IAM stands for identity and access management. It is a global service because we will create our users in IAM and assign them to groups. AWS IAM IAM stands for identity and access ma…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AWS IAM">
+<meta property="og:description" content="AWS IAM IAM stands for identity and access management. It is a global service because we will create our users in IAM and assign them to groups. AWS IAM IAM stands for identity and access ma…">
+<meta property="article:published_time" content="2025-01-01">
+<link rel="stylesheet" href="../blog.css">
+</head>
+<body class="article-page">
+<header class="blog-header">
+<div class="blog-shell nav-row">
+<a class="brand" href="../../index.html">Thangam</a>
+<nav><a href="../index.html">Blog</a><a href="../../index.html#about">About</a><a href="../../index.html#contact">Contact</a></nav>
+</div>
+</header>
+<main class="article-shell">
+<a class="back-link" href="../index.html">← Back to blog</a>
+<article>
+<header class="article-hero">
+<div class="article-meta">DevOps &amp; Cloud · 2025-01-01 · 2 min read</div>
+<h1>AWS IAM</h1>
+<div class="tag-row"><span class="tag">DevOps &amp; Cloud</span><span class="tag">AWS</span></div>
+</header>
+<div class="article-content"><article class="h-entry">
+<header>
+<h1 class="p-name">AWS IAM</h1>
+</header>
+<section class="p-summary" data-field="subtitle">
+IAM stands for identity and access management. It is a global service because we will create our users in IAM and assign them to groups.
+</section>
+<section class="e-content" data-field="body">
+<section class="section section--body section--first section--last" name="eb7b"><div class="section-divider"><hr class="section-divider"/></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 class="graf graf--h3 graf--leading graf--title" id="219e" name="219e">AWS IAM </h3><p class="graf graf--p graf-after--h3" id="7f4b" name="7f4b">IAM stands for identity and access management. It is a global service because we will create our users in IAM and assign them to groups.</p><p class="graf graf--p graf-after--p" id="f4e7" name="f4e7">One user represents a single person within your organization, and users can be grouped if it makes sense.</p><figure class="graf graf--figure graf-after--p" id="3e38" name="3e38"><img class="graf-image" data-height="251" data-image-id="1*jsLDK8_Ts9rtG0JjVMZ91Q.png" data-width="919" decoding="async" loading="lazy" src="https://cdn-images-1.medium.com/max/800/1*jsLDK8_Ts9rtG0JjVMZ91Q.png"/></figure><ul class="postList"><li class="graf graf--li graf-after--figure" id="be4b" name="be4b">groups can only contain users, not other groups.</li><li class="graf graf--li graf-after--li" id="cc16" name="cc16">User G does not correspond to any group. That is not best practice. But it is something you can do in AWS.</li><li class="graf graf--li graf-after--li" id="107c" name="107c"> A user can belong to multiple groups. You can see that user F belongs to Developers and QAs.</li></ul><p class="graf graf--p graf-after--li" id="b6d8" name="b6d8">So why do we create users and why do we create groups?</p><p class="graf graf--p graf-after--p" id="738d" name="738d">Well, because we want to allow them to use our AWS accounts and to allow them to do so, we have to give them permissions. So users or groups can be assignedwhat’s called a JSON document. I’ll show you right now what it means called a policy, an IAM policy. So it looks just like this. This is just describing in plain English, what a user is allowed to do or what a group and all the users within that group are allowed to do.</p><p class="graf graf--p graf-after--p" id="d62c" name="d62c">So in this example, we can see that we allow people to use the EC2 to service and do describe on it, to use the elastic load balancing service and to describe on it and to use CloudWatch. Now we’ll see what EC2 elastic load balancing and CloudWatch mean, but through this JSON document that looks just like this.</p><p class="graf graf--p graf-after--p" id="77ca" name="77ca">We are allowing our users to use some services in AWS. So these policies will help us define the permissions of our users. And so in AWS, you don’t allow everyone to do everything</p><p class="graf graf--p graf-after--p" id="9491" name="9491">that would be catastrophic,</p><p class="graf graf--p graf-after--p" id="6a62" name="6a62">because a new user could basically launch so many services</p><p class="graf graf--p graf-after--p" id="70e7" name="70e7">and they will cost you a lot of money</p><p class="graf graf--p graf-after--p" id="9c96" name="9c96">or would be valid for security.</p><p class="graf graf--p graf-after--p" id="60a6" name="60a6">So in AWS, you apply a principle called</p><p class="graf graf--p graf-after--p" id="22cd" name="22cd">the least privilege principle.</p><p class="graf graf--p graf-after--p" id="0dbd" name="0dbd">So you don’t give more permissions than a user needs.</p><p class="graf graf--p graf-after--p" id="6a8b" name="6a8b">Okay, so if a user just needs access to three services,</p><p class="graf graf--p graf-after--p" id="a6aa" name="a6aa">just create a permission for that user.</p><p class="graf graf--p graf-after--p" id="45c1" name="45c1">So now we have seen an overview IAM.</p><p class="graf graf--p graf-after--p" id="7cc4" name="7cc4">Let’s go in the next lecture</p><p class="graf graf--p graf-after--p" id="cb3e" name="cb3e">to practice creating users and groups.</p><p class="graf graf--p graf--empty graf-after--p" id="aacc" name="aacc"><br/></p><p class="graf graf--p graf--empty graf-after--p" id="1eb0" name="1eb0"><br/></p><p class="graf graf--p graf--empty graf-after--p" id="385e" name="385e"><br/></p><p class="graf graf--p graf--empty graf-after--p" id="49e2" name="49e2"><br/></p><p class="graf graf--p graf--empty graf-after--p graf--trailing" id="cd5d" name="cd5d"><br/></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/0db04a64a689">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></div>
+<footer class="article-footer"></footer>
+</article>
+</main>
+<script>
+document.querySelectorAll('.article-content a').forEach(a => {
+ const href=a.getAttribute('href')||'';
+ if(href.startsWith('http')){a.target='_blank';a.rel='noopener';}
+});
+</script>
+</body>
+</html>

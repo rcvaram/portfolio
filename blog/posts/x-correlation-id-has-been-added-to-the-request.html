@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>X-Correlation-Id has been added to the request | Thangam</title>
+<meta name="description" content="X-Correlation-Id has been added to the request Server requests concurrently one of the drawbacks that come with it is that it makes harder to trace what each request is doing, as it is… X-Co…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="X-Correlation-Id has been added to the request">
+<meta property="og:description" content="X-Correlation-Id has been added to the request Server requests concurrently one of the drawbacks that come with it is that it makes harder to trace what each request is doing, as it is… X-Co…">
+<meta property="article:published_time" content="2025-01-01">
+<link rel="stylesheet" href="../blog.css">
+</head>
+<body class="article-page">
+<header class="blog-header">
+<div class="blog-shell nav-row">
+<a class="brand" href="../../index.html">Thangam</a>
+<nav><a href="../index.html">Blog</a><a href="../../index.html#about">About</a><a href="../../index.html#contact">Contact</a></nav>
+</div>
+</header>
+<main class="article-shell">
+<a class="back-link" href="../index.html">← Back to blog</a>
+<article>
+<header class="article-hero">
+<div class="article-meta">REST &amp; APIs · 2025-01-01 · 2 min read</div>
+<h1>X-Correlation-Id has been added to the request</h1>
+<div class="tag-row"><span class="tag">REST &amp; APIs</span><span class="tag">REST</span><span class="tag">HTTP</span></div>
+</header>
+<div class="article-content"><article class="h-entry">
+<header>
+<h1 class="p-name">X-Correlation-Id has been added to the request</h1>
+</header>
+<section class="p-summary" data-field="subtitle">
+Server requests concurrently one of the drawbacks that come with it is that it makes harder to trace what each request is doing, as it is…
+</section>
+<section class="e-content" data-field="body">
+<section class="section section--body section--first section--last" name="7534"><div class="section-divider"><hr class="section-divider"/></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h4 class="graf graf--h4 graf--leading" id="2344" name="2344">X-Correlation-Id has been added to the request</h4><p class="graf graf--p graf-after--h4" id="8848" name="8848">Server requests concurrently one of the drawbacks that come with it is that it makes harder to trace what each request is doing, as it is doing it while other requests are doing other, often similar, things. That hurts logging information badly, as the messages generated for one request can easily be intermingled with other messages generated for other requests.</p><p class="graf graf--p graf-after--p" id="e6e9" name="e6e9">How can we trace a person we can put an identity on ther person and trace it. Same thing can be done for requests We can use the MDC(<a class="markup--anchor markup--p-anchor" data-href="http://www.baeldung.com/mdc-in-log4j-2-logback" href="http://www.baeldung.com/mdc-in-log4j-2-logback" rel="noopener" target="_blank">Mapped Diagnostic Context</a>) of the Logback( log4j2 also provides this) as they mention MDC manages the contextual information per-thread basis. So when we set a key to thread we can track the thread what is doing.</p><p class="graf graf--p graf-after--p" id="d8d2" name="d8d2">MDC.put(key,value)</p><p class="graf graf--p graf-after--p" id="6097" name="6097">Here, We have to identify each request because filter out the logs based on request key and analyze what it is done.<br/>The common best practice is giving an Id normally called as Correlation Id as a header of HTTP request.</p><p class="graf graf--p graf-after--p" id="028d" name="028d">Before sending the request to contrlller we have to filter out the header value add into the MDC of the logback</p><h4 class="graf graf--h4 graf-after--p" id="65af" name="65af">Vulanrablites</h4><p class="graf graf--p graf-after--h4" id="12c7" name="12c7">Initially, we sent responses without enveloped it but if we do like that we will get potential attacks, vulnerabilities. So we have enveloped with the data field. </p><p class="graf graf--p graf-after--p" id="2a50" name="2a50">The exploit combines <a class="markup--anchor markup--p-anchor" data-href="http://www.codinghorror.com/blog/archives/001175.html" href="http://www.codinghorror.com/blog/archives/001175.html" rel="noopener" target="_blank" title="Cross Site Request Forgery">Cross Site Request Forgery</a> (CSRF) with a JSON Array hack allowing an evil site to grab sensitive user data from an unsuspecting user. The hack involves redefining the Array constructor, which is totally legal in Javascript.</p><h3 class="graf graf--h3 graf-after--p" id="f004" name="f004">Backend Implementation for Jobs Endpoint</h3><p class="graf graf--p graf-after--h3" id="d482" name="d482">We used the RestJobClient to get the Jobs. But the Job API supported the pagination. If we have 100 jobs and the default limit is 25 then it will send us 25 jobs so we want to call the API four times to get the 100 Jobs to make our Non PAgianted response.</p><p class="graf graf--p graf-after--p" id="9b7e" name="9b7e">Luckily, We figure it out that when we did not send the limit in Job API it will give the all Jobs as a response.<br/> RestResponse restResponse = jobRestClient.sendGetRequest(url, headerMap, null);</p><p class="graf graf--p graf-after--p" id="14e8" name="14e8">Job Resposne ={jobs:{id, title, code deflatrate,update by}, total ,offset, }</p><p class="graf graf--p graf-after--p" id="d069" name="d069"> in the resposne so we have to map with bean ( id , title, )class.<br/>For that we have already created Job bean Class (id, title) We can map the response to the class using jackson API’s object mapper.</p><p class="graf graf--p graf-after--p" id="0142" name="0142">From the object mapper We can get the root tree and we mapped</p><p class="graf graf--p graf-after--p" id="0192" name="0192"><strong class="markup--strong markup--p-strong">JsonNode root = objectMapper.readTree(restResponse.getResponse());</strong></p><p class="graf graf--p graf-after--p" id="30e3" name="30e3"><strong class="markup--strong markup--p-strong">jobs = objectMapper.readValue(root.path(“jobs”).toString(),</strong></p><p class="graf graf--p graf-after--p" id="195e" name="195e"><strong class="markup--strong markup--p-strong">new TypeReference&lt;List&lt;Job&gt;&gt;() {</strong></p><p class="graf graf--p graf-after--p" id="4c0f" name="4c0f"><strong class="markup--strong markup--p-strong">});</strong></p><p class="graf graf--p graf--empty graf-after--p" id="f710" name="f710"><br/></p><h3 class="graf graf--h3 graf-after--p" id="ea7e" name="ea7e">BackEndImplentation for Employee Endpoint</h3><p class="graf graf--p graf-after--h3" id="d0df" name="d0df">Luckily Profile API doesn’t have pagination.</p><p class="graf graf--p graf-after--p" id="e439" name="e439">so we can get the response from the profile API and mapped it to the Employees List <br/>Small problem came that time @JSON alias</p><p class="graf graf--p graf--empty graf-after--p" id="4012" name="4012"><br/></p><p class="graf graf--p graf-after--p" id="4195" name="4195">Ground Works</p><p class="graf graf--p graf-after--p" id="69a5" name="69a5">Removed wildcard entries, Enveloped the response array</p><p class="graf graf--p graf--empty graf-after--p" id="be3d" name="be3d"><br/></p><p class="graf graf--p graf--empty graf-after--p graf--trailing" id="ef4b" name="ef4b"><br/></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/1b6bdd401617">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></div>
+<footer class="article-footer"></footer>
+</article>
+</main>
+<script>
+document.querySelectorAll('.article-content a').forEach(a => {
+ const href=a.getAttribute('href')||'';
+ if(href.startsWith('http')){a.target='_blank';a.rel='noopener';}
+});
+</script>
+</body>
+</html>

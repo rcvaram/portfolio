@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JMS MQ Consumer Application | Thangam</title>
+<meta name="description" content="JMS MQ Consumer Application JMS Session JMS MQ Consumer Application JMS Session A JMS Session can be looked as a place for the listener thread to communicate with JMS Provider connection. JM…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JMS MQ Consumer Application">
+<meta property="og:description" content="JMS MQ Consumer Application JMS Session JMS MQ Consumer Application JMS Session A JMS Session can be looked as a place for the listener thread to communicate with JMS Provider connection. JM…">
+<meta property="article:published_time" content="2025-01-01">
+<link rel="stylesheet" href="../blog.css">
+</head>
+<body class="article-page">
+<header class="blog-header">
+<div class="blog-shell nav-row">
+<a class="brand" href="../../index.html">Thangam</a>
+<nav><a href="../index.html">Blog</a><a href="../../index.html#about">About</a><a href="../../index.html#contact">Contact</a></nav>
+</div>
+</header>
+<main class="article-shell">
+<a class="back-link" href="../index.html">← Back to blog</a>
+<article>
+<header class="article-hero">
+<div class="article-meta">Kafka &amp; Messaging · 2025-01-01 · 1 min read</div>
+<h1>JMS MQ Consumer Application</h1>
+<div class="tag-row"><span class="tag">Kafka &amp; Messaging</span><span class="tag">Messaging</span></div>
+</header>
+<div class="article-content"><article class="h-entry">
+<header>
+<h1 class="p-name">JMS MQ Consumer Application</h1>
+</header>
+<section class="p-summary" data-field="subtitle">
+JMS Session
+</section>
+<section class="e-content" data-field="body">
+<section class="section section--body section--first section--last" name="2c9c"><div class="section-divider"><hr class="section-divider"/></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 class="graf graf--h3 graf--leading graf--title" id="a8aa" name="a8aa">JMS MQ Consumer Application</h3><p class="graf graf--p graf--empty graf-after--h3" id="682a" name="682a"><br/></p><h3 class="graf graf--h3 graf-after--p" id="7044" name="7044">JMS Session</h3><p class="graf graf--p graf-after--h3" id="847d" name="847d">A JMS Session can be looked as a place for the listener thread to communicate with JMS Provider connection. JMS Session is a single thread context hence if we have multiple threads then we have multiple sessions. A JMS Session can not be have multiple threads but a thread can have multiple sessions.</p><p class="graf graf--p graf-after--p" id="238d" name="238d">The acknowledgment will be happen by commit when the session is truncated. otherwise user can give the ack mode. And Recovery is handled by rollBack. </p><p class="graf graf--p graf-after--p" id="7a05" name="7a05">To consume messages from MQ, we need a message listener container of jms. Message Listener Container and JMS template are the key components of Spring JMS. Here, the JMS Template is used to receive or send messages synchronously. The Message listener container can be used to send messages asynchronously. Spring doesn’t provide the JMS. You need to configure the external JMS Provider(ActiveMQ, JBoss Messaging, IBM WebSphere MQ). </p><p class="graf graf--p graf-after--p" id="2b5c" name="2b5c">The purpose of the JMS template and the message listener container is to isolate the developer from the details of connecting to the JMS provider, establishing a JMS connection, creating a JMS session, and creating a JMS message producer or message consumer.</p><p class="graf graf--p graf-after--p" id="3272" name="3272">We need to have a non-blocking process that can listen for the messages from the particular queue which means the presence of the message will trigger an action of the listener. </p><p class="graf graf--p graf-after--p" id="b8bf" name="b8bf">Spring provides three-way to implement the message listener. All three of these methods use a message listener container. </p><ol class="postList"><li class="graf graf--li graf-after--p" id="3dad" name="3dad">J<strong class="markup--strong markup--li-strong">ava.jms.messageListener</strong></li><li class="graf graf--li graf-after--li" id="fc5b" name="fc5b"><strong class="markup--strong markup--li-strong">SpringSessionAwareMessageListener</strong></li><li class="graf graf--li graf-after--li" id="8d44" name="8d44"><strong class="markup--strong markup--li-strong">A Standard POJO in Spring’s MessageListenerAdapter Class</strong></li></ol><p class="graf graf--p graf-after--li" id="6057" name="6057">Message-Driven POJOs are created within the context of the message listener container. connectionFactory, jmsDestination and messageListenerBean are bonded to this message Listener Container. </p><ol class="postList"><li class="graf graf--li graf-after--p" id="4caf" name="4caf">DefaultMessageListenerContainer</li><li class="graf graf--li graf-after--li" id="ec49" name="ec49">SimpleMessageListenerContainer</li></ol><p class="graf graf--p graf-after--li" id="1cb6" name="1cb6">While both of these message listener containers allow you to specify the number of concurrent listener threads, only the DefaultMessageListener Container has the ability to dynamically adjust the number of listener threads during runtime.</p><p class="graf graf--p graf--empty graf-after--p" id="a695" name="a695"><br/></p><p class="graf graf--p graf--empty graf-after--p" id="a167" name="a167"><br/></p><p class="graf graf--p graf--empty graf-after--p graf--trailing" id="60db" name="60db"><br/></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/97801ab6fa44">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></div>
+<footer class="article-footer"></footer>
+</article>
+</main>
+<script>
+document.querySelectorAll('.article-content a').forEach(a => {
+ const href=a.getAttribute('href')||'';
+ if(href.startsWith('http')){a.target='_blank';a.rel='noopener';}
+});
+</script>
+</body>
+</html>

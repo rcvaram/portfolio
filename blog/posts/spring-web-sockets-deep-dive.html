@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spring Web-Sockets Deep Dive | Thangam</title>
+<meta name="description" content="Spring Web-Sockets Deep Dive This is not really needed to work with web-sockets in spring however it will give clear cut idea what / why / how questions for web-sockets… Spring Web-Sockets D…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring Web-Sockets Deep Dive">
+<meta property="og:description" content="Spring Web-Sockets Deep Dive This is not really needed to work with web-sockets in spring however it will give clear cut idea what / why / how questions for web-sockets… Spring Web-Sockets D…">
+<meta property="article:published_time" content="2025-01-01">
+<link rel="stylesheet" href="../blog.css">
+</head>
+<body class="article-page">
+<header class="blog-header">
+<div class="blog-shell nav-row">
+<a class="brand" href="../../index.html">Thangam</a>
+<nav><a href="../index.html">Blog</a><a href="../../index.html#about">About</a><a href="../../index.html#contact">Contact</a></nav>
+</div>
+</header>
+<main class="article-shell">
+<a class="back-link" href="../index.html">← Back to blog</a>
+<article>
+<header class="article-hero">
+<div class="article-meta">Spring Boot · 2025-01-01 · 1 min read</div>
+<h1>Spring Web-Sockets Deep Dive</h1>
+<div class="tag-row"><span class="tag">Spring Boot</span><span class="tag">Spring Security</span></div>
+</header>
+<div class="article-content"><article class="h-entry">
+<header>
+<h1 class="p-name">Spring Web-Sockets Deep Dive</h1>
+</header>
+<section class="p-summary" data-field="subtitle">
+This is not really needed to work with web-sockets in spring however it will give clear cut idea what / why / how questions for web-sockets…
+</section>
+<section class="e-content" data-field="body">
+<section class="section section--body section--first section--last" name="a385"><div class="section-divider"><hr class="section-divider"/></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 class="graf graf--h3 graf--leading graf--title" id="ea29" name="ea29">Spring Web-Sockets Deep Dive</h3><h4 class="graf graf--h4 graf-after--h3 graf--subtitle" id="78d1" name="78d1">This is not really needed to work with web-sockets in spring however it will give clear cut idea what / why / how questions for web-sockets in spring</h4><h4 class="graf graf--h4 graf-after--h4" id="6835" name="6835">Web-Sockets features in Spring</h4><ul class="postList"><li class="graf graf--li graf-after--h4" id="53e2" name="53e2">Fallback options with SockJS</li><li class="graf graf--li graf-after--li" id="084c" name="084c">Support for STOMP subprotocol</li><li class="graf graf--li graf-after--li" id="b762" name="b762">No security — [Spring Security can be added to the top of this layer]</li><li class="graf graf--li graf-after--li" id="af6d" name="af6d">Integration with messaging components and Spring programming style</li></ul><h4 class="graf graf--h4 graf-after--li" id="bcc7" name="bcc7">STOMP Introduction</h4><p class="graf graf--p graf-after--h4" id="1bed" name="1bed">Simple interoperable protocol for asynchronous messaging. This allows communication between client and server is through a frame.<br/><strong class="markup--strong markup--p-strong">Client frames:</strong><br/>• <strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">SEND</em></strong>, <strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">SUBSCRIBE </em></strong>/ <strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">UNSUBSCRIBE</em></strong>, <strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">ACK</em></strong>/<strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">NACK</em></strong><br/><strong class="markup--strong markup--p-strong">Server frames:</strong><br/>• <strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">MESSAGE</em></strong>, <strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">RECEIPT</em></strong>, <strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">ERROR</em></strong></p><h4 class="graf graf--h4 graf-after--p" id="4731" name="4731">Understanding the work flow</h4><figure class="graf graf--figure graf-after--h4" id="fc03" name="fc03"><img class="graf-image" data-height="472" data-image-id="1*an0a0TTnvWIzPrS1n4rVBg.png" data-width="1071" decoding="async" loading="lazy" src="https://cdn-images-1.medium.com/max/800/1*an0a0TTnvWIzPrS1n4rVBg.png"/></figure><h4 class="graf graf--h4 graf-after--figure" id="1426" name="1426"><strong class="markup--strong markup--h4-strong">Overview</strong></h4><p class="graf graf--p graf-after--h4" id="b830" name="b830">Client will send a stomp message to web socket endpoint. Here, endpoint role is receiving the message , decoding  the message, delivering  to a channel and publishing application events. This web socket endpoint also finds the right sub protocol handler. By default, it will take STOMP as sub protocol handler if nothing is defined.</p><pre class="graf graf--pre graf-after--p graf--preV2" data-code-block-lang="java" data-code-block-mode="2" id="6263" name="6263" spellcheck="false"><span class="pre--content"><span class="hljs-meta">@Configuration</span><br/><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">WebSocketConfig</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">WebSocketMessageBrokerConfigurationSupport</span> {<br/>  <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">registerStompEndpoints</span><span class="hljs-params">(Stomp EndpointRegistry registry)</span> {<br/>  registry.addEndpoint(<span class="hljs-string">"/ws"</span>).withSockJS();<br/>  }<br><span class="hljs-comment">// remaining code ...</span><br>}</br></br></span></pre><p class="graf graf--p graf-after--pre" id="14de" name="14de">We are defining this endpoint <strong class="markup--strong markup--p-strong">“/ws” </strong>to enable the websocket connection /session through this endpoint with callback option to ensure even if the client doesn’t support websocket.<strong class="markup--strong markup--p-strong"> </strong></p><p class="graf graf--p graf-after--p" id="0d72" name="0d72">This message will be pushed to client inbound channel [<strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">Kind of queue to hold the messages</em></strong>]. This channel / queue may have several subscribers and these are called as message handlers. </p><p class="graf graf--p graf-after--p" id="aaa0" name="aaa0">Message handlers are the real guys who is going to process the actual message. These handlers may send response to clients as well. In that case, response will be sent to client outbound channel and then it will be forward to through web socket session.</p><h4 class="graf graf--h4 graf--empty graf-after--p" id="a666" name="a666"><br/></h4><p class="graf graf--p graf--empty graf-after--h4" id="f4bf" name="f4bf"><br/></p><p class="graf graf--p graf--empty graf-after--p" id="0436" name="0436"><br/></p><p class="graf graf--p graf-after--p graf--trailing" id="3dbf" name="3dbf"><br/><br/></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/e065903658fc">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></div>
+<footer class="article-footer"></footer>
+</article>
+</main>
+<script>
+document.querySelectorAll('.article-content a').forEach(a => {
+ const href=a.getAttribute('href')||'';
+ if(href.startsWith('http')){a.target='_blank';a.rel='noopener';}
+});
+</script>
+</body>
+</html>

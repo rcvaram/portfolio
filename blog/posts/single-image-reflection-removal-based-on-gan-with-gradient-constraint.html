@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Single Image Reflection Removal Based on GAN With Gradient Constraint | Thangam</title>
+<meta name="description" content="Single Image Reflection Removal Based on GAN With Gradient Constraint R. Abiko and M. Ikehara, “Single Image Reflection Removal Based on GAN With Gradient Constraint,” in IEEE Access, vol. 7…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Single Image Reflection Removal Based on GAN With Gradient Constraint">
+<meta property="og:description" content="Single Image Reflection Removal Based on GAN With Gradient Constraint R. Abiko and M. Ikehara, “Single Image Reflection Removal Based on GAN With Gradient Constraint,” in IEEE Access, vol. 7…">
+<meta property="article:published_time" content="2025-01-01">
+<link rel="stylesheet" href="../blog.css">
+</head>
+<body class="article-page">
+<header class="blog-header">
+<div class="blog-shell nav-row">
+<a class="brand" href="../../index.html">Thangam</a>
+<nav><a href="../index.html">Blog</a><a href="../../index.html#about">About</a><a href="../../index.html#contact">Contact</a></nav>
+</div>
+</header>
+<main class="article-shell">
+<a class="back-link" href="../index.html">← Back to blog</a>
+<article>
+<header class="article-hero">
+<div class="article-meta">REST &amp; APIs · 2025-01-01 · 2 min read</div>
+<h1>Single Image Reflection Removal Based on GAN With Gradient Constraint</h1>
+<div class="tag-row"><span class="tag">REST &amp; APIs</span><span class="tag">REST</span></div>
+</header>
+<div class="article-content"><article class="h-entry">
+<header>
+<h1 class="p-name">Single Image Reflection Removal Based on GAN With Gradient Constraint</h1>
+</header>
+<section class="p-summary" data-field="subtitle">
+R. Abiko and M. Ikehara, “Single Image Reflection Removal Based on GAN With Gradient Constraint,” in IEEE Access, vol. 7, pp…
+</section>
+<section class="e-content" data-field="body">
+<section class="section section--body section--first section--last" name="e73d"><div class="section-divider"><hr class="section-divider"/></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 class="graf graf--h3 graf--leading graf--title" id="117a" name="117a">Single Image Reflection Removal Based on GAN With Gradient Constraint</h3><p class="graf graf--p graf-after--h3" id="2d50" name="2d50"><em class="markup--em markup--p-em">R. Abiko and M. Ikehara, “Single Image Reflection Removal Based on GAN With Gradient Constraint,” in IEEE Access, vol. 7, pp. 148790–148799, 2019.<br/>doi: 10.1109/ACCESS.2019.2947266</em></p><p class="graf graf--p graf-after--p" id="d161" name="d161">A GAN based approach with four different losses including pixel loss, feature loss, adversarial loss and gradient constraint loss is proposed to separate the reflection layer from the image.</p><p class="graf graf--p graf-after--p" id="e5b0" name="e5b0">The novel is gradient constraint loss which tries to minimize the correlation between the background and reflection layer.</p><h4 class="graf graf--h4 graf-after--p" id="dae7" name="dae7">Image restoration</h4><p class="graf graf--p graf--startsWithDoubleQuote graf-after--h4" id="69b9" name="69b9"><strong class="markup--strong markup--p-strong">“Image restoration</strong> is the operation of taking a corrupt/noisy image and estimating the clean, original image.” from Wikipedia</p><h4 class="graf graf--h4 graf-after--p" id="7ea1" name="7ea1">Deep learning</h4><p class="graf graf--p graf--startsWithDoubleQuote graf-after--h4" id="8ef9" name="8ef9"><strong class="markup--strong markup--p-strong">“Deep learning</strong> is an AI function that mimics the workings of the human brain in processing data for use in detecting objects, recognizing speech, translating languages, and making decisions.” from Wikipedia</p><h4 class="graf graf--h4 graf-after--p" id="c575" name="c575">Reflection removal</h4><p class="graf graf--p graf-after--h4" id="7cf6" name="7cf6"><strong class="markup--strong markup--p-strong">Reflection removal</strong> aims at separating the <strong class="markup--strong markup--p-strong">reflection</strong> (while. obtaining the clear background) from the mixture image using one or more shots, where the former is a highly ill-posed. from <a class="markup--anchor markup--p-anchor" data-href="http://alumni.media.mit.edu/~shiboxin/files/Wan_ICCV17.pdf" href="http://alumni.media.mit.edu/~shiboxin/files/Wan_ICCV17.pdf" rel="noopener" target="_blank">Benchmarking Single-Image Reflection Removal ... - MIT alumnialumni.media.mit.edu</a></p><h4 class="graf graf--h4 graf-after--p" id="1a2a" name="1a2a">Image Separation</h4><p class="graf graf--p graf--empty graf-after--h4" id="4cb1" name="4cb1"><br/></p><p class="graf graf--p graf-after--p" id="83cb" name="83cb">Authors noticed one vital thing in recent approaches that some of the images missed their original colour tone when their reflection is separated because the structure of the background layer still appears in the reflection layer this is what authors assumed.</p><p class="graf graf--p graf-after--p" id="e85e" name="e85e">What authors decide is Independence of the reflection layer and the background layer should be kept so they come up with the new loss which is called gradient constraint loss. </p><p class="graf graf--p graf-after--p" id="a2a7" name="a2a7">addition to gradient constraint loss, they defined the following losses as well. feature loss which is responsible for feature preserving when two layers are separated, pixel loss corresponds to pixel loss and adversarial loss which corresponds to how realistic the output images are.</p><figure class="graf graf--figure graf-after--p" id="e67c" name="e67c"><img class="graf-image" data-height="619" data-image-id="1*0kLKoK2exEq87NPwQITnlg.png" data-width="925" decoding="async" loading="lazy" src="https://cdn-images-1.medium.com/max/800/1*0kLKoK2exEq87NPwQITnlg.png"/><figcaption class="imageCaption">The architecture of the proposed method</figcaption></figure><p class="graf graf--p graf--empty graf-after--figure" id="d0d1" name="d0d1"><br/></p><p class="graf graf--p graf-after--p" id="e74f" name="e74f">The architecture is made bu combination of a convolutional layer, batch<br/>normalization layer, leaky ReLU layer, max pooling<br/>layer, and bilinear interpolation layer.</p><figure class="graf graf--figure graf-after--p" id="61c2" name="61c2"><img class="graf-image" data-height="695" data-image-id="1*fmEdA3xuqnj6EGauXfxzmA.png" data-width="959" decoding="async" loading="lazy" src="https://cdn-images-1.medium.com/max/800/1*fmEdA3xuqnj6EGauXfxzmA.png"/></figure><p class="graf graf--p graf-after--figure" id="ea91" name="ea91">Our Generator tries to generate the background image from the original image The Background image B^i can be shown as below with respect to input image I^i and Learnt weights Qg</p><pre class="graf graf--pre graf-after--p" id="bf40" name="bf40">B^i = G( I^i, Qg)</pre><p class="graf graf--p graf-after--pre" id="c36f" name="c36f">Reflection layer can be got by subtracting background image from the original image as follow</p><pre class="graf graf--pre graf-after--p" id="0061" name="0061">R^i = I^i - B^i</pre><figure class="graf graf--figure graf-after--pre" id="6e0e" name="6e0e"><img class="graf-image" data-height="353" data-image-id="1*pKvN1DBWgIAKJCMmdKzWWA.png" data-width="876" decoding="async" loading="lazy" src="https://cdn-images-1.medium.com/max/800/1*pKvN1DBWgIAKJCMmdKzWWA.png"/></figure><p class="graf graf--p graf--empty graf-after--figure" id="b12b" name="b12b"><br/></p><p class="graf graf--p graf--empty graf-after--p graf--trailing" id="38e3" name="38e3"><br/></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/80a636cff55b">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></div>
+<footer class="article-footer"></footer>
+</article>
+</main>
+<script>
+document.querySelectorAll('.article-content a').forEach(a => {
+ const href=a.getAttribute('href')||'';
+ if(href.startsWith('http')){a.target='_blank';a.rel='noopener';}
+});
+</script>
+</body>
+</html>

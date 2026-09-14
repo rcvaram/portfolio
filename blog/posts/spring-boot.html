@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spring Boot | Thangam</title>
+<meta name="description" content="Spring Boot In this tutorial, We will see the complete web app with Security, Database connecting, Transcation handling, Dependency injction and other… Spring Boot In this tutorial, We will…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring Boot">
+<meta property="og:description" content="Spring Boot In this tutorial, We will see the complete web app with Security, Database connecting, Transcation handling, Dependency injction and other… Spring Boot In this tutorial, We will…">
+<meta property="article:published_time" content="2025-01-01">
+<link rel="stylesheet" href="../blog.css">
+</head>
+<body class="article-page">
+<header class="blog-header">
+<div class="blog-shell nav-row">
+<a class="brand" href="../../index.html">Thangam</a>
+<nav><a href="../index.html">Blog</a><a href="../../index.html#about">About</a><a href="../../index.html#contact">Contact</a></nav>
+</div>
+</header>
+<main class="article-shell">
+<a class="back-link" href="../index.html">← Back to blog</a>
+<article>
+<header class="article-hero">
+<div class="article-meta">REST &amp; APIs · 2025-01-01 · 2 min read</div>
+<h1>Spring Boot</h1>
+<div class="tag-row"><span class="tag">REST &amp; APIs</span><span class="tag">REST</span></div>
+</header>
+<div class="article-content"><article class="h-entry">
+<header>
+<h1 class="p-name">Spring Boot</h1>
+</header>
+<section class="p-summary" data-field="subtitle">
+In this tutorial, We will see the complete web app with Security, Database connecting, Transcation handling, Dependency injction and other…
+</section>
+<section class="e-content" data-field="body">
+<section class="section section--body section--first section--last" name="aab4"><div class="section-divider"><hr class="section-divider"/></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 class="graf graf--h3 graf--leading graf--title" id="5b88" name="5b88">Spring Boot</h3><p class="graf graf--p graf-after--h3" id="0fe0" name="0fe0">In this tutorial, We will see the complete web app with Security, Database connecting, Transcation handling, Dependency injction and other stubs.<br/>Before going on I will Explain the scenerion where we want to build this app.</p><p class="graf graf--p graf-after--p" id="f1fb" name="f1fb">We have planned to develop a Library management system Which has Users, Books and Librarian. In our Application , Users can see the book details, User can mark the books to borrow. The Librarian can add the books, update the books, delete the books. Authors can only update books content.</p><p class="graf graf--p graf-after--p" id="7898" name="7898">Our REST endpoints are GET books, GET bookById, POST BOOK, POST borrowBook, POST book, PUT book, DELETE book, </p><p class="graf graf--p graf-after--p" id="00b7" name="00b7">OUR REST API Architecture is given below</p><p class="graf graf--p graf--empty graf-after--p" id="e948" name="e948"><br/></p><figure class="graf graf--figure graf-after--p" id="e9de" name="e9de"><img class="graf-image" data-height="658" data-image-id="1*JqtsqY1BRlkS9Qai81e8LQ.jpeg" data-width="337" decoding="async" loading="lazy" src="https://cdn-images-1.medium.com/max/800/1*JqtsqY1BRlkS9Qai81e8LQ.jpeg"/></figure><p class="graf graf--p graf-after--figure" id="4689" name="4689">Our beans</p><p class="graf graf--p graf-after--p" id="78b4" name="78b4">Person</p><figure class="graf graf--figure graf--iframe graf-after--p" id="668a" name="668a"></figure><p class="graf graf--p graf-after--figure" id="655e" name="655e">Author</p><figure class="graf graf--figure graf--iframe graf-after--p" id="c84a" name="c84a"></figure><figure class="graf graf--figure graf--iframe graf-after--figure" id="eb34" name="eb34"></figure><p class="graf graf--p graf-after--figure" id="7abf" name="7abf">User</p><figure class="graf graf--figure graf--iframe graf-after--p" id="e8b1" name="e8b1"></figure><p class="graf graf--p graf--empty graf-after--figure" id="e909" name="e909"><br/></p><h4 class="graf graf--h4 graf-after--p" id="42af" name="42af">Let’s add Controller</h4><p class="graf graf--p graf-after--h4" id="378d" name="378d">Basically it is a java class with certain annotaion. This annotion will tell the Spring to what is the url you are mapping what should happen when the request comes to that URL. Spring has an frame work which is called as Spring MVC we will use this to build our REST API application inside spring boot</p><p class="graf graf--p graf-after--p" id="339f" name="339f">We have planned to build rest API so the class will be annotaed with @RESTCONTROLLER annotation</p><p class="graf graf--p graf-after--p" id="f57e" name="f57e">@RequestMapping annotation is used to map the get method only as default. If you want to use other methods such as POST, PUT, DELETE you have to mention inside the annotation as well. We will look even closer in next section</p><p class="graf graf--p graf-after--p" id="4f64" name="4f64">All the stubs are happening behind the screen. Ok lets break it up</p><p class="graf graf--p graf-after--p" id="2643" name="2643">Resources are the things that in your domain We have the only</p><p class="graf graf--p graf-after--p" id="a977" name="a977">Spring JPA — data tier</p><p class="graf graf--p graf-after--p" id="83bc" name="83bc">We have planned to connect database with spring application. We will do the CRUD operations on the database. What are the configurations we have to do for connecting to the database. Java persistence API lets you do ORM (Object Relational Mapping) for relational database in spring application. What is ORM ORM is let you to map the database tables into java classes and the JPA is a way to use ORM.</p><p class="graf graf--p graf-after--p" id="62df" name="62df">Spring Data JPA is more functionalities than JPA.</p><p class="graf graf--p graf--empty graf-after--p graf--trailing" id="35f7" name="35f7"><br/></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/eb922ed6c8fd">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></div>
+<footer class="article-footer"></footer>
+</article>
+</main>
+<script>
+document.querySelectorAll('.article-content a').forEach(a => {
+ const href=a.getAttribute('href')||'';
+ if(href.startsWith('http')){a.target='_blank';a.rel='noopener';}
+});
+</script>
+</body>
+</html>

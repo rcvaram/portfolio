@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Literature Reviews about Image Preprocessing | Thangam</title>
+<meta name="description" content="Literature Reviews about Image Preprocessing An OCR system for handheld devices Literature Reviews about Image Preprocessing An OCR system for handheld devices An OCR system for handheld dev…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Literature Reviews about Image Preprocessing">
+<meta property="og:description" content="Literature Reviews about Image Preprocessing An OCR system for handheld devices Literature Reviews about Image Preprocessing An OCR system for handheld devices An OCR system for handheld dev…">
+<meta property="article:published_time" content="2025-01-01">
+<link rel="stylesheet" href="../blog.css">
+</head>
+<body class="article-page">
+<header class="blog-header">
+<div class="blog-shell nav-row">
+<a class="brand" href="../../index.html">Thangam</a>
+<nav><a href="../index.html">Blog</a><a href="../../index.html#about">About</a><a href="../../index.html#contact">Contact</a></nav>
+</div>
+</header>
+<main class="article-shell">
+<a class="back-link" href="../index.html">← Back to blog</a>
+<article>
+<header class="article-hero">
+<div class="article-meta">System Design · 2025-01-01 · 3 min read</div>
+<h1>Literature Reviews about Image Preprocessing</h1>
+<div class="tag-row"><span class="tag">System Design</span><span class="tag">Architecture</span></div>
+</header>
+<div class="article-content"><article class="h-entry">
+<header>
+<h1 class="p-name">Literature Reviews about Image Preprocessing</h1>
+</header>
+<section class="p-summary" data-field="subtitle">
+An OCR system for handheld devices
+</section>
+<section class="e-content" data-field="body">
+<section class="section section--body section--first section--last" name="2743"><div class="section-divider"><hr class="section-divider"/></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 class="graf graf--h3 graf--leading graf--title" id="7dea" name="7dea">Literature Reviews about Image Preprocessing</h3><h4 class="graf graf--h4 graf--empty graf-after--h3 graf--subtitle" id="7165" name="7165"><br/></h4><h4 class="graf graf--h4 graf-after--h4" id="02d6" name="02d6">An OCR system for handheld devices</h4><p class="graf graf--p graf-after--h4" id="d8c2" name="d8c2">An OCR system for handheld devices is proposed in this paper with the below architecture. This system has many challenges, these kind of images very often suffer from skew and perspective distortion. More than that, uneven illumination and the insufficient illumination are the common challnges</p><p class="graf graf--p graf-after--p" id="097b" name="097b">As they mentioned, the first step is extracting the text.</p><p class="graf graf--p graf-after--p" id="6509" name="6509">The input image is divided into m blocks then the blocks are categorized as background block or information block using intensity variation.</p><p class="graf graf--p graf-after--p" id="af91" name="af91">Skew correction happens after the text extraction since the captured images might not be uniformly skewed because of perspective distortion. </p><p class="graf graf--p graf-after--p" id="cfcd" name="cfcd">After the skew correction, the image is sent to binarization.</p><p class="graf graf--p graf-after--p" id="baaa" name="baaa"> An improved version of Bernsen’s binarization technique which is proposed in this paper is used for binarization. </p><p class="graf graf--p graf-after--p" id="2058" name="2058">Segmentation happens after the binarization.</p><p class="graf graf--p graf-after--p" id="b34f" name="b34f"> 97.48% segmentation accuracy is achieved for 3 MP images. This accuracy is achieved when the image font is a normal regular font, not italic or cursive text. </p><p class="graf graf--p graf-after--p" id="a781" name="a781">Recognition happens after the segmentation. They considered 73 letters which are used frequently. With the experiment result, they reduced the set to 62 classes. The maximum accuracy has been obtained with 62 classes. </p><p class="graf graf--p graf-after--p" id="835e" name="835e">This system can be implemented with a post-processing step then the accuracy may be increased and that will be their future work.</p><h4 class="graf graf--h4 graf-after--p" id="a11f" name="a11f">Binarization methods</h4><p class="graf graf--p graf-after--h4" id="b0ea" name="b0ea">Binarization is used commonly in image preprocessing since it might impact ocr results[7]. </p><p class="graf graf--p graf-after--p" id="b3ef" name="b3ef">The two approaches are used commonly in binarization; global binarization(Otsu) and local adaptive binarization. </p><p class="graf graf--p graf-after--p" id="cc27" name="cc27">Local adaptive binarization is not prefered for normal images. Otsu, NiBlack, Sauvola, Wolf, Nick and Batainesh are the methods used in binarization.</p><p class="graf graf--p graf-after--p" id="76e0" name="76e0"> This paper illustrates that the local adaptive binarization methods give better results in non-uniform intensities, uneven illumination, or shadow-degraded cases.</p><p class="graf graf--p graf-after--p" id="9a82" name="9a82">Otsu binarization works well in normal images since it divides the foreground from the background very effectively using the histogram anlysis.</p><p class="graf graf--p graf-after--p" id="3e2d" name="3e2d"><strong class="markup--strong markup--p-strong">Efficient and Robust Specular Highlight Removal[10]</strong></p><p class="graf graf--p graf-after--p" id="99ef" name="99ef">Specular highlights or glare make difficulties for compute vision tasks like binarization, segmentation and more.</p><p class="graf graf--p graf-after--p" id="f93b" name="f93b">They observed a behaviour of an image that the image smoothness is proportional to the maximum friction of diffuse colour components of an image.</p><p class="graf graf--p graf-after--p" id="6210" name="6210">So that, specular pixels can be treated as noise. It can be removed from an image in a denoising fashion.</p><p class="graf graf--p graf-after--p" id="7918" name="7918">This specular highlight removal can be done in two ways one is based on using multiple images and other one is using a single image. The most challenging task is using single image to remove specular highlights. </p><p class="graf graf--p graf-after--p" id="5f0b" name="5f0b">Colour segmentation, analysing the distribution of image colour within a colour space are the techniques used in single image specular highlight removal.</p><p class="graf graf--p graf-after--p" id="ca0a" name="ca0a">Authouthrs imporved or modified an existing idea of Tan &amp; IKUSHI which is relaxing the general pixels to chromaticity pixels with adding their observation.</p><p class="graf graf--p graf-after--p" id="db0f" name="db0f">IN THEIR METHOD, specular pixel colour is got from a nonlinear function of the original color of the pixel and the maximum fraction of the diffuse color component(maximum diffuse chromaticity). This chromaticity pixel value is estimated by directly applying a low-pass filter to the maximum color component image.</p><p class="graf graf--p graf-after--p" id="6965" name="6965">This gives better results than earlier one of the tan &amp; IKUSHI.</p><h3 class="graf graf--h3 graf-after--p" id="836e" name="836e">Slide aah paakanum</h3><h4 class="graf graf--h4 graf-after--h3" id="7d78" name="7d78">An overview of an tessract engine</h4><p class="graf graf--p graf-after--h4" id="fbe1" name="fbe1">Tessract was initially started by as PHd project of hp and is maintained by google now. Tesseract Architecture can be looked as below.</p><p class="graf graf--p graf-after--p" id="8ae3" name="8ae3">First one is adaptive thresholding, Otsu binarization method is used to binarize the input image. the binarization happens in small divisions of an image.</p><p class="graf graf--p graf-after--p" id="840f" name="840f">IN page out analysis, the image was divided into text and non-text area. This is based on a 7 steps process which is taps-stop approach of an document iamge.</p><p class="graf graf--p graf-after--p" id="f858" name="f858">A novel algorithm is used to finding rows of text in a page. Using a quadratic spline by a least square fit, the baselines are fitted. Definite spaces and fuzzy spaces are used to divide the text.</p><p class="graf graf--p graf-after--p" id="2f40" name="2f40">Tesseract uses both static classifier and adaptive classifier in classification. A static classifier is used to recognise the text in first pass. adaptive classifier which is trained by the recognised words is used to recognise the unrecognised words in second pass</p><p class="graf graf--p graf--empty graf-after--p" id="0138" name="0138"><br/></p><p class="graf graf--p graf--empty graf-after--p graf--trailing" id="09fc" name="09fc"><br/></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/98216909bcf3">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></div>
+<footer class="article-footer"></footer>
+</article>
+</main>
+<script>
+document.querySelectorAll('.article-content a').forEach(a => {
+ const href=a.getAttribute('href')||'';
+ if(href.startsWith('http')){a.target='_blank';a.rel='noopener';}
+});
+</script>
+</body>
+</html>

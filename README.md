@@ -1,13 +1,12 @@
-# Portfolio writing integration
+# Portfolio + Separate Blog
 
-Generated from the Medium export supplied with the portfolio.
+The portfolio remains the main site. A dedicated static blog lives at `/blog/`.
 
-Included:
-- `index.html` — writing section replaced with searchable/filterable article library.
-- `styles.css` — responsive article grid, topic filters, search and pagination styles.
-- `script.js` — existing portfolio behavior plus article filtering/search/pagination.
-- `posts-data.js` — 110 selected long-form Medium articles with title, date, canonical URL, excerpt and relevant topic tags.
+- `/index.html` — portfolio
+- `/blog/index.html` — searchable/filterable blog
+- `/blog/posts/` — individual local article pages
+- `/blog/posts-data.js` — article metadata
+- `/blog/blog.css` — blog styles
+- `/blog/blog.js` — search, category filters and pagination
 
-The importer intentionally leaves short conversational replies/comments out of the portfolio article library and focuses on substantial long-form posts.
-
-The cards link to the original Medium canonical article rather than duplicating the Medium article content.
+The local articles were generated from the Medium export and retain a link to the Medium source where available.

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plan to develop Home prize measurement | Thangam</title>
+<meta name="description" content="Plan to develop Home prize measurement We have to predict the price of the home which these catogries If you look at the data set, you have some null values you ahve to remove… Plan to devel…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Plan to develop Home prize measurement">
+<meta property="og:description" content="Plan to develop Home prize measurement We have to predict the price of the home which these catogries If you look at the data set, you have some null values you ahve to remove… Plan to devel…">
+<meta property="article:published_time" content="2025-01-01">
+<link rel="stylesheet" href="../blog.css">
+</head>
+<body class="article-page">
+<header class="blog-header">
+<div class="blog-shell nav-row">
+<a class="brand" href="../../index.html">Thangam</a>
+<nav><a href="../index.html">Blog</a><a href="../../index.html#about">About</a><a href="../../index.html#contact">Contact</a></nav>
+</div>
+</header>
+<main class="article-shell">
+<a class="back-link" href="../index.html">← Back to blog</a>
+<article>
+<header class="article-hero">
+<div class="article-meta">Python &amp; Data · 2025-01-01 · 2 min read</div>
+<h1>Plan to develop Home prize measurement</h1>
+<div class="tag-row"><span class="tag">Python &amp; Data</span><span class="tag">Data</span><span class="tag">Pandas</span></div>
+</header>
+<div class="article-content"><article class="h-entry">
+<header>
+<h1 class="p-name">Plan to develop Home prize measurement</h1>
+</header>
+<section class="p-summary" data-field="subtitle">
+We have to predict the price of the home which these catogries
+If you look at the data set, you have some null values you ahve to remove…
+</section>
+<section class="e-content" data-field="body">
+<section class="section section--body section--first section--last" name="6eed"><div class="section-divider"><hr class="section-divider"/></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 class="graf graf--h3 graf--leading graf--title" id="0518" name="0518">Plan to develop Home prize measurement </h3><figure class="graf graf--figure graf-after--h3" id="0f00" name="0f00"><img class="graf-image" data-height="210" data-image-id="1*I0fYaEyXG6jbBeb5ZMh8ig.png" data-width="533" decoding="async" loading="lazy" src="https://cdn-images-1.medium.com/max/800/1*I0fYaEyXG6jbBeb5ZMh8ig.png"/><figcaption class="imageCaption">Training DataSet</figcaption></figure><p class="graf graf--p graf--empty graf-after--figure" id="5ae5" name="5ae5"><br/></p><figure class="graf graf--figure graf-after--p" id="6dc7" name="6dc7"><img class="graf-image" data-height="263" data-image-id="1*-MTlOOMCDXiZGTqulzAoAw.png" data-width="657" decoding="async" loading="lazy" src="https://cdn-images-1.medium.com/max/800/1*-MTlOOMCDXiZGTqulzAoAw.png"/><figcaption class="imageCaption">From pandas dateframe object</figcaption></figure><p class="graf graf--p graf-after--figure" id="acd6" name="acd6">We have to predict the price of the home which these catogries<br/>If you look at the data set, you have some null values you ahve to remove those null values or replace with median we have to do this with pandas</p><p class="graf graf--p graf-after--p" id="6fa0" name="6fa0">For that, we have to get median and this median will be a float number we want to make it as integer and we have to add those things in that data frame object</p><figure class="graf graf--figure graf-after--p" id="f1c2" name="f1c2"><img class="graf-image" data-height="379" data-image-id="1*Ok5wb4LL5s8CpM1dsvK8QA.png" data-width="668" decoding="async" loading="lazy" src="https://cdn-images-1.medium.com/max/800/1*Ok5wb4LL5s8CpM1dsvK8QA.png"/></figure><p class="graf graf--p graf--empty graf-after--figure" id="da3a" name="da3a"><br/></p><p class="graf graf--p graf-after--p" id="abd7" name="abd7">Now we remove the null values from the data set but we have text values we will remove those things with one hot vector encode<br/>For that, we have to create dummie values and we will remove the town column and we will add those dummy columns and we also remove one dummy column because……………<br/><br/></p><figure class="graf graf--figure graf-after--p" id="6d37" name="6d37"><img class="graf-image" data-height="468" data-image-id="1*6EhvSEfcoFP6XWnnsSvKLA.png" data-width="651" decoding="async" loading="lazy" src="https://cdn-images-1.medium.com/max/800/1*6EhvSEfcoFP6XWnnsSvKLA.png"/></figure><p class="graf graf--p graf-after--figure" id="8c64" name="8c64">Now we have merged but we don’t need town column and also we don’t need one dummy variable because it can be derived from another dummy variables</p><figure class="graf graf--figure graf-after--p" id="8ba0" name="8ba0"><img class="graf-image" data-height="274" data-image-id="1*XEhCYTxzKDOD5uErOItCXA.png" data-width="780" decoding="async" loading="lazy" src="https://cdn-images-1.medium.com/max/800/1*XEhCYTxzKDOD5uErOItCXA.png"/></figure><p class="graf graf--p graf-after--figure" id="4597" name="4597">We have dropped our unwanted columns now we can split to two sets one is x variables set and other one is y variable set</p><figure class="graf graf--figure graf-after--p" id="b201" name="b201"><img class="graf-image" data-height="418" data-image-id="1*5F2gpgzu8Psp5s4S5C4cPQ.png" data-width="631" decoding="async" loading="lazy" src="https://cdn-images-1.medium.com/max/800/1*5F2gpgzu8Psp5s4S5C4cPQ.png"/></figure><p class="graf graf--p graf-after--figure" id="2ae3" name="2ae3">We realized that the variables has a realtionship with y is linear we planned to go with linear regression for that, we have to import the linear_model from sklearn and we have to train the model with these data using fit method of model, We can get each coefficients and the intercept of the data</p><figure class="graf graf--figure graf-after--p" id="6eb0" name="6eb0"><img class="graf-image" data-height="397" data-image-id="1*7zXo_J_10KrEUjH6I_l4pA.png" data-width="660" decoding="async" loading="lazy" src="https://cdn-images-1.medium.com/max/800/1*7zXo_J_10KrEUjH6I_l4pA.png"/></figure><p class="graf graf--p graf--empty graf-after--figure" id="90ba" name="90ba"><br/></p><p class="graf graf--p graf-after--p" id="2cc5" name="2cc5">Now we can predict the model using model.predict() area =5000, bedrooms =5, age of the home =2, town =colombo then the price is below here</p><figure class="graf graf--figure graf-after--p" id="984f" name="984f"><img class="graf-image" data-height="55" data-image-id="1*2ukTjkNNzl3cu2oH9tihwg.png" data-width="1027" decoding="async" loading="lazy" src="https://cdn-images-1.medium.com/max/800/1*2ukTjkNNzl3cu2oH9tihwg.png"/></figure><p class="graf graf--p graf-after--figure" id="58f9" name="58f9">How can we save this model we will use the pickle to save the model.</p><figure class="graf graf--figure graf-after--p" id="4714" name="4714"><img class="graf-image" data-height="114" data-image-id="1*VgOORMCPovuw8TDQ53Q4pg.png" data-width="1031" decoding="async" loading="lazy" src="https://cdn-images-1.medium.com/max/800/1*VgOORMCPovuw8TDQ53Q4pg.png"/></figure><p class="graf graf--p graf-after--figure" id="cd2c" name="cd2c">So now you can send the model to anywhere how can we load the model</p><figure class="graf graf--figure graf-after--p" id="f36b" name="f36b"><img class="graf-image" data-height="120" data-image-id="1*pyQgaOYWhMc_5utJ3yaOzg.png" data-width="1023" decoding="async" loading="lazy" src="https://cdn-images-1.medium.com/max/800/1*pyQgaOYWhMc_5utJ3yaOzg.png"/></figure><p class="graf graf--p graf-after--figure" id="8967" name="8967">Now we will see one regression problem </p><h4 class="graf graf--h4 graf-after--p" id="c653" name="c653">Classifications Types</h4><p class="graf graf--p graf-after--h4" id="8406" name="8406">Binary classification &amp;&amp; multi-class classification</p><p class="graf graf--p graf-after--p" id="b056" name="b056">How can we do the binary classification<br/>Sigmoid or logit function will be used to do the binary classification </p><p class="graf graf--p graf-after--p graf--trailing" id="3c83" name="3c83">sigmoid(z) = 1/(1+e^-z )<br/>We have line like linear regression and we will feed this line into sigmoid function It means we will find the linear equation for the model and we will insert into sigmoid function <br/>sigmoid(x) = 1/(1+e^-(m*X+c) )</p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/dd38c58b740d">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></div>
+<footer class="article-footer"></footer>
+</article>
+</main>
+<script>
+document.querySelectorAll('.article-content a').forEach(a => {
+ const href=a.getAttribute('href')||'';
+ if(href.startsWith('http')){a.target='_blank';a.rel='noopener';}
+});
+</script>
+</body>
+</html>
