@@ -1229,191 +1229,77 @@
      WRITING
 ========================================================= -->
 
-<section
-    id="writing"
-    class="writing"
->
-
+<section id="writing" class="writing">
     <div class="container">
-
         <div class="section-heading">
-
-            <p class="section-eyebrow">
-                TECHNICAL WRITING
-            </p>
-
-            <h2>
-                I write about the engineering problems I explore.
-            </h2>
-
+            <p class="section-eyebrow">TECHNICAL WRITING</p>
+            <h2>Notes from the engineering problems I explore.</h2>
             <p>
-                My writing focuses on Java, Spring Boot, Kafka,
-                distributed systems, software architecture,
-                and practical engineering lessons.
+                A searchable collection of my Medium writing, organized by topic
+                so you can quickly find articles about Java, Spring Boot, APIs,
+                distributed systems, Kafka, security, system design, and more.
             </p>
-
         </div>
 
-
-        <div class="writing-stats">
-
+        <div class="writing-stats writing-stats-dynamic">
             <div>
-                <strong>
-                    100+
-                </strong>
-
-                <span>
-                    Technical Articles
-                </span>
+                <strong id="article-count">110</strong>
+                <span>Long-form Articles</span>
             </div>
-
-
             <div>
-                <strong>
-                    2,100+
-                </strong>
-
-                <span>
-                    Followers
-                </span>
+                <strong id="topic-count">12</strong>
+                <span>Topics</span>
             </div>
-
-
             <div>
-                <strong>
-                    140K+
-                </strong>
-
-                <span>
-                    Top Article Views
-                </span>
+                <strong id="latest-article-date">2026</strong>
+                <span>Latest Writing</span>
             </div>
-
-
             <div>
-                <strong>
-                    50K+
-                </strong>
-
-                <span>
-                    Multiple Articles Reached
-                </span>
+                <strong>Medium</strong>
+                <span>Original Articles</span>
             </div>
-
         </div>
 
+        <div class="writing-toolbar" aria-label="Article filters">
+            <label class="writing-search">
+                <span class="sr-only">Search articles</span>
+                <input
+                    id="article-search"
+                    type="search"
+                    placeholder="Search articles, topics, or keywords..."
+                    autocomplete="off"
+                >
+            </label>
 
-        <div class="featured-articles">
-
-
-            <article class="article-card">
-
-                <div class="article-content">
-
-                    <span class="article-category">
-                        JAVA
-                    </span>
-
-                    <h3>
-                        Before You Define a Java Class,
-                        Think Twice
-                    </h3>
-
-                    <p>
-                        Exploring the decisions worth considering
-                        before introducing a new Java class.
-                    </p>
-
-                    <a
-                        href="https://blog.stackademic.com/before-define-a-java-class-think-twice-series-1-d0fc026c8ac4"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Read article →
-                    </a>
-
-                </div>
-
-            </article>
-
-
-            <article class="article-card">
-
-                <div class="article-content">
-
-                    <span class="article-category">
-                        JAVA
-                    </span>
-
-                    <h3>
-                        Java Performance Optimization
-                    </h3>
-
-                    <p>
-                        Practical techniques and considerations
-                        for improving Java application performance.
-                    </p>
-
-                    <a
-                        href="https://medium.com/javarevisited/java-performance-optimization-tips-101-5e2e4b6b2e5d"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Read article →
-                    </a>
-
-                </div>
-
-            </article>
-
-
-            <article class="article-card">
-
-                <div class="article-content">
-
-                    <span class="article-category">
-                        JAVA
-                    </span>
-
-                    <h3>
-                        Java Coding Guidelines: My View
-                    </h3>
-
-                    <p>
-                        Personal perspectives on writing clean,
-                        maintainable Java code.
-                    </p>
-
-                    <a
-                        href="https://medium.com/javarevisited/java-coding-guidelines-my-view-2-8e20335459e1"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Read article →
-                    </a>
-
-                </div>
-
-            </article>
-
+            <div id="article-tags" class="article-filters" role="group" aria-label="Filter articles by topic">
+                <button class="article-filter is-active" type="button" data-tag="All">All</button>
+            </div>
         </div>
 
+        <div id="article-results" class="article-grid" aria-live="polite"></div>
 
-        <div class="section-action">
+        <div id="article-empty" class="article-empty" hidden>
+            <h3>No articles found</h3>
+            <p>Try a different keyword or choose another topic.</p>
+        </div>
 
+        <div class="article-pagination">
+            <button id="article-prev" class="pagination-button" type="button">← Previous</button>
+            <span id="article-page" class="pagination-status">Page 1</span>
+            <button id="article-next" class="pagination-button" type="button">Next →</button>
+        </div>
+
+        <div class="section-action writing-footer-action">
             <a
                 href="https://medium.com/@cvaram96"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="button button-secondary"
             >
-                View All Articles
+                View on Medium →
             </a>
-
         </div>
-
     </div>
-
 </section>
 
 
@@ -1714,6 +1600,7 @@
 </footer>
 
 
+<script src="posts-data.js"></script>
 <script src="script.js"></script>
 
 </body>
