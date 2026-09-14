@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>AWS — EC2</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">AWS — EC2</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Elastic Compute Cloud
+</section>
+<section data-field="body" class="e-content">
+<section name="bf47" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="b410" id="b410" class="graf graf--h3 graf--leading graf--title">AWS — EC2</h3><ul class="postList"><li name="0b78" id="0b78" class="graf graf--li graf-after--h3"> Elastic Compute Cloud</li><li name="5856" id="5856" class="graf graf--li graf-after--li">Can be looked at as virtual machines in the cloud.</li><li name="9050" id="9050" class="graf graf--li graf-after--li">Storing data on virtual drives (EBS).</li><li name="73bf" id="73bf" class="graf graf--li graf-after--li">Distributing load across machines (ELB).</li><li name="d529" id="d529" class="graf graf--li graf-after--li">Scaling the services using an auto-scaling group. </li><li name="ef8f" id="ef8f" class="graf graf--li graf-after--li">Linux, Windows or Mac OS can be used as Operating System</li><li name="7f5a" id="7f5a" class="graf graf--li graf-after--li">Following configurations can be done when we set up the EC2 instance in AWS.</li></ul><blockquote name="0c4e" id="0c4e" class="graf graf--pullquote graf-after--li">1. How much CPU <br>2. How much Memory (RAM)<br>3.  How much Storage Space<br>4. Network card Speed<br>5. Firewall Rules(Inbound and Outbound Rules) 6. Bootstrap Script(Which can be run at first launch — EC2 User Data)</blockquote><h4 name="dba0" id="dba0" class="graf graf--h4 graf-after--pullquote">To Launch a new Ec2 instance</h4><ol class="postList"><li name="25ce" id="25ce" class="graf graf--li graf-after--h4">Choose AMI<br>An AMI is a template that contains the software configuration (OS, application server and application) required to launch the instance.<br> → AWS AMIs<br> → User Community<br> → AWS Marketplace<br> → Own AMIs</li><li name="2d81" id="2d81" class="graf graf--li graf-after--li">Choose Instance Type<br>A wide selection of instance types is optimized to fit different use cases. Each Instance type has varying combinations of CPU, memory, storage and network capacity. </li><li name="60d7" id="60d7" class="graf graf--li graf-after--li">Configure Instance<br>How many instances, request spot instances to take advantage of the lower pricing, assign an IAM Role and add user data that can be run in boot time, can be done in this section. </li><li name="e0e5" id="e0e5" class="graf graf--li graf-after--li">Add Storage<br>We can attach EBS volumes and instance store volumes to the instance to edit the settings of root volume. When we terminate the instance we can delete the storage as well if we want.</li><li name="6ccc" id="6ccc" class="graf graf--li graf-after--li">Add Tags<br>Tags are used by us to interpret various resources. </li><li name="89ea" id="89ea" class="graf graf--li graf-after--li">Configure Security Group<br>A security group is a set of firewall rules that control the traffic of the instance. We can add rules to allow specific traffic to reach the instance. </li><li name="8c1d" id="8c1d" class="graf graf--li graf-after--li">Review<br>Review the configurations of the e2 instance</li></ol><p name="1b7d" id="1b7d" class="graf graf--p graf-after--li">When you try to launch the instance, you will end up with select an existing key pair / creating a new key pair. A RSA key pair consists of a public key that AWS stores and a private key that needs to be stored from your site. To connect the instance via SSH, you need to provide the private key then AWS will validate with its public key. then it allows you to connect the instance securely. </p><h4 name="4268" id="4268" class="graf graf--h4 graf-after--p">Security Groups </h4><p name="81da" id="81da" class="graf graf--p graf-after--h4"> Security groups are the fundamentals of network security in AWS. They control how traffic is allowed into or out the EC2 instance</p><p name="2ae2" id="2ae2" class="graf graf--p graf-after--p">Security groups only contain allow rules</p><p name="8325" id="8325" class="graf graf--p graf-after--p">Security group rules can reference by IP or by security group</p><p name="2e79" id="2e79" class="graf graf--p graf-after--p">Security groups are acting as a firewall on EC2 instances.</p><p name="ffb2" id="ffb2" class="graf graf--p graf--empty graf-after--p"><br></p><p name="4691" id="4691" class="graf graf--p graf--empty graf-after--p"><br></p><p name="d645" id="d645" class="graf graf--p graf--empty graf-after--p"><br></p><p name="eaed" id="eaed" class="graf graf--p graf--empty graf-after--p"><br></p><p name="e7e8" id="e7e8" class="graf graf--p graf--empty graf-after--p graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/97b8adac1d95">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></body></html>

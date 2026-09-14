@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>12 ways to ensure you reviewed code from a security perspective | Java | Code Review | Best…</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">12 ways to ensure you reviewed code from a security perspective | Java | Code Review | Best…</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+1. Validate All Inputs
+</section>
+<section data-field="body" class="e-content">
+<section name="cf58" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="50bd" id="50bd" class="graf graf--h3 graf--leading graf--title">12 ways to ensure you reviewed code from a security perspective | Java | Code Review | Best Practise | Securtiy</h3><p name="a3f4" id="a3f4" class="graf graf--p graf--empty graf-after--h3"><br></p><h3 name="f994" id="f994" class="graf graf--h3 graf-after--p">1. Validate All Inputs</h3><p name="aac0" id="aac0" class="graf graf--p graf-after--h3"><strong class="markup--strong markup--p-strong">Why it’s important:</strong> Unvalidated input is a primary cause of security vulnerabilities, including SQL injection and buffer overflows.</p><h4 name="1640" id="1640" class="graf graf--h4 graf-after--p">Bad Practice:</h4><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="java" name="846f" id="846f" class="graf graf--pre graf-after--h4 graf--preV2"><span class="pre--content"><span class="hljs-type">String</span> <span class="hljs-variable">query</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;SELECT * FROM users WHERE id = &quot;</span> + userId; <span class="hljs-comment">// Accepting input directly.</span></span></pre><h4 name="a4bf" id="a4bf" class="graf graf--h4 graf-after--pre">Good Practice:</h4><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="java" name="276d" id="276d" class="graf graf--pre graf-after--h4 graf--preV2"><span class="pre--content"><span class="hljs-type">int</span> <span class="hljs-variable">id</span> <span class="hljs-operator">=</span> Integer.parseInt(userInput); <span class="hljs-comment">// Check that input is a valid number.</span><br /><span class="hljs-type">PreparedStatement</span> <span class="hljs-variable">stmt</span> <span class="hljs-operator">=</span> conn.prepareStatement(<span class="hljs-string">&quot;SELECT * FROM users WHERE id = ?&quot;</span>);<br />stmt.setInt(<span class="hljs-number">1</span>, id);</span></pre><blockquote name="158d" id="158d" class="graf graf--pullquote graf-after--pre">Always check that inputs are valid, and use prepared statements to avoid injection attacks.</blockquote><h3 name="54e0" id="54e0" class="graf graf--h3 graf-after--pullquote">2. Restrict Class and Member Access</h3><p name="e076" id="e076" class="graf graf--p graf-after--h3">Don’t let parts of your program that shouldn’t be accessed from outside remain public.</p><h4 name="b1e0" id="b1e0" class="graf graf--h4 graf-after--p">Bad Practice:</h4><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="typescript" name="55d0" id="55d0" class="graf graf--pre graf-after--h4 graf--preV2"><span class="pre--content"><span class="hljs-keyword">public</span> <span class="hljs-title class_">String</span> tpNo= <span class="hljs-string">&quot;12345&quot;</span>; <span class="hljs-comment">// Anyone can access and modify this.</span></span></pre><h4 name="77ef" id="77ef" class="graf graf--h4 graf-after--pre">Good Practice:</h4><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="java" name="24e5" id="24e5" class="graf graf--pre graf-after--h4 graf--preV2"><span class="pre--content"><span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> String tpNo= <span class="hljs-string">&quot;12345&quot;</span>; <span class="hljs-comment">// Now it&#x27;s hidden and can&#x27;t be changed.</span></span></pre><blockquote name="c9da" id="c9da" class="graf graf--pullquote graf-after--pre">Keep fields and methods private unless they absolutely need to be accessed from outside.</blockquote><h3 name="4ba3" id="4ba3" class="graf graf--h3 graf-after--pullquote">3. Use the Principle of Least Privilege</h3><p name="904c" id="904c" class="graf graf--p graf-after--h3">Give your app only the permissions it needs to function.</p><h4 name="9e1d" id="9e1d" class="graf graf--h4 graf-after--p">Bad Practice:</h4><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="java" name="b6de" id="b6de" class="graf graf--pre graf-after--h4 graf--preV2"><span class="pre--content">Runtime.getRuntime().exec(<span class="hljs-string">&quot;chmod 777 /important-folder&quot;</span>); <span class="hljs-comment">// Full permissions given.</span></span></pre><h4 name="4b8b" id="4b8b" class="graf graf--h4 graf-after--pre">Good Practice:</h4><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="java" name="595e" id="595e" class="graf graf--pre graf-after--h4 graf--preV2"><span class="pre--content">Runtime.getRuntime().exec(<span class="hljs-string">&quot;chmod 444 /important-folder&quot;</span>); <span class="hljs-comment">// Read-only access.</span></span></pre><blockquote name="f80d" id="f80d" class="graf graf--pullquote graf-after--pre">Avoid giving more privileges than necessary to reduce the risk of misuse.</blockquote><h3 name="85a2" id="85a2" class="graf graf--h3 graf-after--pullquote">4. Avoid Logging Sensitive Information</h3><p name="f3a0" id="f3a0" class="graf graf--p graf-after--h3">Sensitive data like passwords and tokens must not appear in logs.</p><h4 name="b9cb" id="b9cb" class="graf graf--h4 graf-after--p">Bad Practice:</h4><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="java" name="55d8" id="55d8" class="graf graf--pre graf-after--h4 graf--preV2"><span class="pre--content">logger.info(<span class="hljs-string">&quot;User logged in with password: &quot;</span> + password); <span class="hljs-comment">// Logs password.</span></span></pre><h4 name="6187" id="6187" class="graf graf--h4 graf-after--pre">Good Practice:</h4><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="java" name="d250" id="d250" class="graf graf--pre graf-after--h4 graf--preV2"><span class="pre--content">logger.info(<span class="hljs-string">&quot;User login attempt at &quot;</span> + timestamp); <span class="hljs-comment">// Only logs general information.</span></span></pre><blockquote name="fb19" id="fb19" class="graf graf--pullquote graf-after--pre">Log helpful details for debugging, but never sensitive information.</blockquote><h3 name="a94a" id="a94a" class="graf graf--h3 graf-after--pullquote">5. Handle Exceptions Securely</h3><p name="a95a" id="a95a" class="graf graf--p graf-after--h3">Don’t leak system details in error messages.</p><h4 name="1340" id="1340" class="graf graf--h4 graf-after--p">Bad Practice:</h4><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="java" name="b51e" id="b51e" class="graf graf--pre graf-after--h4 graf--preV2"><span class="pre--content"><span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">IOException</span>(<span class="hljs-string">&quot;File not found at /secure/folder/file.txt&quot;</span>); <span class="hljs-comment">// Reveals file path.</span></span></pre><h4 name="1d33" id="1d33" class="graf graf--h4 graf-after--pre">Good Practice:</h4><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="java" name="6064" id="6064" class="graf graf--pre graf-after--h4 graf--preV2"><span class="pre--content"><span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">IOException</span>(<span class="hljs-string">&quot;Unable to access the requested file.&quot;</span>); <span class="hljs-comment">// Generic error message.</span></span></pre><blockquote name="2174" id="2174" class="graf graf--pullquote graf-after--pre">Be vague in error messages to avoid giving attackers hints about your system.</blockquote><p name="b71b" id="b71b" class="graf graf--p graf--empty graf-after--pullquote graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/7d7e3a3e4bc7">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Liquibase Migration for Spring boot Application</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Liquibase Migration for Spring boot Application</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Liquibase provides an automated version based database migration for the application. Liquibase tracks changes using its own tables in the…
+</section>
+<section data-field="body" class="e-content">
+<section name="ca16" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="93a8" id="93a8" class="graf graf--h3 graf--leading graf--title">Liquibase Migration for Spring boot Application</h3><p name="7bb3" id="7bb3" class="graf graf--p graf--empty graf-after--h3"><br></p><p name="5421" id="5421" class="graf graf--p graf-after--p">Liquibase provides an automated version based database migration for the application. Liquibase tracks changes using its own tables in the application schema to ensure consistency and to avoid corruption due to incorrectly altered changelogs. It records a hash of each changeset. While it’s running updates, it puts a “lock” on the database so no one can accidentally run two changelogs concurrently.</p><h3 name="2f9c" id="2f9c" class="graf graf--h3 graf-after--p">Liquibase Concepts</h3><h3 name="72c6" id="72c6" class="graf graf--h3 graf-after--h3"><a href="https://docs.liquibase.com/concepts/basic/changeset.html" data-href="https://docs.liquibase.com/concepts/basic/changeset.html" class="markup--anchor markup--h3-anchor" rel="noopener" target="_blank">Changeset</a></h3><p name="3d36" id="3d36" class="graf graf--p graf-after--h3">A changeSet describes a set of database changes that Liquibase executes within one transaction. Each changeSet gets identified by the name of the author and an id.</p><p name="6b2f" id="6b2f" class="graf graf--p graf-after--p">Liquibase stores this information together with the name of the changelog file in the <strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">databasechangelog</em></strong> table to keep track of the executed changesets. A changeset can be applied to the database only once.</p><p name="084f" id="084f" class="graf graf--p graf-after--p">When a changeset is included then the liquibase looks at the <strong class="markup--strong markup--p-strong">databasechangelog</strong> table to verify the changelog is already executed or not. If the changelog is already executed in that database, it will skip that changelog otherwise it will run the changelog. Changelogs can be written in JSON, YAML, XML or SQL. It is best practice to have just one change per <em class="markup--em markup--p-em">changeset</em> unless there is a group of non-auto-committing changes that you want to apply as a transaction such as inserting data.</p><h3 name="762b" id="762b" class="graf graf--h3 graf-after--p"><a href="https://docs.liquibase.com/concepts/basic/changelog.html" data-href="https://docs.liquibase.com/concepts/basic/changelog.html" class="markup--anchor markup--h3-anchor" rel="noopener" target="_blank">Changelog file</a></h3><p name="2f13" id="2f13" class="graf graf--p graf-after--h3">All the changes are defined as changesets and they will be added in the changelog file. then the liquibase run those changesets sequentially. When the Liquibase migrator runs, it parses the <em class="markup--em markup--p-em">changelog</em> tag. The migrator first checks any preconditions specified. If any of the preconditions fail, Liquibase will exit with an error message explaining what failed. Preconditions can be typically used for both documenting and enforcing expectations or assumptions. For example, you can specify the DBMS to be run against the <em class="markup--em markup--p-em">changelog</em> or the user you should log in to run changes.</p><h3 name="d33e" id="d33e" class="graf graf--h3 graf-after--p"><a href="https://docs.liquibase.com/concepts/advanced/contexts.html" data-href="https://docs.liquibase.com/concepts/advanced/contexts.html" class="markup--anchor markup--h3-anchor" rel="noopener" target="_blank">Liquibase context</a></h3><p name="d33b" id="d33b" class="graf graf--p graf-after--h3">Contexts in Liquibase are expressions that can be added to <em class="markup--em markup--p-em">changesets/changelog </em>to control which will be executed in any particular migration run. Any string can be used for the context name and they are checked case-insensitively. If ya context is not set for a <em class="markup--em markup--p-em">changeset</em>, it will run all the time, regardless of what contexts are passed into the migrator.</p><h3 name="2525" id="2525" class="graf graf--h3 graf-after--p">Generating changelog file for an already existing database</h3><p name="f14b" id="f14b" class="graf graf--p graf-after--h3">with the help of <a href="https://dbeaver.io/" data-href="https://dbeaver.io/" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">dbeaver database tool</a>, We can generate the database schema &amp; static data in SQL format. Since the changelog can be defined in SQL format, there are no big changes in the generated files. We have to do some minor changes such as removing the database schema name in the SQL format file.</p><p name="b83e" id="b83e" class="graf graf--p graf-after--p">We can use the liquibase command-line tool to generate the changelog but, triggers are not available in the community edition because of that, we don’t have trigger changesets in that generated changelog file.</p><h3 name="e69e" id="e69e" class="graf graf--h3 graf-after--p">Liquibase Configurations for the Application</h3><h3 name="8c8f" id="8c8f" class="graf graf--h3 graf-after--h3">Gradle liquibase dependency</h3><p name="fea4" id="fea4" class="graf graf--p graf-after--h3">Add liquibase dependency in your spring boot application build.gradle file to work with liquibase</p><pre name="24c5" id="24c5" class="graf graf--pre graf-after--p"><code class="markup--code markup--pre-code">compile &#39;org.liquibase:liquibase-core:4.3.3&#39;</code></pre><h3 name="7dc4" id="7dc4" class="graf graf--h3 graf-after--pre">Changelog file configuration</h3><p name="ed57" id="ed57" class="graf graf--p graf-after--h3">Since the API is a<strong class="markup--strong markup--p-strong"> spring boot application</strong>, liquibase bean definition is not needed. Liquibase needs to know the changelog file path to run the changes in the database. For that, the Liquibase path needs to be configured in the application.properties file as follow.</p><pre name="273a" id="273a" class="graf graf--pre graf-after--p"><code class="markup--code markup--pre-code">liquibase.change-log=classpath:liquibase-changeLog.xml</code></pre><p name="bfeb" id="bfeb" class="graf graf--p graf-after--pre">Common Best practice is, adding a parent changelog file named master-changelog.xml and adding changelog files in there.</p><p name="2583" id="2583" class="graf graf--p graf-after--p">The default changelog file path is src/main/resources/db/changelog/db.changelog-master.yaml. If the master changelog is defined in the default path then, there is no need to configure the liquibase change log path.</p><p name="4096" id="4096" class="graf graf--p graf-after--p">Inside this db.changelog-path.master.yaml, we only include changelog files, not changesets.</p><pre name="23db" id="23db" class="graf graf--pre graf-after--p"><code class="markup--code markup--pre-code">databaseChangeLog:<br>  - include:<br>      file: db/changelog/ncob_schema.sql<br>      context: dev,prod,qa</code></pre><h3 name="9c9a" id="9c9a" class="graf graf--h3 graf-after--pre">Using liquibase context to run the changelog file for the specific environments</h3><p name="bb6f" id="bb6f" class="graf graf--p graf-after--h3">Lquibase changelogs can be run based on the context. For example, We don’t need to run the particular changelog in the dev environment but we need to run that in prod and qa environments. For that scenario, what we have to do is, When we include the particular changelog file in the master changelog file we need to mention the context. then in the application properties, we have to configure the context of liquibase.</p><p name="723c" id="723c" class="graf graf--p graf-after--p">In the master changelog file</p><pre name="fabf" id="fabf" class="graf graf--pre graf-after--p"><code class="markup--code markup--pre-code">databaseChangeLog:<br>  - include:<br>      file: db/changelog/ncob_schema.sql<br>      context: prod,qa</code></pre><p name="76b9" id="76b9" class="graf graf--p graf-after--pre">In application.properties file</p><pre name="4e1b" id="4e1b" class="graf graf--pre graf-after--p"><code class="markup--code markup--pre-code">spring.liquibase.contexts=dev</code></pre><p name="bf65" id="bf65" class="graf graf--p graf-after--pre">When the context is configured as dev then the particular changelog will not be run and it is skipped by the liquibase.</p><p name="380e" id="380e" class="graf graf--p graf-after--p">If we change the context to prod database changes on that changelog will be run.</p><p name="de3e" id="de3e" class="graf graf--p graf-after--p">in application.properties file</p><pre name="f879" id="f879" class="graf graf--pre graf-after--p"><code class="markup--code markup--pre-code">spring.liquibase.contexts=qa</code></pre><h3 name="707f" id="707f" class="graf graf--h3 graf-after--pre">Liquibase configuration enable/disable option</h3><p name="56a8" id="56a8" class="graf graf--p graf-after--h3">Liquibase migration’s execution on startup can be enabled/disabled by configuring the spring.liquibase.enabled property. This way, all the remaining Liquibase configuration stays untouched.</p><pre name="968b" id="968b" class="graf graf--pre graf-after--p"><code class="markup--code markup--pre-code">spring.liquibase.enabled=false</code></pre><h3 name="44db" id="44db" class="graf graf--h3 graf-after--pre">References</h3><ul class="postList"><li name="85cf" id="85cf" class="graf graf--li graf-after--h3"><a href="https://www.liquibase.org/" data-href="https://www.liquibase.org/" class="markup--anchor markup--li-anchor" rel="noopener" target="_blank">https://www.liquibase.org/</a></li><li name="042b" id="042b" class="graf graf--li graf-after--li"><a href="https://www.baeldung.com/liquibase-refactor-schema-of-java-app" data-href="https://www.baeldung.com/liquibase-refactor-schema-of-java-app" class="markup--anchor markup--li-anchor" rel="noopener" target="_blank">https://www.baeldung.com/liquibase-refactor-schema-of-java-app</a></li><li name="758d" id="758d" class="graf graf--li graf-after--li"><a href="https://docs.liquibase.com/home.html" data-href="https://docs.liquibase.com/home.html" class="markup--anchor markup--li-anchor" rel="noopener" target="_blank">https://docs.liquibase.com/home.html</a></li><li name="efed" id="efed" class="graf graf--li graf-after--li"><a href="https://thorben-janssen.com/database-migration-with-liquibase-getting-started/" data-href="https://thorben-janssen.com/database-migration-with-liquibase-getting-started/" class="markup--anchor markup--li-anchor" rel="noopener" target="_blank">https://thorben-janssen.com/database-migration-with-liquibase-getting-started/</a></li></ul><p name="9330" id="9330" class="graf graf--p graf--empty graf-after--li"><br></p><p name="da42" id="da42" class="graf graf--p graf--empty graf-after--p graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/bce77b854dc0">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></body></html>

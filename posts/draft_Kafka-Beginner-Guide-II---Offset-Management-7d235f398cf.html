@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Kafka Beginner Guide II → Offset Management</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Kafka Beginner Guide II → Offset Management</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Kafka Producer is really simple. We may need to tweak some parameters to get the production-ready Kafka producer. On the other hand, If we…
+</section>
+<section data-field="body" class="e-content">
+<section name="852a" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="8a9c" id="8a9c" class="graf graf--h3 graf--leading graf--title">Kafka Beginner Guide II → Offset Management</h3><p name="b3a3" id="b3a3" class="graf graf--p graf-after--h3">Kafka Producer is really simple. We may need to tweak some parameters to get the production-ready Kafka producer. On the other hand, If we look at the consumer, <em class="markup--em markup--p-em">Ok why need to look? let’s deep dive into the consumer.</em></p><h3 name="0b89" id="0b89" class="graf graf--h3 graf-after--p">Kafka Consumer</h3><ol class="postList"><li name="ab76" id="ab76" class="graf graf--li graf-after--h3">The consumer is used to consume the data from the Kafka Topic. </li><li name="9efd" id="9efd" class="graf graf--li graf-after--li">When one consumer consumes the data from Kafka, Typically the consumer will belongs to one group.</li><li name="51c2" id="51c2" class="graf graf--li graf-after--li"> Within the group, consumers work synchronously.</li><li name="b9d0" id="b9d0" class="graf graf--li graf-after--li">More than one consumer will not be assigned to a single partition at a given time within the group.</li><li name="6e77" id="6e77" class="graf graf--li graf-after--li">Consumers will read the data sequentially within the partitions and if more than one partition is assigned to a consumer then the consumer can read the data parallel across the partition.</li><li name="bd2c" id="bd2c" class="graf graf--li graf-after--li">Consumer group can be looked at as logical single consumer application where that application can read different  data from the same topic with the help of partitions and consumers. </li><li name="b7dd" id="b7dd" class="graf graf--li graf-after--li">When multiple consumers are subscribed to a topic and belong to the same consumer group, each consumer in the group will receive messages from a different subset of the partitions in the topic.</li></ol><h4 name="89c2" id="89c2" class="graf graf--h4 graf-after--li">Offset</h4><p name="6a1b" id="6a1b" class="graf graf--p graf-after--h4">Offset is a kind of an id of the message within the partition. The combination of topic name, partition number and offset will be unique for each message which means offset is used to identify the place of the message within the partition.</p><p name="fc76" id="fc76" class="graf graf--p graf-after--p">Consumers will use this offset to know where are in the partition. </p><p name="b558" id="b558" class="graf graf--p graf-after--p">Consumers need to consume the messages and then process the messages. after that, they need to tell Kafka that at what place they complete the processing. </p><p name="9cee" id="9cee" class="graf graf--p graf-after--p">Consumers use two kinds of offsets and they are </p><ol class="postList"><li name="52e8" id="52e8" class="graf graf--li graf-after--p">Current offset<br>the position which is currently consumed by the consumer. </li><li name="c537" id="c537" class="graf graf--li graf-after--li">Committed offset<br>the last position which is successfully processed by the consumer. </li></ol><p name="f8c9" id="f8c9" class="graf graf--p graf-after--li">Who handles this current offset and committed offset? Kafka will not handle them then who?<strong class="markup--strong markup--p-strong"> this is the job of the consumer</strong>. Consumer needs to track their  offsets. That’s how Kafka is designed. Pretty interesting right?</p><p name="3382" id="3382" class="graf graf--p graf-after--p">When a consumer consumes messages from Kafka. Consumers need to tell Kafka that, at what place they processed. This action is called commit when the consumer commits an offset of a particular partition that means up to that position consumer processed the messages. </p><p name="3f64" id="3f64" class="graf graf--p graf-after--p"> </p><p name="685a" id="685a" class="graf graf--p graf--empty graf-after--p graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/7d235f398cf">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Hmm. really thoughtful points!</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Hmm. really thoughtful points!</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+1. When using URL-based versioning, legacy versions tend to accumulate, leading to duplication (e.g., /v1/products, /v2/products, etc.)…
+</section>
+<section data-field="body" class="e-content">
+<section name="f1f2" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><p name="1bdb" id="1bdb" class="graf graf--p graf--leading">Hmm. really thoughtful points!</p><p name="33d0" id="33d0" class="graf graf--p graf-after--p">1. When using URL-based versioning, legacy versions tend to accumulate, leading to duplication (e.g., /v1/products, /v2/products, etc.). Header versioning allows us to keep the same stable URI and introduce version-specific logic selectively inside the same controller/service layer rather than branching it at the routing level.</p><p name="9506" id="9506" class="graf graf--p graf-after--p">2. challenge isn’t where versioning happens—it’s about how you enforce backward compatibility while iterating on new features</p><p name="5507" id="5507" class="graf graf--p graf-after--p">3. You&#39;re right again—convincing clients to upgrade is painful, whether it’s a path or a header. The real advantage of header-based versioning isn’t upgrade enforcement, but rather the ability to serve multiple versions under a stable endpoint. For long-lived clients, having a deprecation mechanism (e.g., returning X-API-Deprecated: true headers or including version lifespans in API responses) is crucial—no matter the versioning method.</p><p name="9b5a" id="9b5a" class="graf graf--p graf-after--p">4. The core idea in REST is that URIs should be stable identifiers and should represent resources, not versions of them.</p><p name="a67b" id="a67b" class="graf graf--p graf-after--p graf--trailing">Instead of /v1/books, it’s just /books, and different editions are handled via metadata (like headers).</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@rcvaram" class="p-author h-card">Sivaram Rasathurai</a> on <a href="https://medium.com/p/b8a81d660bf7"><time class="dt-published" datetime="2025-03-08T13:05:59.006Z">March 8, 2025</time></a>.</p><p><a href="https://medium.com/@rcvaram/hmm-really-thoughtful-points-b8a81d660bf7" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>The simple way to OSI model</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">The simple way to OSI model</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+So far, the OSI model can not be ignored by networking people. Many of the students could not understand this layered architecture model…
+</section>
+<section data-field="body" class="e-content">
+<section name="fa46" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="32e6" id="32e6" class="graf graf--h3 graf--leading graf--title">The simple way to OSI model — PART 1</h3><figure name="3e29" id="3e29" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*GKbcl6OjmXN1URAlw8IGoA.png" data-width="636" data-height="461" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*GKbcl6OjmXN1URAlw8IGoA.png"><figcaption class="imageCaption">Photo by <a href="https://unsplash.com/@pelaslentesdebela?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" data-href="https://unsplash.com/@pelaslentesdebela?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" class="markup--anchor markup--figure-anchor" rel="noopener" target="_blank">Isabela Martins</a> on <a href="https://unsplash.com/s/photos/seven-layers?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" data-href="https://unsplash.com/s/photos/seven-layers?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" class="markup--anchor markup--figure-anchor" rel="noopener" target="_blank">Unsplash</a></figcaption></figure><p name="0e97" id="0e97" class="graf graf--p graf-after--figure">So far, the OSI model can not be ignored by networking people. Many of the students could not understand this layered architecture model. OSI model is straightforward to understand. If you have an interest, go further.</p><p name="b24c" id="b24c" class="graf graf--p graf-after--p">First, we want to know about what is layer? Layers are a well-defined set of functions. In simplicity, we have grouped some related functions into one set and call it as a layer.</p><h4 name="a6cd" id="a6cd" class="graf graf--h4 graf-after--p">Layers Of OSI Model</h4><p name="8136" id="8136" class="graf graf--p graf-after--h4">OSI layers are physical layer, data link layer, network layer, transport layer, session layer, presentation layer, and application layer. I will explain whole layers with the same scenario in the following sections.</p><h4 name="58a9" id="58a9" class="graf graf--h4 graf-after--p">Physical Layer</h4><p name="be95" id="be95" class="graf graf--p graf-after--h4">Siva and Ram are the two students. One is in London, and the other one is in Sri Lanka. Now, Siva wants to send an e-mail to Ram. When Siva is typing, the data will send to Siva’s computer through the cable by the keyboard. So the cable should accept the data and transmit across the wire. These functions, such as accepting the string of bits(data) and transmit across the link(cable), are grouped, and we call this as the Physical layer.</p><h4 name="d78c" id="d78c" class="graf graf--h4 graf-after--p">Data Link Layer</h4><p name="44bf" id="44bf" class="graf graf--p graf-after--h4">In this cable, the data may be destroyed or changed. When the actual data is modified, This is called an error. As an example, you typed ‘A,’ but you got other than “A.’ So, we want to deliver a mechanism to provide an error-free transmission. For that, we want to detect the errors first, then if we can correct the errors correct them, otherwise, request the sender to retransmit. Such functions are defined into one layer(set), and it is called as Data link layer. Here we check the error across a single link. In our example, we check its errors in the data which is flying through the cable.</p><h4 name="1975" id="1975" class="graf graf--h4 graf-after--p">Network Layer</h4><figure name="07f9" id="07f9" class="graf graf--figure graf-after--h4"><img class="graf-image" data-image-id="1*kwOiaeTukzmW222MVjpKpw.png" data-width="638" data-height="483" src="https://cdn-images-1.medium.com/max/800/1*kwOiaeTukzmW222MVjpKpw.png"></figure><p name="6c09" id="6c09" class="graf graf--p graf-after--figure">The next layer is the Network layer, and it likes a courier man. What can courier man do? Courier man takes the parcel from the sender and gives to the receiver so the courier man should know the addresses of the men in his area and should know the path as well. Now think our scenario, Siva sends an email to Ram, which travels from Sri Lanka to London. So we want a courier man to send the email from here to there without opening the email (In realistic, the email will be divided into packets and packets will be sent).</p><p name="1442" id="1442" class="graf graf--p graf-after--p">Siva and Ram have their own identities, such as IP addresses. So we want to give them these IP addresses before connecting to them to the network. This is called as addressing. We want to direct the email through a path such work will be called routing; these functions are grouped into one layer which is called as a Network layer</p><p name="8197" id="8197" class="graf graf--p graf-after--p graf--trailing">The email should not be damaged through the network. The receiver Ram should receive what the sender sends. So we want to provide an end to end error-free transmission. Here end to end means sender to receiver. This is what the transport layer does. Further about the transport, session, presentation, and application layers will be in part 2.</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@rcvaram" class="p-author h-card">Sivaram Rasathurai</a> on <a href="https://medium.com/p/904ee373cac0"><time class="dt-published" datetime="2019-10-13T19:47:15.051Z">October 13, 2019</time></a>.</p><p><a href="https://medium.com/@rcvaram/the-simple-way-to-osi-model-904ee373cac0" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></body></html>

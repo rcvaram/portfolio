@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Automatic Canny Edge Detection In OpenCV</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Automatic Canny Edge Detection In OpenCV</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Canny edge detector was published in 1986 and the input of a Canny operator is simply the output of Sobel. We take an image converted to…
+</section>
+<section data-field="body" class="e-content">
+<section name="e1cc" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="772e" id="772e" class="graf graf--h3 graf--leading graf--title">Automatic Canny Edge Detection In OpenCV</h3><p name="5637" id="5637" class="graf graf--p graf-after--h3">Canny edge detector was published in 1986 and the input of a Canny operator is simply the output of Sobel. We take an image converted to grayscale and run a gaussian blur. Then we’ve run our Sobel operator in both the X and Y directions. We have calculated the gradient and the orientation of those and that’s enough before canny’s process.</p><p name="018c" id="018c" class="graf graf--p graf-after--p">It’s fairly simple but of course, it’s also effective and so to still sees a lot of use. There are other newer edge detectors, and there are certainly a lot of newer filters, that are suing Sobel. Sobel still sees a lot of use. </p><p name="30dd" id="30dd" class="graf graf--p graf-after--p">Canny takes the output of sobel. Canny works by taking the image from sobel output. Thinning all the edges so they are 1 pixel wide since thick edges don’t really help us. </p><p name="e3b8" id="e3b8" class="graf graf--p graf-after--p">Canny works first finding the edges and then use a process called hysteresis thresholding which sees use in other areas. It is essentially a two-level threshold which we will talk about later. The first thing to do for every pixel try to find out if its local maximum that means that is bigger than its neighbours. </p><p name="73f5" id="73f5" class="graf graf--p graf--empty graf-after--p graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/271330783f8">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></body></html>

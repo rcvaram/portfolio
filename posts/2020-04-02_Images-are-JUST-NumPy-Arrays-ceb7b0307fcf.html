@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Images are JUST NumPy Arrays</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Images are JUST NumPy Arrays</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+How computes can read the images , How our native python handles the images? those questions were asked when I started to learn computer…
+</section>
+<section data-field="body" class="e-content">
+<section name="c312" class="section section--body section--first"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="8e0d" id="8e0d" class="graf graf--h3 graf--leading graf--title">Images are JUST NumPy Arrays</h3></div><div class="section-inner sectionLayout--outsetColumn"><figure name="749c" id="749c" class="graf graf--figure graf--layoutOutsetCenter graf-after--h3"><img class="graf-image" data-image-id="1*j5jx3HN8sbZv1-98xyIoHw.jpeg" data-width="3589" data-height="2349" data-is-featured="true" src="https://cdn-images-1.medium.com/max/1200/1*j5jx3HN8sbZv1-98xyIoHw.jpeg"><figcaption class="imageCaption">Photo by <a href="https://unsplash.com/@awcreative?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" data-href="https://unsplash.com/@awcreative?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" class="markup--anchor markup--figure-anchor" rel="noopener" target="_blank">Aw Creative</a> on <a href="https://unsplash.com/s/photos/reading-images?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" data-href="https://unsplash.com/s/photos/reading-images?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" class="markup--anchor markup--figure-anchor" rel="noopener" target="_blank">Unsplash</a> &amp; This article is published <a href="https://stackgod.blogspot.com/2021/06/images-are-just-numpy-arrays.html" data-href="https://stackgod.blogspot.com/2021/06/images-are-just-numpy-arrays.html" class="markup--anchor markup--figure-anchor" rel="noopener" target="_blank">here</a>.</figcaption></figure></div><div class="section-inner sectionLayout--insetColumn"><p name="20a6" id="20a6" class="graf graf--p graf-after--figure"><strong class="markup--strong markup--p-strong">When I began learning computer vision, I had questions like: How do computers read images? How does Python handle images? I started my journey with Python, </strong>which offers numerous libraries for image processing, such as Matplotlib, OpenCV, SciPy, and scikit-image. When you read an image using any of these libraries, it is actually loaded as a NumPy ndarray. Consequently, whenever you perform operations on these images, you are essentially manipulating the numerical data that represents them.</p><p name="5a5e" id="5a5e" class="graf graf--p graf-after--p">When we read a colour image by OpenCV as follow</p><pre name="5a53" id="5a53" class="graf graf--pre graf-after--p">import opencv<br>img = cv2.imread(&quot;ImagePath&quot;)<br>print(img)</pre><p name="445f" id="445f" class="graf graf--p graf-after--pre">If we execute the above code, we will get a huge NumPy array. Colour image is a collection of three parallel planes, and every plane represent the colour intensity of a single channel. Most of the colour images are stored in RGB format and here R for red, G for green and B for blue. If you take one single element of an array that represents the intensity of red, green and blue of that pixel.</p><p name="7ee2" id="7ee2" class="graf graf--p graf-after--p">For a grayscale image, It is different from the colour images since it has only one channel rather than three channels. This single-channel represents the intensity of black or white from 0 to 255.</p><p name="0093" id="0093" class="graf graf--p graf-after--p">We can get the shape of the image using the shape method which gives the dimensions of the image</p><pre name="4861" id="4861" class="graf graf--pre graf-after--p">img.shape</pre><p name="9444" id="9444" class="graf graf--p graf-after--pre">ndim, size, dtype methods will provide the dimensions, multiplication of all dimensions and data type of element.</p><h4 name="5b5a" id="5b5a" class="graf graf--h4 graf-after--p">How can we access each element of NumPy array of an image</h4><pre name="8a88" id="8a88" class="graf graf--pre graf-after--h4">value_of_the_pixel = img[i,j,k]</pre><p name="0003" id="0003" class="graf graf--p graf-after--pre">Here we have used the above method to get the value of the pixel which is located at i,j location(ith row and jth column )and the colour channel is k in the <strong class="markup--strong markup--p-strong">img</strong> image. Here we have used the colour image. If we use a grayscale image, then we will not pass the k argument.</p><p name="0462" id="0462" class="graf graf--p graf-after--p">img.min(), img.max(), img.mean() with these functions can be used to get the minimum pixel, maximum pixel and the mean pixel of img image.</p><p name="5b63" id="5b63" class="graf graf--p graf-after--p">More than that, there are some statistical functions of NumPy library such as median, average, mean, std and var to find median, average, standard deviation and variance of the image.</p><pre name="6061" id="6061" class="graf graf--pre graf-after--p">import numpy as np<br>np.median(img)<br>np.average(img)<br>np.mean(img)<br>np.std(img)<br>np.var(img)</pre><p name="f456" id="f456" class="graf graf--p graf-after--pre graf--trailing">Above functions are essential functions for image processing.</p></div></div></section><section name="ade3" class="section section--body section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="c6dc" id="c6dc" class="graf graf--h3 graf--leading">Colour Spaces of Images</h3><p name="2e27" id="2e27" class="graf graf--p graf-after--h3">There are many colour spaces which simply represents the colour of the image. RGB, HSV and CMYK are examples of colour spaces.</p><h4 name="d983" id="d983" class="graf graf--h4 graf-after--p">Red Green Blue Colour Space(RGB colour space)</h4><p name="9860" id="9860" class="graf graf--p graf-after--h4">RGB is an additive colour model that generates colours by combining intensities of blue, green and red.</p><p name="f347" id="f347" class="graf graf--p graf-after--p">It is sometimes called as BGR. More than that, OpenCv saves the image in the order of Blue, Green and Red.</p><h4 name="3d44" id="3d44" class="graf graf--h4 graf-after--p">Hue, Saturation and Value/Brightness colour space(HSV colourspace)</h4><p name="f6c0" id="f6c0" class="graf graf--p graf-after--h4">This colour space attempts to represent colours the way human perceive it. It stores colour information in cylindrical representation of RGB colour points.</p><p name="a0ee" id="a0ee" class="graf graf--p graf-after--p">Hue — Color Value (0–179)</p><p name="f008" id="f008" class="graf graf--p graf-after--p">Saturation — Vibrancy of colour(0–255)</p><p name="049d" id="049d" class="graf graf--p graf-after--p">Value — Brightness or intensity (0–255)</p><p name="42ac" id="42ac" class="graf graf--p graf-after--p">It’s useful in computer vision for colour segmentation. In RGB, filtering specific colours is not easy. However, HSV makes it much easier to set colour ranges to filter specific colours as we perceive them. Example if we set the hue 165 to 15 then we filter out the red.</p><pre name="9a04" id="9a04" class="graf graf--pre graf-after--p">import cv2<br>import numpy as np<br>image = cv2.imread(image_path)</pre><pre name="7699" id="7699" class="graf graf--pre graf-after--pre">x=10<br>y=10<br>B,G,R = image[x,y]<br>print(B,G,R)</pre><p name="5293" id="5293" class="graf graf--p graf-after--pre">Above code is written in python. We initialise the blue, green, red colour values of [10,10] Location of the image to B, G, R.</p><p name="41fe" id="41fe" class="graf graf--p graf-after--p">When we change this RGB colour image to Gray image, it will convert into two dimensions array. It doesn’t have three colours, only one colour from 0–255. If 0 then black or if 255 then white.</p><pre name="0562" id="0562" class="graf graf--pre graf-after--p">gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)</pre><p name="88da" id="88da" class="graf graf--p graf-after--pre">Using the split function, we can split the colour values from images, and we can merge them again with merge function of OpenCV</p><pre name="f65b" id="f65b" class="graf graf--pre graf-after--p">b,g,r = cv2.split(image)<br>merged = cv2.merge([b+10,r+100,g])</pre><p name="2ea9" id="2ea9" class="graf graf--p graf-after--pre">Above post will give a basic introduction of images. In upcoming posts, I will cover the basic and advance concepts of computer vision</p><p name="28b9" id="28b9" class="graf graf--p graf-after--p graf--trailing"><em class="markup--em markup--p-em">Happy Looking via Computer</em></p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@rcvaram" class="p-author h-card">Sivaram Rasathurai</a> on <a href="https://medium.com/p/ceb7b0307fcf"><time class="dt-published" datetime="2020-04-02T16:47:21.439Z">April 2, 2020</time></a>.</p><p><a href="https://medium.com/@rcvaram/images-are-just-numpy-arrays-ceb7b0307fcf" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></body></html>

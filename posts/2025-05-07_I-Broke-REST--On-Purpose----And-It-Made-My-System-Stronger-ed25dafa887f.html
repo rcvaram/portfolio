@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>I Broke REST (On Purpose) — And It Made My System Stronger</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">I Broke REST (On Purpose) — And It Made My System Stronger</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+REST is a beautiful idea. But real systems are messy, and REST is not enough to meet the Real Systems
+</section>
+<section data-field="body" class="e-content">
+<section name="7838" class="section section--body section--first"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h4 name="f978" id="f978" class="graf graf--h4 graf--leading graf--kicker">REST API BEST PRACTICES #7</h4><h3 name="f04a" id="f04a" class="graf graf--h3 graf-after--h4 graf--title">I Broke REST (On Purpose)—And It Made the System Stronger</h3><h4 name="02ec" id="02ec" class="graf graf--h4 graf-after--h3 graf--subtitle">REST is a beautiful idea. But real systems are messy, and REST is not enough to meet the Real Systems</h4><figure name="9e8d" id="9e8d" class="graf graf--figure graf-after--h4"><img class="graf-image" data-image-id="1*bc9za2g8mXxvxmaxpM8p5w.png" data-width="1536" data-height="1024" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*bc9za2g8mXxvxmaxpM8p5w.png"></figure><p name="f011" id="f011" class="graf graf--p graf-after--figure">I had an endpoint like below</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="bash" name="c16c" id="c16c" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">DELETE /products/432</span></pre><p name="4305" id="4305" class="graf graf--p graf-after--pre">If I follow the REST here,</p><p name="4b75" id="4b75" class="graf graf--p graf-after--p">It should return <code class="markup--code markup--p-code"><strong class="markup--strong markup--p-strong">204 No Content</strong></code><strong class="markup--strong markup--p-strong"> Yeah, because you delete it and </strong>it’s done. No need to talk about it.</p><p name="8fcb" id="8fcb" class="graf graf--p graf-after--p">REST assumes <strong class="markup--strong markup--p-strong">Statelessness</strong></p><p name="38ae" id="38ae" class="graf graf--p graf-after--p">In REST</p><ul class="postList"><li name="69dd" id="69dd" class="graf graf--li graf-after--p">Resources have URIS (e.g. <code class="markup--code markup--li-code">/products/123</code>)</li><li name="97db" id="97db" class="graf graf--li graf-after--li">Once deleted, the resource <strong class="markup--strong markup--li-strong">should not exist</strong> at that URI anymore</li></ul><p name="b013" id="b013" class="graf graf--p graf-after--li">Therefore, if the user tries to get the product details again once he deleted it, with the below GET endpoint</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="bash" name="1f91" id="1f91" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">GET /products/432</span></pre><p name="6ba5" id="6ba5" class="graf graf--p graf-after--pre">API should return <code class="markup--code markup--p-code"><strong class="markup--strong markup--p-strong">404 Not Found</strong></code></p><blockquote name="a26c" id="a26c" class="graf graf--blockquote graf-after--p"><strong class="markup--strong markup--blockquote-strong"><em class="markup--em markup--blockquote-em">If you are not a medium member, read it </em></strong><a href="https://medium.com/hacking-hunter/i-broke-rest-on-purpose-and-it-made-my-system-stronger-ed25dafa887f?sk=93ec46a30f1874b49ca1ba284c7b66c3" data-href="https://medium.com/hacking-hunter/i-broke-rest-on-purpose-and-it-made-my-system-stronger-ed25dafa887f?sk=93ec46a30f1874b49ca1ba284c7b66c3" class="markup--anchor markup--blockquote-anchor" target="_blank"><strong class="markup--strong markup--blockquote-strong"><em class="markup--em markup--blockquote-em">here.</em></strong></a><strong class="markup--strong markup--blockquote-strong"><em class="markup--em markup--blockquote-em"><br>Every clap 👏 and response 📝 makes a difference, proving that when we support one another, humanity wins🙌❤️.<br>Keep me fueled with a coffee ☕ 👉</em></strong><a href="https://buymeacoffee.com/rcvaram" data-href="https://buymeacoffee.com/rcvaram" class="markup--anchor markup--blockquote-anchor" rel="noopener ugc nofollow noopener noopener" target="_blank"><strong class="markup--strong markup--blockquote-strong"><em class="markup--em markup--blockquote-em">Buy Me a Coffee</em></strong></a></blockquote><p name="cfd0" id="cfd0" class="graf graf--p graf-after--blockquote">Hmm..</p><p name="f2e3" id="f2e3" class="graf graf--p graf-after--p">But if the same product</p><ul class="postList"><li name="08eb" id="08eb" class="graf graf--li graf-after--p">Lived in invoices</li><li name="1db9" id="1db9" class="graf graf--li graf-after--li">Lived in customer orders</li><li name="5623" id="5623" class="graf graf--li graf-after--li">Kafka Data Streams</li><li name="e562" id="e562" class="graf graf--li graf-after--li">Lived in emails</li><li name="4a7f" id="4a7f" class="graf graf--li graf-after--li">Audit Logs</li></ul><p name="fb51" id="fb51" class="graf graf--p graf-after--li">If I deleted it and returned 404 on future <code class="markup--code markup--p-code"><strong class="markup--strong markup--p-strong">GETs</strong></code>, I’d be pretending it never existed. Seems like I am dishonest to the system’s truth.</p><p name="7cf6" id="7cf6" class="graf graf--p graf-after--p">So,</p><h3 name="86f8" id="86f8" class="graf graf--h3 graf-after--p">What I did</h3><p name="d195" id="d195" class="graf graf--p graf-after--h3">Instead of hard-deleting it, I soft-delete the product.</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="bash" name="ddb4" id="ddb4" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">DELETE /products/432<br />200 OK<br />   {<br />     <span class="hljs-string">&quot;message&quot;</span>: <span class="hljs-string">&quot;Product is moved to inactive status&quot;</span><br />    }</span></pre><p name="0303" id="0303" class="graf graf--p graf-after--pre">And when someone tried to GET it again?</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="bash" name="4a4d" id="4a4d" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">GET /products/432<br />→ 200 OK<br />  {<br />     <span class="hljs-string">&quot;message&quot;</span>: <span class="hljs-string">&quot;This product is inactive&quot;</span><br />  }</span></pre><p name="5b1b" id="5b1b" class="graf graf--p graf-after--pre">So now, my API</p><ul class="postList"><li name="0228" id="0228" class="graf graf--li graf-after--p">No breaking downstream systems.</li><li name="e0e1" id="e0e1" class="graf graf--li graf-after--li">No <code class="markup--code markup--li-code"><strong class="markup--strong markup--li-strong">404</strong></code></li><li name="2873" id="2873" class="graf graf--li graf-after--li">Still traceable</li></ul><p name="8248" id="8248" class="graf graf--p graf-after--li">The product hasn’t erased— I put it into the inactive state.</p><ul class="postList"><li name="3602" id="3602" class="graf graf--li graf-after--p">Invoices can still show their details</li><li name="dbcf" id="dbcf" class="graf graf--li graf-after--li">Historical reports don’t lose meaning</li><li name="380c" id="380c" class="graf graf--li graf-after--li">Streams don’t choke on missing references</li></ul><p name="672b" id="672b" class="graf graf--p graf-after--li">But, Yes</p><p name="7edd" id="7edd" class="graf graf--p graf-after--p">REST says resources should disappear after deletion. In a distributed world, deletion isn’t that simple.</p><p name="836c" id="836c" class="graf graf--p graf-after--p">It’s not just about deleting something from a database. It’s about maintaining <strong class="markup--strong markup--p-strong">integrity, consistency, and traceability </strong>across many services.</p><p name="5f5d" id="5f5d" class="graf graf--p graf-after--p graf--trailing">Sometimes you do not wanna forget. You wanna a system to <strong class="markup--strong markup--p-strong">remember that something used to be there.</strong></p></div></div></section><section name="818e" class="section section--body section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><blockquote name="125a" id="125a" class="graf graf--blockquote graf--leading"><strong class="markup--strong markup--blockquote-strong">All of my REST API BEST PRACTISES articles are added in this </strong><a href="https://medium.com/@rcvaram/list/rest-api-best-practices-7fe7a561bb01" data-href="https://medium.com/@rcvaram/list/rest-api-best-practices-7fe7a561bb01" class="markup--anchor markup--blockquote-anchor" rel="noopener" target="_blank"><strong class="markup--strong markup--blockquote-strong">library</strong></a><strong class="markup--strong markup--blockquote-strong">.</strong></blockquote><p name="8a7c" id="8a7c" class="graf graf--p graf-after--blockquote graf--trailing">Designed for developers — clean UI, easy on the eyes, and straight to the point. Take a look at the publication and follow for more.</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@rcvaram" class="p-author h-card">Sivaram Rasathurai</a> on <a href="https://medium.com/p/ed25dafa887f"><time class="dt-published" datetime="2025-05-07T09:25:33.885Z">May 7, 2025</time></a>.</p><p><a href="https://medium.com/@rcvaram/i-broke-rest-on-purpose-and-it-made-my-system-stronger-ed25dafa887f" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></body></html>

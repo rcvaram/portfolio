@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Kafka</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Kafka</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+You know guys, change is the thing that will not change forever which means most of the things change their states and because of this…
+</section>
+<section data-field="body" class="e-content">
+<section name="67bf" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="0621" id="0621" class="graf graf--h3 graf--leading graf--title">Kafka</h3><p name="6fe8" id="6fe8" class="graf graf--p graf-after--h3">You know guys, change is the thing that will not change forever which means most of the things change their states and because of this, they produce events. events are simply what happens on a particular thing state.</p><p name="2bf1" id="2bf1" class="graf graf--p graf-after--p">For Example, room temperature increased is an event and here the state of the room temperature changes. So you know that there are a lot of events. Is it possible to collect them or store them or process them. Yeah, that is possible and that&#39;s where the event streaming platform comes. We have a lot of event streaming platforms kafka, kinesis, google pub/sub and other platforms.</p><p name="00f4" id="00f4" class="graf graf--p graf-after--p">Today we will look at this Kafka event streaming platform.</p><p name="f937" id="f937" class="graf graf--p graf-after--p">Basically, We are looking at the Apache Kafka</p><p name="c96a" id="c96a" class="graf graf--p graf-after--p">We have a requirement to collect, store and process the events For this we need to categorize or organise the events right. Here the topics come to play. It seems like a table in the database where we can organise the events for a particular topic.</p><p name="fa98" id="fa98" class="graf graf--p graf-after--p">First, they are append-only: When you write a new message into a log, it always goes on the end. Second, they can only be read by seeking an arbitrary offset in the log, then by scanning sequential log entries.</p><p name="5546" id="5546" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">Events are immutable. </strong></p><p name="70f4" id="70f4" class="graf graf--p graf-after--p"> Third, events in the log are immutable — once something has happened, it is exceedingly difficult to make it un-happen. The simple semantics of a log makes it feasible for Kafka to deliver high levels of sustained throughput in and out of topics, and also make it easier to reason about the replication of topics, which we’ll cover more later.</p><p name="98b4" id="98b4" class="graf graf--p graf-after--p">Logs are also fundamentally durable things. Traditional enterprise messaging systems have topics and queues, which store messages temporarily to buffer them between source and destination.</p><p name="1b85" id="1b85" class="graf graf--p graf-after--p">Event stored as key-value pair and these events are immutable because of that, we can achieve a lot of things. </p><p name="5fa5" id="5fa5" class="graf graf--p graf-after--p">Kafka is a distributed system. If we have to put a lot of events on one topic and if it lives in one machine it makes it difficult to scale. So here comes up partitions, we created partitions for the topic. We can partition the topic to live in different Kafka clusters node. Wow Nice but how these messages are written to different partitions is not much hard to understand. I already told event is just key value pair. we use this key and hash it doing simple algo to select which partition it is needed to save if the key is not given for an event then it takes round robin setup to store the event in partition. </p><p name="ffa6" id="ffa6" class="graf graf--p graf--empty graf-after--p"><br></p><p name="5ea2" id="5ea2" class="graf graf--p graf-after--p">Kafka Messages</p><ol class="postList"><li name="b4aa" id="b4aa" class="graf graf--li graf-after--p">Critical means we can’t lose any single message</li><li name="68c1" id="68c1" class="graf graf--li graf-after--li">Latency within 500ms we need to process</li><li name="8f4d" id="8f4d" class="graf graf--li graf-after--li">Throughput — 1000 messages per second</li><li name="b63d" id="b63d" class="graf graf--li graf--empty graf-after--li"><br></li></ol><p name="af08" id="af08" class="graf graf--p graf--empty graf-after--li graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/329e5822444">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></body></html>

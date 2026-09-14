@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>🛑 Stop Using @Value In Spring Boot 3</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">🛑 Stop Using @Value In Spring Boot 3</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Use @ConfigurationProperties with Records Instead
+</section>
+<section data-field="body" class="e-content">
+<section name="4dbd" class="section section--body section--first"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="ff90" id="ff90" class="graf graf--h3 graf--leading graf--title">🛑 Stop Using <strong class="markup--strong markup--h3-strong">@Value</strong> In Spring Boot 3</h3><h4 name="3f78" id="3f78" class="graf graf--h4 graf-after--h3 graf--subtitle">Use @ConfigurationProperties with Records Instead</h4><p name="ef92" id="ef92" class="graf graf--p graf-after--h4">Recently, I saw a PR from my junior. He injects parameters from <code class="markup--code markup--p-code"><strong class="markup--strong markup--p-strong">application.properties</strong></code> to a <code class="markup--code markup--p-code">retry service</code> as below, with the help of the <code class="markup--code markup--p-code"><strong class="markup--strong markup--p-strong">@value</strong></code> annotation service.</p><figure name="0c6a" id="0c6a" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*7anv0f7E98r2dO3lvwKKxA.png" data-width="1023" data-height="457" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*7anv0f7E98r2dO3lvwKKxA.png"><figcaption class="imageCaption">IDE</figcaption></figure><p name="9244" id="9244" class="graf graf--p graf-after--figure">Yes, it would work, and it&#39;s easy to code as well. As an experienced developer, my mind said — “<strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">This won’t scale.</em></strong>”</p><ol class="postList"><li name="f8e1" id="f8e1" class="graf graf--li graf-after--p"><strong class="markup--strong markup--li-strong">Scattered configuration</strong> — hard to group or refactor</li><li name="f3d3" id="f3d3" class="graf graf--li graf-after--li"><strong class="markup--strong markup--li-strong">No validation</strong> — invalid values silently break logic</li><li name="0446" id="0446" class="graf graf--li graf-after--li"><strong class="markup--strong markup--li-strong">Lack of immutability</strong> — fields can be changed at runtime</li><li name="f73f" id="f73f" class="graf graf--li graf-after--li"><strong class="markup--strong markup--li-strong">Manual defaulting</strong> — <code class="markup--code markup--li-code"><strong class="markup--strong markup--li-strong">@Value(&quot;${retry.attempts:3}&quot;)</strong></code> starts to pollute logic</li></ol><p name="1153" id="1153" class="graf graf--p graf-after--li graf--trailing">SO I requested him to use <code class="markup--code markup--p-code"><strong class="markup--strong markup--p-strong">@ConfigurationProperites</strong></code></p></div></div></section><section name="5da9" class="section section--body section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><p name="e16d" id="e16d" class="graf graf--p graf--leading"><code class="markup--code markup--p-code"><strong class="markup--strong markup--p-strong">@ConfigurationProperites</strong></code><strong class="markup--strong markup--p-strong"> </strong>to bind the external properties from our <code class="markup--code markup--p-code"><strong class="markup--strong markup--p-strong">application.properites</strong></code>/ <code class="markup--code markup--p-code"><strong class="markup--strong markup--p-strong">applicaiton.yaml</strong></code> files to our application</p><p name="e365" id="e365" class="graf graf--p graf-after--p">Spring Boot’s <code class="markup--code markup--p-code">@ConfigurationProperties</code> allows us to map grouped properties into a single class.</p><p name="96f6" id="96f6" class="graf graf--p graf-after--p">From Spring Boot 3 onward, it supports <strong class="markup--strong markup--p-strong">Java Records</strong>, giving us immutability &amp; type-safety.</p><ul class="postList"><li name="8602" id="8602" class="graf graf--li graf-after--p">🔐 <strong class="markup--strong markup--li-strong">Immutable config</strong> using Java Records</li><li name="baba" id="baba" class="graf graf--li graf-after--li">🧠 <strong class="markup--strong markup--li-strong">Type-safe</strong> and IDE-friendly (auto-complete support)</li><li name="bfe7" id="bfe7" class="graf graf--li graf-after--li">🧪 <strong class="markup--strong markup--li-strong">JSR-303 validation</strong> (<code class="markup--code markup--li-code">@NotNull</code>, <code class="markup--code markup--li-code">@Min</code>, etc.)</li><li name="cde5" id="cde5" class="graf graf--li graf-after--li">🧼 <strong class="markup--strong markup--li-strong">Separation of concerns</strong> — config stays out of your business logic</li><li name="ea6a" id="ea6a" class="graf graf--li graf-after--li">✅ <strong class="markup--strong markup--li-strong">Easier testing</strong> — inject mock config beans in unit tests</li></ul><h3 name="fd9c" id="fd9c" class="graf graf--h3 graf-after--li">🛠️ How to Use <code class="markup--code markup--h3-code">@ConfigurationProperties</code> with Records</h3><h4 name="103b" id="103b" class="graf graf--h4 graf-after--h3">created a config properties class</h4><figure name="bf0c" id="bf0c" class="graf graf--figure graf-after--h4"><img class="graf-image" data-image-id="1*l5-hkO-txiizH0rdw2CC4A.png" data-width="885" data-height="667" src="https://cdn-images-1.medium.com/max/800/1*l5-hkO-txiizH0rdw2CC4A.png"></figure><h4 name="ac2b" id="ac2b" class="graf graf--h4 graf-after--figure">Enable Scanning in Our Main App</h4><figure name="64b9" id="64b9" class="graf graf--figure graf-after--h4"><img class="graf-image" data-image-id="1*BSvnYDUOwN6kaqcllohQQA.png" data-width="1218" data-height="375" src="https://cdn-images-1.medium.com/max/800/1*BSvnYDUOwN6kaqcllohQQA.png"></figure><h4 name="b231" id="b231" class="graf graf--h4 graf-after--figure">Inject the config class using constructor injection in the service class</h4><figure name="dcb8" id="dcb8" class="graf graf--figure graf-after--h4"><img class="graf-image" data-image-id="1*ti5Pso7GDIlb5kuZ4S48Pw.png" data-width="1217" data-height="692" src="https://cdn-images-1.medium.com/max/800/1*ti5Pso7GDIlb5kuZ4S48Pw.png"></figure><ul class="postList"><li name="4044" id="4044" class="graf graf--li graf-after--figure">RetryProperties(Blue boxed code) is added as a final attribute in that case, the lombok annotation (Yellow boxed code) automatically creates the constructor behind the scene with this parameter.</li><li name="5e4f" id="5e4f" class="graf graf--li graf-after--li">parameters can be easily get it from the config instance (Green boxed code)</li></ul><p name="edcf" id="edcf" class="graf graf--p graf-after--li">While <code class="markup--code markup--p-code">@Value</code> might work for small-scale apps or quick prototypes, but it becomes unmaintainable as soon as:</p><ul class="postList"><li name="c388" id="c388" class="graf graf--li graf-after--p">You need <strong class="markup--strong markup--li-strong">validation</strong></li><li name="9853" id="9853" class="graf graf--li graf-after--li">You use <strong class="markup--strong markup--li-strong">multiple related config values</strong></li><li name="3c70" id="3c70" class="graf graf--li graf-after--li">You want <strong class="markup--strong markup--li-strong">clean, testable services</strong></li></ul><p name="751a" id="751a" class="graf graf--p graf-after--li">By using <code class="markup--code markup--p-code">@ConfigurationProperties</code> With records, you&#39;re in a modern Spring Boot approach that gives <strong class="markup--strong markup--p-strong">clean code</strong>, <strong class="markup--strong markup--p-strong">type safety</strong>, and <strong class="markup--strong markup--p-strong">better separation of concerns</strong>.</p><p name="c5a5" id="c5a5" class="graf graf--p graf-after--p">I follow rule below in my application development</p><blockquote name="db63" id="db63" class="graf graf--blockquote graf-after--p graf--trailing"><strong class="markup--strong markup--blockquote-strong">I use </strong><code class="markup--code markup--blockquote-code"><strong class="markup--strong markup--blockquote-strong">@ConfigurationProperties</strong></code><strong class="markup--strong markup--blockquote-strong"> for structured, reusable, grouped config And, I use </strong><code class="markup--code markup--blockquote-code"><strong class="markup--strong markup--blockquote-strong">@Value</strong></code><strong class="markup--strong markup--blockquote-strong"> for quick, simple, or one-time properties.</strong></blockquote></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@rcvaram" class="p-author h-card">Sivaram Rasathurai</a> on <a href="https://medium.com/p/cb9041c2edc5"><time class="dt-published" datetime="2025-05-10T05:03:56.999Z">May 10, 2025</time></a>.</p><p><a href="https://medium.com/@rcvaram/stop-using-value-in-spring-boot-3-cb9041c2edc5" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></body></html>

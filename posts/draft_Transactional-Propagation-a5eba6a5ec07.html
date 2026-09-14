@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Transactional Propagation</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Transactional Propagation</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+java.sql gives connection interface  and relevant database(datasource) you added to the code will give actual implementation of connection…
+</section>
+<section data-field="body" class="e-content">
+<section name="e663" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="7c73" id="7c73" class="graf graf--h3 graf--leading graf--title">Transactional Propagation</h3><p name="05ca" id="05ca" class="graf graf--p graf-after--h3"><code class="markup--code markup--p-code">java.sql </code>gives connection interface  and relevant database(datasource) you added to the code will give actual implementation of connection interface. this interface provides <code class="markup--code markup--p-code">rollback()</code>, <code class="markup--code markup--p-code">commit()</code>, <code class="markup--code markup--p-code">close()</code>.</p><p name="2e07" id="2e07" class="graf graf--p graf-after--p">When we use Spring’s Transactional Annotation that methods need a connection objection to connect the database.</p><p name="d26f" id="d26f" class="graf graf--p graf--empty graf-after--p"><br></p><p name="874d" id="874d" class="graf graf--p graf-after--p">//Customer Service Class</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="java" name="707c" id="707c" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-meta">@Service</span><br /><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">CustomerService</span> {<br /><br />  <span class="hljs-meta">@Autowired</span> <br />  <span class="hljs-keyword">private</span> CustomerRepositroy repository;<br />  <br />  <span class="hljs-meta">@Transactional</span><br />  <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">saveCustomers</span><span class="hljs-params">(List&lt;CustomerDto&gt; customerDtos)</span> {<br />    <span class="hljs-comment">//private method to convert to Dto to entity</span><br />    customerDtos.forEach(dto - &gt; {<br />      <span class="hljs-type">Customer</span> <span class="hljs-variable">customer</span> <span class="hljs-operator">=</span> convertCustomer(dto);<br />      repository.saveProduct(customer);<br />    }<br />  <br />  }<br /><br />}</span></pre><p name="82c1" id="82c1" class="graf graf--p graf-after--pre">//Customer Repository Class</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="typescript" name="2296" id="2296" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-meta">@Repository</span><br /><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">CustomerRepository</span> {<br /><br />  <span class="hljs-meta">@Autowired</span><br />  <span class="hljs-keyword">private</span> <span class="hljs-title class_">JdbcTemplate</span> jdbc;<br />  <br />  <span class="hljs-meta">@Transactional</span><br />  publice <span class="hljs-built_in">void</span> <span class="hljs-title function_">saveCustomer</span>(<span class="hljs-params">Customer customer</span>){<br />    <span class="hljs-title class_">String</span> sql  = <span class="hljs-string">&quot;INSERT INTO CUSTOMER VALUES (?,?)&quot;</span>;<br />    <span class="hljs-title class_">Object</span>[] args = {customer.<span class="hljs-title function_">getId</span>(), customer.<span class="hljs-title function_">getName</span>()};<br />    jdbc.<span class="hljs-title function_">update</span>(sql,args);<br />  }<br />}</span></pre><p name="6d99" id="6d99" class="graf graf--p graf-after--pre">This code has two transaction annotation one is in the <code class="markup--code markup--p-code">CustomerService</code> and another one is in the <code class="markup--code markup--p-code">CustomerRepository</code> </p><p name="a77c" id="a77c" class="graf graf--p graf-after--p">When a method is annotated by <code class="markup--code markup--p-code">@Transaction</code> then datasource create a connection for the code execution in that case,</p><p name="e4b1" id="e4b1" class="graf graf--p graf-after--p">Since ProductService and ProductRepository have <code class="markup--code markup--p-code">@Transaction</code> annotation, will do have two connection? or single connection?</p><p name="fd92" id="fd92" class="graf graf--p graf-after--p">Now you need to make a decision on this. How database create/use connection for transactions. that’s where Propagation is used.</p><p name="d859" id="d859" class="graf graf--p graf-after--p">When a method is annotated with <code class="markup--code markup--p-code">@Transactional</code> , We can give propagation level to tell the spring that how it should use the active transaction for the current transaction. </p><p name="ae4e" id="ae4e" class="graf graf--p graf-after--p">When we dont give any propagation level then Spring check whether the code belongs to an active transaction or not. If it belongs to an active transaction then its not going to create an new transaction and existing code will run in the same transaction connection. If it doesnt have an active transaction then it will create a connection to run the transaction code. Basically, when the code is in the @transaction then it requires a database connection and if connection already exists then it will run otherwise it will create. This propagration level is REQUIRED.</p><p name="e787" id="e787" class="graf graf--p graf-after--p graf--trailing">If you see in this example, the <code class="markup--code markup--p-code">CustomerService</code> creates the connection and runs the transaction. inside the <code class="markup--code markup--p-code">CustomerService</code> code, the repository code is called. this <code class="markup--code markup--p-code">ProductRepository</code> has its own transaction. Before it creates a new transaction(new connection to the database) it checks whether it insides the a transaction and in this scenario, this is inside the transaction and so, the new transaction would not be created and the code will be executed in the same transaction. </p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/a5eba6a5ec07">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></body></html>

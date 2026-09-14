@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Got Runtime Error Because of IntelliJ Suggestion</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Got Runtime Error Because of IntelliJ Suggestion</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+IntelliJ IDEA suggested using stream.toList() instead of stream.collect(Collectors.toList()). I changed and Boom!!!!! Got a runtime Error…
+</section>
+<section data-field="body" class="e-content">
+<section name="7809" class="section section--body section--first"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="ae24" id="ae24" class="graf graf--h3 graf--leading graf--title">Got Runtime Error Because of IntelliJ Suggestion</h3><h4 name="01cc" id="01cc" class="graf graf--h4 graf-after--h3 graf--subtitle">IntelliJ IDEA suggested using stream.toList() instead of stream.collect(Collectors.toList()). I changed and Boom!!!!! Got a runtime Error <code class="markup--code markup--h4-code">UnsupportedOperationException</code></h4><p name="bcf0" id="bcf0" class="graf graf--p graf-after--h4">If you are not a medium member, read it <a href="https://medium.com/javarevisited/got-runtime-error-because-of-intellij-suggestion-ab0adb972da8?sk=a1d13fe2eb9ccabbb839f1bdba8ff216" data-href="https://medium.com/javarevisited/got-runtime-error-because-of-intellij-suggestion-ab0adb972da8?sk=a1d13fe2eb9ccabbb839f1bdba8ff216" class="markup--anchor markup--p-anchor" target="_blank">here.</a></p><h3 name="8354" id="8354" class="graf graf--h3 graf-after--p">If you found this article helpful, consider supporting my writing with a coffee. Your kindness means a lot! ☕❤️. Keep me fueled with a coffee ☕ 👉<a href="https://buymeacoffee.com/rcvaram" data-href="https://buymeacoffee.com/rcvaram" class="markup--anchor markup--h3-anchor" rel="noopener ugc nofollow noopener" target="_blank">Buy Me a Coffee</a></h3><figure name="4a0d" id="4a0d" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="0*dlGDtMljBf_tJ19d" data-width="4752" data-height="3168" data-unsplash-photo-id="gySMaocSdqs" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/0*dlGDtMljBf_tJ19d"><figcaption class="imageCaption">Photo by <a href="https://unsplash.com/@cookiethepom?utm_source=medium&amp;utm_medium=referral" data-href="https://unsplash.com/@cookiethepom?utm_source=medium&amp;utm_medium=referral" class="markup--anchor markup--figure-anchor" rel="photo-creator noopener" target="_blank">Cookie the Pom</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral" data-href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral" class="markup--anchor markup--figure-anchor" rel="photo-source noopener" target="_blank">Unsplash</a></figcaption></figure><p name="c4c7" id="c4c7" class="graf graf--p graf-after--figure">I was working on a feature where I had a list of <code class="markup--code markup--p-code">Item</code> objects. I need to perform stream operations to filter and transform these items into a new list.</p><p name="3b7c" id="3b7c" class="graf graf--p graf-after--p">After creating this list, I needed to remove certain elements based on specific conditions to clear up the invalid items from the list.</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="java" name="993c" id="993c" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">List&lt;Item&gt; items = getItems(); <span class="hljs-comment">// Retrieve a list of Item objects</span><br /><br /><span class="hljs-comment">// Stream operation to filter and collect into a list</span><br />List&lt;Item&gt; filteredItems = items.stream()<br />                                .filter(item -&gt; item.isActive())<br />                                .toList(); <span class="hljs-comment">// IntelliJ suggests using toList()</span><br /><br /><span class="hljs-comment">//sample scenario </span><br />filteredItems.remove(<span class="hljs-number">0</span>); <span class="hljs-comment">// Throws UnsupportedOperationException</span></span></pre><p name="db99" id="db99" class="graf graf--p graf-after--pre">IntelliJ suggested replacing it <code class="markup--code markup--p-code">collect(Collectors.toList())</code> with <code class="markup--code markup--p-code">toList()</code> for simplicity.</p><p name="2d57" id="2d57" class="graf graf--p graf-after--p">I accepted the suggestion, and everything was compiled without issues. However, when I ran the code, I encountered <code class="markup--code markup--p-code">UnsupportedOperationException</code> at runtime.</p><blockquote name="5184" id="5184" class="graf graf--pullquote graf-after--p graf--trailing">My Code crashed with an exception when trying to remove an element from the list. This put me to investigate why this happened.</blockquote></div></div></section><section name="905f" class="section section--body"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><figure name="aa87" id="aa87" class="graf graf--figure graf--leading"><img class="graf-image" data-image-id="0*G4QBg3nuyB1xKexe" data-width="5184" data-height="3456" data-unsplash-photo-id="3qcJ43I9VhE" src="https://cdn-images-1.medium.com/max/800/0*G4QBg3nuyB1xKexe"><figcaption class="imageCaption">Photo by <a href="https://unsplash.com/@judy_beth_morris_idaho?utm_source=medium&amp;utm_medium=referral" data-href="https://unsplash.com/@judy_beth_morris_idaho?utm_source=medium&amp;utm_medium=referral" class="markup--anchor markup--figure-anchor" rel="photo-creator noopener" target="_blank">Judy Beth Morris</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral" data-href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral" class="markup--anchor markup--figure-anchor" rel="photo-source noopener" target="_blank">Unsplash</a></figcaption></figure><h3 name="a660" id="a660" class="graf graf--h3 graf-after--figure">The Root Cause: Immutability of <code class="markup--code markup--h3-code">toList()</code></h3><p name="e134" id="e134" class="graf graf--p graf-after--h3"><code class="markup--code markup--p-code">toList()</code> returns an <strong class="markup--strong markup--p-strong">unmodifiable list</strong>. If we make any attempt to modify the list, such as adding or removing elements, will result in a runtime error.</p><p name="8684" id="8684" class="graf graf--p graf-after--p">The immutability of <code class="markup--code markup--p-code">toList()</code> gives safety in cases where the list is meant to be read-only, but it’s not good when you need to modify the list.</p><p name="4a3d" id="4a3d" class="graf graf--p graf-after--p">So in my case, I need a mutable list.</p><h4 name="7211" id="7211" class="graf graf--h4 graf-after--p">can I use collect(Collectors.toList()) without worrying about IntelliJ&#39;s suggestion.</h4><p name="88e0" id="88e0" class="graf graf--p graf-after--h4">Let&#39;s check the official documentation.</p></div><div class="section-inner sectionLayout--outsetColumn"><figure name="9f70" id="9f70" class="graf graf--figure graf--layoutOutsetCenter graf-after--p"><img class="graf-image" data-image-id="1*UFONXv9cuSdPtNgq87HX0A.png" data-width="1824" data-height="333" src="https://cdn-images-1.medium.com/max/1200/1*UFONXv9cuSdPtNgq87HX0A.png"></figure></div><div class="section-inner sectionLayout--insetColumn"><p name="abc0" id="abc0" class="graf graf--p graf-after--figure">They told us in the documentation → there is no guarantee which kind of list implementation is provided for you by the java implementation.</p><p name="88cb" id="88cb" class="graf graf--p graf-after--p">In most Java implementations (such as OpenJDK), Collectors.toList() returns an ArrayList.</p><p name="3b9f" id="3b9f" class="graf graf--p graf-after--p">Collectors.toList(): Returns a List (implementation depends on the JDK).</p><p name="8cd3" id="8cd3" class="graf graf--p graf-after--p">So, while ArrayList is the default, theoretically, another List implementation (such as LinkedList) could be used.</p><blockquote name="7692" id="7692" class="graf graf--pullquote graf-after--p graf--trailing">Now we understand simple toList() should be avoided for our use case. and Also, Collectors.toList() can be an issue when java implementation takes place.</blockquote></div></div></section><section name="e8e3" class="section section--body"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><figure name="7346" id="7346" class="graf graf--figure graf--leading"><img class="graf-image" data-image-id="0*avFUH3IK4IjOpKr7" data-width="8073" data-height="5490" data-unsplash-photo-id="TyQ-0lPp6e4" src="https://cdn-images-1.medium.com/max/800/0*avFUH3IK4IjOpKr7"><figcaption class="imageCaption">Photo by <a href="https://unsplash.com/@edulauton?utm_source=medium&amp;utm_medium=referral" data-href="https://unsplash.com/@edulauton?utm_source=medium&amp;utm_medium=referral" class="markup--anchor markup--figure-anchor" rel="photo-creator noopener" target="_blank">Edu Lauton</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral" data-href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral" class="markup--anchor markup--figure-anchor" rel="photo-source noopener" target="_blank">Unsplash</a></figcaption></figure><h3 name="bd59" id="bd59" class="graf graf--h3 graf-after--figure">The Ideal Fix → Use <code class="markup--code markup--h3-code">Collectors.toCollection()</code></h3><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="rust" name="1fcd" id="1fcd" class="graf graf--pre graf-after--h3 graf--preV2"><span class="pre--content">List&lt;Item&gt; filteredItems = items.<span class="hljs-title function_ invoke__">stream</span>()<br />                                .<span class="hljs-title function_ invoke__">filter</span>(item <span class="hljs-punctuation">-&gt;</span> item.<span class="hljs-title function_ invoke__">isActive</span>())<br />                                .<span class="hljs-title function_ invoke__">collect</span>(Collectors.<span class="hljs-title function_ invoke__">toCollection</span>(ArrayList::new));<br />filteredItems.<span class="hljs-title function_ invoke__">remove</span>(<span class="hljs-number">0</span>); <span class="hljs-comment">// Works fine</span></span></pre><p name="5c30" id="5c30" class="graf graf--p graf-after--pre graf--trailing">Mutability is achieved and also we know which type of list is used to collect the elements. Collectors.toCollection(ArrayList::new): Returns a mutable ArrayList.</p></div></div></section><section name="5abd" class="section section--body section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><blockquote name="f460" id="f460" class="graf graf--pullquote graf--leading"><code class="markup--code markup--pullquote-code">toList()</code> is simple &amp; convenient, it should be avoided in scenarios where the list might need to be modified.</blockquote><blockquote name="c805" id="c805" class="graf graf--pullquote graf-after--pullquote graf--trailing">Using <code class="markup--code markup--pullquote-code">Collectors.toCollection(ArrayList::new)</code> ensures that we are working with a mutable list (like <code class="markup--code markup--pullquote-code">ArrayList</code>) and prevents unexpected runtime errors.</blockquote></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@rcvaram" class="p-author h-card">Sivaram Rasathurai</a> on <a href="https://medium.com/p/ab0adb972da8"><time class="dt-published" datetime="2025-01-25T15:20:11.297Z">January 25, 2025</time></a>.</p><p><a href="https://medium.com/@rcvaram/got-runtime-error-because-of-intellij-suggestion-ab0adb972da8" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></body></html>

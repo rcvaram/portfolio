@@ -1,0 +1,73 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Simple Machine learning Model</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Simple Machine learning Model</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+When we are looking at data set what are the factors we want to look?
+Null valuee of daa set we have to do something to hadnle this…
+</section>
+<section data-field="body" class="e-content">
+<section name="9470" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="5f99" id="5f99" class="graf graf--h3 graf--leading graf--title">Simple Machine learning Model</h3><p name="8a5e" id="8a5e" class="graf graf--p graf-after--h3">When we are looking at data set what are the factors we want to look?<br>Null valuee of daa set we have to do something to hadnle this datapoints<br>Relation between datapoints and target variable<br>When we look at the features if it has linear relation between target and that. we can go with linear model<br> price = m1*area+m2*bedrooms+m3*age+b<br>here area,bedrooms, age are called as features<br>price is called as target variable<br>m1, m2, m3 are called as cofficients, b is called as intercept<br>We will import pandas to data preprocess<br>We will import linear_regression from sklearn<br>import pandas as pd<br>import numpy as np<br>import matplotlib.pyplot as plt<br>from sklearn import linear_model<br>I get the values from csv file<br>df =pd.read_csv(“file_name”)<br>if you put df then you will show the table<br>there are some null values and there are numbers so we will take the median as the replacement of taht null valeus for that<br>i will import math<br>median_bedroom =math.floor(df.bedroom.median)<br>floor is used to round the number into integer<br>now we want to add this value to our csv file<br>df.bedroom = def.bedroom.fillna(median_bedroom)<br>Now we fill it We can see the graph usign matplotlib <br>But i ve move to linear regressin model<br>create an object of linear regression model<br>model = linear_model.LinearRegression();<br>We have to train the model so it means we fit the model<br>model.fit([[‘area’,bedroom,age]],df.price)<br>The coffieceint you can see by model.coef_<br>the intercept you can see by model.intercept_<br>you can predict the value using model.predict([[2000,2,10]])</p><p name="f718" id="f718" class="graf graf--p graf--empty graf-after--p"><br></p><p name="0dca" id="0dca" class="graf graf--p graf--empty graf-after--p"><br></p><p name="1312" id="1312" class="graf graf--p graf-after--p">Internals of the Machine learning<br><br></p><p name="fbfa" id="fbfa" class="graf graf--p graf--empty graf-after--p"><br></p><p name="0639" id="0639" class="graf graf--p graf-after--p">X -&gt;</p><p name="2ed3" id="2ed3" class="graf graf--p graf-after--p">Y → m*X=+c<br><br></p><p name="63dd" id="63dd" class="graf graf--p graf-after--p">We want to the best line which best fit our data. We can draw random line and collect all differnce betqw</p><p name="5273" id="5273" class="graf graf--p graf-after--p">cost function is the mean square error between our data line and the actual data</p><p name="e685" id="e685" class="graf graf--p graf-after--p">you can now get the idea of cost function but we have many different kind of cost functions</p><p name="7cc4" id="7cc4" class="graf graf--p graf-after--p">cost function = Sigma(predict value -actual value)²/n</p><p name="71cc" id="71cc" class="graf graf--p graf-after--p">Gradient descent is the algorithm to reach the best fit line for given training data set with small iterations</p><figure name="fd63" id="fd63" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Rw9GIjObptMSpSLUk8wgyQ.png" data-width="552" data-height="258" src="https://cdn-images-1.medium.com/max/800/1*Rw9GIjObptMSpSLUk8wgyQ.png"></figure><p name="8739" id="8739" class="graf graf--p graf-after--figure">How gradient descent is working()?<br> for that, We have to plot the m &amp; b against the cost function(MSE) where is the local mimimum is there, Intially we take m,b as zero and we calculate the cost function we will changne the m &amp; b and we will calculate the cost function again and we will get a local minimum an here we will take the tiny step to reduce the cost function. How we will take these tiny steps? one approach is taking fixed-size steps, we may miss the global minimum and other one is first we will take large tiny steps and we will reduce the size of step to global minimum. For this approach, we have to calculate the slop and get the direction</p><p name="62a2" id="62a2" class="graf graf--p graf-after--p">Slope is delta y/delta x</p><p name="3d91" id="3d91" class="graf graf--p graf-after--p">cost function = Sigma(predict value -actual value)²/n</p><p name="8d86" id="8d86" class="graf graf--p graf-after--p">predictvalue = m*X+b</p><p name="6329" id="6329" class="graf graf--p graf-after--p">dcostfunction/dm = (2/n)(predict value -actual value)X</p><p name="0a0f" id="0a0f" class="graf graf--p graf-after--p">dcostfunction/db = (2/n)(predict value -actual value)</p><p name="1d28" id="1d28" class="graf graf--p graf--empty graf-after--p"><br></p><p name="2f97" id="2f97" class="graf graf--p graf-after--p">We don’t need to train again and again we can save the model into a file using following python code</p><p name="12b7" id="12b7" class="graf graf--p graf-after--p">import pickle</p><p name="a271" id="a271" class="graf graf--p graf-after--p">with open(“file_name”,”wb”) as f:</p><p name="bf7d" id="bf7d" class="graf graf--p graf-after--p">pickle.dump(model, f)</p><p name="4184" id="4184" class="graf graf--p graf--empty graf-after--p"><br></p><p name="ec1f" id="ec1f" class="graf graf--p graf-after--p">to get the model</p><p name="bb2f" id="bb2f" class="graf graf--p graf-after--p">import pickle</p><p name="0017" id="0017" class="graf graf--p graf-after--p">with open (“file_name”, “rb”) as f:</p><p name="e617" id="e617" class="graf graf--p graf-after--p">mb = pickle.load(f)</p><p name="b265" id="b265" class="graf graf--p graf-after--p">mb.predict([[your data]])</p><p name="53c4" id="53c4" class="graf graf--p graf-after--p">We have to handle the text data to feed the model for that,<br>We can assign the numbers for each text data<br>jaffna 0 colombo 1 trinco 2<br><br></p><p name="d6fa" id="d6fa" class="graf graf--p graf-after--p">Nominal where the categories don’t have an order<br>Ordinal where categories have some order<br><br></p><p name="4100" id="4100" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">One Hot Encoding</strong></p><p name="6fe3" id="6fe3" class="graf graf--p graf-after--p">you create a new column with each category and put 0 or 1 for that, these variables called as the dummy variables</p><p name="ec5e" id="ec5e" class="graf graf--p graf--empty graf-after--p"><br></p><p name="bb6d" id="bb6d" class="graf graf--p graf-after--p">How to handle the text data</p><p name="db8e" id="db8e" class="graf graf--p graf--empty graf-after--p graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/29ef3a320310">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></body></html>

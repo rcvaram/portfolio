@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>You&#39;re right that from a pure RESTful perspective, DELETE should mean delete—gone, vanished, 404 on…</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">You&#39;re right that from a pure RESTful perspective, DELETE should mean delete—gone, vanished, 404 on…</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+The reality: in distributed systems, especially ones that deal with financial records, invoices, audit trails, and event-driven…
+</section>
+<section data-field="body" class="e-content">
+<section name="4fc9" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><p name="c1c2" id="c1c2" class="graf graf--p graf--leading">You&#39;re right that from a pure RESTful perspective, DELETE should mean delete—gone, vanished, 404 on the next GET. That&#39;s the textbook definition, and if the system lived in isolation, I&#39;d agree with you 100%.</p><p name="8bce" id="8bce" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">The reality</strong>: in distributed systems, especially ones that deal with financial records, invoices, audit trails, and event-driven architecture (Kafka, logs, downstream systems), data has long tails. A product &quot;deleted&quot; in one place may still need to exist conceptually in another for the sake of consistency, or regulatory compliance.</p><p name="26ed" id="26ed" class="graf graf--p graf-after--p">You said, <strong class="markup--strong markup--p-strong">&quot;Users don’t care about your internal kitchen.&quot;</strong></p><p name="52b4" id="52b4" class="graf graf--p graf-after--p">True — users don’t care about how the sausage is made. But they do care when the sausage mysteriously disappears from their order history.</p><p name="935c" id="935c" class="graf graf--p graf-after--p">If I hard-delete a product and a user pulls up their invoice history and sees “Product not found” or blank lines where product names should be,<strong class="markup--strong markup--p-strong"> that’s a broken experience.</strong> Technically correct, but functionally flawed. Users want coherence, not dogma.</p><p name="4ea9" id="4ea9" class="graf graf--p graf-after--p">What I&#39;m doing isn’t leaking internal mechanics — it&#39;s about preserving system truth in a user-facing way. I’m saying, &quot;Hey, this product isn’t active anymore, but here’s its last known state.” <strong class="markup--strong markup--p-strong">That’s not a technical detail — that’s a business reality.</strong></p><p name="a9b0" id="a9b0" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">Use PATCH/PUT/POST for status updates instead of DELETE -</strong> But users expect a DELETE endpoint to be there. By handling it with a soft-delete and messaging clearly in the response (&quot;Product moved to inactive status&quot;), we don’t violate expectations —<strong class="markup--strong markup--p-strong"> we clarify them.</strong></p><p name="487e" id="487e" class="graf graf--p graf-after--p graf--trailing"><strong class="markup--strong markup--p-strong">In the end, REST is a guideline, not stric rules And in real-world systems, clarity and robustness often matter more than guideline.</strong></p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@rcvaram" class="p-author h-card">Sivaram Rasathurai</a> on <a href="https://medium.com/p/3a14acb11610"><time class="dt-published" datetime="2025-05-14T14:01:26.895Z">May 14, 2025</time></a>.</p><p><a href="https://medium.com/@rcvaram/youre-right-that-from-a-pure-restful-perspective-delete-should-mean-delete-gone-vanished-404-on-3a14acb11610" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></body></html>

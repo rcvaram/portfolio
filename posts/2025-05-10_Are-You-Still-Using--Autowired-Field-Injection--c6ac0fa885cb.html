@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Are You Still Using @Autowired Field Injection?</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Are You Still Using @Autowired Field Injection?</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Field injection is not recommended
+</section>
+<section data-field="body" class="e-content">
+<section name="9297" class="section section--body section--first"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="790c" id="790c" class="graf graf--h3 graf--leading graf--title">Are You Still Using <code class="markup--code markup--h3-code">@Autowired</code> Field Injection?</h3><h4 name="0d51" id="0d51" class="graf graf--h4 graf-after--h3 graf--subtitle">Field injection is not recommended</h4><p name="ca07" id="ca07" class="graf graf--p graf-after--h4">As of 2025, most Java developers are automatically warned by the IDE not to use this field injection when they try to do it in their code.</p><h3 name="7655" id="7655" class="graf graf--h3 graf-after--p">What’s Wrong with Field Injection?</h3><p name="f423" id="f423" class="graf graf--p graf-after--h3">Field injection looks like this:</p><figure name="781a" id="781a" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*3v12AzdE0U7YziAb8U1nxw.png" data-width="1079" data-height="363" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*3v12AzdE0U7YziAb8U1nxw.png"></figure><p name="4859" id="4859" class="graf graf--p graf-after--figure">I got below warning from Intellij IDE.</p><figure name="3251" id="3251" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*rlZCJ7y2qBZ6D3uKqEs85A.png" data-width="1010" data-height="625" src="https://cdn-images-1.medium.com/max/800/1*rlZCJ7y2qBZ6D3uKqEs85A.png"><figcaption class="imageCaption">Intellij warning</figcaption></figure><blockquote name="5c95" id="5c95" class="graf graf--blockquote graf-after--figure"><strong class="markup--strong markup--blockquote-strong">Read it </strong><a href="https://medium.com/hacking-hunter/are-you-still-using-autowired-field-injection-c6ac0fa885cb?sk=b8e54668ca63a7cd171b2bf778e9fada" data-href="https://medium.com/hacking-hunter/are-you-still-using-autowired-field-injection-c6ac0fa885cb?sk=b8e54668ca63a7cd171b2bf778e9fada" class="markup--anchor markup--blockquote-anchor" target="_blank"><strong class="markup--strong markup--blockquote-strong">here </strong></a><strong class="markup--strong markup--blockquote-strong">if you are blocked by a paywall.</strong></blockquote><h3 name="8784" id="8784" class="graf graf--h3 graf-after--blockquote">Why is field injection not recommended?</h3><ol class="postList"><li name="75b7" id="75b7" class="graf graf--li graf-after--h3"><strong class="markup--strong markup--li-strong">Testability is poor </strong>❌<br>Testing classes with field injection is tricky. You often need to use reflection hacks or Mockito <code class="markup--code markup--li-code">@Mock</code> and <code class="markup--code markup--li-code">@InjectMocks</code> to inject dependencies in tests.</li><li name="084f" id="084f" class="graf graf--li graf-after--li"><strong class="markup--strong markup--li-strong">No Immutability </strong>❌ <br>Fields injected this way are mutable and usually not declared <code class="markup--code markup--li-code">final</code>. That means your dependencies can change unexpectedly, leading to bugs.</li><li name="ab9a" id="ab9a" class="graf graf--li graf-after--li graf--trailing"><strong class="markup--strong markup--li-strong">Hidden Dependencies </strong>❌<strong class="markup--strong markup--li-strong"><br></strong>When we see the class constructor, we can’t tell what dependencies it needs. This makes the code harder to understand and maintain.</li></ol></div></div></section><section name="9105" class="section section--body"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="1be1" id="1be1" class="graf graf--h3 graf--leading">Constructor Injection Solves These Problems</h3><p name="82e4" id="82e4" class="graf graf--p graf-after--h3">With constructor injection, you tell your dependencies explicitly in the constructor</p><figure name="e586" id="e586" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*lYNxVpWdhO13WygLDQ72SQ.png" data-width="1152" data-height="648" src="https://cdn-images-1.medium.com/max/800/1*lYNxVpWdhO13WygLDQ72SQ.png"></figure><ul class="postList"><li name="b986" id="b986" class="graf graf--li graf-after--figure">We removed the <code class="markup--code markup--li-code"><strong class="markup--strong markup--li-strong">@Autowired</strong></code><strong class="markup--strong markup--li-strong"> </strong>annotation from the code.</li><li name="10a2" id="10a2" class="graf graf--li graf-after--li">We made the fields final.</li><li name="2c63" id="2c63" class="graf graf--li graf-after--li">We created the constructor with those final fields.</li></ul><p name="a395" id="a395" class="graf graf--p graf-after--li">This Constructor injection is More <strong class="markup--strong markup--p-strong">AOT and GraalVM friendly.</strong></p><h4 name="739b" id="739b" class="graf graf--h4 graf-after--p">Benefits?</h4><ol class="postList"><li name="1780" id="1780" class="graf graf--li graf-after--h4">Clear Dependencies</li><li name="f776" id="f776" class="graf graf--li graf-after--li">Immutability</li><li name="1793" id="1793" class="graf graf--li graf-after--li">Better Testability</li><li name="13d6" id="13d6" class="graf graf--li graf-after--li">More IDE and Framework Friendly</li></ol><h4 name="aa86" id="aa86" class="graf graf--h4 graf-after--li">Don’t Worry About Boilerplate Code</h4><p name="a42a" id="a42a" class="graf graf--p graf-after--h4">Writing constructors for many dependencies can feel hard.</p><p name="fc41" id="fc41" class="graf graf--p graf-after--p">It could be avoided by using<code class="markup--code markup--p-code"><strong class="markup--strong markup--p-strong"> @RequiredArgsConstructor</strong></code> annotation of Lombok.</p><figure name="8ba7" id="8ba7" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*r-eqtk1qMFsraL2eoA3Syw.png" data-width="1152" data-height="648" src="https://cdn-images-1.medium.com/max/800/1*r-eqtk1qMFsraL2eoA3Syw.png"></figure><p name="ed42" id="ed42" class="graf graf--p graf-after--figure">Declaring a field <code class="markup--code markup--p-code">final</code> signals to other developers: <strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">“This dependency is required and will never change.”</em></strong></p><p name="d0f0" id="d0f0" class="graf graf--p graf-after--p">The beautiful thing is <strong class="markup--strong markup--p-strong">the</strong> <strong class="markup--strong markup--p-strong">least surprise,</strong> like no hidden mutations during runtime.</p><p name="99d2" id="99d2" class="graf graf--p graf-after--p graf--trailing">We can safely refactor without worrying about unexpected mutation in future.</p></div></div></section><section name="0166" class="section section--body"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="1dfe" id="1dfe" class="graf graf--h3 graf--leading"><strong class="markup--strong markup--h3-strong">Many dependencies in a class</strong></h3><figure name="c9bc" id="c9bc" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*3FWIbAcK-bwxd18qvBsmLg.png" data-width="1004" data-height="427" src="https://cdn-images-1.medium.com/max/800/1*3FWIbAcK-bwxd18qvBsmLg.png"></figure><p name="0b10" id="0b10" class="graf graf--p graf-after--figure">Sorry to say this:<strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em"> You are a bad LLD designer. You should learn fundamentals</em></strong></p><p name="44c7" id="44c7" class="graf graf--p graf-after--p">If you have multiple services injected into a service</p><ul class="postList"><li name="efb4" id="efb4" class="graf graf--li graf-after--p"><strong class="markup--strong markup--li-strong">High coupling</strong> — Tightly coupled to too many services</li><li name="d808" id="d808" class="graf graf--li graf-after--li"><strong class="markup--strong markup--li-strong">Difficult Unit Testing </strong>— Requires many mocks, even if only one service is needed</li><li name="fb7b" id="fb7b" class="graf graf--li graf-after--li"><strong class="markup--strong markup--li-strong">Hidden Responsibilities</strong> — Class might be doing too much (kind of a God object)</li><li name="0c38" id="0c38" class="graf graf--li graf-after--li"><strong class="markup--strong markup--li-strong">Long Constructor — </strong>Hard to read, hard to test, violates single responsibility</li></ul><p name="c527" id="c527" class="graf graf--p graf-after--li graf--trailing">If you want, I can write a separate article on how to handle this situation.</p></div></div></section><section name="eb44" class="section section--body section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><p name="0978" id="0978" class="graf graf--p graf--leading">In conclusion,</p><ol class="postList"><li name="cf14" id="cf14" class="graf graf--li graf-after--p">Stop using <code class="markup--code markup--li-code">@Autowired</code> On fields, use constructor injection instead</li><li name="a18d" id="a18d" class="graf graf--li graf-after--li">Utilize <code class="markup--code markup--li-code"><strong class="markup--strong markup--li-strong">RequiredArgsConstructor </strong></code>of Lombok to not write boilerplate code.</li><li name="caf1" id="caf1" class="graf graf--li graf-after--li graf--trailing">Check classes with too many dependencies. That usually means your design needs improvement</li></ol></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@rcvaram" class="p-author h-card">Sivaram Rasathurai</a> on <a href="https://medium.com/p/c6ac0fa885cb"><time class="dt-published" datetime="2025-05-10T15:29:39.890Z">May 10, 2025</time></a>.</p><p><a href="https://medium.com/@rcvaram/are-you-still-using-autowired-field-injection-c6ac0fa885cb" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Hey David , thanks for sharing your experience!</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Hey David , thanks for sharing your experience!</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+API versioning isn&#39;t just about theory, it&#39;s about what works in the real world.
+</section>
+<section data-field="body" class="e-content">
+<section name="1ab7" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><p name="2aaa" id="2aaa" class="graf graf--p graf--leading">Hey David , thanks for sharing your experience!</p><p name="0fb9" id="0fb9" class="graf graf--p graf-after--p">API versioning isn&#39;t just about theory, it&#39;s about what works in the real world.</p><p name="aeb6" id="aeb6" class="graf graf--p graf-after--p">clients forgetting headers and logging difficulties—are real concerns.</p><p name="164c" id="164c" class="graf graf--p graf-after--p">From My POV: This is what I do</p><p name="220a" id="220a" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">1. Default Version Handling</strong></p><p name="7999" id="7999" class="graf graf--p graf-after--p">Since your system defaults to V1 and that decision is now locked in,</p><p name="818e" id="818e" class="graf graf--p graf-after--p">YOu can introduce a warning mechanism. You could log missing version headers and return a response header like:</p><p name="d2fb" id="d2fb" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">X-API-Warning: &quot;No version specified, defaulting to v1. Please use Accept header.&quot;</strong></p><p name="5014" id="5014" class="graf graf--p graf-after--p">This make clients toward explicit versioning while still being backward-compatible.</p><p name="4584" id="4584" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">2. Logging Headers</strong></p><p name="fd4a" id="fd4a" class="graf graf--p graf-after--p">You&#39;re right—many logging solutions focus on URLs, and headers often require extra setup.</p><p name="6510" id="6510" class="graf graf--p graf-after--p">WA 1: If using an API gateway (AWS API Gateway), you can configure it to extract and log the Accept header automatically.</p><p name="4c7d" id="4c7d" class="graf graf--p graf-after--p">WA2: In Spring Boot, adding a filter to log version headers before processing requests.</p><p name="2d1f" id="2d1f" class="graf graf--p graf-after--p">incase, team finds that URI versioning significantly reduces friction, it&#39;s fair to prioritize practicality over REST purism</p><p name="e008" id="e008" class="graf graf--p graf-after--p graf--trailing">Headers work well when tooling and client education are strong. But if they’re adding more pain than value in your case, a hybrid approach (e.g, supporting both for a transition period) could be a possilbe work around.</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@rcvaram" class="p-author h-card">Sivaram Rasathurai</a> on <a href="https://medium.com/p/7666a999ac1f"><time class="dt-published" datetime="2025-03-08T09:42:07.106Z">March 8, 2025</time></a>.</p><p><a href="https://medium.com/@rcvaram/hey-david-thanks-for-sharing-your-experience-7666a999ac1f" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></body></html>

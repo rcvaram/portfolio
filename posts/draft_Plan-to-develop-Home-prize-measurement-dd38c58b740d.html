@@ -1,0 +1,73 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Plan to develop Home prize measurement</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Plan to develop Home prize measurement</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+We have to predict the price of the home which these catogries
+If you look at the data set, you have some null values you ahve to remove…
+</section>
+<section data-field="body" class="e-content">
+<section name="6eed" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="0518" id="0518" class="graf graf--h3 graf--leading graf--title">Plan to develop Home prize measurement </h3><figure name="0f00" id="0f00" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*I0fYaEyXG6jbBeb5ZMh8ig.png" data-width="533" data-height="210" src="https://cdn-images-1.medium.com/max/800/1*I0fYaEyXG6jbBeb5ZMh8ig.png"><figcaption class="imageCaption">Training DataSet</figcaption></figure><p name="5ae5" id="5ae5" class="graf graf--p graf--empty graf-after--figure"><br></p><figure name="6dc7" id="6dc7" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*-MTlOOMCDXiZGTqulzAoAw.png" data-width="657" data-height="263" src="https://cdn-images-1.medium.com/max/800/1*-MTlOOMCDXiZGTqulzAoAw.png"><figcaption class="imageCaption">From pandas dateframe object</figcaption></figure><p name="acd6" id="acd6" class="graf graf--p graf-after--figure">We have to predict the price of the home which these catogries<br>If you look at the data set, you have some null values you ahve to remove those null values or replace with median we have to do this with pandas</p><p name="6fa0" id="6fa0" class="graf graf--p graf-after--p">For that, we have to get median and this median will be a float number we want to make it as integer and we have to add those things in that data frame object</p><figure name="f1c2" id="f1c2" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Ok5wb4LL5s8CpM1dsvK8QA.png" data-width="668" data-height="379" src="https://cdn-images-1.medium.com/max/800/1*Ok5wb4LL5s8CpM1dsvK8QA.png"></figure><p name="da3a" id="da3a" class="graf graf--p graf--empty graf-after--figure"><br></p><p name="abd7" id="abd7" class="graf graf--p graf-after--p">Now we remove the null values from the data set but we have text values we will remove those things with one hot vector encode<br>For that, we have to create dummie values and we will remove the town column and we will add those dummy columns and we also remove one dummy column because……………<br><br></p><figure name="6d37" id="6d37" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*6EhvSEfcoFP6XWnnsSvKLA.png" data-width="651" data-height="468" src="https://cdn-images-1.medium.com/max/800/1*6EhvSEfcoFP6XWnnsSvKLA.png"></figure><p name="8c64" id="8c64" class="graf graf--p graf-after--figure">Now we have merged but we don’t need town column and also we don’t need one dummy variable because it can be derived from another dummy variables</p><figure name="8ba0" id="8ba0" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*XEhCYTxzKDOD5uErOItCXA.png" data-width="780" data-height="274" src="https://cdn-images-1.medium.com/max/800/1*XEhCYTxzKDOD5uErOItCXA.png"></figure><p name="4597" id="4597" class="graf graf--p graf-after--figure">We have dropped our unwanted columns now we can split to two sets one is x variables set and other one is y variable set</p><figure name="b201" id="b201" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*5F2gpgzu8Psp5s4S5C4cPQ.png" data-width="631" data-height="418" src="https://cdn-images-1.medium.com/max/800/1*5F2gpgzu8Psp5s4S5C4cPQ.png"></figure><p name="2ae3" id="2ae3" class="graf graf--p graf-after--figure">We realized that the variables has a realtionship with y is linear we planned to go with linear regression for that, we have to import the linear_model from sklearn and we have to train the model with these data using fit method of model, We can get each coefficients and the intercept of the data</p><figure name="6eb0" id="6eb0" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*7zXo_J_10KrEUjH6I_l4pA.png" data-width="660" data-height="397" src="https://cdn-images-1.medium.com/max/800/1*7zXo_J_10KrEUjH6I_l4pA.png"></figure><p name="90ba" id="90ba" class="graf graf--p graf--empty graf-after--figure"><br></p><p name="2cc5" id="2cc5" class="graf graf--p graf-after--p">Now we can predict the model using model.predict() area =5000, bedrooms =5, age of the home =2, town =colombo then the price is below here</p><figure name="984f" id="984f" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*2ukTjkNNzl3cu2oH9tihwg.png" data-width="1027" data-height="55" src="https://cdn-images-1.medium.com/max/800/1*2ukTjkNNzl3cu2oH9tihwg.png"></figure><p name="58f9" id="58f9" class="graf graf--p graf-after--figure">How can we save this model we will use the pickle to save the model.</p><figure name="4714" id="4714" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*VgOORMCPovuw8TDQ53Q4pg.png" data-width="1031" data-height="114" src="https://cdn-images-1.medium.com/max/800/1*VgOORMCPovuw8TDQ53Q4pg.png"></figure><p name="cd2c" id="cd2c" class="graf graf--p graf-after--figure">So now you can send the model to anywhere how can we load the model</p><figure name="f36b" id="f36b" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*pyQgaOYWhMc_5utJ3yaOzg.png" data-width="1023" data-height="120" src="https://cdn-images-1.medium.com/max/800/1*pyQgaOYWhMc_5utJ3yaOzg.png"></figure><p name="8967" id="8967" class="graf graf--p graf-after--figure">Now we will see one regression problem </p><h4 name="c653" id="c653" class="graf graf--h4 graf-after--p">Classifications Types</h4><p name="8406" id="8406" class="graf graf--p graf-after--h4">Binary classification &amp;&amp; multi-class classification</p><p name="b056" id="b056" class="graf graf--p graf-after--p">How can we do the binary classification<br>Sigmoid or logit function will be used to do the binary classification </p><p name="3c83" id="3c83" class="graf graf--p graf-after--p graf--trailing">sigmoid(z) = 1/(1+e^-z )<br>We have line like linear regression and we will feed this line into sigmoid function It means we will find the linear equation for the model and we will insert into sigmoid function <br>sigmoid(x) = 1/(1+e^-(m*X+c) )</p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/dd38c58b740d">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></body></html>

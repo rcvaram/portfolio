@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Reactive Stream With Spring Boot</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Reactive Stream With Spring Boot</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Reactive Stream is a specification for asynchronous stream processing.
+</section>
+<section data-field="body" class="e-content">
+<section name="6657" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="e9ea" id="e9ea" class="graf graf--h3 graf--leading graf--title">Reactive Stream With Spring Boot</h3><figure name="ec39" id="ec39" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*5PDJpV-jNheTDJ52DSCqDw.jpeg" data-width="6016" data-height="4000" src="https://cdn-images-1.medium.com/max/800/1*5PDJpV-jNheTDJ52DSCqDw.jpeg"><figcaption class="imageCaption">Photo by <a href="https://unsplash.com/@camadams?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" data-href="https://unsplash.com/@camadams?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" class="markup--anchor markup--figure-anchor" rel="noopener" target="_blank">Cam Adams</a> on <a href="https://unsplash.com/s/photos/reactive-stream?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" data-href="https://unsplash.com/s/photos/reactive-stream?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" class="markup--anchor markup--figure-anchor" rel="noopener" target="_blank">Unsplash</a></figcaption></figure><p name="c249" id="c249" class="graf graf--p graf-after--figure"><strong class="markup--strong markup--p-strong">Reactive Stream is a specification for asynchronous stream processing.</strong></p><figure name="1645" id="1645" class="graf graf--figure graf--iframe graf-after--p"><iframe src="https://giphy.com/embed/UWnvhKHZNBSgRqVbhB/twitter/iframe" width="435" height="244" frameborder="0" scrolling="no"></iframe></figure><p name="e950" id="e950" class="graf graf--p graf-after--figure">In other words, a system where lots of events are being produced and consumed asynchronously. In order for an application to be reactive, the first thing it must be able to do is to produce a stream of data. Reactive Core gives us two data types that enable us to do this.</p><figure name="7343" id="7343" class="graf graf--figure graf--iframe graf-after--p"><iframe src="https://giphy.com/embed/4Gxz1Y0o6RFfWubEsM/twitter/iframe" width="435" height="435" frameborder="0" scrolling="no"></iframe></figure><h3 name="9a45" id="9a45" class="graf graf--h3 graf-after--figure">FLUX</h3><p name="b78f" id="b78f" class="graf graf--p graf-after--h3">The first way of doing this is with a <a href="https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html" data-href="https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank"><em class="markup--em markup--p-em">Flux</em></a><em class="markup--em markup--p-em">. </em>It’s a stream that can emit <em class="markup--em markup--p-em">0..n </em>elements. Let’s try creating a simple one: <code class="markup--code markup--p-code">Flux&lt;String&gt; just = Flux.just(&quot;1&quot;, &quot;2&quot;, &quot;3&quot;); </code>In this case, we have a static stream of three elements.</p><h3 name="8b7f" id="8b7f" class="graf graf--h3 graf-after--p">Mono</h3><p name="6431" id="6431" class="graf graf--p graf-after--h3">The second way of doing this is with a <a href="https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Mono.html" data-href="https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Mono.html" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank"><em class="markup--em markup--p-em">Mono</em></a><em class="markup--em markup--p-em">, </em>which is a stream of <em class="markup--em markup--p-em">0..1 </em>elements. Let’s try instantiating one: <code class="markup--code markup--p-code">Mono&lt;String&gt; just = Mono.just(&quot;foo&quot;);<br></code>This looks and behaves almost exactly the same as the <em class="markup--em markup--p-em">Flux</em>, <strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">only this time we are limited to no more than one element.</em></strong></p><p name="d092" id="d092" class="graf graf--p graf-after--p">First, it should be noted that both <em class="markup--em markup--p-em">Flux</em> and <em class="markup--em markup--p-em">Mono</em> are implementations of the Reactive Streams <a href="http://www.reactive-streams.org/reactive-streams-1.0.0-javadoc/org/reactivestreams/Publisher.html" data-href="http://www.reactive-streams.org/reactive-streams-1.0.0-javadoc/org/reactivestreams/Publisher.html" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank"><em class="markup--em markup--p-em">Publisher</em></a><em class="markup--em markup--p-em"> </em>interface. Both classes are compliant with the specification, and we could use this interface in their place</p><h3 name="d006" id="d006" class="graf graf--h3 graf-after--p">Subscribing to a Stream</h3><p name="10d9" id="10d9" class="graf graf--p graf-after--h3">Now we have a high-level overview of how to produce a stream of data, we need to subscribe to it in order for it to emit the elements.</p><figure name="8a6b" id="8a6b" class="graf graf--figure graf--iframe graf-after--p"><iframe src="https://giphy.com/embed/fSeWIz5N1DOfPmsNKy/twitter/iframe" width="435" height="240" frameborder="0" scrolling="no"></iframe></figure><h3 name="0a11" id="0a11" class="graf graf--h3 graf-after--figure">Collecting Elements</h3><p name="1dc5" id="1dc5" class="graf graf--p graf-after--h3">Let’s use the<em class="markup--em markup--p-em"> subscribe() </em>method to collect all the elements in a stream:</p><pre name="9feb" id="9feb" class="graf graf--pre graf-after--p"><code class="markup--code markup--pre-code">List&lt;Integer&gt; elements = new</code> <code class="markup--code markup--pre-code">ArrayList&lt;&gt;();<br>Flux.just(1, 2, 3, 4).log().subscribe(elements::add);</code></pre><p name="4c15" id="4c15" class="graf graf--p graf-after--pre">The data won’t start flowing until we subscribe. Notice that we have added some logging as well, this will be helpful when we look at what’s happening behind the scenes.</p><h3 name="ae42" id="ae42" class="graf graf--h3 graf-after--p">Comparison to Java 8 Streams</h3><p name="7d1e" id="7d1e" class="graf graf--p graf-after--h3">It still might appear that we have something synonymous to a Java 8 <em class="markup--em markup--p-em">Stream</em> doing collect:</p><pre name="910e" id="910e" class="graf graf--pre graf-after--p"><code class="markup--code markup--pre-code">List&lt;Integer&gt; collected = Stream.of(1, 2, 3, 4).collect(toList());</code></pre><p name="f1d1" id="f1d1" class="graf graf--p graf-after--pre">Only we don’t.</p><p name="8938" id="8938" class="graf graf--p graf-after--p">The core difference is that Reactive is a push model, whereas the Java 8 <em class="markup--em markup--p-em">Streams</em> are a pull model. <strong class="markup--strong markup--p-strong">In reactive approach. events are <em class="markup--em markup--p-em">pushed </em>to the subscribers as they come in.</strong></p><p name="a4b1" id="a4b1" class="graf graf--p graf-after--p">The next thing to notice is a <em class="markup--em markup--p-em">Streams </em>terminal operator is just that, terminal, pulling all the data and returning a result. With Reactive we could have an infinite stream coming in from an external resource, with multiple subscribers attached and removed on an ad hoc basis. We can also do things like combine streams, throttle streams and apply backpressure, which we will cover next.</p><h3 name="f173" id="f173" class="graf graf--h3 graf-after--p">Backpressure</h3><figure name="fce1" id="fce1" class="graf graf--figure graf--iframe graf-after--h3"><iframe src="https://giphy.com/embed/pyrhB2YU8dvHPhO4in/twitter/iframe" width="435" height="435" frameborder="0" scrolling="no"></iframe></figure><p name="4578" id="4578" class="graf graf--p graf-after--figure">The next thing we should consider is backpressure. In our example, the subscriber is telling the producer to push every single element at once. This could end up becoming overwhelming for the subscriber, consuming all of its resources.</p><p name="35a8" id="35a8" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">Backpressure is when a downstream can tell an upstream to send it fewer data in order to prevent it from being overwhelmed</strong>.</p><h3 name="8f7f" id="8f7f" class="graf graf--h3 graf-after--p">Operating on a Stream</h3><p name="9f08" id="9f08" class="graf graf--p graf-after--h3">We can also perform operations on the data in our stream, responding to events as we see fit.</p><h3 name="3227" id="3227" class="graf graf--h3 graf-after--p">Mapping Data in a Stream</h3><p name="73ac" id="73ac" class="graf graf--p graf-after--h3">A simple operation that we can perform is applying a transformation. In this case, let’s just double all the numbers in our stream:</p><pre name="9fdc" id="9fdc" class="graf graf--pre graf-after--p"><code class="markup--code markup--pre-code">Flux.just(1, 2, 3, 4).map(i -&gt; i * 2).subscribe(elements::add);</code></pre><p name="2ea0" id="2ea0" class="graf graf--p graf-after--pre"><em class="markup--em markup--p-em">map() </em>will be applied when <em class="markup--em markup--p-em">onNext() </em>is called.</p><blockquote name="a207" id="a207" class="graf graf--blockquote graf-after--p graf--trailing"><strong class="markup--strong markup--blockquote-strong"><em class="markup--em markup--blockquote-em">Thanks for reading this Blog!!! Hope you will enjoy it.<br>Leave a comment below or ask me via Twitter if you have any questions.</em></strong></blockquote></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@rcvaram" class="p-author h-card">Sivaram Rasathurai</a> on <a href="https://medium.com/p/af596b4b0a67"><time class="dt-published" datetime="2021-05-16T10:32:50.286Z">May 16, 2021</time></a>.</p><p><a href="https://medium.com/@rcvaram/reactive-stream-with-spring-boot-af596b4b0a67" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></body></html>

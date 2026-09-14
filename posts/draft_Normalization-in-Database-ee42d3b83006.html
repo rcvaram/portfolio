@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Normalization in Database</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Normalization in Database</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+normalization is a technique of organizing the data into multiple related tables, to minimize DATA REDUNDANCY.
+</section>
+<section data-field="body" class="e-content">
+<section name="bbdd" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="c6cd" id="c6cd" class="graf graf--h3 graf--leading graf--title">Normalization in Database</h3><p name="bd4f" id="bd4f" class="graf graf--p graf-after--h3">normalization is a technique of organizing the data into multiple related tables, to minimize <strong class="markup--strong markup--p-strong">DATA REDUNDANCY.</strong></p><h3 name="8760" id="8760" class="graf graf--h3 graf-after--p">What is Data Redundancy? and why should we reduce it?</h3><p name="27ae" id="27ae" class="graf graf--p graf--empty graf-after--h3"><br></p><p name="5149" id="5149" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong"> → Repetition of data increases the size of database.<br></strong> <strong class="markup--strong markup--p-strong">→ Insertion Problems<br></strong> <strong class="markup--strong markup--p-strong">→ Deletion Problems<br></strong> <strong class="markup--strong markup--p-strong">→ Updation Problems</strong></p><p name="ec9c" id="ec9c" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">STUDENTS TABLE<br></strong>rollno name branch hod office_tel<br>1 Akon CSE Mr. X 53337<br>N Bkon CSE Mr. X 53337<br>3 Ckon CSE Mr. X 53337<br>4 Dkon CSE Mr. X 53337</p><p name="a7d6" id="a7d6" class="graf graf--p graf-after--p">Here if you see the branch name, hod and office_tel were same for all the students. Think like for another CSE student, these same data going to be entered into the table ryt.</p><h4 name="a028" id="a028" class="graf graf--h4 graf-after--p">Insertion Anomaly</h4><p name="427c" id="427c" class="graf graf--p graf-after--h4">To insert redundant data for every new row (of Student data in our case) is a data<br>insertion problem or anomaly.</p><h4 name="eb85" id="eb85" class="graf graf--h4 graf-after--p">Deletion Anomaly</h4><p name="1f43" id="1f43" class="graf graf--p graf-after--h4">Loss of a related dataset when some other dataset is deleted.</p><h4 name="26be" id="26be" class="graf graf--h4 graf-after--p">Update Anomaly</h4><p name="8723" id="8723" class="graf graf--p graf-after--h4">Needs to update all records.</p><p name="550a" id="550a" class="graf graf--p graf-after--p">Normalaisation will break this student table into two tables.</p><p name="3f55" id="3f55" class="graf graf--p graf-after--p">student table and branch table. class table consists of class related information meanwhile studetn table only consists the student details. </p><p name="a0f1" id="a0f1" class="graf graf--p graf--empty graf-after--p"><br></p><p name="7e64" id="7e64" class="graf graf--p graf-after--p">Data Normalization is not about eleminating the data redundancy its about minimizing the data redundancy.</p><p name="28cf" id="28cf" class="graf graf--p graf-after--p">Less Redundancy → Fewer problems in inserting,deleting and updating the<br>data.</p><p name="9f99" id="9f99" class="graf graf--p graf-after--p">Normalization just follows divide and rule. logicial independent but related data.</p><p name="f610" id="f610" class="graf graf--p graf-after--p">Normalization can be acheieved with different forms</p><p name="dd27" id="dd27" class="graf graf--p graf--empty graf-after--p"><br></p><h3 name="b998" id="b998" class="graf graf--h3 graf-after--p">1st Normal Form</h3><p name="c5ce" id="c5ce" class="graf graf--p graf-after--h3">This the stpe one of normlaization process. </p><ul class="postList"><li name="72d5" id="72d5" class="graf graf--li graf-after--p">Scalable Table design which can be easily extended.</li><li name="c333" id="c333" class="graf graf--li graf-after--li"> If your table is not even in 1st Normal Form, its considered poor DB design.</li></ul><p name="9019" id="9019" class="graf graf--p graf-after--li">Every Table in your Database should at least follow the 1st Normal Form, always.<br>or Stop using Database!</p><p name="426f" id="426f" class="graf graf--p graf-after--p">How to achieve 1st Normal Form?<br>There are 3 basic rules that a table should follow to be in 1st Normal Form.</p><p name="b177" id="b177" class="graf graf--p graf-after--p">Rule 1 — Atomicity</p><ul class="postList"><li name="483e" id="483e" class="graf graf--li graf-after--p"><strong class="markup--strong markup--li-strong">Each Column should contain atomic values</strong>. Entries like X, Y and W, X violate this rule.</li></ul><p name="a2cc" id="a2cc" class="graf graf--p graf-after--li">Rule 2 — Column Data in One Type</p><ul class="postList"><li name="d774" id="d774" class="graf graf--li graf-after--p">A Column should contain values that are of the same type. Do not inter-mix different types of values in any column.</li></ul><p name="f6b7" id="f6b7" class="graf graf--p graf-after--li">Rule 3 — Column Name should be unique</p><ul class="postList"><li name="f5a4" id="f5a4" class="graf graf--li graf-after--p">Each Column should have a unique Name. Same name leads to confusion at the time of data retreivel.</li></ul><h4 name="b76e" id="b76e" class="graf graf--h4 graf-after--li">Without Normalization</h4><p name="2061" id="2061" class="graf graf--p graf-after--h4">STUDENTS TABLE<br>rollno name subject<br>101 Akon OS, CN<br>103 Ckon JAVA<br>102 Bkon C, C++</p><h4 name="96f8" id="96f8" class="graf graf--h4 graf-after--p">After First Normalization</h4><p name="116f" id="116f" class="graf graf--p graf-after--h4">STUDENTS TABLE<br>rollno name subject<br>101 Akon OS<br>103 Ckon JAVA<br>102 Bkon C, <br>102 Bkon C, C++<br>101 Akon OS</p><h3 name="951a" id="951a" class="graf graf--h3 graf-after--p">Second Normal Form</h3><p name="3b0a" id="3b0a" class="graf graf--p graf-after--h3">Rule 1– Table should be in 1 NF</p><p name="1ef9" id="1ef9" class="graf graf--p graf-after--p">Rule 2 — It should not have any partial dependencies</p><p name="1a4a" id="1a4a" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">Partial Dependency</strong></p><p name="6a4d" id="6a4d" class="graf graf--p graf-after--p">STUDENTS TABLE<br>student_id name reg_no branch address<br>1 Akon CSE-18 CSE TN<br>2 Akon IT-18 IT AP<br>3 Bkon CSE-18 CSE HR<br>4 Ckon CSE-18 CSE MH</p><p name="d693" id="d693" class="graf graf--p graf-after--p"> Dependcy means when you do some thing for the data within the table. primary key normally used. basically all the data manipulation for a particular data can be dependent on the primary key column this is called some kind of dependency.</p><p name="ea36" id="ea36" class="graf graf--p graf-after--p">Now let’s extend our example to see if two or more columns together can act as a primary key.</p><p name="52ce" id="52ce" class="graf graf--p graf-after--p">Let’s create another table for SUBJECT In this table, we will have<br>- subject_id<br>- subject_name</p><p name="e3d0" id="e3d0" class="graf graf--p graf--empty graf-after--p"><br></p><p name="a371" id="a371" class="graf graf--p graf-after--p">SCORE TABLE<br>score_id student_id subject_id marks teacher<br>1 1 1 82 Mr. J<br>N 1 77 Mr. C++<br>3 2 1 85 85 Mr. J<br>+ 2 2 82 -2 Mr. C++<br>5 LO 2 95 95 Mr. P</p><p name="ff00" id="ff00" class="graf graf--p graf-after--p">Primary Key should be score_id But student_id + subject_id together makes a more meaningful primary key.</p><p name="bda8" id="bda8" class="graf graf--p graf-after--p">Primary key is a composition of two columns. but in here tacher name dependents on onyl with subject nothing to with student id. A table with second normal form this should not exist. </p><p name="010c" id="010c" class="graf graf--p graf-after--p">How to remove this parital depedency?</p><p name="215e" id="215e" class="graf graf--p graf-after--p"> → To move the teacher name to subject table. </p><p name="fcc6" id="fcc6" class="graf graf--p graf--empty graf-after--p"><br></p><h3 name="eadc" id="eadc" class="graf graf--h3 graf-after--p">Third Normal Form</h3><p name="2ab2" id="2ab2" class="graf graf--p graf-after--h3">Rule 1 — Table should be in 2nd Normal Form</p><p name="3453" id="3453" class="graf graf--p graf-after--p">Rule 2 — It should not have transitive dependency.</p><p name="928d" id="928d" class="graf graf--p graf-after--p"> </p><p name="7819" id="7819" class="graf graf--p graf--empty graf-after--p"><br></p><p name="5a86" id="5a86" class="graf graf--p graf--empty graf-after--p"><br></p><p name="ef1d" id="ef1d" class="graf graf--p graf--empty graf-after--p"><br></p><p name="1b4a" id="1b4a" class="graf graf--p graf--empty graf-after--p graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/ee42d3b83006">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></body></html>

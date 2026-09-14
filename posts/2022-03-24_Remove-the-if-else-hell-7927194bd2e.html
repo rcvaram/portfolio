@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Remove the if-else hell</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Remove the if-else hell</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+If you are not a medium member, read it here.
+</section>
+<section data-field="body" class="e-content">
+<section name="afb7" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="a603" id="a603" class="graf graf--h3 graf--leading graf--title">Remove the if-else hell</h3><p name="fa5c" id="fa5c" class="graf graf--p graf-after--h3">If you are not a medium member, read it<a href="https://medium.com/javarevisited/remove-the-if-else-hell-java-7927194bd2e?sk=0c8dfc7b020f73e7a5831a432cf92621" data-href="https://medium.com/javarevisited/remove-the-if-else-hell-java-7927194bd2e?sk=0c8dfc7b020f73e7a5831a432cf92621" class="markup--anchor markup--p-anchor" target="_blank"> here.</a></p><figure name="58c1" id="58c1" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*s4p1_XUED9WZ5doFXzvxGA.png" data-width="945" data-height="521" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*s4p1_XUED9WZ5doFXzvxGA.png"></figure><p name="0fd4" id="0fd4" class="graf graf--p graf-after--figure">In some cases, we need to do multiple if-else conditions like the above. Someone may prefer to go with a switch case, but it is not going to give clean and robust code.</p><p name="60c4" id="60c4" class="graf graf--p graf-after--p">So How can we remove these multiple if-else conditions?</p><h4 name="8e51" id="8e51" class="graf graf--h4 graf-after--p">We can do it with a map.</h4><ul class="postList"><li name="039d" id="039d" class="graf graf--li graf-after--h4">For the String literals, you can use the HashMap</li><li name="0088" id="0088" class="graf graf--li graf-after--li">If you have enums use EnumMap instead of HashMap.</li></ul><figure name="9e25" id="9e25" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*0OpOXamh-TYIDcApQ3mavw.png" data-width="604" data-height="825" src="https://cdn-images-1.medium.com/max/800/1*0OpOXamh-TYIDcApQ3mavw.png"></figure><p name="52bf" id="52bf" class="graf graf--p graf-after--figure">Instead of going with if-else conditions, we are going with a <a href="https://javarevisited.blogspot.com/2015/08/difference-between-HashMap-vs-TreeMap-vs-LinkedHashMap-Java.html" data-href="https://javarevisited.blogspot.com/2015/08/difference-between-HashMap-vs-TreeMap-vs-LinkedHashMap-Java.html" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">map</a></p><p name="ff3c" id="ff3c" class="graf graf--p graf-after--p">Make sure your conditions fit with the map. Instead of writing logic handling for each case, We had a map, and we put the case and the logic as <em class="markup--em markup--p-em">key, value</em> pairs. Hence, We can retrieve the logic from the map based on the key.</p><p name="9e82" id="9e82" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">Thanks, </strong><a href="https://medium.com/u/7007d97d5b1f" data-href="https://medium.com/u/7007d97d5b1f" data-anchor-type="2" data-user-id="7007d97d5b1f" data-action-value="7007d97d5b1f" data-action="show-user-card" data-action-type="hover" class="markup--user markup--p-user" target="_blank"><strong class="markup--strong markup--p-strong">Hrishabh Purohit</strong></a><strong class="markup--strong markup--p-strong"> &amp; </strong><a href="https://medium.com/u/50bbdf0dd53" data-href="https://medium.com/u/50bbdf0dd53" data-anchor-type="2" data-user-id="50bbdf0dd53" data-action-value="50bbdf0dd53" data-action="show-user-card" data-action-type="hover" class="markup--user markup--p-user" target="_blank"><strong class="markup--strong markup--p-strong">Gamehostprogram</strong></a><strong class="markup--strong markup--p-strong"> for your responses. <br>Those responses made me rethink again on this article to define the boundaries where we can use this technique.</strong></p><blockquote name="45b8" id="45b8" class="graf graf--pullquote graf-after--p">I started with if-else because most of us(devs) start with if-else. but it is actually a nice replacement for a switch case.<br>Also, I wanna say, I don’t recommend using this in simple logic-related switch cases since it will increase the complexity of code readability. I prefer the map method when the class’s main functionality implementation depends on the switch case (strategy pattern).</blockquote><p name="fe7a" id="fe7a" class="graf graf--p graf-after--pullquote">Other C<strong class="markup--strong markup--p-strong">oding articles and resources</strong> you may like</p><div name="8aed" id="8aed" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://medium.com/javarevisited/7-best-courses-to-learn-refactoring-and-clean-coding-in-java-47bea3c67006" data-href="https://medium.com/javarevisited/7-best-courses-to-learn-refactoring-and-clean-coding-in-java-47bea3c67006" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/javarevisited/7-best-courses-to-learn-refactoring-and-clean-coding-in-java-47bea3c67006"><strong class="markup--strong markup--mixtapeEmbed-strong">7 Best Courses to Learn Refactoring and Improve Coding Skills in Java</strong><br><em class="markup--em markup--mixtapeEmbed-em">My favorite online courses to learn refactoring and best practices to improve your coding skills and become a better…</em>medium.com</a><a href="https://medium.com/javarevisited/7-best-courses-to-learn-refactoring-and-clean-coding-in-java-47bea3c67006" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="30e8bb3ac25f2ac2c73a2e38d56fdaee" data-thumbnail-img-id="0*lxkt28yC3dkjvnfE.jpg" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*lxkt28yC3dkjvnfE.jpg);"></a></div><div name="3459" id="3459" class="graf graf--mixtapeEmbed graf-after--mixtapeEmbed"><a href="https://medium.com/javarevisited/clean-code-a-must-read-coding-book-for-programmers-9dc80494d27c" data-href="https://medium.com/javarevisited/clean-code-a-must-read-coding-book-for-programmers-9dc80494d27c" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/javarevisited/clean-code-a-must-read-coding-book-for-programmers-9dc80494d27c"><strong class="markup--strong markup--mixtapeEmbed-strong">Clean Code Review — A must-read Coding Book for Programmers</strong><br><em class="markup--em markup--mixtapeEmbed-em">Want to learn the art of converting a bad code to good code? This book can help</em>medium.com</a><a href="https://medium.com/javarevisited/clean-code-a-must-read-coding-book-for-programmers-9dc80494d27c" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="ed57a3fd4b6fb374fe198eb260e9e81e" data-thumbnail-img-id="1*PKsDuPxNoKJyJvmlLc64qg.jpeg" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*PKsDuPxNoKJyJvmlLc64qg.jpeg);"></a></div><div name="17e1" id="17e1" class="graf graf--mixtapeEmbed graf-after--mixtapeEmbed"><a href="https://javarevisited.blogspot.com/2020/12/top-5-course-to-improve-coding-skills.html" data-href="https://javarevisited.blogspot.com/2020/12/top-5-course-to-improve-coding-skills.html" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://javarevisited.blogspot.com/2020/12/top-5-course-to-improve-coding-skills.html"><strong class="markup--strong markup--mixtapeEmbed-strong">Top 6 Courses to Learn Code Refactoring for Experienced Java Programmers </strong><br><em class="markup--em markup--mixtapeEmbed-em">Hello guys, if you want to improve your coding skills, learn to refactor and other coding best practices, and look for…</em>javarevisited.blogspot.com</a><a href="https://javarevisited.blogspot.com/2020/12/top-5-course-to-improve-coding-skills.html" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="6b0fba0cc65782cdbca5a5d9984ac96a" data-thumbnail-img-id="0*XPOuINTYtvJgXikE" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*XPOuINTYtvJgXikE);"></a></div><p name="cb08" id="cb08" class="graf graf--p graf-after--mixtapeEmbed graf--trailing">And, if you are not a Medium member then I highly recommend you to join Medium and read great stories like this from great authors on different field. You can <strong class="markup--strong markup--p-strong">join Medium </strong><a href="https://medium.com/@somasharma_81597/membership" data-href="https://medium.com/@somasharma_81597/membership" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank"><strong class="markup--strong markup--p-strong">here</strong></a></p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@rcvaram" class="p-author h-card">Sivaram Rasathurai</a> on <a href="https://medium.com/p/7927194bd2e"><time class="dt-published" datetime="2022-03-24T08:56:58.545Z">March 24, 2022</time></a>.</p><p><a href="https://medium.com/@rcvaram/remove-the-if-else-hell-java-7927194bd2e" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></body></html>

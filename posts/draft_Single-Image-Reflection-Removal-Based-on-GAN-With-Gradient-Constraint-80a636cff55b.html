@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Single Image Reflection Removal Based on GAN With Gradient Constraint</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Single Image Reflection Removal Based on GAN With Gradient Constraint</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+R. Abiko and M. Ikehara, “Single Image Reflection Removal Based on GAN With Gradient Constraint,” in IEEE Access, vol. 7, pp…
+</section>
+<section data-field="body" class="e-content">
+<section name="e73d" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="117a" id="117a" class="graf graf--h3 graf--leading graf--title">Single Image Reflection Removal Based on GAN With Gradient Constraint</h3><p name="2d50" id="2d50" class="graf graf--p graf-after--h3"><em class="markup--em markup--p-em">R. Abiko and M. Ikehara, “Single Image Reflection Removal Based on GAN With Gradient Constraint,” in IEEE Access, vol. 7, pp. 148790–148799, 2019.<br>doi: 10.1109/ACCESS.2019.2947266</em></p><p name="d161" id="d161" class="graf graf--p graf-after--p">A GAN based approach with four different losses including pixel loss, feature loss, adversarial loss and gradient constraint loss is proposed to separate the reflection layer from the image.</p><p name="e5b0" id="e5b0" class="graf graf--p graf-after--p">The novel is gradient constraint loss which tries to minimize the correlation between the background and reflection layer.</p><h4 name="dae7" id="dae7" class="graf graf--h4 graf-after--p">Image restoration</h4><p name="69b9" id="69b9" class="graf graf--p graf--startsWithDoubleQuote graf-after--h4"><strong class="markup--strong markup--p-strong">“Image restoration</strong> is the operation of taking a corrupt/noisy image and estimating the clean, original image.” from Wikipedia</p><h4 name="7ea1" id="7ea1" class="graf graf--h4 graf-after--p">Deep learning</h4><p name="8ef9" id="8ef9" class="graf graf--p graf--startsWithDoubleQuote graf-after--h4"><strong class="markup--strong markup--p-strong">“Deep learning</strong> is an AI function that mimics the workings of the human brain in processing data for use in detecting objects, recognizing speech, translating languages, and making decisions.” from Wikipedia</p><h4 name="c575" id="c575" class="graf graf--h4 graf-after--p">Reflection removal</h4><p name="7cf6" id="7cf6" class="graf graf--p graf-after--h4"><strong class="markup--strong markup--p-strong">Reflection removal</strong> aims at separating the <strong class="markup--strong markup--p-strong">reflection</strong> (while. obtaining the clear background) from the mixture image using one or more shots, where the former is a highly ill-posed. from <a href="http://alumni.media.mit.edu/~shiboxin/files/Wan_ICCV17.pdf" data-href="http://alumni.media.mit.edu/~shiboxin/files/Wan_ICCV17.pdf" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">Benchmarking Single-Image Reflection Removal ... - MIT alumnialumni.media.mit.edu</a></p><h4 name="1a2a" id="1a2a" class="graf graf--h4 graf-after--p">Image Separation</h4><p name="4cb1" id="4cb1" class="graf graf--p graf--empty graf-after--h4"><br></p><p name="83cb" id="83cb" class="graf graf--p graf-after--p">Authors noticed one vital thing in recent approaches that some of the images missed their original colour tone when their reflection is separated because the structure of the background layer still appears in the reflection layer this is what authors assumed.</p><p name="e85e" id="e85e" class="graf graf--p graf-after--p">What authors decide is Independence of the reflection layer and the background layer should be kept so they come up with the new loss which is called gradient constraint loss. </p><p name="a2a7" id="a2a7" class="graf graf--p graf-after--p">addition to gradient constraint loss, they defined the following losses as well. feature loss which is responsible for feature preserving when two layers are separated, pixel loss corresponds to pixel loss and adversarial loss which corresponds to how realistic the output images are.</p><figure name="e67c" id="e67c" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*0kLKoK2exEq87NPwQITnlg.png" data-width="925" data-height="619" src="https://cdn-images-1.medium.com/max/800/1*0kLKoK2exEq87NPwQITnlg.png"><figcaption class="imageCaption">The architecture of the proposed method</figcaption></figure><p name="d0d1" id="d0d1" class="graf graf--p graf--empty graf-after--figure"><br></p><p name="e74f" id="e74f" class="graf graf--p graf-after--p">The architecture is made bu combination of a convolutional layer, batch<br>normalization layer, leaky ReLU layer, max pooling<br>layer, and bilinear interpolation layer.</p><figure name="61c2" id="61c2" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*fmEdA3xuqnj6EGauXfxzmA.png" data-width="959" data-height="695" src="https://cdn-images-1.medium.com/max/800/1*fmEdA3xuqnj6EGauXfxzmA.png"></figure><p name="ea91" id="ea91" class="graf graf--p graf-after--figure">Our Generator tries to generate the background image from the original image The Background image B^i can be shown as below with respect to input image I^i and Learnt weights Qg</p><pre name="bf40" id="bf40" class="graf graf--pre graf-after--p">B^i = G( I^i, Qg)</pre><p name="c36f" id="c36f" class="graf graf--p graf-after--pre">Reflection layer can be got by subtracting background image from the original image as follow</p><pre name="0061" id="0061" class="graf graf--pre graf-after--p">R^i = I^i - B^i</pre><figure name="6e0e" id="6e0e" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*pKvN1DBWgIAKJCMmdKzWWA.png" data-width="876" data-height="353" src="https://cdn-images-1.medium.com/max/800/1*pKvN1DBWgIAKJCMmdKzWWA.png"></figure><p name="b12b" id="b12b" class="graf graf--p graf--empty graf-after--figure"><br></p><p name="38e3" id="38e3" class="graf graf--p graf--empty graf-after--p graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/80a636cff55b">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></body></html>

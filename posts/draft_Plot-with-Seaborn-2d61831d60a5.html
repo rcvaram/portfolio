@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Plot with Seaborn</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Plot with Seaborn</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Data visualization is a challenging task but the seaborn makes it simple. First Thing is what is seaborn?
+</section>
+<section data-field="body" class="e-content">
+<section name="f0da" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="2dbe" id="2dbe" class="graf graf--h3 graf--leading graf--title">Plot with Seaborn</h3><p name="e364" id="e364" class="graf graf--p graf-after--h3">Data visualization is a challenging task but the seaborn makes it simple. First Thing is what is seaborn? </p><p name="87c6" id="87c6" class="graf graf--p graf-after--p">Seaborn is a data visualization library available in python. The core of this library is matplotlib. It allows you to create statistical graphics. It has more features like comparing multiple variables, supporting multi-plot grids, creating univariate and bivariate visualizations, creating the graphs estimating and plots linear regression</p><p name="6f31" id="6f31" class="graf graf--p graf-after--p">Easy things easy &amp; hard things possible seaborn makes well-defined set to hard things easy too. matplotlib is good but seaborn is better</p><p name="ee43" id="ee43" class="graf graf--p graf-after--p">Normally, data analytics will be using the Pandas library. Matplotlib doesn’t serve well when it comes to dealing with dataframes while seaborn functions actually work on dataframes. If you are working on Pandas then seaborn is for you.</p><h4 name="0d77" id="0d77" class="graf graf--h4 graf-after--p">How to install the seaborn?</h4><p name="979d" id="979d" class="graf graf--p graf-after--h4">If you are using python3 then you can use pip3 to install the seaborn</p><pre name="1d8c" id="1d8c" class="graf graf--pre graf-after--p">pip3 install seaborn</pre><p name="9ea7" id="9ea7" class="graf graf--p graf-after--pre">When you are using the python 2, You can install with pip</p><pre name="83f0" id="83f0" class="graf graf--pre graf-after--p">pip install seaborn</pre><p name="2406" id="2406" class="graf graf--p graf-after--pre">What are the dependencies of the seaborn?</p><p name="5052" id="5052" class="graf graf--p graf-after--p">Numpy</p><p name="0e5e" id="0e5e" class="graf graf--p graf-after--p">SciPy</p><p name="c7fa" id="c7fa" class="graf graf--p graf-after--p">matplotlib</p><p name="3885" id="3885" class="graf graf--p graf-after--p">Pandas</p><p name="d093" id="d093" class="graf graf--p graf-after--p">Above libraries are mandatory dependencies of the seaborn. For the statics, you can use the StatsModels by installing statsModel dependency.</p><pre name="9466" id="9466" class="graf graf--pre graf-after--p">pip3 install STAT</pre><p name="b3f4" id="b3f4" class="graf graf--p graf-after--pre">So Far so good. let&#39;s look at the seaborn functions</p><p name="6781" id="6781" class="graf graf--p graf-after--p">Absolutely, There are a lot of functions in seaborn to visualizing the statistical relationships, plotting with categorical data and visualizing the distribution of a dataset.</p><p name="5e4e" id="5e4e" class="graf graf--p graf-after--p">How can we use the seaborn to visualizing the statistical relationship?</p><p name="1095" id="1095" class="graf graf--p graf-after--p">The statistical relationship is how the variables are related to other variables statistically. Visualization is the important thing because when data are well visualized, as a human we can easily understand the patterns and easily preprocess the data.</p><p name="5c28" id="5c28" class="graf graf--p graf-after--p">There are three basic functions of seaborn </p><p name="221f" id="221f" class="graf graf--p graf-after--p">RelPlot()</p><p name="856a" id="856a" class="graf graf--p graf-after--p">ScatterPlot()</p><p name="03ea" id="03ea" class="graf graf--p graf-after--p">LinePlot()</p><p name="2610" id="2610" class="graf graf--p graf-after--p">These functions are very simple and easily understandable. </p><p name="e71d" id="e71d" class="graf graf--p graf-after--p">These functions can represent complex data structre ploting two- dimensional graphs that can be enhanced by mapping up to three additional variables using the sementics of hue, size and style. </p><p name="cdfd" id="cdfd" class="graf graf--p graf--empty graf-after--p"><br></p><h4 name="2ad9" id="2ad9" class="graf graf--h4 graf-after--p">The ScatterPlots</h4><p name="1754" id="1754" class="graf graf--p graf-after--h4">These plots represent the joint distributions two variables using a cloud of points.</p><p name="c8d0" id="c8d0" class="graf graf--p graf-after--p">There are several ways to draw a scatter plot in seaborn. We will see some of them from basic to advance below</p><p name="26d6" id="26d6" class="graf graf--p graf-after--p">for that, we are using the jupyter notebook and the following dataset.</p><p name="2e0f" id="2e0f" class="graf graf--p graf-after--p">Norma behaviour of the relpot of the seaborn is scatter plot</p><pre name="7473" id="7473" class="graf graf--pre graf-after--p">sns.</pre><p name="ef4f" id="ef4f" class="graf graf--p graf--empty graf-after--pre"><br></p><p name="05b7" id="05b7" class="graf graf--p graf--empty graf-after--p"><br></p><p name="3e98" id="3e98" class="graf graf--p graf--empty graf-after--p"><br></p><p name="b3d3" id="b3d3" class="graf graf--p graf--empty graf-after--p"><br></p><p name="a67c" id="a67c" class="graf graf--p graf--empty graf-after--p"><br></p><p name="57f9" id="57f9" class="graf graf--p graf--empty graf-after--p"><br></p><p name="8420" id="8420" class="graf graf--p graf--empty graf-after--p"><br></p><p name="ae96" id="ae96" class="graf graf--p graf--empty graf-after--p"><br></p><p name="d96e" id="d96e" class="graf graf--p graf--empty graf-after--p"><br></p><p name="3cb5" id="3cb5" class="graf graf--p graf--empty graf-after--p"><br></p><p name="6244" id="6244" class="graf graf--p graf--empty graf-after--p"><br></p><p name="1015" id="1015" class="graf graf--p graf--empty graf-after--p"><br></p><p name="29f7" id="29f7" class="graf graf--p graf--empty graf-after--p"><br></p><p name="ee3b" id="ee3b" class="graf graf--p graf--empty graf-after--p"><br></p><p name="637d" id="637d" class="graf graf--p graf--empty graf-after--p"><br></p><p name="e6a4" id="e6a4" class="graf graf--p graf--empty graf-after--p"><br></p><p name="d04b" id="d04b" class="graf graf--p graf--empty graf-after--p"><br></p><p name="0688" id="0688" class="graf graf--p graf--empty graf-after--p"><br></p><p name="6e32" id="6e32" class="graf graf--p graf--empty graf-after--p"><br></p><p name="f8d1" id="f8d1" class="graf graf--p graf--empty graf-after--p"><br></p><p name="7925" id="7925" class="graf graf--p graf-after--p">How can we do this I will do it with Jupiter notebook.</p><p name="a3ad" id="a3ad" class="graf graf--p graf-after--p">First, we want to import the seaborn along with dependencies. I have already told which are mandatory dependencies of seaborn</p><p name="6992" id="6992" class="graf graf--p graf-after--p">When you start analyzing the data set, you have to plot the target variable percentage. If you don’t have a considerable amount of data in each target value then that is not good.</p><p name="6076" id="6076" class="graf graf--p graf-after--p">For that, we can use the seaborn countplot to plot the coutns in each target set </p><pre name="a66e" id="a66e" class="graf graf--pre graf-after--p">sns.countplot(x=&#39;target_variable&#39;, data = your_data_frame)</pre><p name="4bb5" id="4bb5" class="graf graf--p graf-after--pre">Here, you can check how many target values are there for each target variable .</p><p name="5098" id="5098" class="graf graf--p graf-after--p">May be, In your dataset have null values without purpose for that, we have to count the null values in each data column. If the data set have more than 50 percentage null valus we can remove it from our dataset because they are useless. For that, you can use the pandas isnull() and sum() together to get the total null values of the column</p><pre name="dc2c" id="dc2c" class="graf graf--pre graf-after--p">your_data_frame.isnull().sum()</pre><p name="dc56" id="dc56" class="graf graf--p graf-after--pre">In your data set, maybe null values will be less than 50 percentage however zero values are more than 50 percent that one also can be count and the columns will be eliminated. for checking zeros, we have used the isin command with zero value</p><pre name="c900" id="c900" class="graf graf--pre graf-after--p">your_data_frame.isin([0]).sum()</pre><p name="4094" id="4094" class="graf graf--p graf-after--pre">With this we have found that, these variables are more than 20000 zero values</p><pre name="7e57" id="7e57" class="graf graf--pre graf-after--p">&#39;amount_tsh&#39;, &#39;gps_height&#39;, &#39;num_private&#39;, &#39;population&#39;, &#39;construction_year&#39;,&#39;permit&#39;</pre><p name="493e" id="493e" class="graf graf--p graf-after--pre">Now, We have to analyze these variables are really not needed or not.</p><p name="1e9e" id="1e9e" class="graf graf--p graf-after--p">For that, I wil use the catplot of the seaborn and check the null values is affecting or not</p><figure name="1a01" id="1a01" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*wHYPU4mGx71YZwIAvPCG4Q.png" data-width="951" data-height="393" src="https://cdn-images-1.medium.com/max/800/1*wHYPU4mGx71YZwIAvPCG4Q.png"></figure><figure name="22dd" id="22dd" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*_Kqs9xzTLdT5AUm8x8tLYg.png" data-width="644" data-height="398" src="https://cdn-images-1.medium.com/max/800/1*_Kqs9xzTLdT5AUm8x8tLYg.png"></figure><p name="a67f" id="a67f" class="graf graf--p graf--empty graf-after--figure graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/2d61831d60a5">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></body></html>

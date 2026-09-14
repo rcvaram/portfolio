@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>A Quick Connection on Flask with SQLite</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">A Quick Connection on Flask with SQLite</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Here, I don’t talk about everything just focus on connecting the SQLite database with the Flask application
+</section>
+<section data-field="body" class="e-content">
+<section name="ed27" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="2d01" id="2d01" class="graf graf--h3 graf--leading graf--title">A Quick Connection on Flask with SQLite</h3><p name="6e52" id="6e52" class="graf graf--p graf-after--h3">Here, I don’t talk about everything just focus on connecting the SQLite database with the Flask application</p><p name="cb0d" id="cb0d" class="graf graf--p graf-after--p">SQLAlchamey → It is commonly used for Object Relational Mapper(ORM) to work with different databases such as SQLite, MySQL and more. It allows us to use the database in an object-orientated way. Most of the time, Most of the python code doesn’t need to change for different databases If you use ORM type.</p><p name="cb65" id="cb65" class="graf graf--p graf-after--p">How can we do get the support of SQLALchamey in Flask?</p><p name="7d02" id="7d02" class="graf graf--p graf-after--p">We need to install the pip package which named flask-sqlalchemy</p><pre name="e5c2" id="e5c2" class="graf graf--pre graf-after--p">pip install flask-sqlalchemy</pre><p name="6d95" id="6d95" class="graf graf--p graf-after--pre">This flask specific sqlalchemy package gives more helpers for our flask application.</p><p name="90d6" id="90d6" class="graf graf--p graf-after--p">Connecting the SQLite database with our Flask Application</p><p name="7c2e" id="7c2e" class="graf graf--p graf-after--p">SQLite is the easiest way to test your application then you can change your database to anything you want.</p><p name="c238" id="c238" class="graf graf--p graf-after--p">Bolded lines are only needed for SQLite configuration for flask application.</p><pre name="f5f8" id="f5f8" class="graf graf--pre graf-after--p"><strong class="markup--strong markup--pre-strong"><em class="markup--em markup--pre-em">from flask_sqlalchamey import SQLAlchemy</em></strong></pre><pre name="8c23" id="8c23" class="graf graf--pre graf-after--pre"><em class="markup--em markup--pre-em">app = Flask(__name__)<br>app.config[&#39;SECRET_KEY&#39;] = &quot;SECRTETbROOOOOO&quot;<br></em><strong class="markup--strong markup--pre-strong"><em class="markup--em markup--pre-em">app.config[&#39;SQLALCHEMY_DATABASE_URI&#39;] = &#39;sqlite:///test.db&#39;</em></strong></pre><pre name="be10" id="be10" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">db = SQLAlchaemy(app)</strong></pre><ol class="postList"><li name="de4d" id="de4d" class="graf graf--li graf-after--pre">We need to import the SQLAlchemy from the flask_sqlalchamey. </li><li name="0111" id="0111" class="graf graf--li graf-after--li">We need to say where the database is located in our flask app directory. It can be done with <strong class="markup--strong markup--li-strong"><em class="markup--em markup--li-em">SQLACHEMY_DATABASE_URI</em></strong> configuration. Here, We set our path as “sqlite:///test.db”. In this path, we specify what database we will use and after ///, we specify our relative database base path from the current file.</li><li name="fc78" id="fc78" class="graf graf--li graf-after--li">We need to get the SQLAlchamey class instance to work with our database. Since we specified the database URL to the flask app, We only need to give the Flask app instance as an argument to the SQLALchemy constructor. Inhere, we get the SQLAlchemy instance as DB.</li></ol><p name="38ff" id="38ff" class="graf graf--p graf--empty graf-after--li"><br></p><h4 name="c711" id="c711" class="graf graf--h4 graf--empty graf-after--p"><br></h4><p name="7d71" id="7d71" class="graf graf--p graf--empty graf-after--h4 graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/5ccd725e6ebe">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></body></html>

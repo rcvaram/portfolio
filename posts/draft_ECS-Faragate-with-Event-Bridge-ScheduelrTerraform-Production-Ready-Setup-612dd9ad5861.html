@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>ECS Faragate with Event Bridge ScheduelrTerraform Production Ready Setup</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">ECS Faragate with Event Bridge ScheduelrTerraform Production Ready Setup</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+This is not a Beginner friendly tutorial Make sure you have some idea on Terraform and aws stuff.
+</section>
+<section data-field="body" class="e-content">
+<section name="9e85" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="fea8" id="fea8" class="graf graf--h3 graf--leading graf--title">ECS Faragate with Event Bridge ScheduelrTerraform Production Ready Setup</h3><h4 name="5521" id="5521" class="graf graf--h4 graf-after--h3 graf--subtitle">This is not a Beginner friendly tutorial Make sure you have some idea on Terraform and aws stuff.</h4><h4 name="7b75" id="7b75" class="graf graf--h4 graf-after--h4">Remote statement management</h4><p name="2964" id="2964" class="graf graf--p graf-after--h4">When working in a team, multiple people might be making changes to the same infrastructure. The remote state allows for proper locking mechanisms that prevent concurrent changes from causing conflicts.</p><p name="1079" id="1079" class="graf graf--p graf-after--p">Remote state ensures that all team members are working with the latest and most accurate information about the infrastructure’s current state. This reduces the risk of configuration drift.</p><p name="429b" id="429b" class="graf graf--p graf-after--p">Storing state files remotely reduces the chances of data loss or corruption. If a local state file is lost, it can be challenging or impossible to recover the exact state of your infrastructure.</p><p name="aeb8" id="aeb8" class="graf graf--p graf-after--p">Remote state solutions often provide version history, allowing you to track changes to the infrastructure over time. This can be invaluable for troubleshooting and auditing.</p><h4 name="5b24" id="5b24" class="graf graf--h4 graf-after--p">AWS S3 as a remote state backend</h4><p name="a448" id="a448" class="graf graf--p graf-after--h4">Using AWS S3 as a remote state backend for Terraform is a common and effective way to manage your Terraform state files. </p><ol class="postList"><li name="842f" id="842f" class="graf graf--li graf-after--p">Create an S3 Bucket → you’ll store your Terraform state files. Make sure to choose a globally unique name for the bucket</li><li name="4ac4" id="4ac4" class="graf graf--li graf-after--li">IAM Permissions → Create an IAM policy that grants these permissions and attach it to the IAM user or role you’ll use for Terraform operations.</li></ol><p name="b885" id="b885" class="graf graf--p graf-after--li">Once you create an S3 bucket, we can easily configure that in Terraform to store and retrieve the states. before that, To enable state locking for concurrency control, you need to create a DynamoDB table.</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="bash" name="9c6b" id="9c6b" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">terraform {<br />  backend <span class="hljs-string">&quot;s3&quot;</span> {<br />    bucket         = <span class="hljs-string">&quot;ecs-fargate-states-bucket&quot;</span><br />    key            = <span class="hljs-string">&quot;path/to/your/statefile.tfstate&quot;</span><br />    region         = <span class="hljs-string">&quot;us-east-1&quot;</span><br />    encrypt        = <span class="hljs-literal">true</span><br />    dynamodb_table = <span class="hljs-string">&quot;ecs-fargate-states-dynamodb-lock-table&quot;</span><br />  }<br />}</span></pre><p name="8cf9" id="8cf9" class="graf graf--p graf--empty graf-after--pre graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/612dd9ad5861">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></body></html>

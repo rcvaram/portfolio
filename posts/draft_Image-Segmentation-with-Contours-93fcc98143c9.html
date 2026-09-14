@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Image Segmentation with Contours</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Image Segmentation with Contours</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Segmentation is a process that partitioning images into different regions. We need to understand contours if we go for image segmentation.
+</section>
+<section data-field="body" class="e-content">
+<section name="77ee" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="3633" id="3633" class="graf graf--h3 graf--leading graf--title">Image Segmentation with Contours</h3><p name="9cbc" id="9cbc" class="graf graf--p graf-after--h3">Segmentation is a process that partitioning images into different regions. We need to understand contours if we go for image segmentation. </p><h4 name="21e6" id="21e6" class="graf graf--h4 graf-after--p">Contours</h4><p name="5e5a" id="5e5a" class="graf graf--p graf-after--h4">contours are continuous lines or curves that bound or cover the full boundary of an object in an image.</p><p name="8640" id="8640" class="graf graf--p graf-after--p">These contours are very important in object detection and shape analysis.</p><pre name="0e37" id="0e37" class="graf graf--pre graf-after--p">img = cv2.imread(imagep_path)</pre><pre name="2e47" id="2e47" class="graf graf--pre graf-after--pre">image = img.copy()<br>gray_img - cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)<br>edges = cv2.Canny(gray_img, 30,200)</pre><pre name="480b" id="480b" class="graf graf--pre graf-after--pre">contours, hierarchy = cv2.findContours(edges, cv2.RETR_EXTERNAL, cv2.CHANI_APPROX_NONE)</pre><pre name="3e30" id="3e30" class="graf graf--pre graf-after--pre">print(&quot;Number of Contours found - {}&quot;.format(len(contours)))</pre><pre name="e3b0" id="e3b0" class="graf graf--pre graf-after--pre">cv2.drawContours(image, contours, -1, (0,255,0),3)</pre><p name="a201" id="a201" class="graf graf--p graf-after--pre">First, we take the edges of the image using the canny edge detector.</p><p name="9cde" id="9cde" class="graf graf--p graf-after--p">Finding canny edges isn’t necessary because we can pass the grayscale image to find contours but It will reduce the noises.</p><p name="5597" id="5597" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">findContours </strong>is the function that we need to discuss here. This function takes three input arguments. The first argument is an image that should be a grayscale image. The second is a retrieval mode and the third one is the approximation mode. When we apply the findContours method the original image will be affected. in our case “edges” image will be affected. The best practice is to take a copy of the image before processing the findContours method.</p><p name="efd8" id="efd8" class="graf graf--p graf-after--p">OpenCV stores the contours in a list of the list. Each list represents a different contour. within the list, all the coordinates of that contour are added to that list. We can store these coordinates differently. How can we store that? The approximation mode comes to play. Using <strong class="markup--strong markup--p-strong">cv2.CHAIN_APPROX_NONE</strong> stores all the boundary points. But we don’t necessarily need all the boundary points. If the points form a straight line we only need the start and ending points of that line. Using <strong class="markup--strong markup--p-strong">cv2.CHAIN_APPROX_SIMPLE</strong> instead only provides these start and endpoints of bounding contours, thus resulting in much more efficient storage of contour information.</p><p name="2d79" id="2d79" class="graf graf--p graf-after--p">We have discussed the approximation mode above. what is retrieval mode? Retrieval mode essentially defines the hierarchy of the contour as so hierarchy being like do you want sub contours or external contours or all contours.</p><p name="0f3c" id="0f3c" class="graf graf--p graf-after--p">There are four types in retrieval mode in OpenCV.</p><ol class="postList"><li name="93c6" id="93c6" class="graf graf--li graf-after--p">cv2.RETR_LIST → Retrieve all contours</li><li name="b537" id="b537" class="graf graf--li graf-after--li">cv2.RETR_EXTERNAL → Retrieves external or outer contours only</li><li name="1e12" id="1e12" class="graf graf--li graf-after--li">cv2.RETR_COMP → Retrieves all in a 2-level hierarchy</li><li name="314b" id="314b" class="graf graf--li graf-after--li">cv2.RETR_TREE → Retrieves all in the full hierarchy</li></ol><p name="a21a" id="a21a" class="graf graf--p graf-after--li">Hierarchy is stored in the following format [next, previous, First child, parent]</p><p name="aef9" id="aef9" class="graf graf--p graf-after--p">We discussed all the things about the findContours method as I think.</p><p name="27fa" id="27fa" class="graf graf--p graf-after--p">The output of this function returns contours and hierarchy.</p><h4 name="67e5" id="67e5" class="graf graf--h4 graf-after--p">Sorting Contours</h4><p name="b720" id="b720" class="graf graf--p graf-after--h4">sorting contours is good when we are doing image processing.</p><p name="d6a0" id="d6a0" class="graf graf--p graf-after--p">We can ignore contours with the help of the area. Eliminating small contours will be good since those contours may be noise. </p><p name="4762" id="4762" class="graf graf--p graf-after--p">We can sort the contours by spatial position. It allows us to sort the characters suppose we are looking at handwritten texts it allows us to sort out as left to right which is exactly code brain processes it.</p><p name="b821" id="b821" class="graf graf--p graf-after--p">The first step, We need to find contours with the following code</p><pre name="b7bf" id="b7bf" class="graf graf--pre graf-after--p">img = cv2.imread(imagep_path)</pre><pre name="3d0e" id="3d0e" class="graf graf--pre graf-after--pre">image = img.copy()<br>gray_img - cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)<br>edges = cv2.Canny(gray_img, 30,200)</pre><pre name="f26d" id="f26d" class="graf graf--pre graf-after--pre">contours, hierarchy = cv2.findContours(edges, cv2.RETR_EXTERNAL, cv2.CHANI_APPROX_SIMPLE)<br><br></pre><p name="8ed8" id="8ed8" class="graf graf--p graf-after--pre"><strong class="markup--strong markup--p-strong">Sorting Contours by Area</strong></p><p name="db73" id="db73" class="graf graf--p graf-after--p">We need to know the area of contours to sort out them.</p><p name="f25a" id="f25a" class="graf graf--p graf-after--p">Following function is used to get the area of the contour</p><pre name="e6c5" id="e6c5" class="graf graf--pre graf-after--p">def get_contour_area(contours):<br>    contour_areas =[]<br>    for cnt in contours:<br>        area = cv2.contourArea(cnt)<br>         contour_areas.append(area)<br>   return contour_areas<br>print(get_contour_area(contours))</pre><p name="b4d8" id="b4d8" class="graf graf--p graf-after--pre">Here, cv2.contourArea calculates the area of the contour. Your terminal will show the unsorted area list.</p><p name="b33d" id="b33d" class="graf graf--p graf-after--p">We can sort contours large to small using below line</p><pre name="f9ee" id="f9ee" class="graf graf--pre graf-after--p">sorted_contours = sorted(contours, key = contourArea, reverse =True)<br>print(get_contour_area(sorted_contours))</pre><p name="16fe" id="16fe" class="graf graf--p graf-after--pre">Now, you can see the sorted contours by area.</p><p name="d763" id="d763" class="graf graf--p graf-after--p">The first contour will be the largest contour in the image.</p><p name="362f" id="362f" class="graf graf--p graf-after--p">We can move to how to sort the contours left to right.</p><p name="a425" id="a425" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">Left to Right contours sorting</strong></p><p name="3c6d" id="3c6d" class="graf graf--p graf-after--p">Sorting the contours is not a big deal since we have below function</p><pre name="894f" id="894f" class="graf graf--pre graf-after--p">sorted_contours = sorted(contours, key = function, reverse =True)</pre><p name="8fd6" id="8fd6" class="graf graf--p graf-after--pre">What we need to do is write a function to get a key. For left to right contour sorting, we need to write a function to extract the key.</p><pre name="f59d" id="f59d" class="graf graf--pre graf-after--p">def get_x_cord_contour(contours):<br>    if cv2.contourArea(contours) &gt; 10:<br>       momoent= cv2.moments(contours)<br>       return (int(moment[&#39;m10&#39;]/moment[&#39;m00&#39;]))</pre><p name="1018" id="1018" class="graf graf--p graf-after--pre">cv2.moments takes the contour and actually returns the center point of it. With the help of that, we can extract the x position of the contour. We can sort the contours with this one as below.</p><pre name="db9c" id="db9c" class="graf graf--pre graf-after--p">sorted_contours = sorted(contours, key = get_x_cord_contour, reverse =True)</pre><p name="a8ff" id="a8ff" class="graf graf--p graf-after--pre">Now, contours are sorted in left to right</p><h4 name="4374" id="4374" class="graf graf--h4 graf-after--p"><strong class="markup--strong markup--h4-strong">Cropping Contour</strong></h4><p name="1d61" id="1d61" class="graf graf--p graf-after--h4">It is very easy in OpenCV. cv2.boundingRect is the function that is used to crop the contour in rectangle shape. It will give the starting point of coordinate x,y then the width and the height.</p><pre name="6a5e" id="6a5e" class="graf graf--pre graf-after--p">x,y,w,h = cv2.boundingRect(contour)<br>cropped_contour = image[y:y+h,x:x+w]</pre><p name="0bd9" id="0bd9" class="graf graf--p graf-after--pre">We can approximate the contours to the shape using the approxPolyDP function of OpenCV. It takes arguments such as contour, approximation accuracy, closed.</p><p name="46ae" id="46ae" class="graf graf--p graf-after--p">contour → Individual contour we wish to approximate.</p><p name="1232" id="1232" class="graf graf--p graf-after--p">Approximation Accuracy → Important parameter is determining of the approximation. Small values give precise-approximation, large values give more generic approximation. A good rule of thumb is less than 5% of the contour perimeter. </p><p name="b9d2" id="b9d2" class="graf graf--p graf-after--p">Closed → A boolean value that states whether the approximate contour should be closed or not.</p><pre name="8909" id="8909" class="graf graf--pre graf-after--p">for c in contours:<br>    accuracy = 0.05*cv2.arcLength(c,True)<br>    approx = cv2.approxPolyDP(c, accuracy, True)<br>    cv2.drawContours(image, [approx],0,(0,255,0),2)<br>    cv2.imshow(&quot;iamge&quot;, image)</pre><h4 name="b7e4" id="b7e4" class="graf graf--h4 graf--empty graf-after--pre graf--trailing"><br></h4></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/93fcc98143c9">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></body></html>

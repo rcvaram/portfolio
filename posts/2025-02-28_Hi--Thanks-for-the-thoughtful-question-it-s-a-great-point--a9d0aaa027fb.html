@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Hi! Thanks for the thoughtful question—it’s a great point!</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Hi! Thanks for the thoughtful question—it’s a great point!</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+In my header-based approach, the controller can handle this nicely. Yes, you can put different logic for each version in the same method…
+</section>
+<section data-field="body" class="e-content">
+<section name="5d11" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><p name="463f" id="463f" class="graf graf--p graf--leading">Hi! Thanks for the thoughtful question—it’s a great point! You’re absolutely right that adding a new field to a JSON response is usually non-breaking, so it doesn’t always need a new version. Most folks only bump the version when there’s a bigger change, like new logic or a breaking shift.</p><p name="dee7" id="dee7" class="graf graf--p graf-after--p">In my header-based approach, the controller can handle this nicely. Yes, you can put different logic for each version in the same method, but keep it clean with some organization. For example, in my GitHub demo, the getProducts method uses a VersionProvider to figure out the version from the Accept header. Then, I pass that version to a service layer (IProductService) to handle the logic. It might look like this:</p><p name="a515" id="a515" class="graf graf--p graf-after--p">@GetMapping(value = &quot;/products&quot;, produces = {&quot;application/vnd.rcvaram.v1+json&quot;, &quot;application/vnd.rcvaram.v2+json&quot;})</p><p name="757a" id="757a" class="graf graf--p graf-after--p">public ResponseEntity&lt;List&lt;IProductResponseDto&gt;&gt; getProducts(@RequestHeader(&quot;Accept&quot;) String acceptHeader) {</p><p name="e648" id="e648" class="graf graf--p graf-after--p">Version version = versionProvider.identifyVersion(acceptHeader);</p><p name="16ed" id="16ed" class="graf graf--p graf-after--p">List&lt;IProductResponseDto&gt; products = productService.getProducts(version);</p><p name="4670" id="4670" class="graf graf--p graf-after--p">return ResponseEntity.ok(products);</p><p name="ef93" id="ef93" class="graf graf--p graf-after--p">}</p><p name="fda4" id="fda4" class="graf graf--p graf-after--p">Inside productService.getProducts(version), you could have a simple if or switch to branch the logic:</p><p name="f01c" id="f01c" class="graf graf--p graf-after--p">if (version == Version.V1) {</p><p name="d139" id="d139" class="graf graf--p graf-after--p">// V1 logic: simpler response, maybe no price field</p><p name="9f72" id="9f72" class="graf graf--p graf-after--p">return productRepository.findAll().stream().map(Product::toV1Dto).toList();</p><p name="08f6" id="08f6" class="graf graf--p graf-after--p">} else {</p><p name="9f02" id="9f02" class="graf graf--p graf-after--p">// V2 logic: add price or extra fields</p><p name="f515" id="f515" class="graf graf--p graf-after--p">return productRepository.findAll().stream().map(Product::toV2Dto).toList();</p><p name="457b" id="457b" class="graf graf--p graf-after--p">}</p><p name="f3a0" id="f3a0" class="graf graf--p graf-after--p graf--trailing">This keeps everything in one controller, avoiding duplication, while letting the service layer handle version-specific details. Does that make sense for your use case? I’d love to hear how you handle logic differences now!</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@rcvaram" class="p-author h-card">Sivaram Rasathurai</a> on <a href="https://medium.com/p/a9d0aaa027fb"><time class="dt-published" datetime="2025-02-28T05:18:35.810Z">February 28, 2025</time></a>.</p><p><a href="https://medium.com/@rcvaram/hi-thanks-for-the-thoughtful-question-its-a-great-point-a9d0aaa027fb" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></body></html>

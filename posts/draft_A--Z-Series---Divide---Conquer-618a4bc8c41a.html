@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>A- Z Series → Divide &amp; Conquer</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">A- Z Series → Divide &amp; Conquer</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Hope You are safe and eagerly waiting to learn the divide &amp; conquer approach.
+</section>
+<section data-field="body" class="e-content">
+<section name="749d" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="75eb" id="75eb" class="graf graf--h3 graf--leading graf--title">A- Z Series → Divide &amp; Conquer</h3><p name="973a" id="973a" class="graf graf--p graf-after--h3">Hope You are safe and eagerly waiting to learn the divide &amp; conquer approach.</p><p name="db74" id="db74" class="graf graf--p graf-after--p">If you can break a large problem into smaller problems and these subproblems can be solved and you can obtain the solution for each subproblem then you can combine those solutions to get the solution for the large problem. </p><blockquote name="4084" id="4084" class="graf graf--blockquote graf-after--p"><strong class="markup--strong markup--blockquote-strong">Divide → </strong>You will divide the problem into small subProblems. [P = sum(SPi)]</blockquote><blockquote name="e48e" id="e48e" class="graf graf--blockquote graf-after--blockquote"><strong class="markup--strong markup--blockquote-strong">&amp;</strong> → You will find a solution for the subProblem [SSi = solution(SPi)]</blockquote><blockquote name="5629" id="5629" class="graf graf--blockquote graf-after--blockquote"><strong class="markup--strong markup--blockquote-strong">Conquer</strong> → You will combine solutions that are used to solve the subProblems to get the solution for the exact problem. [S = sum(SSi)]</blockquote><p name="ef08" id="ef08" class="graf graf--p graf--empty graf-after--blockquote"><br></p><h4 name="21b1" id="21b1" class="graf graf--h4 graf-after--p">How to Identify a problem that can be solved with this divide and conquer strategy?</h4><ul class="postList"><li name="a05a" id="a05a" class="graf graf--li graf-after--h4">The subProblem should have the same behaviour as the main problem has. The subproblem should be a clone of the problem with a small size. <br> →<strong class="markup--strong markup--li-strong"> If a problem is to search an element in the list then the subproblem also should search the element in the list. </strong></li><li name="2c61" id="2c61" class="graf graf--li graf-after--li">The problem is recursively in nature</li><li name="0843" id="0843" class="graf graf--li graf-after--li">When you break a problem into subProblem then you should have a way to combine their solutions to the main problem. </li></ul><h4 name="758c" id="758c" class="graf graf--h4 graf-after--li">Algorithm For Divide &amp; Conquer</h4><pre name="88c2" id="88c2" class="graf graf--pre graf-after--h4">divideAndConquer(p){<br>   if(small(p)){<br>        s = solution(p)<br>   }<br>   divide p into p1,p2,p3....pn<br>   apply(divideAndConquer(p1),apply(divideAndConquer(p2).....<br>   combine(divideAndConquer(p1),divideAndConquer(p2)..)<br>}</pre><h4 name="fd60" id="fd60" class="graf graf--h4 graf-after--pre">Sample Problems</h4><ol class="postList"><li name="cf78" id="cf78" class="graf graf--li graf-after--h4">Binary Search (we can split the array still it is the same problem to search an element on each array)</li><li name="1250" id="1250" class="graf graf--li graf-after--li">Find Max &amp; Min ( we can split the array still it is the same problem to find  the max/min on each array)</li><li name="7da7" id="7da7" class="graf graf--li graf-after--li">Merge sort </li><li name="7ddd" id="7ddd" class="graf graf--li graf-after--li">Quicksort</li></ol><p name="0d4d" id="0d4d" class="graf graf--p graf-after--li">Above problems are well known for divide &amp; conquer approach </p><h4 name="bd46" id="bd46" class="graf graf--h4 graf-after--p">Let’s dive into leetcode challenges problems</h4><div name="da91" id="da91" class="graf graf--mixtapeEmbed graf-after--h4"><a href="https://leetcode.com/problems/maximum-subarray/" data-href="https://leetcode.com/problems/maximum-subarray/" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://leetcode.com/problems/maximum-subarray/"><strong class="markup--strong markup--mixtapeEmbed-strong">Maximum Subarray - LeetCode</strong><br><em class="markup--em markup--mixtapeEmbed-em">Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum…</em>leetcode.com</a><a href="https://leetcode.com/problems/maximum-subarray/" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="d3da13edaedb812f1df1ce326e465ebb" data-thumbnail-img-id="0*VylZM6tiZPcOeMMv" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*VylZM6tiZPcOeMMv);"></a></div><p name="0d59" id="0d59" class="graf graf--p graf-after--mixtapeEmbed">In this problem, we need to find the largest sum of subArray. if we split the array then also its same problem. </p><p name="dafb" id="dafb" class="graf graf--p graf--empty graf-after--p"><br></p><p name="e25d" id="e25d" class="graf graf--p graf--empty graf-after--p"><br></p><p name="16df" id="16df" class="graf graf--p graf--empty graf-after--p"><br></p><p name="d5a6" id="d5a6" class="graf graf--p graf--empty graf-after--p graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/618a4bc8c41a">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></body></html>

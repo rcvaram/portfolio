@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Pandas first</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Pandas first</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+If you are dealing with millions of million data sete how can we preprocess it for that the pandas is awesome
+</section>
+<section data-field="body" class="e-content">
+<section name="2784" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="07b4" id="07b4" class="graf graf--h3 graf--leading graf--title">Pandas first</h3><p name="f673" id="f673" class="graf graf--p graf-after--h3">If you are dealing with millions of million data sete how can we preprocess it for that the pandas is awesome </p><p name="d8c8" id="d8c8" class="graf graf--p graf-after--p">Process of cleaning messy data is called data munging or data wrangling</p><p name="ce02" id="ce02" class="graf graf--p graf-after--p">Dataframe object is the core of pandas<br>When we get the csv file in fandas and read it it is adatafraem<br>df = pd.read_csv(“file name”)<br>df[‘EST’][df[‘events’]=’rain’]</p><p name="026c" id="026c" class="graf graf--p graf-after--p">Data frame of Pandas</p><p name="0fb9" id="0fb9" class="graf graf--p graf-after--p">Dataframe is a main object in Pandas. It is used to represent data with rows and columns(tabular or excel spreadsheet-like data)</p><p name="1da9" id="1da9" class="graf graf--p graf--empty graf-after--p"><br></p><p name="b0c1" id="b0c1" class="graf graf--p graf-after--p">How to handle the missing values usign pandas</p><p name="a7d1" id="a7d1" class="graf graf--p graf-after--p">fillna</p><p name="2167" id="2167" class="graf graf--p graf-after--p">interplot</p><p name="1015" id="1015" class="graf graf--p graf-after--p">dropna</p><p name="b314" id="b314" class="graf graf--p graf-after--p"> For that, I will read the following data set from the pump up competition</p><figure name="de08" id="de08" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*m4-Csof5scHrVoO2ka-K6g.png" data-width="1026" data-height="489" src="https://cdn-images-1.medium.com/max/800/1*m4-Csof5scHrVoO2ka-K6g.png"></figure><p name="5b98" id="5b98" class="graf graf--p graf-after--figure">We can read the CSV file using read_csv method of pandas</p><p name="5947" id="5947" class="graf graf--p graf-after--p">date_recorded column is in string format we have to convert in date format. for that, when we read the data from the csv file we will say pass the argument parse_dates </p><figure name="a893" id="a893" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*nf754MA-HqrntL_aGEXHIA.png" data-width="1030" data-height="372" src="https://cdn-images-1.medium.com/max/800/1*nf754MA-HqrntL_aGEXHIA.png"></figure><p name="05b6" id="05b6" class="graf graf--p graf-after--figure">Next, I have planend to make the date_recorded as index of the data set</p><figure name="8ab9" id="8ab9" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*78m3Wa0ehOprZ1tBbnc_Rw.png" data-width="1029" data-height="292" src="https://cdn-images-1.medium.com/max/800/1*78m3Wa0ehOprZ1tBbnc_Rw.png"></figure><p name="0468" id="0468" class="graf graf--p graf-after--figure">When we say inplace = True it will update our data frame other wise it will create new instace other than updating the instance</p><p name="a543" id="a543" class="graf graf--p graf-after--p">So when we check the training data set it has more null values some how, we want to remove them</p><p name="850e" id="850e" class="graf graf--p graf--empty graf-after--p"><br></p><p name="dd56" id="dd56" class="graf graf--p graf--empty graf-after--p"><br></p><p name="9325" id="9325" class="graf graf--p graf--empty graf-after--p"><br></p><p name="9833" id="9833" class="graf graf--p graf--empty graf-after--p"><br></p><p name="c23c" id="c23c" class="graf graf--p graf--empty graf-after--p"><br></p><p name="f6a5" id="f6a5" class="graf graf--p graf--empty graf-after--p"><br></p><p name="504f" id="504f" class="graf graf--p graf--empty graf-after--p"><br></p><p name="1024" id="1024" class="graf graf--p graf--empty graf-after--p"><br></p><p name="a77d" id="a77d" class="graf graf--p graf--empty graf-after--p"><br></p><p name="f9ef" id="f9ef" class="graf graf--p graf--empty graf-after--p"><br></p><p name="8a24" id="8a24" class="graf graf--p graf--empty graf-after--p graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/b36f47cfce04">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></body></html>

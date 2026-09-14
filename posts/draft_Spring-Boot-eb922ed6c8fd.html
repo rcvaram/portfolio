@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Spring Boot</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Spring Boot</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+In this tutorial, We will see the complete web app with Security, Database connecting, Transcation handling, Dependency injction and other…
+</section>
+<section data-field="body" class="e-content">
+<section name="aab4" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="5b88" id="5b88" class="graf graf--h3 graf--leading graf--title">Spring Boot</h3><p name="0fe0" id="0fe0" class="graf graf--p graf-after--h3">In this tutorial, We will see the complete web app with Security, Database connecting, Transcation handling, Dependency injction and other stubs.<br>Before going on I will Explain the scenerion where we want to build this app.</p><p name="f1fb" id="f1fb" class="graf graf--p graf-after--p">We have planned to develop a Library management system Which has Users, Books and Librarian. In our Application , Users can see the book details, User can mark the books to borrow. The Librarian can add the books, update the books, delete the books. Authors can only update books content.</p><p name="7898" id="7898" class="graf graf--p graf-after--p">Our REST endpoints are GET books, GET bookById, POST BOOK, POST borrowBook, POST book, PUT book, DELETE book, </p><p name="00b7" id="00b7" class="graf graf--p graf-after--p">OUR REST API Architecture is given below</p><p name="e948" id="e948" class="graf graf--p graf--empty graf-after--p"><br></p><figure name="e9de" id="e9de" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*JqtsqY1BRlkS9Qai81e8LQ.jpeg" data-width="337" data-height="658" src="https://cdn-images-1.medium.com/max/800/1*JqtsqY1BRlkS9Qai81e8LQ.jpeg"></figure><p name="4689" id="4689" class="graf graf--p graf-after--figure">Our beans</p><p name="78b4" id="78b4" class="graf graf--p graf-after--p">Person</p><figure name="668a" id="668a" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/cvaram96/904f0c4371404e19da030ac858444e70.js"></script></figure><p name="655e" id="655e" class="graf graf--p graf-after--figure">Author</p><figure name="c84a" id="c84a" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/02c24c5e8186621259ec4d9c7d109e96.git.js"></script></figure><figure name="eb34" id="eb34" class="graf graf--figure graf--iframe graf-after--figure"><script src="https://gist.github.com/1629f06bc3ed90ecbf0c977c3c1df6e3.git.js"></script></figure><p name="7abf" id="7abf" class="graf graf--p graf-after--figure">User</p><figure name="e8b1" id="e8b1" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/cvaram96/77caabe4558184331ffc0e532f6d5844.js"></script></figure><p name="e909" id="e909" class="graf graf--p graf--empty graf-after--figure"><br></p><h4 name="42af" id="42af" class="graf graf--h4 graf-after--p">Let’s add Controller</h4><p name="378d" id="378d" class="graf graf--p graf-after--h4">Basically it is a java class with certain annotaion. This annotion will tell the Spring to what is the url you are mapping what should happen when the request comes to that URL. Spring has an frame work which is called as Spring MVC we will use this to build our REST API application inside spring boot</p><p name="339f" id="339f" class="graf graf--p graf-after--p">We have planned to build rest API so the class will be annotaed with @RESTCONTROLLER annotation</p><p name="f57e" id="f57e" class="graf graf--p graf-after--p">@RequestMapping annotation is used to map the get method only as default. If you want to use other methods such as POST, PUT, DELETE you have to mention inside the annotation as well. We will look even closer in next section</p><p name="4f64" id="4f64" class="graf graf--p graf-after--p">All the stubs are happening behind the screen. Ok lets break it up</p><p name="2643" id="2643" class="graf graf--p graf-after--p">Resources are the things that in your domain We have the only</p><p name="a977" id="a977" class="graf graf--p graf-after--p">Spring JPA — data tier</p><p name="83bc" id="83bc" class="graf graf--p graf-after--p">We have planned to connect database with spring application. We will do the CRUD operations on the database. What are the configurations we have to do for connecting to the database. Java persistence API lets you do ORM (Object Relational Mapping) for relational database in spring application. What is ORM ORM is let you to map the database tables into java classes and the JPA is a way to use ORM.</p><p name="62df" id="62df" class="graf graf--p graf-after--p">Spring Data JPA is more functionalities than JPA.</p><p name="35f7" id="35f7" class="graf graf--p graf--empty graf-after--p graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/eb922ed6c8fd">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>AWS — IAM (Global Service)</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">AWS — IAM (Global Service)</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Identity &amp; Access Management
+</section>
+<section data-field="body" class="e-content">
+<section name="dcb9" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="26c3" id="26c3" class="graf graf--h3 graf--leading graf--title">AWS — IAM (Global Service)</h3><h4 name="6a5b" id="6a5b" class="graf graf--h4 graf-after--h3 graf--subtitle">Identity &amp; Access Management </h4><p name="3983" id="3983" class="graf graf--p graf-after--h4"> IAM is a kind of service where you can manage your users. A root user / Root account is created by default. This should not be shared/used since It has all permissions to perform any actions to your resources. What is the use of this account? To set up an administration account for you to utilize the AWS services. </p><p name="371d" id="371d" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">How to allow others to use your AWS account?</em></strong> As you know, to use your AWS resources, you have to give permission. These permissions can be JSON documents and are called policies. These policies can be attached to the user/group. Basically, with these policies, we can define the permissions of the users. <strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">These users will be shared with others to use your AWS account</em></strong>.</p><h4 name="1e11" id="1e11" class="graf graf--h4 graf-after--p">Least privilege principle</h4><blockquote name="5f28" id="5f28" class="graf graf--pullquote graf-after--h4">Don’t give more permissions than a user needs</blockquote><p name="d879" id="d879" class="graf graf--p graf-after--pullquote">Users are people within your organization and can be grouped. Groups can have multiple users, not other groups. but the user can be a stand-alone user which means the user must not be within a group. Users can be within multiple groups as well. </p><h4 name="7aac" id="7aac" class="graf graf--h4 graf-after--p">Policies Depth</h4><p name="a5ab" id="a5ab" class="graf graf--p graf-after--h4">When a policy is attached to group level then it will be applied to all the users within the group. As I said above, some users may not be belong any groups in that time assigned policy for the user is called inline policy.</p><p name="cdc8" id="cdc8" class="graf graf--p graf-after--p">IAM Policy Structure</p><ul class="postList"><li name="b935" id="b935" class="graf graf--li graf-after--p">Version → The policy structure version</li><li name="d009" id="d009" class="graf graf--li graf-after--li">ID → An optional parameter ot identify the policy</li><li name="93a5" id="93a5" class="graf graf--li graf-after--li">Statement → describe a permission so a policy can have multiple statements.</li><li name="bfb6" id="bfb6" class="graf graf--li graf-after--li">Statement → id → identifier for the statement which is an optional parameter</li><li name="c655" id="c655" class="graf graf--li graf-after--li">Statement → effect → Permission effect basically the permission is used for allow or deny the access</li><li name="6f72" id="6f72" class="graf graf--li graf-after--li">Statement → Pricincipal → account/user/role to which this policy applied to</li><li name="6346" id="6346" class="graf graf--li graf-after--li">Statement → Action → List of actions that the particular permission/statment allows or denys</li><li name="07b2" id="07b2" class="graf graf--li graf-after--li">Statment → Resource → List of resources where the actions can be performed. </li><li name="2582" id="2582" class="graf graf--li graf-after--li">Statement → Condition → Conditions for when this policy is in effect</li><li name="ade0" id="ade0" class="graf graf--li graf--empty graf-after--li"><br></li></ul><p name="6647" id="6647" class="graf graf--p graf--empty graf-after--li"><br></p><p name="ab4e" id="ab4e" class="graf graf--p graf-after--p">Referemce @Stepe udemymy videos. </p><p name="6dfd" id="6dfd" class="graf graf--p graf--empty graf-after--p"><br></p><p name="b7a3" id="b7a3" class="graf graf--p graf--empty graf-after--p graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/bc604790fa98">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></body></html>

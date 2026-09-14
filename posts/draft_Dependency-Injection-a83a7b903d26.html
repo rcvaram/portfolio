@@ -1,0 +1,74 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Dependency Injection</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Dependency Injection</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+We build objects which is depend on other objects
+For a real example
+A car has tyre, engine, seat and many other things for that, car…
+</section>
+<section data-field="body" class="e-content">
+<section name="c317" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><p name="67ce" id="67ce" class="graf graf--p graf--leading">Dependency Injection</p><p name="ba2f" id="ba2f" class="graf graf--p graf-after--p">We build objects which is depend on other objects<br>For a real example<br>A car has tyre, engine, seat and many other things for that, car depend on these things isn’t?<br>If you think Toyota company they build many different cars with different prize. how they difference between them because of their engine, tyre and other stufs so the car is depends on these things.</p><p name="34b4" id="34b4" class="graf graf--p graf-after--p">In this car, as well toyoto don’t build all things of Car, they can get the tyres from other company, may be the seats fromanther company.</p><p name="57c1" id="57c1" class="graf graf--p graf-after--p">Same way, when we have an object which is depend on other objects.<br>As software best practice loose coupling is very important one.<br>Loose coupling means it should depend on other objects will be much lesserthan.</p><p name="5fee" id="5fee" class="graf graf--p graf-after--p">When we are going to code this. we will code like this. <br>Class Car{<br>String name;<br>Tyre tyre = new TvsTyre();<br>}<br>In this moment, we have hardcoded and this is tight coupling. Here the Car is depended on Tyre and the tyre and the car has tight coupling. We want to get rid of this tight coupling<br>We want to inject the tyre inside the car.<br>How can we do it? for that we can use services to inject the object.<br>In our Spring framework,<br>Spring contaienrs, They will create the objects for u and then inject them in your class. How can we do? We have to do configurations.<br>XML configurations, Annotations configurations<br>We can create XML file and the xml file you can mention like when some one ask the tyre you can give this tyre like that. so this is not tight coupling because we can change it in the xml file.<br>As a developer, I want to work with these xml configurations??</p><p name="59bd" id="59bd" class="graf graf--p graf-after--p">//Annotaions</p><p name="e232" id="e232" class="graf graf--p graf-after--p">When we code the tyre class we decorated with <a href="http://twitter.com/Component" data-href="http://twitter.com/Component" class="markup--anchor markup--p-anchor" title="Twitter profile for @Component" rel="noopener" target="_blank">@Component</a> Annotation to inform the Spring framework that create an object with this class type.</p><p name="b8c2" id="b8c2" class="graf graf--p graf-after--p">So now we have the tyre object how can we inject.</p><p name="58f4" id="58f4" class="graf graf--p graf-after--p">Very Easy just Autowired.</p><p name="b551" id="b551" class="graf graf--p graf-after--p">loose coupling + testing we want to test units so this dependency injection will help us in the unit testing as well</p><p name="7d11" id="7d11" class="graf graf--p graf-after--p">This is depenedency Injection</p><p name="d5ae" id="d5ae" class="graf graf--p graf-after--p">For a practicle example, I can go with Spring boot Application</p><p name="c50f" id="c50f" class="graf graf--p graf-after--p">STS is a id which is from the spring boot team</p><p name="ea0f" id="ea0f" class="graf graf--p graf-after--p">Eclipse</p><p name="23d5" id="23d5" class="graf graf--p graf-after--p">type </p><p name="24ce" id="24ce" class="graf graf--p graf-after--p">Maven gradle project</p><p name="01bb" id="01bb" class="graf graf--p graf-after--p">dependencies</p><p name="862b" id="862b" class="graf graf--p graf-after--p">spring jdbc<br>syso — — command for </p><p name="b13e" id="b13e" class="graf graf--p graf-after--p">Spring Autowire Dependency Injection Spring boot</p><p name="c527" id="c527" class="graf graf--p graf-after--p">Java</p><p name="83cf" id="83cf" class="graf graf--p graf-after--p">Resource </p><p name="ae16" id="ae16" class="graf graf--p graf-after--p">Test</p><p name="d170" id="d170" class="graf graf--p graf-after--p">Maven dependency</p><p name="7861" id="7861" class="graf graf--p graf-after--p">Single POJO</p><p name="d94f" id="d94f" class="graf graf--p graf-after--p">Alien{</p><p name="2dbc" id="2dbc" class="graf graf--p graf-after--p">int aid;</p><p name="5464" id="5464" class="graf graf--p graf-after--p">String aname;</p><p name="0d3f" id="0d3f" class="graf graf--p graf-after--p">String tech;</p><p name="e5de" id="e5de" class="graf graf--p graf-after--p">}</p><p name="4b1b" id="4b1b" class="graf graf--p graf-after--p">Alien a = new Alien(); // Hardcoded </p><p name="b36b" id="b36b" class="graf graf--p graf-after--p">We are manually created the object</p><p name="0a87" id="0a87" class="graf graf--p graf-after--p">DI says when u required an object it will say I will give u u can focus on the logic</p><p name="325c" id="325c" class="graf graf--p graf-after--p">If we see the run method of spring boot application by default this method will return a object of ConfigurableApplicationContext from that class we can simply say getBean(Alien.class);</p><p name="26b1" id="26b1" class="graf graf--p graf-after--p">We had the error which says We don’t have a bean which is a type of alien.</p><p name="4f1e" id="4f1e" class="graf graf--p graf-after--p">&gt;&gt;&gt;&gt;&gt;</p><p name="ef38" id="ef38" class="graf graf--p graf-after--p">Spring Containers →if we created an object inside the containers will be Spring bean</p><p name="b620" id="b620" class="graf graf--p graf-after--p">Alien not a spring bean its just a POJO</p><p name="3b04" id="3b04" class="graf graf--p graf-after--p">We have to specify the classes</p><p name="67ca" id="67ca" class="graf graf--p graf-after--p">@Component</p><p name="9888" id="9888" class="graf graf--p graf-after--p">When we say @Component it will take the POJO as bean and it will create the one object<br>When we say getBean(“ALien.class”) to get the object It will inject the object when u want.<br>When we say get Bean two times what will happen<br>If we don’t call the object then also object will be created because by default all the beans class object will be created in startup<br>Singleton pattern<br>If we call times the object then it will send the same object so literally only one time the object is created</p><p name="4923" id="4923" class="graf graf--p graf-after--p">In singleton you get only one instance<br>Singleton scope → </p><p name="fc6a" id="fc6a" class="graf graf--p graf-after--p">Prototype scope → forthis you want to say @Component @Scope prototype</p><p name="4b7e" id="4b7e" class="graf graf--p graf-after--p">The moment when we say create an object it will becreated</p><p name="1b9e" id="1b9e" class="graf graf--p graf-after--p">What is Autowire<br><br></p><p name="dfec" id="dfec" class="graf graf--p graf-after--p">Class Laptop {</p><p name="c0f1" id="c0f1" class="graf graf--p graf-after--p">int id;</p><p name="2b6f" id="2b6f" class="graf graf--p graf-after--p">String brand;</p><p name="de9b" id="de9b" class="graf graf--p graf-after--p">toString();</p><p name="9bd3" id="9bd3" class="graf graf--p graf-after--p">compile();</p><p name="c86f" id="c86f" class="graf graf--p graf-after--p">}</p><p name="a7da" id="a7da" class="graf graf--p graf-after--p">Alien{</p><p name="aef1" id="aef1" class="graf graf--p graf-after--p">Laptop laptop;</p><p name="b1dc" id="b1dc" class="graf graf--p graf-after--p">show(); →laptop.compile();</p><p name="c913" id="c913" class="graf graf--p graf-after--p">}</p><p name="db25" id="db25" class="graf graf--p graf-after--p">So ALien class is depend on Laptop class It will work or not</p><p name="9f6a" id="9f6a" class="graf graf--p graf-after--p">No beause we dont have the laptop object so we will get null point exception</p><p name="35cb" id="35cb" class="graf graf--p graf-after--p">We can add the @Component annotation <br>We have the object then why??</p><p name="dc5a" id="dc5a" class="graf graf--p graf-after--p">Because how this alien knows the laptop object </p><p name="dfcc" id="dfcc" class="graf graf--p graf-after--p">for that we want to connect ok we can connet with wire which is called @Autowire to search the object in the spring container. @Qualifier is used to select the preference object</p><h4 name="b021" id="b021" class="graf graf--h4 graf-after--p">Web App Using Spring Boot</h4><p name="1e5a" id="1e5a" class="graf graf--p graf-after--h4">When we are saying @SpringBottAppliation it means @Configuration,@EnableAutoConfiguration, @ComponentScan</p><p name="38b3" id="38b3" class="graf graf--p graf-after--p">We can set properties using property file</p><p name="86ee" id="86ee" class="graf graf--p graf-after--p">server.port =8081</p><p name="e528" id="e528" class="graf graf--p graf-after--p">Anyhow we want a frontEnd fr that I will use Thymeleaf</p><p name="b73d" id="b73d" class="graf graf--p graf-after--p">Src → java</p><p name="b495" id="b495" class="graf graf--p graf-after--p">Our API</p><p name="3e0b" id="3e0b" class="graf graf--p graf-after--p">Controller Layer<br>Service Layer<br>Database Layer</p><p name="b16e" id="b16e" class="graf graf--p graf-after--p graf--trailing">Why we define interface is we can switch the implementation using dependency injection</p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/a83a7b903d26">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></body></html>

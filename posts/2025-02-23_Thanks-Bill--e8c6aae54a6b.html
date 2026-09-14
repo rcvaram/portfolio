@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Thanks Bill.</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Thanks Bill.</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Typically, I’d default to the latest stable version (say, v2 if that’s the current one) or maybe even the oldest supported version (v1) to…
+</section>
+<section data-field="body" class="e-content">
+<section name="f8d9" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><p name="2e9c" id="2e9c" class="graf graf--p graf--leading">Thanks Bill. Your questions are valid and most of the developers might have when they see this blog post.</p><p name="f690" id="f690" class="graf graf--p graf-after--p">Typically, I’d default to the latest stable version (say, v2 if that’s the current one) or maybe even the oldest supported version (v1) to keep legacy clients happy. It depends on your API’s philosophy.</p><p name="a7a8" id="a7a8" class="graf graf--p graf-after--p">See this blog post : <a href="https://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven" data-href="https://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">https://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven</a></p><p name="5a2b" id="5a2b" class="graf graf--p graf-after--p">This blog was written by Roy Field [{One of the author of HTTP specification]</p><p name="18df" id="18df" class="graf graf--p graf-after--p">Here are few points from him and the interpretion</p><p name="3043" id="3043" class="graf graf--p graf-after--p">1. A REST API should never have ‘typed’ resources that are significant to the client.</p><p name="e7d0" id="e7d0" class="graf graf--p graf-after--p">URL versioning (e.g., /v1/products) implies a type distinction (v1 vs. v2) that clients must understand, which Fielding rejects.</p><p name="7b3f" id="7b3f" class="graf graf--p graf-after--p">2. A REST API must not define fixed resource names or hierarchies (an obvious coupling of client and server). Servers must have the freedom to control their own namespace.</p><p name="eb7d" id="eb7d" class="graf graf--p graf-after--p">Versioning in URLs (e.g., /v1/products) assumes a fixed structure, which Fielding rejects. Clients shouldn’t rely on out-of-band knowledge (like &quot;v1 means version 1&quot;)—the server should guide them via hypertext.</p><p name="e3a2" id="e3a2" class="graf graf--p graf-after--p">3. A REST API should be entered with no prior knowledge beyond the initial URI (bookmark) and set of standardized media types... all application state transitions must be driven by client selection of server-provided choices.</p><p name="7abf" id="7abf" class="graf graf--p graf-after--p">I suggest for headers (e.g., Accept) over URL versioning, implying the server controls the representation, not the URI structure. URL versioning requires clients to know /v1 vs. /v2 beforehand (out-of-band info), whereas headers let the server provide versioned representations dynamically, aligning with HATEOAS.</p><p name="9ab5" id="9ab5" class="graf graf--p graf-after--p">4. A REST API should spend almost all of its descriptive effort in defining the media type(s) used for representing resources and driving application state.</p><p name="9684" id="9684" class="graf graf--p graf-after--p">Fielding supports this—versioning belongs in media types or headers, not URIs, as the media type defines how clients process the resource.</p><p name="0cdf" id="0cdf" class="graf graf--p graf-after--p">Fielding does emphasize that URIs should be stable identifiers for resources (Chapter 5 of his dissertation, if you want the deep dive). The idea is that a resource—like “products”—shouldn’t change its URI just because its representation evolves. When you slap /v1 or /v2 on it, you’re baking the version into the identifier, which ties the resource’s identity to a specific implementation. That’s where the “violation” creeps in: it breaks the principle of timeless URIs and creates tight coupling between clients and specific versions.</p><p name="67dc" id="67dc" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">URL versioning isn’t “wrong” in a practical sense—it’s just less RESTful.</strong> Tons of APIs (like Twitter’s old /1.1/statuses or even parts of AWS) use it and get by fine. It’s more about trade-offs: URL versioning is quick and explicit, but headers align better with REST’s long-term vision and scalability. If you’re running separate services per version, like you suggested, that’s a decent middle ground—though you’ll still face maintenance creep as versions pile up.</p><p name="4472" id="4472" class="graf graf--p graf-after--p">Usage</p><p name="02c8" id="02c8" class="graf graf--p graf-after--p">-------------</p><p name="3c45" id="3c45" class="graf graf--p graf-after--p graf--trailing"><strong class="markup--strong markup--p-strong">GitHub’s API is a example for this: they use Accept: application/vnd.github.v3+json and keep /users as a stable endpoint, even as the response format evolves. Stripe does something similar, juggling 10+ versions without cluttering their URLs.</strong></p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@rcvaram" class="p-author h-card">Sivaram Rasathurai</a> on <a href="https://medium.com/p/e8c6aae54a6b"><time class="dt-published" datetime="2025-02-23T14:26:06.581Z">February 23, 2025</time></a>.</p><p><a href="https://medium.com/@rcvaram/thanks-bill-e8c6aae54a6b" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></body></html>

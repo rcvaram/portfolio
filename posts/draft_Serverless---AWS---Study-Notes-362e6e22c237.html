@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Serverless | AWS | Study Notes</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Serverless | AWS | Study Notes</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Serverless is a new paradigm in which the developers don&#39;t have to manage servers anymore.
+</section>
+<section data-field="body" class="e-content">
+<section name="d0e1" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="ab45" id="ab45" class="graf graf--h3 graf--leading graf--title">Serverless | AWS | Study Notes</h3><p name="05d1" id="05d1" class="graf graf--p graf--empty graf-after--h3"><br></p><p name="7d59" id="7d59" class="graf graf--p graf-after--p">Serverless is a new paradigm in which the developers don&#39;t have to manage servers anymore. </p><p name="1e37" id="1e37" class="graf graf--p graf-after--p">Deploying the code is enough to run the application.</p><h4 name="c99b" id="c99b" class="graf graf--h4 graf-after--p">Serverless Example</h4><ul class="postList"><li name="bcd6" id="bcd6" class="graf graf--li graf-after--h4">Users can get static content from the S3 bucket.</li><li name="a93a" id="a93a" class="graf graf--li graf-after--li">Users can log in with the help of Cognito (Users would have their identity stored).</li><li name="8ddb" id="8ddb" class="graf graf--li graf-after--li">Users would invoke the REST API through API Gateway to Lambda function.</li><li name="4889" id="4889" class="graf graf--li graf-after--li">The Lambda function will call Dynamo DB to get the data and the lambda function will go back to the user with the data.</li></ul><h4 name="ad11" id="ad11" class="graf graf--h4 graf-after--li">AWS Serverless Services</h4><ul class="postList"><li name="7cda" id="7cda" class="graf graf--li graf-after--h4">AWS Lambda</li><li name="d2d3" id="d2d3" class="graf graf--li graf-after--li">DynamoDB</li><li name="a72a" id="a72a" class="graf graf--li graf-after--li">AWS Cognito</li><li name="64db" id="64db" class="graf graf--li graf-after--li">AWS API Gateway</li><li name="3e39" id="3e39" class="graf graf--li graf-after--li">Amazon S3</li><li name="5ee8" id="5ee8" class="graf graf--li graf-after--li">SNS &amp; SQS</li><li name="10da" id="10da" class="graf graf--li graf-after--li">Kinesis Data firehose</li><li name="33e4" id="33e4" class="graf graf--li graf-after--li">Aurora Serverless</li><li name="8db8" id="8db8" class="graf graf--li graf-after--li">Step Functions</li><li name="2e76" id="2e76" class="graf graf--li graf-after--li">Fargate</li></ul><h4 name="c785" id="c785" class="graf graf--h4 graf-after--li">AWS Lambda</h4><ul class="postList"><li name="d4b5" id="d4b5" class="graf graf--li graf-after--h4">Virtual functions — no servers to manage</li><li name="9a2a" id="9a2a" class="graf graf--li graf-after--li">Limited by time — short executions (around 15 minutes)</li><li name="bd05" id="bd05" class="graf graf--li graf-after--li">Run on-demand</li><li name="9338" id="9338" class="graf graf--li graf-after--li">Scaling is automated</li></ul><p name="1c4d" id="1c4d" class="graf graf--p graf-after--li"><strong class="markup--strong markup--p-strong">Lamda Advantages</strong></p><ul class="postList"><li name="4ab3" id="4ab3" class="graf graf--li graf-after--p">Easy pricing (Pay/request &amp; compute time)</li><li name="82c2" id="82c2" class="graf graf--li graf-after--li">Integrated with many languages (NodeJS, Python, Java, C#, Golang, Ruby, Custom Runtime API)</li><li name="90d8" id="90d8" class="graf graf--li graf-after--li">Easy monitoring through AWS Cloud watch</li><li name="1965" id="1965" class="graf graf--li graf-after--li">Easy to get more resources/functions </li><li name="8f41" id="8f41" class="graf graf--li graf-after--li">Increasing RAM will also improve the CPU &amp; network.</li></ul><p name="0bf4" id="0bf4" class="graf graf--p graf-after--li"><strong class="markup--strong markup--p-strong">Integrated Services </strong></p><ul class="postList"><li name="6e82" id="6e82" class="graf graf--li graf-after--p">API Gateway</li><li name="a284" id="a284" class="graf graf--li graf-after--li">Kinesis</li><li name="1399" id="1399" class="graf graf--li graf-after--li">DynamoDB</li><li name="cb15" id="cb15" class="graf graf--li graf-after--li">S3</li><li name="5647" id="5647" class="graf graf--li graf-after--li">CloudFront</li><li name="2e33" id="2e33" class="graf graf--li graf-after--li">CloudWatch Events</li><li name="187d" id="187d" class="graf graf--li graf-after--li">CloudWatch Logs</li><li name="3ec5" id="3ec5" class="graf graf--li graf-after--li">SNS</li><li name="afb1" id="afb1" class="graf graf--li graf-after--li">SQS</li><li name="d9fb" id="d9fb" class="graf graf--li graf-after--li">Cognito</li></ul><p name="8887" id="8887" class="graf graf--p graf-after--li"><strong class="markup--strong markup--p-strong">Limitations</strong></p><ol class="postList"><li name="fa12" id="fa12" class="graf graf--li graf-after--p">Execution Limits</li></ol><ul class="postList"><li name="f172" id="f172" class="graf graf--li graf-after--li">Memory Allocation : 128MB : 10GB (1MB Increments)</li><li name="b838" id="b838" class="graf graf--li graf-after--li">Maximum execution time: 900 seconds</li><li name="a168" id="a168" class="graf graf--li graf-after--li">Environment variables (4KB)</li><li name="6a23" id="6a23" class="graf graf--li graf-after--li">Disk capacity in the function container: 512 MB</li><li name="c15c" id="c15c" class="graf graf--li graf-after--li">Concurrency execution : 1000 </li></ul><p name="d5ea" id="d5ea" class="graf graf--p graf-after--li">2. Deployment Limits</p><ul class="postList"><li name="bb3b" id="bb3b" class="graf graf--li graf-after--p">Deployment Size: 50 MB (Compressed) &amp; 250 MB uncompressed </li><li name="de77" id="de77" class="graf graf--li graf-after--li">/tmp directory to load other files at startup</li><li name="49dd" id="49dd" class="graf graf--li graf-after--li">Size of environment variables: 4KB</li></ul><h4 name="7d58" id="7d58" class="graf graf--h4 graf-after--li">Amazon DynamoDB</h4><ul class="postList"><li name="1723" id="1723" class="graf graf--li graf-after--h4">Fully managed, highly available with replication across multiple AZs</li><li name="1f01" id="1f01" class="graf graf--li graf-after--li">NOSQL Database — not a relation database</li><li name="3dd1" id="3dd1" class="graf graf--li graf-after--li">Scales to massive workloads, distributed database</li><li name="8a97" id="8a97" class="graf graf--li graf-after--li">Millions of requests/seconds, trillions of rows and 100s of TB of storage.</li><li name="2938" id="2938" class="graf graf--li graf-after--li">Fast &amp; Consistent in performance</li><li name="187a" id="187a" class="graf graf--li graf-after--li">Integrated with IAM for security, authorization &amp; administration</li><li name="1cfa" id="1cfa" class="graf graf--li graf-after--li">Enables event-driven programming with DynamoDB Streams. </li><li name="5990" id="5990" class="graf graf--li graf-after--li">DynamoDB is made of Tables (Don&#39;t need to create schemas)</li><li name="0ca0" id="0ca0" class="graf graf--li graf-after--li">Each table has a primary key &amp; It should be decided at creation time.</li><li name="e804" id="e804" class="graf graf--li graf-after--li">Each table can have an infinite number of items. </li><li name="a7a7" id="a7a7" class="graf graf--li graf-after--li">The maximum size of an item is 400KB</li><li name="6dde" id="6dde" class="graf graf--li graf-after--li">Data Types → Scalar Types (String, Number Binary, Boolean, Null), Document Types (List, Map) &amp; Set types (String set, Number set, Binary Set)</li></ul><p name="98fd" id="98fd" class="graf graf--p graf-after--li"><strong class="markup--strong markup--p-strong">Read / Write Capacity Modes</strong></p><p name="f628" id="f628" class="graf graf--p graf-after--p">Control how you manage your table’s capacity (read/write throughput)</p><ol class="postList"><li name="11f2" id="11f2" class="graf graf--li graf-after--p">Provisioned Mode (Default) → <br>* Specify the number of reads/writes per second.<br>* Need to plan capacity beforehand.<br>* Pay for provisioned read capacity units &amp; write capacity units.<br>* Possibility to add an auto-scaling mode for RCU &amp; WCU</li><li name="4e22" id="4e22" class="graf graf--li graf-after--li">On-Demand Mode →<br>* Read &amp; Writes automatically scale up / down with your workloads.<br>* No capacity planning is needed <br>* Pay for what you use, more expensive <br>* Great for unpredictable loads</li></ol><p name="2dcb" id="2dcb" class="graf graf--p graf-after--li"><strong class="markup--strong markup--p-strong">Dynamo DB Accelarator</strong></p><ul class="postList"><li name="8643" id="8643" class="graf graf--li graf-after--p">Fully-managed, highly available, seamless in-memory cache for DynamoDB</li><li name="7564" id="7564" class="graf graf--li graf-after--li">Help solve read congestion by caching</li><li name="6bb9" id="6bb9" class="graf graf--li graf-after--li">Microseconds latency for cached data</li><li name="9e38" id="9e38" class="graf graf--li graf-after--li">Doesn&#39;t require an application logic modification (compatible with existing DynamoDB APIs)</li><li name="cbc5" id="cbc5" class="graf graf--li graf-after--li">TTL — 5 minutes</li></ul><p name="e5c9" id="e5c9" class="graf graf--p graf--empty graf-after--li"><br></p><p name="8a33" id="8a33" class="graf graf--p graf--empty graf-after--p graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/362e6e22c237">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></body></html>

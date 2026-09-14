@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Remove Dirty NullChecks in Java</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Remove Dirty NullChecks in Java</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+If you are not a medium member, read it here.
+</section>
+<section data-field="body" class="e-content">
+<section name="0e18" class="section section--body section--first"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="74e9" id="74e9" class="graf graf--h3 graf--leading graf--title">Remove Dirty NullChecks in Java</h3><p name="0680" id="0680" class="graf graf--p graf-after--h3">If you are not a medium member, read it <a href="https://medium.com/javarevisited/remove-dirty-nullchecks-in-java-8aca833dc276?sk=05210a13e3849c6838cb372872180acf" data-href="https://medium.com/javarevisited/remove-dirty-nullchecks-in-java-8aca833dc276?sk=05210a13e3849c6838cb372872180acf" class="markup--anchor markup--p-anchor" target="_blank">here.</a></p><figure name="5993" id="5993" class="graf graf--figure graf-after--p"><a href="https://javarevisited.blogspot.com/2012/06/common-cause-of-javalangnullpointerexce.html" data-href="https://javarevisited.blogspot.com/2012/06/common-cause-of-javalangnullpointerexce.html" class="graf-imageAnchor" data-action="image-link" data-action-observe-only="true"rel="noopener"target="_blank"><img class="graf-image" data-image-id="1*YfBCO3iCUFN1Cqz0CiibcQ.png" data-width="900" data-height="900" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*YfBCO3iCUFN1Cqz0CiibcQ.png"></a></figure><p name="16c5" id="16c5" class="graf graf--p graf-after--figure">When I code something in Java, I am always worrying about <a href="https://javarevisited.blogspot.com/2013/05/ava-tips-and-best-practices-to-avoid-nullpointerexception-program-application.html#axzz6Kgpx2OGT" data-href="https://javarevisited.blogspot.com/2013/05/ava-tips-and-best-practices-to-avoid-nullpointerexception-program-application.html#axzz6Kgpx2OGT" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">NullPointerException</a>.</p><p name="180b" id="180b" class="graf graf--p graf-after--p">As a developer, I should provide error-free code.</p><figure name="e511" id="e511" class="graf graf--figure graf--iframe graf-after--p"><iframe src="https://giphy.com/embed/TNO6mwK8s38vpHjh8Y/twitter/iframe" width="435" height="435" frameborder="0" scrolling="no"></iframe></figure><p name="11d4" id="11d4" class="graf graf--p graf-after--figure">For some projects, I have worked on in Javascript, I saw one beautiful/amazing thing in javascript. That is we can check to execute some function if the value is not null only, otherwise, it will not execute.</p><pre name="796c" id="796c" class="graf graf--pre graf-after--p"><code class="markup--code markup--pre-code">let name = user ?. name;</code></pre><p name="7ae8" id="7ae8" class="graf graf--p graf-after--pre">This ?. is technically equivalent to</p><pre name="be9f" id="be9f" class="graf graf--pre graf-after--p graf--trailing">(user !== null || user !== undefined)             ? user.name             : undefined;</pre></div></div></section><section name="eac9" class="section section--body section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h4 name="2220" id="2220" class="graf graf--h4 graf--leading">Can’t we do this in Java?</h4><figure name="c35d" id="c35d" class="graf graf--figure graf--iframe graf-after--h4"><iframe src="https://giphy.com/embed/3o7TKTDn976rzVgky4/twitter/iframe" width="435" height="244" frameborder="0" scrolling="no"></iframe></figure><p name="fb15" id="fb15" class="graf graf--p graf-after--figure">We can do with creating some generic methods as follow.</p><pre name="3cd4" id="3cd4" class="graf graf--pre graf-after--p">public static &lt;I, O&gt; O executeViaNullSafer(I value, Function&lt;I, O&gt; executorFunction) {<br>     return value != null ? executorFunction.apply(value) : null;   <br>}</pre><p name="9d88" id="9d88" class="graf graf--p graf-after--pre"><strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">This function receives value and an executable function. If the value is not null the function will execute and the output of that executable function will be returned from the method otherwise the method will return null.</em></strong></p><p name="5485" id="5485" class="graf graf--p graf-after--p">This is a single line method that can act like a javascript ?. operator.</p><h4 name="d3aa" id="d3aa" class="graf graf--h4 graf-after--p">How?</h4><p name="7892" id="7892" class="graf graf--p graf-after--h4">For example, If I need to trim some String type variable. Obviously, we need to check the variable is null or not before the trim because If the variable is null then It will provide a <a href="https://www.java67.com/2021/05/how-to-solve-nullpointerexception-in-java.html" data-href="https://www.java67.com/2021/05/how-to-solve-nullpointerexception-in-java.html" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">NullPointerException</a>.</p><p name="3141" id="3141" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">Normal code</strong></p><pre name="c599" id="c599" class="graf graf--pre graf-after--p">public String trimValue(String value){<br> if(value==null){<br>   return null;<br>}else{<br>   return value.trim();<br>}<br><br></pre><p name="a413" id="a413" class="graf graf--p graf-after--pre">We can improve this code with modern java as follow.</p><pre name="c3af" id="c3af" class="graf graf--pre graf-after--p">public String trimValue(String value){<br> return value==null) ? null  : value.trim();</pre><p name="5f90" id="5f90" class="graf graf--p graf-after--pre"><strong class="markup--strong markup--p-strong">Let’s try our executeViaNullSafer Method</strong></p><pre name="cc06" id="cc06" class="graf graf--pre graf-after--p">String trimmedValue = executeViaNullSafer(value, val -&gt; val.trim());</pre><p name="bc02" id="bc02" class="graf graf--p graf-after--pre">We can use Method Reference as well</p><pre name="aa62" id="aa62" class="graf graf--pre graf-after--p">String trimmedValue = executeViaNullSafer(value,String::trim);</pre><p name="e3b8" id="e3b8" class="graf graf--p graf-after--pre">Let’s look for the javascript example</p><pre name="92f4" id="92f4" class="graf graf--pre graf-after--p">String name = executeViaNullSafer(user, User::getName);</pre><p name="ebd3" id="ebd3" class="graf graf--p graf-after--pre">This is how I reduced these null checks in my java application. <br>I published NullUtil maven dependency as well.</p><p name="51eb" id="51eb" class="graf graf--p graf-after--p"><a href="https://search.maven.org/artifact/io.github.rcvaram/NullUtil/1.0/ja" data-href="https://search.maven.org/artifact/io.github.rcvaram/NullUtil/1.0/ja" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">https://search.maven.org/artifact/io.github.rcvaram/NullUtil/1.0/ja</a>r</p><pre name="3e78" id="3e78" class="graf graf--pre graf-after--p">&lt;dependency&gt;<br>   &lt;groupId&gt;io.github.rcvaram&lt;/groupId<br>   &lt;artifactId&gt;NullUtil&lt;/artifactId&gt;<br>   &lt;version&gt;1.0&lt;/version&gt;<br>&lt;/dependency&gt;</pre><p name="ca89" id="ca89" class="graf graf--p graf-after--pre">Github URL → <a href="https://github.com/rcvaram/NullUtil" data-href="https://github.com/rcvaram/NullUtil" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">https://github.com/rcvaram/NullUtil</a></p><p name="517c" id="517c" class="graf graf--p graf-after--p">What else this dependency does for you.</p><ul class="postList"><li name="3b44" id="3b44" class="graf graf--li graf-after--p"><strong class="markup--strong markup--li-strong">NullUtil.executeViaNullSafer</strong> method will execute the given function on Non-Null Values and, when the value is null It will return Null instead of executing the function.</li><li name="c85b" id="c85b" class="graf graf--li graf-after--li"><strong class="markup--strong markup--li-strong">NullUtil.executeExecutorOrDefault</strong> method will execute the given function on Non-Null Values and, If the value is null, It will return the given default value.</li><li name="e834" id="e834" class="graf graf--li graf-after--li"><strong class="markup--strong markup--li-strong">NullUtil.executeMutator method </strong>mutates the reference type values without returning anything. If the value is null, It will not do anything.</li><li name="15fe" id="15fe" class="graf graf--li graf-after--li"><strong class="markup--strong markup--li-strong">NullUtil.replaceNull</strong> method will replace the null value with the given defaultValue. when the value is not null, It will return the value.</li><li name="beb4" id="beb4" class="graf graf--li graf-after--li"><strong class="markup--strong markup--li-strong">NullUtil.hasText</strong> method is used to check the String value has any kind of text or not.</li><li name="2c0c" id="2c0c" class="graf graf--li graf-after--li graf--trailing"><strong class="markup--strong markup--li-strong">NullUtil.trimValue</strong> method will be used to trim the String without causing the null pointer Exception.</li></ul></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@rcvaram" class="p-author h-card">Sivaram Rasathurai</a> on <a href="https://medium.com/p/8aca833dc276"><time class="dt-published" datetime="2022-01-22T17:16:18.707Z">January 22, 2022</time></a>.</p><p><a href="https://medium.com/@rcvaram/remove-dirty-nullchecks-in-java-8aca833dc276" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></body></html>

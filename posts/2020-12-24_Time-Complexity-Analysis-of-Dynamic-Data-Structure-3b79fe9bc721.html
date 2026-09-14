@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Time Complexity Analysis of Dynamic Data Structure</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Time Complexity Analysis of Dynamic Data Structure</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Whenever we need to analyze the time complexity of a particular operation, most of the time, we go with worst-case time analysis.
+</section>
+<section data-field="body" class="e-content">
+<section name="a306" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="d729" id="d729" class="graf graf--h3 graf--leading graf--title">Time Complexity Analysis of Dynamic Data Structure</h3><p name="f61e" id="f61e" class="graf graf--p graf-after--h3">Whenever we need to analyze the time complexity of a particular operation, most of the time, we go with worst-case time analysis.</p><figure name="95e4" id="95e4" class="graf graf--figure graf--iframe graf-after--p"><iframe src="https://giphy.com/embed/QBd2kLB5qDmysEXre9/twitter/iframe" width="435" height="261" frameborder="0" scrolling="no"></iframe></figure><h4 name="df1b" id="df1b" class="graf graf--h4 graf-after--figure">Worst-case time analysis</h4><p name="f4a7" id="f4a7" class="graf graf--p graf-after--h4">We find where the maximum number of code executions(code-wise) is executed for the given operation and calculate for n number of operations.</p><p name="568f" id="568f" class="graf graf--p graf-after--p">When we need to find the element which is last in the array, all n elements will be checked in linear search and this is the worst case. Based on this worst case, linear search time complexity will be defined as O(n).</p><p name="f630" id="f630" class="graf graf--p graf-after--p">If we consider the worst-case time analysis in data structure operations, For example, we consider the <strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">i</em></strong>th insertion operation in a dynamic array.</p><ul class="postList"><li name="6e6f" id="6e6f" class="graf graf--li graf-after--p">We insert an element in a single operation when the size of the array greater than<strong class="markup--strong markup--li-strong"><em class="markup--em markup--li-em"> i. Time complexity → O(1)</em></strong></li><li name="e9c0" id="e9c0" class="graf graf--li graf-after--li">we insert an element with a total of<strong class="markup--strong markup--li-strong"><em class="markup--em markup--li-em"> i</em></strong> operations when the array size equals to <strong class="markup--strong markup--li-strong"><em class="markup--em markup--li-em">i </em></strong>since at that time, we need to adjust the array. <strong class="markup--strong markup--li-strong"><em class="markup--em markup--li-em">Time complexity →O(i)</em></strong></li></ul><p name="fac7" id="fac7" class="graf graf--p graf-after--li">Based on this worst-case time analysis, insertion operation of the dynamic array time complexity will be O(n) but <strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">this is too pessimistic because we insert the element with O(1) cost most of the time.</em></strong></p><p name="6826" id="6826" class="graf graf--p graf-after--p">We need some better approach and that is<strong class="markup--strong markup--p-strong"> amortized analysis.</strong></p><h4 name="8d8b" id="8d8b" class="graf graf--h4 graf-after--p">Amortized analysis</h4><figure name="ee30" id="ee30" class="graf graf--figure graf-after--h4"><img class="graf-image" data-image-id="1*k3ucbwWRlCQzg4T6DkACZw.jpeg" data-width="6144" data-height="4069" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*k3ucbwWRlCQzg4T6DkACZw.jpeg"><figcaption class="imageCaption">Photo by <a href="https://unsplash.com/@goumbik?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" data-href="https://unsplash.com/@goumbik?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" class="markup--anchor markup--figure-anchor" rel="noopener nofollow noopener noopener" target="_blank">Lukas Blazek</a> on <a href="https://unsplash.com/s/photos/time-complexity?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" data-href="https://unsplash.com/s/photos/time-complexity?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" class="markup--anchor markup--figure-anchor" rel="noopener nofollow noopener noopener" target="_blank">Unsplash</a></figcaption></figure><p name="b895" id="b895" class="graf graf--p graf-after--figure">An average of a sequence of operations costs on a time period. Here, we are not averaging the all possible inputs like<em class="markup--em markup--p-em"> average time complexity </em>and also we are not averaging over all possible random inputs like<em class="markup--em markup--p-em"> the probabilistic analysis. </em>We just average the sequence of operations cost.</p><p name="b213" id="b213" class="graf graf--p graf-after--p">Let&#39;s look at how this amortized analysis can be done in dynamic array insertion operation</p><p name="db1f" id="db1f" class="graf graf--p graf-after--p">If you look insertion operation of dynamic array java code</p><pre name="a68c" id="a68c" class="graf graf--pre graf-after--p">public class DynamicArray{<br>  private int[] array;<br>  private int size;</pre><pre name="2f31" id="2f31" class="graf graf--pre graf-after--pre">  public DynamicArray(){<br>     this.array = new int[0];<br>     this.size = 0;     <br>  }</pre><pre name="8c8b" id="8c8b" class="graf graf--pre graf-after--pre">  public void insert(int num){</pre><pre name="f933" id="f933" class="graf graf--pre graf-after--pre">    if (this.array.length == 0){<br>       this.array = new int[1];<br>    }</pre><pre name="2dcd" id="2dcd" class="graf graf--pre graf-after--pre">    <strong class="markup--strong markup--pre-strong">if (this.size == this.array.length){<br>        int [] temp = new int[2*this.array.length];<br>        for(int i = 0; i&lt; this.array.length; i++){<br>            temp[i] = this.array[i];<br>        }</strong></pre><pre name="547d" id="547d" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">        this.array = temp;<br>    }</strong></pre><pre name="fa1f" id="fa1f" class="graf graf--pre graf-after--pre">    this.array[this.size] =  num;<br>    this.size = this.size+1;<br>  }</pre><pre name="896d" id="896d" class="graf graf--pre graf-after--pre">//length method, delete method, search method</pre><pre name="1b2e" id="1b2e" class="graf graf--pre graf-after--pre">}</pre><p name="5dda" id="5dda" class="graf graf--p graf-after--pre">If I say the cost of <strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">i</em></strong>th operation <strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">Ci </em></strong>then it can be defined as follows</p><pre name="dfac" id="dfac" class="graf graf--pre graf-after--p">      i if i is an exact power of 2<br>Ci =  <br>      1 otherwise</pre><p name="1f5c" id="1f5c" class="graf graf--p graf-after--pre">When the array is full which means the exact power of 2 operations ( 1st insertion, 2nd insertion, 4th insertion, 8th insertion, …) we need to copy all the (i-1) elements to the double-sized temporary array. This is expensive and it takes <strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">i</em></strong> cost for the insertion operation ( because<strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em"> i -1</em></strong> elements are copied and the <strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">i</em></strong>th element is added to the array)</p><p name="f841" id="f841" class="graf graf--p graf-after--p">When the array is not full we only need to add the element in the correct location and it takes only a single cost operation.</p><p name="c7ab" id="c7ab" class="graf graf--p graf-after--p">Our sequence of cost for operation looks like below</p><pre name="a53b" id="a53b" class="graf graf--pre graf-after--p">1 + 2 + 1 + 4 + 1 + 1 + 1 + 8 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 16 + 1 + 1 + .............</pre><p name="f3ed" id="f3ed" class="graf graf--p graf-after--pre">So we need to average the above sequence of operations.</p><p name="d2f6" id="d2f6" class="graf graf--p graf-after--p">So the equation looks like below</p><figure name="78da" id="78da" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*RZ3r7U938VVHQ6H8VtBpcg.png" data-width="431" data-height="234" src="https://cdn-images-1.medium.com/max/800/1*RZ3r7U938VVHQ6H8VtBpcg.png"></figure><p name="07e4" id="07e4" class="graf graf--p graf-after--figure">When we n insertions it takes roughly 3n times so when we average it</p><pre name="35c0" id="35c0" class="graf graf--pre graf-after--p">average time = Total time for n sequence operations/ n<br>average time = 3n/n = 3</pre><p name="aeec" id="aeec" class="graf graf--p graf-after--pre">Simply for n insertions, the amortized cost is O(n) and for single insertion operation, the time complexity is O(1). this is not the case when we look for worst-case time complexity. So The key point is when we do time complexity analysis on dynamic data structure operations, better to go with amortized cost analysis because the high-cost operation of dynamic data structure is occasionally happening (Adjusting its structure) and most of the low-cost operations are faster.</p><p name="d1a6" id="d1a6" class="graf graf--p graf-after--p">Amortized cost analysis is a better approach for the dynamic data structure.</p><p name="6202" id="6202" class="graf graf--p graf-after--p">Reference</p><p name="4ee6" id="4ee6" class="graf graf--p graf-after--p">Cormen, Leiserson, Rivest, Stein (CLRS book), Introduction to Algorithms, 3 rd Edition (2009), Indian edition available at the bookstore. ISBN: 978–81–203–4007–7</p><blockquote name="a292" id="a292" class="graf graf--blockquote graf-after--p graf--trailing"><strong class="markup--strong markup--blockquote-strong">Thanks for reading this article!!! Hope you will enjoy. <br>Leave a comment below or ask me via twitter if you have any questions.</strong></blockquote></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@rcvaram" class="p-author h-card">Sivaram Rasathurai</a> on <a href="https://medium.com/p/3b79fe9bc721"><time class="dt-published" datetime="2020-12-24T21:44:29.244Z">December 24, 2020</time></a>.</p><p><a href="https://medium.com/@rcvaram/time-complexity-analysis-of-dynamic-data-structure-3b79fe9bc721" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></body></html>

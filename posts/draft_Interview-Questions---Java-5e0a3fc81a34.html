@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Interview Questions → Java</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Interview Questions → Java</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Why Java is not 100 % OOP Language?
+</section>
+<section data-field="body" class="e-content">
+<section name="a6c8" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="c153" id="c153" class="graf graf--h3 graf--leading graf--title">Interview Questions → Java</h3><p name="0880" id="0880" class="graf graf--p graf--empty graf-after--h3"><br></p><h4 name="2623" id="2623" class="graf graf--h4 graf-after--p">Why Java is not 100 % OOP Language?</h4><ul class="postList"><li name="a62e" id="a62e" class="graf graf--li graf-after--h4">Java has primitive types: boolean, byte, int, long, double, float, char and short.</li></ul><h4 name="df2e" id="df2e" class="graf graf--h4 graf-after--li">How does java adapt to the OOP with these primitive types?</h4><ul class="postList"><li name="2164" id="2164" class="graf graf--li graf-after--h4">Java wraps these primitive classes into an object of that class.</li><li name="71ba" id="71ba" class="graf graf--li graf-after--li">int is wrapped as Integer</li></ul><h4 name="7c40" id="7c40" class="graf graf--h4 graf-after--li">Why pointers are not supported by java?</h4><ul class="postList"><li name="42eb" id="42eb" class="graf graf--li graf-after--h4">Pointers will increase the complexity of the program which contradicts the simplicity code of Java.</li><li name="6ff8" id="6ff8" class="graf graf--li graf-after--li">Pointers directly access the memory there will be a security vulnerability Java provides an abstraction to enhance memory management.</li></ul><h4 name="3223" id="3223" class="graf graf--h4 graf-after--li">What is JIT compiler in Java?</h4><ul class="postList"><li name="8089" id="8089" class="graf graf--li graf-after--h4">JDK converts the source code into byte code. JRE has an interpreter &amp; JIT. The interpreter will convert the byte codes into machine code line by line, on the other hand, JIT will convert the bunch of bytes code into machine code.</li></ul><h4 name="115b" id="115b" class="graf graf--h4 graf-after--li">Why String is immutable in Java?</h4><ul class="postList"><li name="134a" id="134a" class="graf graf--li graf-after--h4">String Pool requires the string to be immutable otherwise shared reference can be changed from anywhere. </li></ul><h4 name="9157" id="9157" class="graf graf--h4 graf-after--li">What is a marker interface? </h4><p name="b3a9" id="b3a9" class="graf graf--p graf-after--h4">A marker interface is an interface defined as the interface without any data &amp; methods. These are used to tell the compiler/ JDK to tell some specific information. </p><ul class="postList"><li name="88c2" id="88c2" class="graf graf--li graf-after--p">Clonable</li><li name="bdc4" id="bdc4" class="graf graf--li graf-after--li">Serializable </li></ul><h4 name="ab1a" id="ab1a" class="graf graf--h4 graf-after--li">Can a static method be overridden? </h4><p name="96d5" id="96d5" class="graf graf--p graf-after--h4">Override a mechanism where parent and child class have the method signature as same hence during the runtime based on object type the method will be selected. If we do the same thing with the static method then the parent method will be hidden and not used. </p><h4 name="afa2" id="afa2" class="graf graf--h4 graf-after--p">Does finally always execute in Java?</h4><ul class="postList"><li name="9754" id="9754" class="graf graf--li graf-after--h4">When the System crash…</li><li name="a555" id="a555" class="graf graf--li graf-after--li">system.exit()</li></ul><h4 name="d89b" id="d89b" class="graf graf--h4 graf-after--li">Which methods does Object class has?</h4><ul class="postList"><li name="7e5b" id="7e5b" class="graf graf--li graf-after--h4">Object clone()</li><li name="1c11" id="1c11" class="graf graf--li graf-after--li">void finalize()</li><li name="2c04" id="2c04" class="graf graf--li graf-after--li">boolean equals(Object obj)</li><li name="d475" id="d475" class="graf graf--li graf-after--li">class getClass()</li><li name="8b01" id="8b01" class="graf graf--li graf-after--li">String toString()</li><li name="e6a9" id="e6a9" class="graf graf--li graf-after--li">notify()</li><li name="d446" id="d446" class="graf graf--li graf-after--li">notifyAll()</li><li name="9c72" id="9c72" class="graf graf--li graf-after--li">wait() overloading methods</li></ul><h4 name="f3c3" id="f3c3" class="graf graf--h4 graf-after--li">How can you make a class Immutable?</h4><ul class="postList"><li name="a9bd" id="a9bd" class="graf graf--li graf-after--h4">Declare the class as final hence the class can be extended by any other class.</li><li name="89f9" id="89f9" class="graf graf--li graf-after--li">Make all fields private hence no direct access to the fields</li><li name="093e" id="093e" class="graf graf--li graf-after--li">No Setters</li><li name="aa63" id="aa63" class="graf graf--li graf-after--li">All mutable fields should be declared with final hence They can not be reassigned. </li><li name="7716" id="7716" class="graf graf--li graf-after--li">Initialize all fields via constructor performing a deep copy.</li><li name="a6f5" id="a6f5" class="graf graf--li graf-after--li">Getter methods should return the clones of the fields instead of real fields hence the fields can not be mutated. </li></ul><p name="974a" id="974a" class="graf graf--p graf--empty graf-after--li"><br></p><p name="4612" id="4612" class="graf graf--p graf--empty graf-after--p"><br></p><p name="49ce" id="49ce" class="graf graf--p graf--empty graf-after--p graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/5e0a3fc81a34">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></body></html>

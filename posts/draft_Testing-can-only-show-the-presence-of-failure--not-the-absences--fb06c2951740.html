@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Testing can only show the presence of failure, not the absences?</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Testing can only show the presence of failure, not the absences?</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+The purpose of testing is to check whether the software is doing what it is intended to do and whether there are failures in its…
+</section>
+<section data-field="body" class="e-content">
+<section name="9285" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="480c" id="480c" class="graf graf--h3 graf--empty graf--leading graf--title"><br></h3><p name="3c98" id="3c98" class="graf graf--p graf--empty graf-after--h3"><br></p><h4 name="e6a8" id="e6a8" class="graf graf--h4 graf-after--p">Testing can only show the presence of failure, not the absences?</h4><p name="16c4" id="16c4" class="graf graf--p graf-after--h4">The purpose of testing is to check whether the software is doing what it is intended to do and whether there are failures in its functionalities. But with this, we are actually looking for the failures which are present and not the ones which are absent.</p><p name="02a4" id="02a4" class="graf graf--p graf-after--p">Sometimes the absence of failures is not important, but as the system grows, the absence of failures could emerge from the system, causing huge damage.</p><h4 name="ff73" id="ff73" class="graf graf--h4 graf-after--p">Necessary conditions to observe a failure</h4><p name="ccb5" id="ccb5" class="graf graf--p graf-after--h4">Reachability → the location or locations in the program that has the fault must be reached</p><p name="2304" id="2304" class="graf graf--p graf-after--p">Infection → the state of the program is incorrect due to fault</p><p name="0ba4" id="0ba4" class="graf graf--p graf-after--p">Propagation →The infected state will cause the final output or the results of the system to be incorrect.</p><h4 name="0ee7" id="0ee7" class="graf graf--h4 graf-after--p">Can we use the same set of employees for all test activities?</h4><p name="bfbc" id="bfbc" class="graf graf--p graf-after--h4">Criteria Based:<br>This requires a traditional CS degree<br>This is the most technical job in software testing<br>This requires knowledge of discrete maths, programming and testing</p><p name="8511" id="8511" class="graf graf--p graf-after--p">Human-based:<br>This does not require a traditional CS degree.<br>Requires the knowledge of Domain, user interfaces and testing<br>Having background knowledge in the domain, empirical background and logic background is helpful</p><p name="a0ac" id="a0ac" class="graf graf--p graf-after--p">No, we cannot. Test designers are mainly to do the technicalities of the test design. Human-based includes domain specialists who will understand the core testing needs, according to the context of the software. The domain specialists do not have an idea of programming, and programmers do not know much about the domain, Hence, cannot use the same set of people for both.</p><p name="ba5a" id="ba5a" class="graf graf--p graf--empty graf-after--p"><br></p><h4 name="0ee6" id="0ee6" class="graf graf--h4 graf-after--p">Describe the following things</h4><p name="a37f" id="a37f" class="graf graf--p graf-after--h4"><strong class="markup--strong markup--p-strong">Coverage Criteria</strong>: this gives a structured approach to search the input space thoroughly and ensure there is no overlap in tests. It tells you how much of the test inputs should be covered. Or how much of the original artefacts should be covered in testing.</p><p name="ca0c" id="ca0c" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">Test evaluation</strong> is the final test activity. we have to evaluate the results of the testing and report back to the developers. This involves analyzing the test results, with the test cases and giving a report as to whether the tests have passed or not, and other relevant details.</p><p name="464e" id="464e" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">Modern driven test design </strong>Software that we see today is complex. It makes testing very complicated. So we developed an abstract structure like a model, for the system, and then use this model for testing. This is model-driven test design. Based on the model we have abstracted out from the system, we carry out the testing and the designing.</p><h4 name="f01d" id="f01d" class="graf graf--h4 graf-after--p">Integration testing</h4><p name="4b1e" id="4b1e" class="graf graf--p graf-after--h4">integration testing is what needs to be carried out. Each of these components needs to be tested with proper interactions. These components provide interfaces for us to interact with them. There are three possible errors when interacting with component interfaces</p><p name="b909" id="b909" class="graf graf--p graf-after--p">1) Interface Misuse<br>2) Interface Misunderstanding<br>3) Timing Errors</p><p name="c9b4" id="c9b4" class="graf graf--p graf-after--p">Therefore we need to carry out proper testing and identify what happens within these components. First thing is to check whether we are misusing the interfaces. then whether we have misud=nderstood them. Then check for timing errors. and figure out what&#39;s wrong.</p><p name="395f" id="395f" class="graf graf--p graf--empty graf-after--p"><br></p><h4 name="b90a" id="b90a" class="graf graf--h4 graf-after--p">Regression testing</h4><p name="49fa" id="49fa" class="graf graf--p graf-after--h4">This suggests that the regression test has failed. When we make a modification, it should not affect the previous built system. If there is a change, it should be consistent with the previous work, where pth test and p+1th test results should match.</p><p name="9979" id="9979" class="graf graf--p graf-after--p">3 Reasons</p><p name="937e" id="937e" class="graf graf--p graf-after--p">1) Software has a fault — the change that we made in the new software must be faulty where we need to fix it. Maybe the newly added component uses floats and the previous one uses integers. Nevertheless, this mismatch causes the test to fail. Therefore it should be fixed. Remedy: Fix the faults</p><p name="d2a0" id="d2a0" class="graf graf--p graf-after--p">2) Test Values are no longer valid — the values that we have been using, are no longer valid. Maybe because we came up with a new restriction in the system when adding the new modification. We then need to update the previous test values. The remedy is to delete or modify the test case</p><p name="226f" id="226f" class="graf graf--p graf-after--p graf--trailing">3) Expected output is no longer valid — Every test case has an expected output. — the previous regression test must have been expecting a number at the end as the result. But now, we are outputting a range name (grade) based on that number. So the previously expected output is no longer valid. Remedy: Therefore we need to change the test and update it.</p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/fb06c2951740">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></body></html>

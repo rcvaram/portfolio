@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Introduction to Spring Boot</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Introduction to Spring Boot</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+What is Spring Boot?
+</section>
+<section data-field="body" class="e-content">
+<section name="341b" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><p name="8e88" id="8e88" class="graf graf--p graf--empty graf--leading"><br></p><h3 name="7134" id="7134" class="graf graf--h3 graf-after--p graf--title">Introduction to Spring Boot</h3><h4 name="a3ba" id="a3ba" class="graf graf--h4 graf-after--h3 graf--subtitle">What is Spring Boot?</h4><p name="c08a" id="c08a" class="graf graf--p graf-after--h4">Spring framework is used to write java enterprise application this is very huge framework and the boot is bootstrap spring boot something let you bootstrap a spring application from the scratch. The official documentation What they say is spring boot is easy to create stand-alone production-grade spring based applications, that you can just run. So this is a just a tool to create spring application but It is stand-alone and production-grade so it means, The java application is not a hello-world and it can be deployed as a product. If you create spring application without spring boot there is lot of pain. A lot of configurations, more jar files you want to import in spring. So we have to look those problems.</p><h4 name="ae18" id="ae18" class="graf graf--h4 graf-after--p">Spring frameworks problems</h4><p name="249c" id="249c" class="graf graf--p graf-after--h4">It was application frame work. Dependency injection concept is the origin of spring framework but now it has many functionalities. Spring provide template or frame work to build enterprize application. Spring handles lot of common things which every Java enterprize application has. Spring handles querying the database, HTTP method handling also spring frame work provides infracture support. So many different things solution has been solved using spring. So it was huge framework and It has multiple setups. As general example, spring can connect to mongodb, RDMS and other databases. this is the case of database connecting like this we have multiple setup process So that needs all configurations to create a new project. After creating the project, we want to build and deploy and we have to deploy in a server as well. So we are focussing on configuration more than business logic.</p><p name="edd3" id="edd3" class="graf graf--p graf-after--p">We can start the application with the configuration of spring boot then we can change the configuration with our requirements. It creates stand alone. When we build Spring application we have to deploy in servelet container like tomcat here, we don’t need to configure the tomcat or run the tomcat in separately so How we can deploy? that was the next section.</p><figure name="a8dd" id="a8dd" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*cjCC40KHo_BPlXvrX2Gbgw.png" data-width="345" data-height="325" src="https://cdn-images-1.medium.com/max/800/1*cjCC40KHo_BPlXvrX2Gbgw.png"></figure><p name="27f5" id="27f5" class="graf graf--p graf-after--figure">When we build spring application we have to manage the dependencies. We have to import some JAR files to our application. When we import Jar files, we can use their java classes to our application as well. For this dependency management we can use Maven or gradle in spring application. For now, I have planned to use maven. In maven, We can delcare all dependecies in a single file which is called as pom.xml. Here, we can mention what JAR files we want. Here we have list of dependencies in pom file which maven wants to know. Thne maven knows, these are the deendencies this application needs. Maven looks at the repo and downloads the required dependencies for the application.</p><h4 name="3394" id="3394" class="graf graf--h4 graf-after--p">Get Started</h4><p name="2f6b" id="2f6b" class="graf graf--p graf-after--h4">We are going this initializer web site to create our projecct. Group id is just like a kind of package name nad the artifact id is kind of an application name</p><p name="231e" id="231e" class="graf graf--p graf-after--p">If you look at the main class of the spring boot application you can see a annotation like @SpringBootApplication annotation in the top of the class</p><p name="be73" id="be73" class="graf graf--p graf-after--p">This annotation will tell the spring boot that this is the starting point or entry point of the application. The main method should tell to the spring boot that you need to start this application and create servlet container and host this application in that container. How can we do those things in the main method becuase you are using spring boot. So you can do it with one line that is you will call the run static method of spring boot application SpringApplication.<em class="markup--em markup--p-em">run</em>(&lt;Your main class name&gt;.class, args);</p><p name="4c02" id="4c02" class="graf graf--p graf-after--p">What this run method is doing</p><p name="fc84" id="fc84" class="graf graf--p graf-after--p">sets up Default configurations </p><p name="20a6" id="20a6" class="graf graf--p graf-after--p">Starts the spring application context </p><p name="9754" id="9754" class="graf graf--p graf-after--p">Performs class path scan</p><p name="233f" id="233f" class="graf graf--p graf-after--p">Start up the tomcat server</p><p name="3ec0" id="3ec0" class="graf graf--p graf-after--p">OK now we have the spring boot application without doing nothing</p><h4 name="8fe2" id="8fe2" class="graf graf--h4 graf-after--p">Let&#39;s add Controller</h4><p name="378d" id="378d" class="graf graf--p graf-after--h4">Basically it is a java class with certain annotaion. This annotion will tell the Spring to what is the url you are mapping what should happen when the request comes to that URL. Spring has an frame work which is called as Spring MVC we will use this to build our REST API application inside spring boot </p><p name="339f" id="339f" class="graf graf--p graf-after--p">We have planned to build rest API so the class will be annotaed with @RESTCONTROLLER annotation</p><p name="f57e" id="f57e" class="graf graf--p graf-after--p">@RequestMapping annotation is used to map the get method only as default. If you want to use other methods such as POST, PUT, DELETE you have to mention inside the annotation as well. We will look even closer in next section</p><p name="4f64" id="4f64" class="graf graf--p graf-after--p">All the stubs are happening behind the screen. Ok lets break it up</p><p name="2643" id="2643" class="graf graf--p graf-after--p">Resources are the things that in your domain We have the only </p><p name="a977" id="a977" class="graf graf--p graf-after--p">Spring JPA — data tier</p><p name="83bc" id="83bc" class="graf graf--p graf-after--p">We have planned to connect database with spring application. We will do the CRUD operations on the database. What are the configurations we have to do for connecting to the database. Java persistence API lets you do ORM (Object Relational Mapping) for relational database in spring application. What is ORM ORM is let you to map the database tables into java classes and the JPA is a way to use ORM.</p><p name="62df" id="62df" class="graf graf--p graf-after--p">Spring Data JPA is more functionalities than JPA. </p><p name="35f7" id="35f7" class="graf graf--p graf--empty graf-after--p graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/bb5b59d2802e">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></body></html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>using utility methods like StringUtils.isEmpty(),</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">using utility methods like StringUtils.isEmpty(),</h1>
+</header>
+<section data-field="body" class="e-content">
+<section name="aef0" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><p name="1095" id="1095" class="graf graf--p graf--leading graf--trailing">using utility methods like StringUtils.isEmpty(), ObjectUtils.isEmpty(), and CollectionUtils.isEmpty() to handle null checks, but I think you might be overcomplicating things. Sure, it looks cleaner, but ObjectUtils.isEmpty() doesn’t account for cases where collections or arrays contain only null elements — it’ll still return false, which could mislead you. Also, using streams to check for null elements is a bit too much for most cases, especially if you&#39;re working with larger collections. Sometimes, a simple != null check does the job much better. Utility methods are great, but they don’t solve all the problems they’re made to address. Just a thought, but simplifying the logic might make the code more readable and avoid edge cases.</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@rcvaram" class="p-author h-card">Sivaram Rasathurai</a> on <a href="https://medium.com/p/25f8b5f9469c"><time class="dt-published" datetime="2025-04-22T16:24:36.414Z">April 22, 2025</time></a>.</p><p><a href="https://medium.com/@rcvaram/using-utility-methods-like-stringutils-isempty-25f8b5f9469c" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></body></html>

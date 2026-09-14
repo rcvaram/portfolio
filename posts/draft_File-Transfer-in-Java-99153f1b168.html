@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>File Transfer in Java</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">File Transfer in Java</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Avoid FTP/ FTPS
+</section>
+<section data-field="body" class="e-content">
+<section name="be1b" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="c392" id="c392" class="graf graf--h3 graf--leading graf--title">File Transfer in Java </h3><p name="ce8a" id="ce8a" class="graf graf--p graf--empty graf-after--h3"><br></p><h4 name="9948" id="9948" class="graf graf--h4 graf-after--p">Avoid FTP/ FTPS</h4><p name="c178" id="c178" class="graf graf--p graf-after--h4">The difference between FTP &amp; FTPS is Security layer is added on top of FTP. Both use two ports. Two ports are used for the command channel &amp; data channel. </p><p name="f762" id="f762" class="graf graf--p graf-after--p">FTPs it uses SSL/TLS to encrypt the data being transferred. In addition, SFTP provides a number of other security features such as the ability to authenticate the users using public-key cryptography and to use the secure file permissions. SFTP is generally considered to be more secure than FTP / FTPS. </p><h4 name="abe8" id="abe8" class="graf graf--h4 graf-after--p">Read a File From SFTP without downloading the file to Local</h4><h4 name="0729" id="0729" class="graf graf--h4 graf-after--h4">SftpRemoteFileTemplate</h4><p name="593c" id="593c" class="graf graf--p graf-after--h4">We are going to use the SftpRemoteFileTemplate to read the file from remote server.</p><p name="454c" id="454c" class="graf graf--p graf-after--p">We use the SftpRemoteFileTemplate to connect to the Sftp Server and read the file the specified place. This way We are not going to download the file to our local system. We just read out from the remote server.</p><p name="3b1c" id="3b1c" class="graf graf--p graf--empty graf-after--p"><br></p><p name="6cac" id="6cac" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">Add your dependency in your Gradle file</strong></p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="yaml" name="940b" id="940b" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-string">implementation</span> <span class="hljs-string">group:&#x27;org.springframework.integration&#x27;,</span> <span class="hljs-string">name:&#x27;spring-integration-sftp&#x27;</span></span></pre><p name="2722" id="2722" class="graf graf--p graf-after--pre"><strong class="markup--strong markup--p-strong">SftpRemoteFileTemplate Bean Creation</strong></p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="java" name="b41b" id="b41b" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><br /><span class="hljs-keyword">import</span> org.springframework.beans.factory.annotation.Value;<br /><span class="hljs-keyword">import</span> org.springframework.context.annotation.Bean;<br /><span class="hljs-keyword">import</span> org.springframework.context.annotation.Configuration;<br /><span class="hljs-keyword">import</span> org.springframework.integration.sftp.session.DefaultSftpSessionFactory;<br /><span class="hljs-keyword">import</span> org.springframework.integration.sftp.session.SftpRemoteFileTemplate;<br /><br /><span class="hljs-keyword">import</span> java.time.Duration;<br /><br /><span class="hljs-meta">@Configuration</span><br /><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">SftpConfig</span> {<br />    <br />    <span class="hljs-meta">@Value(&quot;${sftp.url}&quot;)</span><br />    <span class="hljs-keyword">private</span> String url;<br /><br />    <span class="hljs-meta">@Value(&quot;${sftp.user}&quot;)</span><br />    <span class="hljs-keyword">private</span> String userName;<br /><br />    <span class="hljs-meta">@Value(&quot;${sftp.password}&quot;)</span><br />    <span class="hljs-keyword">private</span> String password;<br /><br />    <span class="hljs-meta">@Value(&quot;${sftp.port}&quot;)</span><br />    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> port;<br /><br />    <br />    <span class="hljs-meta">@Value(&quot;${sftp.connect.timeout.millis}&quot;)</span><br />    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> connectionTimeOutMillis;<br /><br />    <span class="hljs-meta">@Value(&quot;${sftp.session.connect.timeout.millis}&quot;)</span><br />    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> sessionConnectionTimeOutMillis;<br /><br />    <span class="hljs-meta">@Bean</span><br />    <span class="hljs-keyword">public</span> DefaultSftpSessionFactory <span class="hljs-title function_">sftpSessionFactory</span><span class="hljs-params">()</span> {<br />        <span class="hljs-type">DefaultSftpSessionFactory</span> <span class="hljs-variable">sftpSessionFactory</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">DefaultSftpSessionFactory</span>();<br />        sftpSessionFactory.setHost(url);<br />        sftpSessionFactory.setPort(port);<br />        sftpSessionFactory.setUser(userName);<br />        sftpSessionFactory.setPassword(password);<br />        sftpSessionFactory.setTimeout(sessionConnectionTimeOutMillis);<br />        sftpSessionFactory.setChannelConnectTimeout(Duration.ofMillis(connectionTimeOutMillis));<br />        <span class="hljs-keyword">return</span> sftpSessionFactory;<br />    }<br /><br />    <span class="hljs-meta">@Bean</span><br />    <span class="hljs-keyword">public</span> SftpRemoteFileTemplate <span class="hljs-title function_">sftpTemplate</span><span class="hljs-params">()</span> {<br />        <span class="hljs-type">SftpRemoteFileTemplate</span> <span class="hljs-variable">template</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">SftpRemoteFileTemplate</span>(sftpSessionFactory());<br />        <span class="hljs-keyword">return</span> template;<br />    }<br />}</span></pre><p name="2d35" id="2d35" class="graf graf--p graf-after--pre"><strong class="markup--strong markup--p-strong">Read via SftpRemoteFileTemplate</strong></p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="java" name="8e79" id="8e79" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">CustomFileReader</span>{<br /><br />  <span class="hljs-meta">@Autowired</span><br />  <span class="hljs-keyword">private</span> SftpRemoteFileTemplate sftpTemplate;<br /><br />  <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">readFile</span><span class="hljs-params">(String remoteFilePath)</span>{<br />    <span class="hljs-keyword">try</span>{<br />      <span class="hljs-type">InputStream</span> <span class="hljs-variable">inputStream</span> <span class="hljs-operator">=</span> sftpTemplate.read(remoteFilePath);<br />      <span class="hljs-comment">//You can process the inputStream as you wish</span><br />    } <span class="hljs-keyword">catch</span>(IOException ex){<br />      <span class="hljs-comment">// Handle the exception </span><br />    }<br />  }<br />}</span></pre><h4 name="8c13" id="8c13" class="graf graf--h4 graf-after--pre">SftpStreamingMessageSource</h4><p name="2cfd" id="2cfd" class="graf graf--p graf-after--h4">Instead of using SftpRemoteFileTemplate, we can use SftpStreamingMessageSource to create a message source that streams a file from sftp server without downloading it to the local file system.</p><p name="c08a" id="c08a" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">SessionFactory Creation</strong></p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="java" name="eb62" id="eb62" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-meta">@Configuration</span><br /><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">SftpConfig</span> {<br /><br />    <span class="hljs-meta">@Value(&quot;${sftp.url}&quot;)</span><br />    <span class="hljs-keyword">private</span> String url;<br /><br />    <span class="hljs-meta">@Value(&quot;${sftp.user}&quot;)</span><br />    <span class="hljs-keyword">private</span> String userName;<br /><br />    <span class="hljs-meta">@Value(&quot;${sftp.password}&quot;)</span><br />    <span class="hljs-keyword">private</span> String password;<br /><br />    <span class="hljs-meta">@Value(&quot;${sftp.port}&quot;)</span><br />    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> port;<br /><br /><br />    <span class="hljs-meta">@Value(&quot;${sftp.connect.timeout.millis}&quot;)</span><br />    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> connectionTimeOutMillis;<br /><br />    <span class="hljs-meta">@Value(&quot;${sftp.session.connect.timeout.millis}&quot;)</span><br />    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> sessionConnectionTimeOutMillis;<br /><br /><br />    <span class="hljs-meta">@Bean</span><br />    <span class="hljs-keyword">public</span> DefaultSftpSessionFactory <span class="hljs-title function_">sftpSessionFactory</span><span class="hljs-params">()</span> {<br />        <span class="hljs-type">DefaultSftpSessionFactory</span> <span class="hljs-variable">sftpSessionFactory</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">DefaultSftpSessionFactory</span>();<br />        sftpSessionFactory.setHost(url);<br />        sftpSessionFactory.setPort(port);<br />        sftpSessionFactory.setUser(userName);<br />        sftpSessionFactory.setPassword(password);<br />        sftpSessionFactory.setTimeout(sessionConnectionTimeOutMillis);<br />        sftpSessionFactory.setChannelConnectTimeout(Duration.ofMillis(connectionTimeOutMillis));<br />        <span class="hljs-keyword">return</span> sftpSessionFactory;<br />    }<br /><br /><br /> }</span></pre><p name="ead0" id="ead0" class="graf graf--p graf-after--pre">SftpInboudFileSyncrnoiser</p><p name="fe09" id="fe09" class="graf graf--p graf--empty graf-after--p graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/99153f1b168">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></body></html>

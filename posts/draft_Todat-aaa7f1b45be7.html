@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Todat</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Todat</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Today we will how can we publish messages to AWS SNS from spring boot API .
+</section>
+<section data-field="body" class="e-content">
+<section name="36e0" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="1c66" id="1c66" class="graf graf--h3 graf--leading graf--title">Todat</h3><p name="9b4e" id="9b4e" class="graf graf--p graf-after--h3">Today we will how can we publish messages to AWS SNS from spring boot API .</p><p name="b086" id="b086" class="graf graf--p graf-after--p">Amazon web service simple notification service which can be used to manage the publisher/subscribe messaging that enables you to decouple microservices, distributed systems, and serverless applications.Before going on that, We will see what is publisher subscriber service………..</p><p name="566f" id="566f" class="graf graf--p graf-after--p">In the pub-sub serv, Publisher will send some messages to the topic, whoever subscribes that topic will receive those messages. Pub/sub messaging can be used to enable <a href="https://aws.amazon.com/event-driven-architecture/" data-href="https://aws.amazon.com/event-driven-architecture/" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">event-driven architectures</a>, or to decouple applications in order to increase performance, reliability and scalability.</p><p name="b7e6" id="b7e6" class="graf graf--p graf-after--p">For a clear understanding, We can look at this real-world scenerion, Just think, Today ind vs sl match will be held. The dialog offers their users to get the score update. For that, users should send a msg to 678 to confirm the subscription. </p><p name="bcf9" id="bcf9" class="graf graf--p graf-after--p">I will give an example you can easily understand the publish subscriber service. </p><p name="ff28" id="ff28" class="graf graf--p graf-after--p">Using Amazon SNS topics, your publisher systems can fan out messages to a large number of subscriber endpoints for parallel processing, including <a href="https://aws.amazon.com/sqs/" data-href="https://aws.amazon.com/sqs/" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">Amazon SQS</a> queues, <a href="https://aws.amazon.com/lambda/" data-href="https://aws.amazon.com/lambda/" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">AWS Lambda</a> functions, and HTTP/S webhooks. Additionally, SNS can be used to fan out notifications to end users using mobile push, SMS, and email.</p><p name="d186" id="d186" class="graf graf--p graf-after--p">Why we select aws sns</p><p name="06d3" id="06d3" class="graf graf--p graf-after--p">Duralabilty</p><p name="91b0" id="91b0" class="graf graf--p graf-after--p">All messages published to Amazon SNS are stored redundantly across multiple geographically separated servers and data centers.</p><p name="7735" id="7735" class="graf graf--p graf-after--p">You can get started with Amazon SNS in minutes by using the AWS Management Console, AWS Command Line Interface (CLI), or AWS Software Development Kit (SDK).</p><p name="e0b2" id="e0b2" class="graf graf--p graf--empty graf-after--p"><br></p><p name="e777" id="e777" class="graf graf--p graf--empty graf-after--p"><br></p><p name="f65b" id="f65b" class="graf graf--p graf-after--p">Webhook</p><p name="c94b" id="c94b" class="graf graf--p graf-after--p">I logged into my aws account. I select the SNS service A webhook is an API concept. They’re incredibly useful and a resource-light way to implement event reactions.</p><p name="9cee" id="9cee" class="graf graf--p graf-after--p graf--trailing">Any requests send this URL that will be locked in here, we subscribed this url for our topic and illustate what will happen when we post the request</p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/aaa7f1b45be7">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></body></html>

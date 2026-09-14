@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>3</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">3</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Keras
+</section>
+<section data-field="body" class="e-content">
+<section name="95e6" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="fbeb" id="fbeb" class="graf graf--h3 graf--leading graf--title">3</h3><h3 name="7403" id="7403" class="graf graf--h3 graf-after--h3">Keras</h3><p name="d43e" id="d43e" class="graf graf--p graf-after--h3">High-level neural network API for python. It makes constructing neural networks. It has the ability to use TF, CNTK, or theno backends. </p><h3 name="c4e7" id="c4e7" class="graf graf--h3 graf-after--p">TensorFlow</h3><p name="87fa" id="87fa" class="graf graf--p graf-after--h3">TF is an opensource library created by the google brain team in 2015. It is an extremely powerful ML framework that is used for high-performance numerical computations.</p><h3 name="3f1e" id="3f1e" class="graf graf--h3 graf-after--p">Sequential model</h3><pre name="7acd" id="7acd" class="graf graf--pre graf-after--h3">from keras.models import Sequential<br>model = Sequential()</pre><p name="6bc4" id="6bc4" class="graf graf--p graf-after--pre">The sequential model is nothing but the stack of layers in a linear fashion.</p><pre name="ae13" id="ae13" class="graf graf--pre graf-after--p">From Keras.layers import Dense, Dropout, Flatten<br>From Keras.layers import Conv2D, MaxPooling2D</pre><p name="3828" id="3828" class="graf graf--p graf-after--pre">We have imported some convolutional layers from the Keras.</p><pre name="f1e0" id="f1e0" class="graf graf--pre graf-after--p">model.add(Conv2D(32, kernekl_size =(3,3), activation = &#39;relu&#39;, input_shape =input_shape))<br>model.add(Conv2D( 64, (3,3), &#39;relu&#39;))<br>model.add(MaxPooling2D(pool_size =(2,2)))</pre><pre name="2b5c" id="2b5c" class="graf graf--pre graf-after--pre">model.add(Flatten())<br>model.add(Dense(128, &#39;relu&#39;))<br>model.add(Dense(num_classes, activation =&#39;softmax&#39;))</pre><p name="67de" id="67de" class="graf graf--p graf-after--pre">add method is used to add the layer into the model. the order we staked is important. In the Conv2D layer which means convolution layer, we specify the filters as the first argument, Here we gave it as 32. Next arguments are kernel size, activation function and input shape. </p><pre name="1c70" id="1c70" class="graf graf--pre graf-after--p">input - convolutional - ReLu - Pooling - FC with Softmax - output</pre><figure name="7af9" id="7af9" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*80B4w1occhoPsqDu_GXUQQ.png" data-width="816" data-height="359" src="https://cdn-images-1.medium.com/max/800/1*80B4w1occhoPsqDu_GXUQQ.png"></figure><p name="9f5a" id="9f5a" class="graf graf--p graf-after--figure">Now We create a model next step is to compile the model.</p><p name="a6ed" id="a6ed" class="graf graf--p graf-after--p">Compiling simply creates an object that stores our model we have just created. We can specify the loss algorithm, optimizer and performance metrics. </p><pre name="6083" id="6083" class="graf graf--pre graf-after--p">model.compile( loss = &#39;categorical_crossentropy&#39;, optimizer = SGD(0.01), metrics =[&#39;accuracy&#39;])</pre><p name="58c5" id="58c5" class="graf graf--p graf-after--pre">Now we have compiled the model. Next, we need to fit our data to model train our data to the model. We can do it very easy with SKLearn Library</p><pre name="a8bf" id="a8bf" class="graf graf--pre graf-after--p">model.fit(x_train, y_train, epochs =5, batch_size =32)</pre><p name="437c" id="437c" class="graf graf--p graf-after--pre">We trained our model. Next we need to evaluate our model and generate predictions</p><p name="80a3" id="80a3" class="graf graf--p graf-after--p">We can now simply evaluate our model’s performance with this line of code.</p><pre name="120e" id="120e" class="graf graf--pre graf-after--p">loss_and_matrics = model.evalaute(x_test, y_test, batch_size =128)</pre><p name="53f5" id="53f5" class="graf graf--p graf-after--pre">We can generate predictions by feeding our test data</p><pre name="cb2b" id="cb2b" class="graf graf--pre graf-after--p">classes = model.predict(x_test, batch_size =128)</pre><h3 name="c168" id="c168" class="graf graf--h3 graf-after--pre">Building A HandWritten Recognition Problem CNN</h3><p name="4d35" id="4d35" class="graf graf--p graf-after--h3">The MNIST dataset is ubiquitous with Computer Vision as it is one of the most famous computer vision challenges.</p><p name="b4d5" id="b4d5" class="graf graf--p graf-after--p">It is a fairly large dataset consisting of 60,000 training images and 10,000 test images.</p><p name="4934" id="4934" class="graf graf--p graf-after--p">So Our aim is simply to take the digits in the format provided and correctly identified the digit was written.</p><p name="e98a" id="e98a" class="graf graf--p graf-after--p">The Important step is Loading Our Data. Loading the data is the simple but obviously integral first step in creating a deep learning model.</p><p name="8439" id="8439" class="graf graf--p graf-after--p">Fortunately, Keras has some build-in data loaders that are simple to execute. </p><p name="0f98" id="0f98" class="graf graf--p graf-after--p">Data stored in an array</p><pre name="5143" id="5143" class="graf graf--pre graf-after--p">From Keras.datasets inport mnist<br>#Loads the MNIST dataset<br>(x_train, y_train), (x_test, y_test) = mnist.load_data()<br>print(x_train_shape)<br>(60000,28,28)</pre><p name="c4b1" id="c4b1" class="graf graf--p graf-after--pre">One of the confusing things new comers face when using the keras is getting their data set in the correct shape which is required for keras.</p><p name="317c" id="317c" class="graf graf--p graf-after--p">When we first load our dataset in Keras it comes in the form of 60,000 images, 28 x 28 inspecting gray scale iamges</p><p name="a82e" id="a82e" class="graf graf--p graf-after--p">However, the input required by Keras requires us to define it in the following format </p><pre name="4044" id="4044" class="graf graf--pre graf-after--p">Number of samples, Rows, Columns, Depth<br><br></pre><p name="7b7b" id="7b7b" class="graf graf--p graf-after--pre">Our shape should be like (60000,28,28,1) instead of (60000,28,28). Using Numpy reshape function, we can easily add the fourth dimension to our data.</p><pre name="e28a" id="e28a" class="graf graf--pre graf-after--p">rows = x_train[0].shape[0]<br>cols = x_train[0].shape[1]<br>x_train = x_train.reshape(x_train.shape[0], rows, cols, 1)<br>x_test = x_test.reshape(x_test.shape[0], rows, cols, 1)</pre><pre name="ee88" id="ee88" class="graf graf--pre graf-after--pre">#stores the single image input shape <br>input_shape = [rows,cols,1]</pre><pre name="3ffb" id="3ffb" class="graf graf--pre graf-after--pre">#Change out data type to float32 <br>x_train = x_train.astype(&#39;float32&#39;)<br>y_train = y_train.astype(&#39;float32&#39;)</pre><pre name="5fa3" id="5fa3" class="graf graf--pre graf-after--pre">#We normalize the data from 0-255 to 0-1 by dividing 255<br>x_train /= 255<br>y_train /= 255</pre><p name="f5f7" id="f5f7" class="graf graf--p graf-after--pre">What we have done above is</p><ol class="postList"><li name="11fa" id="11fa" class="graf graf--li graf-after--p">Added 4th dimension </li><li name="9c29" id="9c29" class="graf graf--li graf-after--li">Changed data type to float32</li><li name="6630" id="6630" class="graf graf--li graf-after--li">Normalized between 0 to 1</li></ol><p name="a7e4" id="a7e4" class="graf graf--p graf-after--li">For Y dataset what we need to do..</p><pre name="50aa" id="50aa" class="graf graf--pre graf-after--p">y_train =[2,3,2,2,5,7,8,9.....]</pre><p name="6e86" id="6e86" class="graf graf--p graf-after--pre">Keras needed their labels in one hot vector representation nothing but simply put zeros other than labeled one</p><figure name="d8d8" id="d8d8" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Vy5gb1MPypgKBM3xHsNK2w.png" data-width="866" data-height="148" src="https://cdn-images-1.medium.com/max/800/1*Vy5gb1MPypgKBM3xHsNK2w.png"></figure><p name="a611" id="a611" class="graf graf--p graf--empty graf-after--figure"><br></p><p name="ccac" id="ccac" class="graf graf--p graf-after--p">For example, If our value is 2 then one-hot vector representation for 2 is.</p><pre name="cc1b" id="cc1b" class="graf graf--pre graf-after--p">[0,0,1,0,0,0,0,0,0,0]</pre><p name="6e07" id="6e07" class="graf graf--p graf-after--pre">we useto_categorical function of np.utils from keras.utils </p><pre name="afb2" id="afb2" class="graf graf--pre graf-after--p">y_train = np_utils.to categorical(y_train)<br>x_test = np_utils.to_categorical(y_test)</pre><p name="daf6" id="daf6" class="graf graf--p graf-after--pre">We did all the needed transformations to our dataset. Now We can create our model</p><figure name="a337" id="a337" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Gq6jZbTcaZf0bgCyU8jFRg.png" data-width="1665" data-height="657" src="https://cdn-images-1.medium.com/max/800/1*Gq6jZbTcaZf0bgCyU8jFRg.png"></figure><pre name="4b8f" id="4b8f" class="graf graf--pre graf-after--figure">from keras.models import Sequential<br>from keras.layers import Conv2D, MaxPooling2D, Dense, Flatten, Dropout</pre><pre name="451f" id="451f" class="graf graf--pre graf-after--pre">model = Sequential()</pre><pre name="4fd9" id="4fd9" class="graf graf--pre graf-after--pre">conv_layer_1 = Conv2D(32, (3,3), &#39;relu&#39;, input_shape)<br>conv_layer_2 = Conv2D(64, (3,3), &#39;relu&#39;)<br>pooling_layer = MaxPooling2D((2,2))<br>dropout_1 = Droput((0.25))<br>flatten_layer = Flatten()<br>dense_layer = Dense(128, activation =&#39;relu&#39;)<br>dropout_2 = Dropout((0.5))<br>fully_connected_layer = Dense(number_of_classes, activation = &#39;softmax&#39;)</pre><pre name="421a" id="421a" class="graf graf--pre graf-after--pre">model.add(conv_layer_1)<br>model.add(conv_layer_2)<br>model.add(pooling_layer)<br>model.add(dropout_1)<br>model.add(flatten)<br>model.add(dense_layer)<br>model.add(dropout_2)<br>model.add(fully_connected_layer)</pre><pre name="7c9b" id="7c9b" class="graf graf--pre graf-after--pre">model.compile(&#39;catecorigal_crossentropy&#39;, optimizer =SGD(0.01), metrics =[&#39;accuracy&#39;]</pre><pre name="c49a" id="c49a" class="graf graf--pre graf-after--pre">model.summary()</pre><p name="b04b" id="b04b" class="graf graf--p graf-after--pre">We have added the layers and compile the model with above code</p><pre name="aabf" id="aabf" class="graf graf--pre graf-after--p">batch_size =128<br>epochs=1<br>hist =model.fit(x_train, y_train, batch_size =batch_size, epochs = epochs, verbose =1, validation_data =(x_test,y_test))<br>score = model.evaluate(x_test, y_test, verbose =0)<br>print(&quot;loss {}&quot;.format(scrore[0]))<br>print(&quot;accuracy {}&quot;.format(score[1]))</pre><p name="779b" id="779b" class="graf graf--p graf-after--pre">We fit our model with train data and we test the model with test data.</p><p name="04ae" id="04ae" class="graf graf--p graf-after--p">We can plot loss and accuracy tasks…..</p><p name="02bd" id="02bd" class="graf graf--p graf-after--p">Using matplotlib we can do it.</p><pre name="7d87" id="7d87" class="graf graf--pre graf-after--p">import matplotlib.pyplot as plt<br>history_dictionary = hist.history <br>train_loss_values =history_dictionar[&#39;loss&#39;]<br>test_loss_values = history_dictionary[&#39;val_loss&#39;]</pre><pre name="b52f" id="b52f" class="graf graf--pre graf-after--pre">line_one = plt.plot(epochs, test_loss_values, label =&#39;Validation/Test Loss&#39;)<br>line_two = plt.plot(epochs, train_loss_values, label = &#39;Training loss&#39;]</pre><pre name="f9c3" id="f9c3" class="graf graf--pre graf-after--pre">plt.setp(line_one, linewidth =2.0, market =&#39;+&#39;, markersize = 10.0)<br>plt.setp(line_two, linewidth =2.0, market =&#39;4&#39;, markersize = 10.0)</pre><pre name="a67a" id="a67a" class="graf graf--pre graf-after--pre">plt.xlabel(&#39;Epochs&#39;)<br>plt.ylabel(&#39;Loss&#39;)<br>plt.legend()<br>plt.show()</pre><p name="53ed" id="53ed" class="graf graf--p graf--empty graf-after--pre graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/d4c2b7cc3e41">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></body></html>

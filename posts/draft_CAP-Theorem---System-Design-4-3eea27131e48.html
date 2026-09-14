@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>CAP Theorem — System Design 4</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">CAP Theorem — System Design 4</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+What Partition Tolerance Means:
+</section>
+<section data-field="body" class="e-content">
+<section name="a367" class="section section--body section--first"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="b800" id="b800" class="graf graf--h3 graf--leading graf--title">CAP Theorem — System Design 4</h3><h3 name="a5a9" id="a5a9" class="graf graf--h3 graf-after--h3">What Partition Tolerance Means:</h3><p name="f120" id="f120" class="graf graf--p graf-after--h3">Partition tolerance means that <strong class="markup--strong markup--p-strong">even when some parts of the system (like your friends) are disconnected, the rest of the system keeps running</strong>.</p><ul class="postList"><li name="cdf5" id="cdf5" class="graf graf--li graf-after--p">The system doesn’t completely crash.</li><li name="5dd9" id="5dd9" class="graf graf--li graf-after--li graf--trailing">It continues to serve the users who are still connected.</li></ul></div></div></section><section name="aa21" class="section section--body"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="b5ba" id="b5ba" class="graf graf--h3 graf--leading">Examples to Understand This:</h3><h4 name="4b4a" id="4b4a" class="graf graf--h4 graf-after--h3">Example 1: A Chat App</h4><ul class="postList"><li name="d88a" id="d88a" class="graf graf--li graf-after--h4"><strong class="markup--strong markup--li-strong">Without Partition Tolerance:</strong> If there’s a network issue, the entire chat app crashes for everyone. Nobody can send or receive messages.</li><li name="c68b" id="c68b" class="graf graf--li graf-after--li"><strong class="markup--strong markup--li-strong">With Partition Tolerance:</strong></li><li name="ba1d" id="ba1d" class="graf graf--li graf-after--li">Users who can still connect to the servers can keep chatting.</li><li name="e821" id="e821" class="graf graf--li graf-after--li">The disconnected users will get their messages later, once the network is fixed.</li><li name="a707" id="a707" class="graf graf--li graf--empty graf-after--li"><br></li></ul><h4 name="43e5" id="43e5" class="graf graf--h4 graf-after--li">Example 2: Online Shopping</h4><ul class="postList"><li name="61d7" id="61d7" class="graf graf--li graf-after--h4">Imagine Amazon’s website faces a network issue that cuts off one of its data centers.</li><li name="d119" id="d119" class="graf graf--li graf-after--li"><strong class="markup--strong markup--li-strong">Without Partition Tolerance:</strong> The entire site would go down for all users.</li><li name="2f55" id="2f55" class="graf graf--li graf-after--li graf--trailing"><strong class="markup--strong markup--li-strong">With Partition Tolerance:</strong> The rest of the data centers continue working, and most users can keep shopping.</li></ul></div></div></section><section name="ffb4" class="section section--body"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="1424" id="1424" class="graf graf--h3 graf--leading">Why Is Partition Tolerance Important?</h3><p name="7c39" id="7c39" class="graf graf--p graf-after--h3">In distributed systems (like online games, chat apps, or shopping platforms):</p><ul class="postList"><li name="ecf6" id="ecf6" class="graf graf--li graf-after--p"><strong class="markup--strong markup--li-strong">Network problems</strong> are inevitable.</li><li name="fbc3" id="fbc3" class="graf graf--li graf-after--li">A system that can’t handle partitions would <strong class="markup--strong markup--li-strong">completely stop working</strong> whenever something goes wrong.</li></ul><p name="1c99" id="1c99" class="graf graf--p graf-after--li graf--trailing">Partition tolerance ensures the system can handle these issues and <strong class="markup--strong markup--p-strong">keep running for as many users as possible.</strong></p></div></div></section><section name="cddc" class="section section--body section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="05fc" id="05fc" class="graf graf--h3 graf--leading">Key Idea: The System Never Crashes Completely</h3><p name="4edc" id="4edc" class="graf graf--p graf-after--h3">Partition tolerance doesn’t mean the system works perfectly during a partition, but it ensures:</p><ol class="postList"><li name="198e" id="198e" class="graf graf--li graf-after--p"><strong class="markup--strong markup--li-strong">Some parts still work</strong> (like connected users).</li><li name="d58a" id="d58a" class="graf graf--li graf-after--li">It <strong class="markup--strong markup--li-strong">recovers gracefully</strong> when the network problem is fixed.</li></ol><h3 name="a955" id="a955" class="graf graf--h3 graf-after--li">Amazon Aurora Cluster and Partition Tolerance</h3><p name="78f0" id="78f0" class="graf graf--p graf-after--h3">Amazon Aurora is a distributed relational database designed for high availability and fault tolerance. Let’s explore how it handles partition tolerance:</p><h4 name="a510" id="a510" class="graf graf--h4 graf-after--p">Scenario: Network Partition in an Aurora Cluster</h4><p name="6619" id="6619" class="graf graf--p graf-after--h4">Imagine an Aurora cluster with:</p><ul class="postList"><li name="dac5" id="dac5" class="graf graf--li graf-after--p"><strong class="markup--strong markup--li-strong">One primary node</strong> (writer).</li><li name="413e" id="413e" class="graf graf--li graf-after--li"><strong class="markup--strong markup--li-strong">Multiple replicas</strong> (readers) across Availability Zones (AZs).</li></ul><p name="2be1" id="2be1" class="graf graf--p graf-after--li">A network partition isolates one or more replicas from the primary node.</p><h4 name="e279" id="e279" class="graf graf--h4 graf-after--p">How Aurora Maintains Partition Tolerance</h4><ul class="postList"><li name="2e4e" id="2e4e" class="graf graf--li graf-after--h4"><strong class="markup--strong markup--li-strong">Consistency Focus (CP System):</strong></li><li name="b089" id="b089" class="graf graf--li graf-after--li">The <strong class="markup--strong markup--li-strong">primary node</strong> continues to handle write requests, even if some replicas are partitioned.</li><li name="d54e" id="d54e" class="graf graf--li graf-after--li">The partitioned replicas become <strong class="markup--strong markup--li-strong">inaccessible</strong> for updates until they can resynchronize with the primary node.</li><li name="716e" id="716e" class="graf graf--li graf-after--li">Aurora ensures <strong class="markup--strong markup--li-strong">strong consistency</strong> by only accepting writes to the primary node.</li><li name="a615" id="a615" class="graf graf--li graf--empty graf-after--li"><br></li><li name="7607" id="7607" class="graf graf--li graf-after--li"><strong class="markup--strong markup--li-strong">Availability for Reads:</strong></li><li name="0e5c" id="0e5c" class="graf graf--li graf-after--li">Partitioned replicas can continue serving <strong class="markup--strong markup--li-strong">read-only requests</strong> for eventual consistency.</li><li name="d436" id="d436" class="graf graf--li graf-after--li">Once the partition is resolved, replicas sync with the primary node to regain up-to-date data.</li></ul><p name="55e0" id="55e0" class="graf graf--p graf--empty graf-after--li"><br></p><h4 name="8e3b" id="8e3b" class="graf graf--h4 graf-after--p">Key Design Elements in Aurora for Partition Tolerance</h4><ul class="postList"><li name="8217" id="8217" class="graf graf--li graf-after--h4"><strong class="markup--strong markup--li-strong">Distributed Storage Engine:</strong> Storage is split across multiple AZs and is fault-tolerant to AZ failures.</li><li name="d518" id="d518" class="graf graf--li graf-after--li"><strong class="markup--strong markup--li-strong">Quorum-Based Writes:</strong> Aurora writes data to a majority of storage nodes before confirming the write, ensuring consistency even during partitions.</li></ul><h4 name="4a04" id="4a04" class="graf graf--h4 graf-after--li">Trade-offs in Aurora</h4><ul class="postList"><li name="ecb5" id="ecb5" class="graf graf--li graf-after--h4"><strong class="markup--strong markup--li-strong">Sacrifices Availability for Writes:</strong> During a partition, some write operations may fail to ensure consistency.</li><li name="1e55" id="1e55" class="graf graf--li graf-after--li"><strong class="markup--strong markup--li-strong">Maintains Partition Tolerance:</strong> The system doesn’t crash and continues to operate partially.</li></ul><h3 name="b733" id="b733" class="graf graf--h3 graf-after--li">Apache Kafka and Partition Tolerance</h3><p name="f9b2" id="f9b2" class="graf graf--p graf-after--h3">Kafka is a distributed event-streaming platform designed to handle partitions and provide availability.</p><h4 name="bce5" id="bce5" class="graf graf--h4 graf-after--p">Scenario: Network Partition in Kafka</h4><p name="f1ab" id="f1ab" class="graf graf--p graf-after--h4">Imagine a Kafka cluster with:</p><ul class="postList"><li name="eb5d" id="eb5d" class="graf graf--li graf-after--p">Multiple brokers (nodes).</li><li name="62c9" id="62c9" class="graf graf--li graf-after--li">A <strong class="markup--strong markup--li-strong">leader broker</strong> for each topic partition.</li><li name="12fd" id="12fd" class="graf graf--li graf-after--li"><strong class="markup--strong markup--li-strong">Followers</strong> replicate the leader’s data.</li></ul><p name="f03f" id="f03f" class="graf graf--p graf-after--li">A network partition isolates some brokers from the cluster.</p><h4 name="14c8" id="14c8" class="graf graf--h4 graf-after--p">How Kafka Maintains Partition Tolerance</h4><ul class="postList"><li name="fbf1" id="fbf1" class="graf graf--li graf-after--h4"><strong class="markup--strong markup--li-strong">Replication and Leadership:</strong></li><li name="986c" id="986c" class="graf graf--li graf-after--li">Each partition has a <strong class="markup--strong markup--li-strong">leader broker</strong> and several <strong class="markup--strong markup--li-strong">replica brokers</strong>.</li><li name="fdac" id="fdac" class="graf graf--li graf-after--li">If the leader broker becomes unreachable due to a network partition, Kafka elects a <strong class="markup--strong markup--li-strong">new leader</strong> from the replicas that are still connected to the majority of the cluster.</li></ul><p name="5aed" id="5aed" class="graf graf--p graf-after--li"><strong class="markup--strong markup--p-strong">Availability Focus (AP System):</strong></p><ul class="postList"><li name="b238" id="b238" class="graf graf--li graf-after--p">Kafka prioritizes availability and continues to accept writes and reads as long as the leader for a partition is available.</li><li name="660d" id="660d" class="graf graf--li graf-after--li">Some writes might be lost or delayed until partitioned nodes rejoin the cluster.</li></ul><p name="1502" id="1502" class="graf graf--p graf-after--li"><strong class="markup--strong markup--p-strong">Consistency through Acknowledgment:</strong></p><ul class="postList"><li name="4f40" id="4f40" class="graf graf--li graf-after--p">Kafka provides tunable consistency:</li><li name="f679" id="f679" class="graf graf--li graf-after--li"><code class="markup--code markup--li-code"><strong class="markup--strong markup--li-strong">acks=all</strong></code> ensures writes are replicated to all in-sync replicas before acknowledgment.</li><li name="19d2" id="19d2" class="graf graf--li graf-after--li"><code class="markup--code markup--li-code"><strong class="markup--strong markup--li-strong">acks=1</strong></code> sacrifices consistency for availability by acknowledging writes after a single replica receives them.</li></ul><h4 name="0686" id="0686" class="graf graf--h4 graf-after--li graf--trailing">Trade-offs in Kafka</h4></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/3eea27131e48">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></body></html>

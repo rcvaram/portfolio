@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>The Case of the Duplicate Spring Beans: When IntelliJ Outsmarts You</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">The Case of the Duplicate Spring Beans: When IntelliJ Outsmarts You</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+You deleted the class, cleaned the build, invalidated caches… and still Intellij throws an error saying you have a duplicated bean.” —…
+</section>
+<section data-field="body" class="e-content">
+<section name="fd76" class="section section--body section--first"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="7501" id="7501" class="graf graf--h3 graf--leading graf--title">The Case of the Duplicate Spring Beans: When IntelliJ Outsmarts You</h3><p name="1b7d" id="1b7d" class="graf graf--p graf-after--h3"><em class="markup--em markup--p-em">You deleted the class, cleaned the build, invalidated caches… and still Intellij throws an error saying you have a duplicated bean.” — Read this to fix it</em></p><figure name="9d1f" id="9d1f" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="0*ZR6kDYTV-PPsuC5L" data-width="5184" data-height="3456" data-unsplash-photo-id="oD7H_J-vJm4" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/0*ZR6kDYTV-PPsuC5L"><figcaption class="imageCaption">Photo by <a href="https://unsplash.com/@izgubljenausvemiru?utm_source=medium&amp;utm_medium=referral" data-href="https://unsplash.com/@izgubljenausvemiru?utm_source=medium&amp;utm_medium=referral" class="markup--anchor markup--figure-anchor" rel="photo-creator noopener" target="_blank">Tijana Drndarski</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral" data-href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral" class="markup--anchor markup--figure-anchor" rel="photo-source noopener" target="_blank">Unsplash</a></figcaption></figure><h3 name="b176" id="b176" class="graf graf--h3 graf-after--figure">Issue</h3><p name="25ce" id="25ce" class="graf graf--p graf-after--h3">I was working on a Spring Boot project and blocked by a runtime error . My application failed to start with this dreaded message:</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="bash" name="30c2" id="30c2" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">Parameter 0 of method openAPIBuilder <span class="hljs-keyword">in</span> org.springdoc.core.configuration.SpringDocConfiguration <br />required a single bean, but 2 were found:<br />- customOpenAPI: defined by method <span class="hljs-string">&#x27;customOpenAPI&#x27;</span> <span class="hljs-keyword">in</span> class path resource [.../OpenApiConfig.class]<br />- myOpenAPI: defined by method <span class="hljs-string">&#x27;myOpenAPI&#x27;</span> <span class="hljs-keyword">in</span> class path resource [.../SwaggerConfig.class]</span></pre><p name="2fbd" id="2fbd" class="graf graf--p graf-after--pre">This didn’t make sense.</p><p name="d35b" id="d35b" class="graf graf--p graf-after--p">I had <strong class="markup--strong markup--p-strong">already deleted one of the classes</strong> and kept only the correct one <code class="markup--code markup--p-code">OpenApiConfig</code>.</p><p name="0529" id="0529" class="graf graf--p graf-after--p">My project directory was clean.</p><figure name="e6d3" id="e6d3" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*HyO9M4ORcYtCzLfYatj5hg.jpeg" data-width="600" data-height="297" src="https://cdn-images-1.medium.com/max/800/1*HyO9M4ORcYtCzLfYatj5hg.jpeg"></figure><p name="2010" id="2010" class="graf graf--p graf-after--figure">I verified again: only one config class existed in <code class="markup--code markup--p-code">src/main/java</code>. So from where is this second bean coming from?</p><h3 name="ee42" id="ee42" class="graf graf--h3 graf-after--p">My Trials and Errors</h3><p name="3383" id="3383" class="graf graf--p graf-after--h3">I went through the usual tries:</p><ul class="postList"><li name="c13b" id="c13b" class="graf graf--li graf-after--p">✅ Ran <code class="markup--code markup--li-code">./gradlew clean build</code></li><li name="568f" id="568f" class="graf graf--li graf-after--li">✅ Invalidate and restart caches in IntelliJ</li><li name="9a86" id="9a86" class="graf graf--li graf-after--li">✅ Manually cleaned the <code class="markup--code markup--li-code">build/</code> folder</li><li name="705e" id="705e" class="graf graf--li graf-after--li">✅ Verified the <code class="markup--code markup--li-code">build/</code> and <code class="markup--code markup--li-code">.idea/</code> folders</li></ul><p name="05d7" id="05d7" class="graf graf--p graf-after--li">Everything looks good even build folder doesn’t have two beans</p><figure name="18d2" id="18d2" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*aEhluG2eUc5_23DmQq_HNw.jpeg" data-width="976" data-height="607" src="https://cdn-images-1.medium.com/max/800/1*aEhluG2eUc5_23DmQq_HNw.jpeg"></figure><p name="3913" id="3913" class="graf graf--p graf-after--figure graf--trailing">Still, <strong class="markup--strong markup--p-strong">Spring Boot continued to complain</strong> about two beans.</p></div></div></section><section name="94b5" class="section section--body"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><p name="c3d9" id="c3d9" class="graf graf--p graf--leading graf--trailing">I take a moment to pause. Instead of doing trial and error, I try to identify the actual problem. Okay, the same code works in the cloud, so there must be an issue with my machine. What does that mean? It means I have a problem with my IntelliJ IDE. I tried cleaning caches but still face the same issue.</p></div></div></section><section name="4f9d" class="section section--body section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="8917" id="8917" class="graf graf--h3 graf--leading">IntelliJ’s <em class="markup--em markup--h3-em">out/</em> Folder</h3><p name="0776" id="0776" class="graf graf--p graf-after--h3">IntelliJ maintains its <strong class="markup--strong markup--p-strong">own build output directory</strong>, and it’s <strong class="markup--strong markup--p-strong">not </strong><code class="markup--code markup--p-code"><strong class="markup--strong markup--p-strong">build/</strong></code></p><p name="01a4" id="01a4" class="graf graf--p graf-after--p">I checked the <code class="markup--code markup--p-code">out/</code> folder in my project root (usually <code class="markup--code markup--p-code">/out/production/classes/</code> or similar).</p><figure name="d2b2" id="d2b2" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*ULxCaCR8OG0galR3QT3RqA.jpeg" data-width="987" data-height="568" src="https://cdn-images-1.medium.com/max/800/1*ULxCaCR8OG0galR3QT3RqA.jpeg"></figure><p name="8a19" id="8a19" class="graf graf--p graf-after--figure">And there it was—<strong class="markup--strong markup--p-strong">both old and new class files</strong> sitting quietly together like nothing had happened.</p><p name="438e" id="438e" class="graf graf--p graf-after--p">That stale <code class="markup--code markup--p-code">.class</code> file from the deleted config class was still being picked up by the application at runtime.</p><p name="95b2" id="95b2" class="graf graf--p graf-after--p">So even though it was gone from the source, it was <strong class="markup--strong markup--p-strong">very much alive</strong> in IntelliJ’s output.</p><h3 name="b194" id="b194" class="graf graf--h3 graf-after--p">✅ The Fix</h3><p name="2d2c" id="2d2c" class="graf graf--p graf-after--h3">Here’s what worked for me:</p><ol class="postList"><li name="e3fd" id="e3fd" class="graf graf--li graf-after--p"><strong class="markup--strong markup--li-strong">Delete the </strong><code class="markup--code markup--li-code"><strong class="markup--strong markup--li-strong">out/</strong></code><strong class="markup--strong markup--li-strong"> folder</strong> manually.</li><li name="2e87" id="2e87" class="graf graf--li graf-after--li">Rebuild the project from scratch.</li><li name="dbf0" id="dbf0" class="graf graf--li graf-after--li">Restart IntelliJ if needed.</li></ol><p name="7cb9" id="7cb9" class="graf graf--p graf-after--li graf--trailing">Once I did that, the issue disappeared and the application ran perfectly.</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@rcvaram" class="p-author h-card">Sivaram Rasathurai</a> on <a href="https://medium.com/p/1e7c209fc7bd"><time class="dt-published" datetime="2025-07-09T07:15:02.596Z">July 9, 2025</time></a>.</p><p><a href="https://medium.com/@rcvaram/the-case-of-the-duplicate-spring-beans-when-intellij-outsmarts-you-1e7c209fc7bd" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></body></html>

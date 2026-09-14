@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Cracking the Code: How Our Proxy Pricing App Keeps Prices in Perfect Sync — I</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Cracking the Code: How Our Proxy Pricing App Keeps Prices in Perfect Sync — I</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+In the tech world, our pricing app is like a well-organized orchestra, thanks to something called microservices. Now, let’s dive into one…
+</section>
+<section data-field="body" class="e-content">
+<section name="3fef" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="56b1" id="56b1" class="graf graf--h3 graf--leading graf--title">The Massive Data Syncing Problem: System Design</h3><p name="2bfd" id="2bfd" class="graf graf--p graf-after--h3">We solved the real-world massive data syncing issue with micoservices making sure prices for our products are spot on!</p><h3 name="f9f1" id="f9f1" class="graf graf--h3 graf-after--p">Requirements for the pricing Application</h3><p name="ea89" id="ea89" class="graf graf--p graf-after--h3">👉 The producer should send 💰 price updates to the queue, ensuring the consumer receives them in the same order to display accurate prices 📈 for customers.</p><p name="d224" id="d224" class="graf graf--p graf-after--p">👉 It is possible to update the prices of multiple products simultaneously.</p><p name="1314" id="1314" class="graf graf--p graf-after--p">👉 Product prices are obtained from an external service. This service puts the price updates to us whenever the price is updated in the source system.</p><h3 name="d9c3" id="d9c3" class="graf graf--h3 graf-after--p">Tech Stack</h3><h4 name="c7e5" id="c7e5" class="graf graf--h4 graf-after--h3">Queue — <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-fifo-queues.html" data-href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-fifo-queues.html" class="markup--anchor markup--h4-anchor" rel="noopener" target="_blank">AWS FIFO SQS</a></h4><blockquote name="dd0d" id="dd0d" class="graf graf--pullquote graf-after--h4">FIFO (First-In-First-Out) queues have all the capabilities of the standard queues, but are designed to enhance messaging between applications when the order of operations and events is critical, or where duplicates can’t be tolerated — From AWS Official Documentation</blockquote><p name="5bf0" id="5bf0" class="graf graf--p graf-after--pullquote"><strong class="markup--strong markup--p-strong">FIFO meets the requirements</strong></p><ul class="postList"><li name="c679" id="c679" class="graf graf--li graf-after--p"><strong class="markup--strong markup--li-strong">First-In-First-Out Delivery → </strong><em class="markup--em markup--li-em">The sequence of sending and receiving messages is maintained strictly.</em></li><li name="5fb6" id="5fb6" class="graf graf--li graf-after--li"><strong class="markup--strong markup--li-strong">First-Exactly-Once Processing → </strong>A message is delivered once and remains available until a consumer processes and deletes it, ensuring that no duplicates are introduced into the queue</li></ul><p name="24ec" id="24ec" class="graf graf--p graf-after--li"><strong class="markup--strong markup--p-strong">FIFO considerations</strong></p><ul class="postList"><li name="82dc" id="82dc" class="graf graf--li graf-after--p">For FIFO queues, there is a maximum limit of 20,000 in-flight messages. In-flight messages refer to those messages that have been received from a queue by a consumer but have not yet been deleted from the queue. If you surpass this limit, Amazon SQS will not send any error messages. — <strong class="markup--strong markup--li-strong"><em class="markup--em markup--li-em">Having a DLQ make sure we don&#39;t meet this due to incorrect messages.</em></strong></li><li name="61ea" id="61ea" class="graf graf--li graf-after--li">A FIFO queue ensures that messages are processed in the order they are received. It does this by withholding the next message until the previous one is deleted. However, this means that the maximum throughput of a pure FIFO queue is limited —<strong class="markup--strong markup--li-strong"><em class="markup--em markup--li-em"> Message grouping by-product can increase the throughput</em></strong></li></ul><h4 name="0762" id="0762" class="graf graf--h4 graf-after--li">Language — Node with TypeScript</h4><p name="9efb" id="9efb" class="graf graf--p graf-after--h4">The requirement entails frequent I/O operations, such as reading prices and sending them to AWS SQS. While Java may be suitable for CPU-intensive tasks, concerns may arise due to its cold start runtime during frequent invocations. Python excels in scripting but falls short in terms of type safety, potentially leading to code maintenance issues. Although Go boasts strengths, its lower adoption compared to Node.js casts a shadow. Given Node.js’s high performance in I/O tasks, asynchronous programming capabilities, and increasing popularity in serverless environments, we confidently chose Node.js with TypeScript to ensure both type safety and code robustness.</p><h4 name="2ebe" id="2ebe" class="graf graf--h4 graf-after--p">Deployment with Serverless Framework</h4><p name="e821" id="e821" class="graf graf--p graf-after--h4">Selecting a serverless framework for deployment, as it is cloud-agnostic, ensures adaptability. In the future, if there’s a need to transition away from AWS, migration can be accomplished seamlessly</p><h4 name="00fd" id="00fd" class="graf graf--h4 graf-after--p">Architecture for the Producer Lambda function</h4><figure name="5f52" id="5f52" class="graf graf--figure graf-after--h4"><img class="graf-image" data-image-id="1*DtiXvGn3ukF5dM6v6vWrgQ.png" data-width="822" data-height="340" src="https://cdn-images-1.medium.com/max/800/1*DtiXvGn3ukF5dM6v6vWrgQ.png"></figure><p name="8b64" id="8b64" class="graf graf--p graf-after--figure">External service put prices through ALB. ALB will trigger the lambda function. The pricing producer lambda function will create separate prices for products and put them into the queue. the consumer will listen to the prices and process.</p><h4 name="9df6" id="9df6" class="graf graf--h4 graf-after--p">REST API Design</h4><p name="8caf" id="8caf" class="graf graf--p graf-after--h4">POST Endpoint: <strong class="markup--strong markup--p-strong">/prices with below sample request body</strong></p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="json" name="191c" id="191c" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-punctuation">{</span><br />   <span class="hljs-attr">&quot;products&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-punctuation">[</span><br />      <span class="hljs-punctuation">{</span><br />         <span class="hljs-attr">&quot;product_id&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;1&quot;</span><span class="hljs-punctuation">,</span><br />         <span class="hljs-attr">&quot;price&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-number">35.91</span><br />      <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span><br />      <span class="hljs-punctuation">{</span><br />         <span class="hljs-attr">&quot;product_id&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;2&quot;</span><span class="hljs-punctuation">,</span><br />         <span class="hljs-attr">&quot;price&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-number">23.31</span><br />      <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span><br />      <span class="hljs-punctuation">{</span><br />         <span class="hljs-attr">&quot;product_id&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;3&quot;</span><span class="hljs-punctuation">,</span><br />         <span class="hljs-attr">&quot;price&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-number">18.54</span><br />      <span class="hljs-punctuation">}</span><br />   <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span><br />   <span class="hljs-attr">&quot;created_at&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;2024-01-01 12:04:12 IST&quot;</span><br /><span class="hljs-punctuation">}</span></span></pre><p name="5351" id="5351" class="graf graf--p graf-after--pre">This endpoint will be called by the external service to send the prices. Our producer lambda function will take this request and divide it into messages per product as below</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="json" name="9202" id="9202" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-punctuation">{</span><br />   <span class="hljs-attr">&quot;product_id&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;1&quot;</span><span class="hljs-punctuation">,</span><br />   <span class="hljs-attr">&quot;price&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-number">35.91</span><span class="hljs-punctuation">,</span><br />   <span class="hljs-attr">&quot;created_at&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;2024-01-01 12:04:12 IST&quot;</span><br /><span class="hljs-punctuation">}</span></span></pre><p name="b8c7" id="b8c7" class="graf graf--p graf-after--pre">Then these messages will be tagged with group_id as product_id hence within the queue same product_id messages will only follow the strict orders and across the products, we can consume it parallel.</p><figure name="6c2f" id="6c2f" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*9NN6yg_leGp8IfSrA380Iw.png" data-width="634" data-height="289" src="https://cdn-images-1.medium.com/max/800/1*9NN6yg_leGp8IfSrA380Iw.png"><figcaption class="imageCaption">Illustration for the FIFO Queue with grouping…</figcaption></figure><blockquote name="a812" id="a812" class="graf graf--pullquote graf-after--figure">Grab a ☕️ and stay tuned for the next blog, where you’ll get your hands on the 💻 code and deployment details. Exciting stuff ahead! 🚀 Feel free to drop any ❓ you might have in the meantime. Let’s embark on this coding journey together! 🌟</blockquote><p name="4750" id="4750" class="graf graf--p graf-after--pullquote graf--trailing">#TechInnovation #Microservices #SoftwareArchitecture #PricingStrategy #TechSolutions #DigitalTransformation #ProductUpdates #TechBlog #CodeBreakers #SimpleTech #DigitalInnovation #SmartApps #TechExplained #ProgrammingMagic #InnovativeTech #SoftwareDevelopment #TechSimplicity #CodingLife #DigitalJourney #AppDevelopment</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@rcvaram" class="p-author h-card">Sivaram Rasathurai</a> on <a href="https://medium.com/p/51541e785689"><time class="dt-published" datetime="2024-01-11T08:34:53.640Z">January 11, 2024</time></a>.</p><p><a href="https://medium.com/@rcvaram/cracking-the-code-how-our-proxy-pricing-app-keeps-prices-in-perfect-sync-i-51541e785689" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></body></html>

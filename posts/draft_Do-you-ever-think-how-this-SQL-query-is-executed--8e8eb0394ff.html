@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Do you ever think how this SQL query is executed?</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Do you ever think how this SQL query is executed?</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+This Query processing is just a 3 steps procedure
+</section>
+<section data-field="body" class="e-content">
+<section name="99d5" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><p name="2311" id="2311" class="graf graf--p graf--empty graf--leading"><br></p><p name="4abb" id="4abb" class="graf graf--p graf-after--p">Do you ever think how this SQL query is executed?</p><p name="40d4" id="40d4" class="graf graf--p graf-after--p">This Query processing is just a 3 steps procedure</p><ul class="postList"><li name="beff" id="beff" class="graf graf--li graf-after--p">Parsing and Translation</li><li name="36e6" id="36e6" class="graf graf--li graf-after--li">Optimization</li><li name="93f2" id="93f2" class="graf graf--li graf-after--li">Evaluation</li></ul><p name="832d" id="832d" class="graf graf--p graf-after--li">When a query is written in SQL language Its look like below</p><pre name="e079" id="e079" class="graf graf--pre graf-after--p">Select student_name <br>From students<br>where age &lt; 10<br>// This simple query will retrieve the student&#39;s names // who are less than age of 10 in students database.</pre><h4 name="1eca" id="1eca" class="graf graf--h4 graf-after--pre">Parsing and Translation</h4><p name="d7d9" id="d7d9" class="graf graf--p graf-after--h4">We need to check the SQL query syntax and its relations. We use the <strong class="markup--strong markup--p-strong">parser</strong> to do these checkings.</p><p name="b303" id="b303" class="graf graf--p graf-after--p">We need to translate the SQL query into relational algebra since it provides a theoretical foundation. However, we do this translation in two steps.</p><ul class="postList"><li name="c6ab" id="c6ab" class="graf graf--li graf-after--p">The SQL query is translated to internal form</li><li name="bb91" id="bb91" class="graf graf--li graf-after--li">The internal form is translated to relational algebra notations</li></ul><p name="4627" id="4627" class="graf graf--p graf-after--li">The problem is, a relational algebra expression may have many equivalent expressions.</p><p name="e4c0" id="e4c0" class="graf graf--p graf-after--p">For our SQL query, we can write below relational algebra expressions. </p><pre name="b8fd" id="b8fd" class="graf graf--pre graf-after--p"><strong class="markup--strong markup--pre-strong">σ </strong><em class="markup--em markup--pre-em">age &lt; 10 </em>(<strong class="markup--strong markup--pre-strong">∏ </strong><em class="markup--em markup--pre-em">student_name</em> (<strong class="markup--strong markup--pre-strong"><em class="markup--em markup--pre-em">students</em></strong>))</pre><p name="dbd9" id="dbd9" class="graf graf--p graf-after--pre">Or </p><pre name="12db" id="12db" class="graf graf--pre graf-after--p"><strong class="markup--strong markup--pre-strong">∏ </strong><em class="markup--em markup--pre-em">student_name </em>(<strong class="markup--strong markup--pre-strong">σ </strong><em class="markup--em markup--pre-em">age &lt; 10 </em>(<strong class="markup--strong markup--pre-strong"><em class="markup--em markup--pre-em">students</em></strong>))</pre><p name="4409" id="4409" class="graf graf--p graf-after--pre">We need to choose the expression that can be used to query the database. Basically, we need to find low-cost expression among all expressions is nothing but <strong class="markup--strong markup--p-strong">query optimization</strong>. Here, we refer total elapsed time for answering a query as cost.</p><h4 name="2c76" id="2c76" class="graf graf--h4 graf-after--p">Query Optimization</h4><p name="333f" id="333f" class="graf graf--p graf-after--h4">This is a broader topic, I will do a blog for this don’t worry guys !!!. For now, I will give an abstract view of what we do in query optimization</p><ul class="postList"><li name="dddb" id="dddb" class="graf graf--li graf-after--p">We measure query costs</li><li name="13a8" id="13a8" class="graf graf--li graf-after--li">We use algorithms to evaluate relational algebra expressions, Based on the evaluation, we find the best combinations of expression. </li><li name="1092" id="1092" class="graf graf--li graf-after--li">We will find an evaluation plan with the lowest estimated cost</li></ul><p name="4097" id="4097" class="graf graf--p graf-after--li">This evaluation plan is given to the DB engine.</p><h4 name="2b32" id="2b32" class="graf graf--h4 graf-after--p">Evaluation</h4><p name="92aa" id="92aa" class="graf graf--p graf-after--h4">The query-execution engine takes a query-evaluation plan, executes<br>that plan, and returns the answers to the query.</p><h4 name="f020" id="f020" class="graf graf--h4 graf-after--p">Evaluation plan</h4><p name="6e5a" id="6e5a" class="graf graf--p graf-after--h4">It is an annotated expression for DB engine to execute the query with detailed specification</p><p name="b5ab" id="b5ab" class="graf graf--p graf--empty graf-after--p"><br></p><p name="ec9c" id="ec9c" class="graf graf--p graf--empty graf-after--p"><br></p><p name="788c" id="788c" class="graf graf--p graf--empty graf-after--p graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/8e8eb0394ff">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></body></html>

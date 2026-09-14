@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Serialization/Deserialization</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Serialization/Deserialization</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+When I was working in my company last three months. I have mostly used the jackson library to serialize and deserialize the objects.
+</section>
+<section data-field="body" class="e-content">
+<section name="94ef" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="916b" id="916b" class="graf graf--h3 graf--leading graf--title">Serialization/Deserialization</h3><p name="4306" id="4306" class="graf graf--p graf-after--h3">When I was working in my company last three months. I have mostly used the jackson library to serialize and deserialize the objects.</p><p name="0666" id="0666" class="graf graf--p graf-after--p">What is Serialization?</p><p name="cd05" id="cd05" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">serialization</em></strong><em class="markup--em markup--p-em"> (or serialisation) is the process of translating </em><a href="https://en.wikipedia.org/wiki/Data_structure" data-href="https://en.wikipedia.org/wiki/Data_structure" class="markup--anchor markup--p-anchor" title="Data structure" rel="noopener" target="_blank"><em class="markup--em markup--p-em">data structures</em></a><em class="markup--em markup--p-em"> or </em><a href="https://en.wikipedia.org/wiki/Object_%28computer_science%29" data-href="https://en.wikipedia.org/wiki/Object_(computer_science)" class="markup--anchor markup--p-anchor" title="Object (computer science)" rel="noopener" target="_blank"><em class="markup--em markup--p-em">object</em></a><em class="markup--em markup--p-em"> state into a format that can be stored (for example, in a </em><a href="https://en.wikipedia.org/wiki/Computer_file" data-href="https://en.wikipedia.org/wiki/Computer_file" class="markup--anchor markup--p-anchor" title="Computer file" rel="noopener" target="_blank"><em class="markup--em markup--p-em">file</em></a><em class="markup--em markup--p-em"> or memory </em><a href="https://en.wikipedia.org/wiki/Data_buffer" data-href="https://en.wikipedia.org/wiki/Data_buffer" class="markup--anchor markup--p-anchor" title="Data buffer" rel="noopener" target="_blank"><em class="markup--em markup--p-em">buffer</em></a><em class="markup--em markup--p-em">) or transmitted (for example, across a </em><a href="https://en.wikipedia.org/wiki/Computer_network" data-href="https://en.wikipedia.org/wiki/Computer_network" class="markup--anchor markup--p-anchor" title="Computer network" rel="noopener" target="_blank"><em class="markup--em markup--p-em">network</em></a><em class="markup--em markup--p-em"> connection link) and reconstructed later (possibly in a different computer environment).</em></p><p name="0e91" id="0e91" class="graf graf--p graf-after--p">The above is the wiki’s def. In a simple term, converting the Java objects into JSON String format is called serialization. </p><p name="bc2c" id="bc2c" class="graf graf--p graf-after--p">For an example, below is a Phone Java class. It has attributes id, name, brand.</p><p name="5f1a" id="5f1a" class="graf graf--p graf-after--p">When you serialized above class, It looks like below.</p><p name="b734" id="b734" class="graf graf--p graf--empty graf-after--p"><br></p><p name="ec12" id="ec12" class="graf graf--p graf-after--p">When you see the properties of the JSON string, it is directly mapped to the class fields.</p><p name="6eb0" id="6eb0" class="graf graf--p graf-after--p">Let’s see the Jackson, How can we use the jackson to serialize the java objects.</p><p name="d763" id="d763" class="graf graf--p graf-after--p">@JsonGetter annotation is the way to tell the jackson to sserialize the </p><p name="9990" id="9990" class="graf graf--p graf--empty graf-after--p graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/de40b1d3ba55">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 14, 2026.</p></footer></article></body></html>
