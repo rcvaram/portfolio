@@ -269,12 +269,38 @@ section {
 }
 
 .hero-container {
-    padding-top: 30px;
-    padding-bottom: 30px;
+    min-height: calc(100vh - 72px);
+
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 420px;
+    align-items: center;
+    gap: 70px;
+
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.hero-profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-frame {
+    width: 100%;
+    max-width: 420px;
+    overflow: hidden;
+}
+
+.profile-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
 }
 
 .hero-content {
-    max-width: 900px;
+    max-width: 680px;
 }
 
 .hero .eyebrow {
